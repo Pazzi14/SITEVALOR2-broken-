@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valor Financiamentos</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#0056b3">
+</head>
+<body>
+    <header>
+        <nav aria-label="Menu principal">
+            <ul>
+                <li><a href="/" aria-current="page">Home</a></li>
+                <li><a href="/pages/emprestimos.html">Empréstimos</a></li>
+                <li><a href="/pages/simulador.html">Simulador</a></li>
+                <li><a href="/pages/contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Bem-vindo à Valor Financiamentos</h1>
+        
+        <section id="loan-simulator" class="simulator">
+            <h2>Simulador de Empréstimo Rápido</h2>
+            <form id="quick-simulator-form">
+                <label for="quick-loan-amount">Valor do Empréstimo:</label>
+                <input type="range" id="quick-loan-amount" min="1000" max="100000" step="1000" value="10000">
+                <output for="quick-loan-amount" id="quick-loan-amount-output">R$ 10.000</output>
+
+                <label for="quick-loan-term">Prazo (meses):</label>
+                <input type="range" id="quick-loan-term" min="6" max="60" step="6" value="24">
+                <output for="quick-loan-term" id="quick-loan-term-output">24 meses</output>
+
+                <button type="submit">Simular</button>
+            </form>
+            <div id="quick-simulation-result"></div>
+        </section>
+
+        <section id="chatbot" class="chatbot">
+            <div class="chat-header">
+                <h3>Assistente Virtual</h3>
+            </div>
+            <div id="chat-messages" class="chat-messages"></div>
+            <form id="chat-form">
+                <input type="text" id="user-input" placeholder="Digite sua pergunta...">
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="legal-links">
+            <a href="/pages/politica-privacidade.html">Política de Privacidade</a>
+            <a href="/pages/termos-de-uso.html">Termos de Uso</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FinancialService",
+      "name": "Valor Financiamentos",
+      "url": "https://valorfinanciamentos.com.br",
+      "logo": "https://valorfinanciamentos.com.br/images/logo.png",
+      "description": "Oferecemos soluções de empréstimo pessoal e consignado com as melhores taxas do mercado.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rua Exemplo, 123",
+        "addressLocality": "São Paulo",
+        "addressRegion": "SP",
+        "postalCode": "01234-567",
+        "addressCountry": "BR"
+      },
+      "telephone": "+55 11 1234-5678",
+      "openingHours": "Mo-Fr 09:00-18:00",
+      "sameAs": [
+        "https://www.facebook.com/valorfinanciamentos",
+        "https://www.instagram.com/valorfinanciamentosoficial",
+        "https://www.linkedin.com/company/valorfinanciamentos"
+      ]
+    }
+    </script>
+</body>
+</html>
