@@ -1,18 +1,38 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const simuladorRapido = document.getElementById('simulador-rapido');
-    const contatoForm = document.getElementById('contato-form');
+    // Simulador rápido
+    const simuladorForm = document.getElementById('simulador-rapido');
+    if (simuladorForm) {
+        simuladorForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            simularFinanciamento();
+        });
+    }
 
-    simuladorRapido.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const valor = this.querySelector('input[type="number"]').value;
-        const tipo = this.querySelector('select').value;
-        simularFinanciamento(valor, tipo);
+    // Formulário de contato
+    const contatoForm = document.getElementById('contato-form');
+    if (contatoForm) {
+        contatoForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            enviarFormularioContato();
+        });
+    }
+
+    // Botão Voltar ao Topo
+    const backToTopButton = document.querySelector('.back-to-top');
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            backToTopButton.classList.add('show');
+        } else {
+            backToTopButton.classList.remove('show');
+        }
     });
 
-    contatoForm.addEventListener('submit', function(e) {
+    backToTopButton.addEventListener('click', function(e) {
         e.preventDefault();
-        enviarFormularioContato();
-    });    // Scroll suave para links internos
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Smooth scroll para links internos
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -23,37 +43,23 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-function simularFinanciamento(valor, tipo) {
-    // Aqui você implementaria a lógica real de simulação
-    // Por enquanto, vamos apenas exibir uma mensagem de alerta
+function simularFinanciamento() {
+    const valor = document.querySelector('#simulador-rapido input[type="number"]').value;
+    const tipo = document.querySelector('#simulador-rapido select').value;
+
+    // Aqui você pode implementar a lógica real de simulação
+    // Por enquanto, vamos apenas exibir uma mensagem de exemplo
     alert(`Simulação para ${tipo} no valor de R$ ${valor} realizada com sucesso! Um de nossos consultores entrará em contato em breve.`);
 }
 
 function enviarFormularioContato() {
-    // Aqui você implementaria o envio real do formulário
-    // Por enquanto, vamos apenas exibir uma mensagem de alerta
-    alert('Mensagem enviada com sucesso! Retornaremos em breve.');
+    const nome = document.querySelector('#contato-form input[type="text"]').value;
+    const email = document.querySelector('#contato-form input[type="email"]').value;
+    const telefone = document.querySelector('#contato-form input[type="tel"]').value;
+    const mensagem = document.querySelector('#contato-form textarea').value;
+
+    // Aqui você deve implementar o envio real do formulário para seu servidor
+    // Por enquanto, vamos apenas simular um envio bem-sucedido
+    alert(`Obrigado pelo contato, ${nome}! Responderemos em breve para ${email}.`);
     document.getElementById('contato-form').reset();
 }
-
-// Adicione animações de rolagem, se desejar
-window.addEventListener('scroll', function() {
-    const elements = document.querySelectorAll('.fade-in');
-    elements.forEach(elem => {
-        if (isElementInViewport(elem)) {
-            elem.classList.add('visible');
-        }
-    });
-});
-
-function isElementInViewport(el) {
-    const rect = el.getBoundingClientRect();
-    return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
-}
-
-// Adicione aqui qualquer outra funcionalidade JavaScript que desejar
