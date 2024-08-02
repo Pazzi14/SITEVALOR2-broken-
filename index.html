@@ -5,99 +5,151 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valor Financiamentos</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
     <header>
         <nav>
-            <img src="logo.png" alt="Logo Valor Financiamentos" class="logo">
+            <a href="#" class="logo-container">
+                <img src="logo_grande_valor.png" alt="Logo Valor Financiamentos" class="logo">
+            </a>
             <ul>
-                <li><a href="#simulador">Simulador</a></li>
-                <li><a href="#sobre">Sobre Nós</a></li>
                 <li><a href="#produtos">Produtos</a></li>
-                <li><a href="#contatos">Contatos</a></li>
+                <li><a href="#como-funciona">Como Funciona</a></li>
+                <li><a href="#sobre">Sobre Nós</a></li>
+                <li><a href="#contato">Contato</a></li>
             </ul>
+            <a href="#simulador" class="cta-button">Simular agora</a>
         </nav>
     </header>
 
     <main>
         <section id="hero">
-            <h1>Soluções financeiras para você</h1>
-            <p>Descubra as melhores opções de financiamento com a Valor Financiamentos</p>
-            <a href="https://wa.me/551137176415" class="cta-button">ENTRAR EM CONTATO</a>
+            <div class="hero-content">
+                <h1>Crédito rápido e fácil para você</h1>
+                <p>Simule agora e descubra as melhores condições do mercado</p>
+                <form id="simulador-rapido">
+                    <input type="number" placeholder="Valor desejado" required>
+                    <select required>
+                        <option value="">Tipo de crédito</option>
+                        <option value="pessoal">Empréstimo Pessoal</option>
+                        <option value="veiculo">Empréstimo Consignado para CLT de empresas Privadas de Segurança e Facilities</option>
+                        <option value="imovel">Empréstimo Consignado para Servidores Publicos</option>
+                        <option value="imovel">Adiantamento do Saque Aniversário do FGTS</option>
+                    </select>
+                    <button type="submit">Simular</button>
+                </form>
+            </div>
         </section>
 
-        <section id="simulador" data-aos="fade-up">
-            <h2>Simulador de Financiamento</h2>
-            <form id="simulador-form">
-                <select id="tipo-financiamento" required>
-                    <option value="">Selecione o tipo de financiamento</option>
-                    <option value="pessoal">Empréstimo Pessoal</option>
-                    <option value="veiculo">Financiamento de Veículo</option>
-                    <option value="imovel">Crédito Imobiliário</option>
-                </select>
-                <input type="number" id="valor" placeholder="Valor desejado" required>
-                <input type="number" id="prazo" placeholder="Prazo (em meses)" required>
-                <button type="submit">Simular</button>
-            </form>
-            <div id="resultado-simulacao"></div>
-        </section>
-
-        <section id="sobre" data-aos="fade-up">
-            <h2>Sobre Nós</h2>
-            <p>A Valor Financiamentos é especializada em oferecer as melhores soluções financeiras para nossos clientes. Com anos de experiência no mercado, garantimos um atendimento personalizado e taxas competitivas.</p>
-        </section>
-
-        <section id="produtos" data-aos="fade-up">
+        <section id="produtos">
             <h2>Nossos Produtos</h2>
-            <ul>
-                <li>Empréstimo Pessoal</li>
-                <li>Financiamento de Veículos</li>
-                <li>Crédito Imobiliário</li>
-                <li>Crédito para Empresas</li>
-            </ul>
+            <div class="produtos-grid">
+                <div class="produto">
+                    <i class="fas fa-user"></i>
+                    <h3>Empréstimo Pessoal</h3>
+                    <p>Crédito para realizar seus sonhos</p>
+                </div>
+                <div class="produto">
+                    <i class="fas fa-car"></i>
+                    <h3>Empréstimo Consignado para CLT de empresas Privadas de Segurança e Facilities</h3>
+                    <p>Seu sonho realizado está aqui</p>
+                </div>
+                <div class="produto">
+                    <i class="fas fa-home"></i>
+                    <h3>Empréstimo Consignado para Servidores Publicos</h3>
+                    <p>Realize seus Próprios Desejos</p>
+                </div>
+                <div class="produto">
+                    <i class="fas fa-building"></i>
+                    <h3>Adiantamento do Saque Aniversário do FGTS</h3>
+                    <p>Impulsione seus Desejos</p>
+                </div>
+            </div>
         </section>
 
-        <section id="contatos" data-aos="fade-up">
+        <section id="como-funciona">
+            <h2>Como Funciona</h2>
+            <div class="passos">
+                <div class="passo">
+                    <span class="numero">1</span>
+                    <h3>Simule online</h3>
+                    <p>Escolha o valor e prazo desejados</p>
+                </div>
+                <div class="passo">
+                    <span class="numero">2</span>
+                    <h3>Envie seus dados</h3>
+                    <p>Preencha o formulário com suas informações</p>
+                </div>
+                <div class="passo">
+                    <span class="numero">3</span>
+                    <h3>Análise rápida</h3>
+                    <p>Faremos uma análise em poucos minutos</p>
+                </div>
+                <div class="passo">
+                    <span class="numero">4</span>
+                    <h3>Receba o dinheiro</h3>
+                    <p>Após aprovação, receba o valor em sua conta</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="depoimentos">
+            <h2>O que nossos clientes dizem</h2>
+            <div class="depoimentos-grid">
+                <!-- Adicione depoimentos aqui -->
+            </div>
+        </section>
+
+        <section id="contato">
             <h2>Entre em Contato</h2>
             <form id="contato-form">
-                <input type="text" id="nome" placeholder="Nome" required>
-                <input type="email" id="email" placeholder="E-mail" required>
-                <textarea id="mensagem" placeholder="Mensagem" required></textarea>
+                <input type="text" placeholder="Nome" required>
+                <input type="email" placeholder="E-mail" required>
+                <input type="tel" placeholder="Telefone" required>
+                <textarea placeholder="Mensagem" required></textarea>
                 <button type="submit">Enviar</button>
             </form>
-            <div id="mapa">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.3463556537814!2d-46.65394548502192!3d-23.55368348468357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0x63b9f605bb6b53c7!2sR.%20Augusta%2C%20101%20-%20Consola%C3%A7%C3%A3o%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001305-000!5e0!3m2!1sen!2sbr!4v1623252345678!5m2!1sen!2sbr"
-                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy">
-                </iframe>
-            </div>
         </section>
     </main>
 
     <footer>
-        <p>Telefone: (11) 3717-6415</p>
-        <p>Email: comercial@valorfinanciamentos.com.br</p>
-        <p>Endereço: Rua Augusta, 101</p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Sobre nós</h3>
+                <p>A Valor Financiamentos é especializada em oferecer as melhores soluções financeiras para nossos clientes em busca de uma chance de mudarem suas vidas para melhor, ha mais de 17 anos estamos prontos para ajudar nossos clientes a mudarem as suas vidas para melhor.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Produtos</h3>
+                <ul>
+                    <li><a href="#">Empréstimo Pessoal</a></li>
+                    <li><a href="#">Empréstimo Consignado para CLT de empresas Privadas de Segurança e Facilities</a></li>
+                    <li><a href="#">Empréstimo Consignado para Servidores Publicos</a></li>
+                    <li><a href="#">Adiantamento do Saque Aniversário do FGTS</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <p>Telefone: (11) 3717-6415</p>
+                <p>Telefone: (11) 3717-6440</p>
+                <p>Email: comercial@valorfinanciamentos.com.br</p>
+                <p>Endereço: Rua Augusta, 101</p>
+            </div>
+            <div class="footer-section">
+                <h3>Redes Sociais</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <a href="https://wa.me/551137176415" class="whatsapp-button" target="_blank">
         <i class="fab fa-whatsapp"></i> Fale Conosco
     </a>
 
-    <div id="chatbot">
-        <div id="chatbot-header">
-            Chat com Atendente Virtual
-            <span id="chatbot-toggle">▼</span>
-        </div>
-        <div id="chatbot-body">
-            <div id="chatbot-messages"></div>
-            <input type="text" id="chatbot-input" placeholder="Digite sua mensagem...">
-        </div>
-    </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
