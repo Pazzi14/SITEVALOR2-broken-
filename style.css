@@ -13,7 +13,7 @@
 }
 
 body {
-    font-family: 'Roboto', Arial, sans-serif;
+    font-family: Arial, sans-serif;
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--background-color);
@@ -27,7 +27,7 @@ body {
 
 /* Header */
 header {
-    background-color: var(--primary-color);
+    background-color: white;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     position: fixed;
     width: 100%;
@@ -50,9 +50,6 @@ nav {
 .logo {
     height: 50px;
     width: auto;
-    background-color: white;
-    padding: 5px;
-    border-radius: 5px;
 }
 
 nav ul {
@@ -65,7 +62,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: blue;
+    color: var(--primary-color);
     text-decoration: none;
     font-weight: 500;
 }
@@ -86,7 +83,6 @@ nav ul li a {
 
 /* Hero Section */
 #hero {
-    background-image: url('hero-bg.jpg');
     background-size: cover;
     background-position: center;
     height: 600px;
@@ -98,18 +94,21 @@ nav ul li a {
 .hero-content {
     max-width: 600px;
     margin-left: 5%;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 10px;
 }
 
 #hero h1 {
     font-size: 2.5rem;
     margin-bottom: 20px;
-    color: white;
+    color: var(--primary-color);
 }
 
 #hero p {
     font-size: 1.2rem;
     margin-bottom: 30px;
-    color: white;
+    color: var(--text-color);
 }
 
 #simulador-rapido {
@@ -122,7 +121,7 @@ nav ul li a {
 #simulador-rapido select,
 #simulador-rapido button {
     padding: 10px;
-    border: none;
+    border: 1px solid #ddd;
     border-radius: 5px;
 }
 
@@ -130,11 +129,13 @@ nav ul li a {
     background-color: var(--secondary-color);
     color: white;
     cursor: pointer;
+    border: none;
 }
 
 /* Produtos */
 #produtos {
     padding: 50px 5%;
+    background-color: white;
 }
 
 .produtos-grid {
@@ -204,11 +205,38 @@ nav ul li a {
     gap: 30px;
 }
 
+.depoimento {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.cliente-foto {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+blockquote {
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.cliente-nome {
+    font-weight: bold;
+}
+
+.cliente-info {
+    color: #777;
+}
+
 /* Contato */
 #contato {
     padding: 50px 5%;
-    background-color: var(--primary-color);
-    color: white;
+    background-color: white;
 }
 
 #contato-form {
@@ -223,7 +251,6 @@ nav ul li a {
     margin-bottom: 20px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    background-color: var(--light-blue);
 }
 
 #contato-form button {
@@ -282,24 +309,54 @@ footer {
     right: 20px;
     background-color: #25d366;
     color: white;
-    padding: 10px 20px;
+    padding: 15px 25px;
     border-radius: 50px;
     text-decoration: none;
     display: flex;
     align-items: center;
     font-weight: bold;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.whatsapp-button:hover {
+    background-color: #128c7e;
+    transform: scale(1.05);
 }
 
 .whatsapp-button i {
     margin-right: 10px;
+    font-size: 1.2em;
 }
 
-/* Títulos de seção */
-h2 {
-    color: var(--primary-color);
-    text-align: center;
-    margin-bottom: 30px;
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+    transform: translateY(100px);
+    z-index: 1000;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background-color: var(--secondary-color);
 }
 
 /* Responsividade */
