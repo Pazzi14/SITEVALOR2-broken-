@@ -16,7 +16,7 @@
             <ul>
                 <li><a href="#produtos">Produtos</a></li>
                 <li><a href="#como-funciona">Como Funciona</a></li>
-                <li><a href="#sobre">Sobre Nós</a></li>
+                <li><a href="#depoimentos">Depoimentos</a></li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
             <a href="#simulador" class="cta-button">Simular agora</a>
@@ -24,19 +24,18 @@
     </header>
 
     <main>
-        <section id="hero">
+        <section id="hero" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQE_53rAV5-VbJuVx1m71jBMdmDVogF73YuRbXTbxWb_DLteR9fcUJLnQ&s=10');">
             <div class="hero-content">
                 <h1>Crédito rápido e fácil para você</h1>
                 <p>Simule agora e descubra as melhores condições do mercado</p>
-                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQE_53rAV5-VbJuVx1m71jBMdmDVogF73YuRbXTbxWb_DLteR9fcUJLnQ&s=10" alt="background hero" class="hero">
                 <form id="simulador-rapido">
                     <input type="number" placeholder="Valor desejado" required>
                     <select required>
                         <option value="">Tipo de crédito</option>
                         <option value="pessoal">Empréstimo Pessoal</option>
-                        <option value="veiculo">Empréstimo Consignado para CLT de empresas Privadas de Segurança e Facilities</option>
-                        <option value="imovel">Empréstimo Consignado para Servidores Publicos</option>
-                        <option value="imovel">Adiantamento do Saque Aniversário do FGTS</option>
+                        <option value="consignado-clt">Consignado CLT</option>
+                        <option value="consignado-publico">Consignado Servidor Público</option>
+                        <option value="fgts">Antecipação Saque FGTS</option>
                     </select>
                     <button type="submit">Simular</button>
                 </form>
@@ -52,19 +51,19 @@
                     <p>Crédito para realizar seus sonhos</p>
                 </div>
                 <div class="produto">
-                    <i class="fas fa-car"></i>
-                    <h3>Empréstimo Consignado para CLT de empresas Privadas de Segurança e Facilities</h3>
-                    <p>Seu sonho realizado está aqui</p>
-                </div>
-                <div class="produto">
-                    <i class="fas fa-home"></i>
-                    <h3>Empréstimo Consignado para Servidores Publicos</h3>
-                    <p>Realize seus Próprios Desejos</p>
-                </div>
-                <div class="produto">
                     <i class="fas fa-building"></i>
-                    <h3>Adiantamento do Saque Aniversário do FGTS</h3>
-                    <p>Impulsione seus Desejos</p>
+                    <h3>Empréstimo Consignado CLT</h3>
+                    <p>Para funcionários de empresas de Segurança e Facilities</p>
+                </div>
+                <div class="produto">
+                    <i class="fas fa-landmark"></i>
+                    <h3>Empréstimo Consignado Servidor Público</h3>
+                    <p>Condições especiais para servidores públicos</p>
+                </div>
+                <div class="produto">
+                    <i class="fas fa-piggy-bank"></i>
+                    <h3>Adiantamento Saque Aniversário FGTS</h3>
+                    <p>Antecipe seu saque aniversário do FGTS</p>
                 </div>
             </div>
         </section>
@@ -98,7 +97,30 @@
         <section id="depoimentos">
             <h2>O que nossos clientes dizem</h2>
             <div class="depoimentos-grid">
-                <!-- Adicione depoimentos aqui -->
+                <div class="depoimento">
+                    <img src="https://via.placeholder.com/100" alt="Foto de Maria Silva" class="cliente-foto">
+                    <blockquote>
+                        "A Valor Financiamentos me ajudou com um empréstimo pessoal quando eu mais precisava. O processo foi rápido e fácil!"
+                    </blockquote>
+                    <p class="cliente-nome">Maria Silva</p>
+                    <p class="cliente-info">Professora, 35 anos</p>
+                </div>
+                <div class="depoimento">
+                    <img src="https://via.placeholder.com/100" alt="Foto de João Santos" class="cliente-foto">
+                    <blockquote>
+                        "Consegui antecipar meu saque aniversário do FGTS com ótimas condições. Recomendo a todos!"
+                    </blockquote>
+                    <p class="cliente-nome">João Santos</p>
+                    <p class="cliente-info">Segurança, 42 anos</p>
+                </div>
+                <div class="depoimento">
+                    <img src="https://via.placeholder.com/100" alt="Foto de Ana Oliveira" class="cliente-foto">
+                    <blockquote>
+                        "O empréstimo consignado para servidores públicos da Valor Financiamentos tem as melhores taxas do mercado!"
+                    </blockquote>
+                    <p class="cliente-nome">Ana Oliveira</p>
+                    <p class="cliente-info">Servidora Pública, 28 anos</p>
+                </div>
             </div>
         </section>
 
@@ -118,21 +140,20 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Sobre nós</h3>
-                <p>A Valor Financiamentos é especializada em oferecer as melhores soluções financeiras para nossos clientes em busca de uma chance de mudarem suas vidas para melhor, ha mais de 17 anos estamos prontos para ajudar nossos clientes a mudarem as suas vidas para melhor.</p>
+                <p>A Valor Financiamentos é especializada em oferecer as melhores soluções financeiras para nossos clientes.</p>
             </div>
             <div class="footer-section">
                 <h3>Produtos</h3>
                 <ul>
                     <li><a href="#">Empréstimo Pessoal</a></li>
-                    <li><a href="#">Empréstimo Consignado para CLT de empresas Privadas de Segurança e Facilities</a></li>
-                    <li><a href="#">Empréstimo Consignado para Servidores Publicos</a></li>
-                    <li><a href="#">Adiantamento do Saque Aniversário do FGTS</a></li>
+                    <li><a href="#">Consignado CLT</a></li>
+                    <li><a href="#">Consignado Servidor Público</a></li>
+                    <li><a href="#">Antecipação Saque FGTS</a></li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h3>Contato</h3>
                 <p>Telefone: (11) 3717-6415</p>
-                <p>Telefone: (11) 3717-6440</p>
                 <p>Email: comercial@valorfinanciamentos.com.br</p>
                 <p>Endereço: Rua Augusta, 101</p>
             </div>
@@ -148,7 +169,11 @@
     </footer>
 
     <a href="https://wa.me/551137176415" class="whatsapp-button" target="_blank">
-        <i class="fab fa-whatsapp"></i> Fale Conosco
+        <i class="fab fa-whatsapp"></i> Fale Conosco no WhatsApp
+    </a>
+
+    <a href="#" class="back-to-top">
+        <i class="fas fa-chevron-up"></i>
     </a>
 
     <script src="script.js"></script>
