@@ -3,39 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valor Financiamentos</title>
+    <title>Valor Financiamentos - Soluções Financeiras Personalizadas</title>
+    <meta name="description" content="A Valor Financiamentos oferece soluções de crédito personalizadas para realizar seus sonhos. Simulação online rápida e fácil.">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
     <header>
         <nav>
-            <a href="index.html" class="logo-container">
+            <div class="logo-container">
                 <img src="https://valorfinanciamentos.com.br/wp-content/uploads/2020/08/logo_grande_valor.png.png" alt="Logo Valor Financiamentos" class="logo">
-            </a>
-            <ul>
+            </div>
+            <ul class="nav-links">
                 <li><a href="#simulador">Simulador</a></li>
                 <li><a href="#sobre">Sobre Nós</a></li>
                 <li><a href="#produtos">Produtos</a></li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
         </nav>
     </header>
 
     <main>
         <section id="hero">
             <div class="container">
-                <h1>Soluções financeiras para você</h1>
+                <h1>Soluções financeiras para realizar seus sonhos</h1>
                 <p>Descubra as melhores opções de financiamento com a Valor Financiamentos</p>
                 <a href="#simulador" class="cta-button">Simule agora</a>
             </div>
         </section>
 
-        <section id="destaque">
+        <section id="sobre">
             <div class="container">
-                <blockquote class="destaque-texto">
-                    A Valor Financiamentos é regulamentada e autorizada pelo Banco Central do Brasil. Sua história é baseada na compreensão das necessidades de crédito para realização das conquistas de seus clientes, atuando com linhas diferenciadas, de fácil acesso e sem burocracia.
-                </blockquote>
+                <h2>Sobre a Valor Financiamentos</h2>
+                <p>A Valor Financiamentos é uma empresa regulamentada e autorizada pelo Banco Central do Brasil. Nossa missão é compreender as necessidades de crédito dos nossos clientes e oferecer soluções personalizadas para a realização de seus objetivos financeiros.</p>
+                <p>Com anos de experiência no mercado, oferecemos linhas de crédito diferenciadas, de fácil acesso e sem burocracia. Nosso atendimento abrange todo o território nacional, seja através de correspondentes certificados ou de forma 100% digital.</p>
             </div>
         </section>
 
@@ -43,19 +49,17 @@
             <div class="container">
                 <h2>Simulador de Financiamento</h2>
                 <form id="simulador-form">
-                    <input type="number" id="valor" placeholder="Valor desejado" required>
-                    <input type="number" id="prazo" placeholder="Prazo (em meses)" required>
-                    <button type="submit">Simular</button>
+                    <div class="form-group">
+                        <label for="valor">Valor desejado:</label>
+                        <input type="number" id="valor" name="valor" required min="1000" step="100">
+                    </div>
+                    <div class="form-group">
+                        <label for="prazo">Prazo (em meses):</label>
+                        <input type="number" id="prazo" name="prazo" required min="1" max="120">
+                    </div>
+                    <button type="submit" class="cta-button">Simular</button>
                 </form>
                 <div id="resultado-simulacao"></div>
-            </div>
-        </section>
-
-        <section id="sobre">
-            <div class="container">
-                <h2>Sobre Nós</h2>
-                <p>A Valor Financiamentos é regulamentada e autorizada pelo Banco Central do Brasil, focamos na compreensão das necessidades de crédito para realização das conquistas dos nossos clientes.</p>
-                <p>Você pode contar com atendimento em todo território nacional, através de correspondentes certificados ou com atendimento 100% digital.</p>
             </div>
         </section>
 
@@ -64,24 +68,24 @@
                 <h2>Nossos Produtos</h2>
                 <div class="produtos-grid">
                     <div class="produto">
-                        <i class="fas fa-user"></i>
+                        <i class="fas fa-user" aria-hidden="true"></i>
                         <h3>Empréstimo Pessoal</h3>
-                        <p>Crédito para realizar seus sonhos</p>
+                        <p>Crédito flexível para realizar seus projetos pessoais.</p>
                     </div>
                     <div class="produto">
-                        <i class="fas fa-building"></i>
+                        <i class="fas fa-building" aria-hidden="true"></i>
                         <h3>Empréstimo Consignado CLT</h3>
-                        <p>Para funcionários de empresas de Segurança e Facilities</p>
+                        <p>Taxas especiais para funcionários de empresas parceiras.</p>
                     </div>
                     <div class="produto">
-                        <i class="fas fa-landmark"></i>
+                        <i class="fas fa-landmark" aria-hidden="true"></i>
                         <h3>Empréstimo Consignado Servidor Público</h3>
-                        <p>Condições especiais para servidores públicos</p>
+                        <p>Condições exclusivas para servidores públicos.</p>
                     </div>
                     <div class="produto">
-                        <i class="fas fa-piggy-bank"></i>
+                        <i class="fas fa-piggy-bank" aria-hidden="true"></i>
                         <h3>Adiantamento Saque Aniversário FGTS</h3>
-                        <p>Antecipe seu saque aniversário do FGTS</p>
+                        <p>Antecipe seu saque aniversário do FGTS com facilidade.</p>
                     </div>
                 </div>
             </div>
@@ -91,10 +95,19 @@
             <div class="container">
                 <h2>Entre em Contato</h2>
                 <form id="contato-form">
-                    <input type="text" id="nome" placeholder="Nome" required>
-                    <input type="email" id="email" placeholder="E-mail" required>
-                    <textarea id="mensagem" placeholder="Mensagem" required></textarea>
-                    <button type="submit">Enviar</button>
+                    <div class="form-group">
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mensagem">Mensagem:</label>
+                        <textarea id="mensagem" name="mensagem" required></textarea>
+                    </div>
+                    <button type="submit" class="cta-button">Enviar</button>
                 </form>
             </div>
         </section>
@@ -118,20 +131,20 @@
                 <div class="footer-section">
                     <h3>Redes Sociais</h3>
                     <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>Todos os direitos reservados a Valor Financiamentos © 2020</p>
+                <p>&copy; 2023 Valor Financiamentos. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <a href="https://wa.me/551137176415" class="whatsapp-button" target="_blank">
-        <i class="fab fa-whatsapp"></i> Fale Conosco no WhatsApp
+    <a href="https://wa.me/551137176415" class="whatsapp-button" target="_blank" aria-label="Fale Conosco no WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
     </a>
 
     <script src="script.js"></script>
