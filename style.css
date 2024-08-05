@@ -1,22 +1,23 @@
+/* Variáveis de cores */
 :root {
     --primary-color: #0066cc;
     --secondary-color: #ff6600;
-    --text-color: #333;
-    --background-color: #f0f8ff;
     --light-blue: #e6f2ff;
+    --dark-gray: #333;
+    --light-gray: #f4f4f4;
 }
 
+/* Reset e estilos gerais */
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    color: var(--text-color);
-    background-color: var(--background-color);
+    color: var(--dark-gray);
 }
 
 .container {
@@ -25,36 +26,25 @@ body {
     padding: 0 20px;
 }
 
-/* Header */
+/* Header e navegação */
 header {
-    background-color: white;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
+    background-color: var(--primary-color);
+    padding: 1rem 0;
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem 5%;
-}
-
-.logo-container {
-    display: flex;
-    align-items: center;
 }
 
 .logo {
     height: 50px;
-    width: auto;
 }
 
 nav ul {
     display: flex;
-    list-style-type: none;
+    list-style: none;
 }
 
 nav ul li {
@@ -62,121 +52,78 @@ nav ul li {
 }
 
 nav ul li a {
-    color: var(--primary-color);
+    color: white;
     text-decoration: none;
-    font-weight: 500;
 }
 
 .cta-button {
     background-color: var(--secondary-color);
     color: white;
     padding: 10px 20px;
-    border-radius: 5px;
     text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s;
+    border-radius: 5px;
 }
 
-.cta-button:hover {
-    background-color: #e65c00;
-}
-
-/* Simulador Section */
-#simulador {
-    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQE_53rAV5-VbJuVx1m71jBMdmDVogF73YuRbXTbxWb_DLteR9fcUJLnQ&s=10');
+/* Hero Section */
+#hero {
+    background-image: url('hero-bg.jpg');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-    height: 600px;
+    height: 500px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding-top: 80px;
+    text-align: center;
+    color: white;
 }
 
-.simulador-content {
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 30px;
-    border-radius: 10px;
-    max-width: 600px;
-    width: 90%;
-}
-
-#simulador h1 {
+#hero h1 {
     font-size: 2.5rem;
     margin-bottom: 20px;
-    color: var(--primary-color);
 }
 
-#simulador p {
-    font-size: 1.2rem;
+/* Seções */
+section {
+    padding: 50px 0;
+}
+
+h2 {
+    text-align: center;
     margin-bottom: 30px;
-    color: var(--text-color);
 }
 
-#simulador-rapido {
+/* Simulador */
+#simulador form {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     gap: 10px;
 }
 
-#simulador-rapido input,
-#simulador-rapido select,
-#simulador-rapido button {
+#simulador input,
+#simulador button {
     padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-#simulador-rapido button {
-    background-color: var(--secondary-color);
-    color: white;
-    cursor: pointer;
-    border: none;
-    transition: background-color 0.3s;
-}
-
-#simulador-rapido button:hover {
-    background-color: #e65c00;
 }
 
 /* Produtos */
-#produtos {
-    padding: 50px 5%;
-    background-color: white;
-}
-
 .produtos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+    gap: 20px;
 }
 
 .produto {
-    text-align: center;
-    padding: 20px;
     background-color: var(--light-blue);
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
 }
 
 .produto i {
-    font-size: 3rem;
+    font-size: 2rem;
     color: var(--primary-color);
-    margin-bottom: 20px;
-}
-
-.produto h3 {
-    color: var(--primary-color);
+    margin-bottom: 10px;
 }
 
 /* Como Funciona */
-#como-funciona {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 50px 5%;
-}
-
 .passos {
     display: flex;
     justify-content: space-between;
@@ -190,128 +137,86 @@ nav ul li a {
 
 .numero {
     display: inline-block;
-    width: 40px;
-    height: 40px;
-    background-color: white;
-    color: var(--primary-color);
+    width: 30px;
+    height: 30px;
+    background-color: var(--primary-color);
+    color: white;
     border-radius: 50%;
-    line-height: 40px;
-    font-size: 1.5rem;
-    font-weight: bold;
+    line-height: 30px;
     margin-bottom: 10px;
 }
 
-/* Depoimentos */
-#depoimentos {
-    padding: 50px 5%;
-    background-color: var(--light-blue);
-}
-
-.depoimentos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.depoimento {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    text-align: center;
-    }
-
-.cliente-foto {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin-bottom: 20px;
-}
-
-blockquote {
-    font-style: italic;
-    margin-bottom: 20px;
-}
-
-.cliente-nome {
-    font-weight: bold;
-}
-
-/* Contato */
-#contato {
-    padding: 50px 5%;
-    background-color: white;
-}
-
-#contato-form {
-    max-width: 600px;
+/* Formulário de Contato */
+#contato form {
+    max-width: 500px;
     margin: 0 auto;
 }
 
-#contato-form input,
-#contato-form textarea,
-#contato-form button {
+#contato input,
+#contato textarea,
+#contato button {
     width: 100%;
     padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    margin-bottom: 10px;
 }
 
-#contato-form button {
-    background-color: var(--secondary-color);
+#contato button {
+    background-color: var(--primary-color);
     color: white;
-    cursor: pointer;
     border: none;
-    transition: background-color 0.3s;
-}
-
-#contato-form button:hover {
-    background-color: #e65c00;
+    cursor: pointer;
 }
 
 /* Footer */
 footer {
-    background-color: var(--primary-color);
+    background-color: var(--dark-gray);
     color: white;
-    padding: 50px 5%;
+    padding: 40px 0 20px;
 }
 
 .footer-content {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    margin-bottom: 20px;
 }
 
 .footer-section {
-    flex-basis: 22%;
+    flex: 1;
     margin-bottom: 20px;
+    min-width: 200px;
 }
 
 .footer-section h3 {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: var(--secondary-color);
 }
 
-.footer-section ul {
-    list-style-type: none;
-}
-
-.footer-section ul li {
-    margin-bottom: 10px;
-}
-
-.footer-section ul li a {
-    color: white;
-    text-decoration: none;
+.footer-section p {
+    margin-bottom: 5px;
+    font-size: 0.9rem;
 }
 
 .social-icons a {
     color: white;
     font-size: 1.5rem;
-    margin-right: 10px;
+    margin-right: 15px;
+    transition: color 0.3s ease;
 }
 
-/* WhatsApp Button */
+.social-icons a:hover {
+    color: var(--secondary-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 0.8rem;
+}
+
+/* WhatsApp button */
 .whatsapp-button {
     position: fixed;
     bottom: 20px;
@@ -324,53 +229,48 @@ footer {
     display: flex;
     align-items: center;
     font-weight: bold;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    transition: background-color 0.3s;
-}
-
-.whatsapp-button:hover {
-    background-color: #128c7e;
 }
 
 .whatsapp-button i {
     margin-right: 10px;
 }
 
-/* Back to Top Button */
-.back-to-top {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    background-color: var(--secondary-color);
-    color: white;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    opacity: 0;
-    transition: opacity 0.3s, background-color 0.3s;
+/* Estilo para o texto destacado */
+#destaque {
+    background-color: var(--light-blue);
+    padding: 50px 0;
 }
 
-.back-to-top.show {
-    opacity: 1;
+.destaque-texto {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--primary-color);
+    border-left: 4px solid var(--secondary-color);
+    padding-left: 20px;
+    margin: 0;
+    font-style: italic;
 }
 
-.back-to-top:hover {
-    background-color: #e65c00;
-}
-
-/* Responsive Design */
-(max-width: 768px) {
+/* Responsividade */
+@media (max-width: 768px) {
     nav {
         flex-direction: column;
-        align-items: flex-start;
     }
 
     nav ul {
         margin-top: 20px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .footer-section {
+        margin-bottom: 30px;
+    }
+
+    .destaque-texto {
+        font-size: 1rem;
     }
 
     .passos {
@@ -378,10 +278,6 @@ footer {
     }
 
     .passo {
-        margin-bottom: 30px;
-    }
-
-    .footer-section {
-        flex-basis: 100%;
+        margin-bottom: 20px;
     }
 }
