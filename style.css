@@ -1,3 +1,10 @@
+:root {
+    --primary-color: #0066cc;
+    --secondary-color: #ff6600;
+    --text-color: #333;
+    --background-color: #f4f4f4;
+    }
+
 * {
     margin: 0;
     padding: 0;
@@ -21,44 +28,34 @@ body {
 header {
     background: #0066cc;
     color: #fff;
-    padding-top: 30px;
-    min-height: 70px;
-    border-bottom: #e8491d 3px solid;
+    padding: 1rem;
 }
 
-header a {
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    height: 50px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
     color: #fff;
     text-decoration: none;
-    text-transform: uppercase;
     font-size: 16px;
 }
 
-header .logo {
-    float: left;
-    max-width: 150px;
-}
-
-header ul {
-    float: right;
-    margin-top: 10px;
-}
-
-header ul li {
-    display: inline;
-    padding: 0 20px;
-}
-
-header .highlight, header .current a {
-    color: #e8491d;
-    font-weight: bold;
-}
-
-header a:hover {
-    color: #ffffff;
-    font-weight: bold;
-}
-
-/* Burger menu */
 .burger {
     display: none;
     cursor: pointer;
@@ -74,28 +71,52 @@ header a:hover {
 
 /* Hero Section */
 #hero {
-    min-height: 400px;
-    background: url('https://valorfinanciamentos.com.br/wp-content/uploads/2020/08/banner_home.jpg') no-repeat 0 -400px;
+    background: url('https://valorfinanciamentos.com.br/wp-content/uploads/2020/08/banner_home.jpg') no-repeat center center/cover;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     color: #ffffff;
+    padding: 0 20px;
 }
 
 #hero h1 {
-    margin-top: 100px;
-    font-size: 55px;
+    font-size: 40px;
     margin-bottom: 10px;
 }
 
 #hero p {
     font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.cta-button {
+    display: inline-block;
+    background: #e8491d;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
 }
 
 /* Sections */
 section {
-    padding: 20px 0;
+    padding: 40px 0;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 /* Forms */
+form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
 .form-group {
     margin-bottom: 15px;
 }
@@ -105,24 +126,21 @@ section {
     margin-bottom: 5px;
 }
 
-.form-group input, .form-group textarea {
+.form-group input,
+.form-group textarea {
     width: 100%;
     padding: 10px;
     border: 1px solid #ddd;
 }
 
 button {
-    display: inline-block;
+    display: block;
+    width: 100%;
+    padding: 10px;
     background: #e8491d;
     color: #fff;
-    padding: 10px 20px;
     border: none;
     cursor: pointer;
-}
-
-button:hover {
-    background: #0066cc;
-    color: #ffffff;
 }
 
 /* Products */
@@ -140,11 +158,10 @@ button:hover {
 
 /* Footer */
 footer {
-    padding: 20px;
-    margin-top: 20px;
-    color: #ffffff;
-    background-color: #0066cc;
+    background: #0066cc;
+    color: #fff;
     text-align: center;
+    padding: 20px 0;
 }
 
 /* WhatsApp Button */
@@ -160,26 +177,11 @@ footer {
     width: 60px;
     height: 60px;
     line-height: 60px;
+    text-decoration: none;
 }
 
 /* Media Queries */
-.media(max-width: 768px) {
-    header #branding,
-    header nav,
-    header nav li {
-        float: none;
-        text-align: center;
-        width: 100%;
-    }
-
-    header {
-        padding-bottom: 20px;
-    }
-
-    .burger {
-        display: block;
-    }
-
+.media (max-width: 768px) {
     .nav-links {
         position: absolute;
         right: 0px;
@@ -198,18 +200,22 @@ footer {
         opacity: 0;
     }
 
-    .nav-active {
-        transform: translateX(0%);
+    .burger {
+        display: block;
     }
+}
 
-    @keyframes navLinkFade {
-        from {
-            opacity: 0;
-            transform: translateX(50px);
-        }
-        to {
-            opacity: 1;
-            transform: translateX(0px);
-        }
+.nav-active {
+    transform: translateX(0%);
+}
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
     }
 }
