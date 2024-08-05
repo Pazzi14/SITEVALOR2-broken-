@@ -1,16 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Navegação responsiva
-    const menuToggle = document.createElement('button');
-    menuToggle.textContent = 'Menu';
-    menuToggle.classList.add('menu-toggle');
-    document.querySelector('nav').prepend(menuToggle);
-
-    menuToggle.addEventListener('click', function() {
-        document.querySelector('nav ul').classList.toggle('show');
-    });
-
-    // Simulador de financiamento
-    const simuladorForm = document.getElementById('simulador-form');
+    // Simulador rápido
+    const simuladorForm = document.getElementById('simulador-rapido');
     if (simuladorForm) {
         simuladorForm.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -27,7 +17,22 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Scroll suave para links internos
+    // Botão Voltar ao Topo
+    const backToTopButton = document.querySelector('.back-to-top');
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            backToTopButton.classList.add('show');
+        } else {
+            backToTopButton.classList.remove('show');
+        }
+    });
+
+    backToTopButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Smooth scroll para links internos
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -39,24 +44,22 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function simularFinanciamento() {
-    const valor = document.getElementById('valor').value;
-    const prazo = document.getElementById('prazo').value;
-    // Lógica de simulação aqui
-    const resultado = document.getElementById('resultado-simulacao');
-    resultado.innerHTML = `
-        <h3>Resultado da Simulação</h3>
-        <p>Valor: R$ ${valor}</p>
-        <p>Prazo: ${prazo} meses</p>
-        <p>Taxa de juros estimada: 1.5% ao mês</p>
-        <p>Parcela estimada: R$ ${(valor / prazo * 1.015).toFixed(2)}</p>
-    `;
+    const valor = document.querySelector('#simulador-rapido input[type="number"]').value;
+    const tipo = document.querySelector('#simulador-rapido select').value;
+
+    // Aqui você pode implementar a lógica real de simulação
+    // Por enquanto, vamos apenas exibir uma mensagem de exemplo
+    alert(`Simulação para ${tipo} no valor de R$ ${valor} realizada com sucesso! Um de nossos consultores entrará em contato em breve.`);
 }
 
 function enviarFormularioContato() {
-    const nome = document.getElementById('nome').value;
-    const email = document.getElementById('email').value;
-    const mensagem = document.getElementById('mensagem').value;
-    // Lógica de envio de formulário aqui
+    const nome = document.querySelector('#contato-form input[type="text"]').value;
+    const email = document.querySelector('#contato-form input[type="email"]').value;
+    const telefone = document.querySelector('#contato-form input[type="tel"]').value;
+    const mensagem = document.querySelector('#contato-form textarea').value;
+
+    // Aqui você deve implementar o envio real do formulário para seu servidor
+    // Por enquanto, vamos apenas simular um envio bem-sucedido
     alert(`Obrigado pelo contato, ${nome}! Responderemos em breve para ${email}.`);
     document.getElementById('contato-form').reset();
 }
