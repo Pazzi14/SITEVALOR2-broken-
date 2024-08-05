@@ -363,7 +363,7 @@ footer {
 }
 
 /* Responsive Design */
-.media (max-width: 768px) {
+(max-width: 768px) {
     nav {
         flex-direction: column;
         align-items: flex-start;
