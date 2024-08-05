@@ -1,0 +1,58 @@
+/* Estilos para a página Sobre Nós */
+.page-section {
+    padding: 80px 0;
+}
+
+#sobre-nos {
+    background-color: var(--light-blue);
+}
+
+#sobre-nos .container,
+#nossa-missao .container,
+#nossos-valores .container,
+#nossa-historia .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+#sobre-nos h1,
+#nossa-missao h2,
+#nossos-valores h2,
+#nossa-historia h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#sobre-nos p,
+#nossa-missao p,
+#nossa-historia p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+#nossos-valores ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#nossos-valores li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+#nossos-valores li i {
+    color: var(--primary-color);
+    margin-right: 10px;
+}
+
+#nossa-missao,
+#nossa-historia {
+    background-color: white;
+}
+
+#nossos-valores {
+    background-color: var(--light-blue);
+}
