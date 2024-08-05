@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valor Financiamentos - Sobre Nós</title>
+    <title>Valor Financiamentos</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
@@ -14,66 +14,134 @@
                 <img src="https://valorfinanciamentos.com.br/wp-content/uploads/2020/08/logo_grande_valor.png.png" alt="Logo Valor Financiamentos" class="logo">
             </a>
             <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="produtos.html">Produtos</a></li>
-                <li><a href="sobre-nos.html">Sobre Nós</a></li>
-                <li><a href="contato.html">Contato</a></li>
+                <li><a href="#produtos">Produtos</a></li>
+                <li><a href="#sobre">Sobre Nós</a></li>
+                <li><a href="#como-funciona">Como Funciona</a></li>
+                <li><a href="#contato">Contato</a></li>
             </ul>
-            <a href="index.html#simulador" class="cta-button">Simular agora</a>
+            <a href="#simulador" class="cta-button">Simular agora</a>
         </nav>
     </header>
 
     <main>
-        <section id="sobre-nos" class="page-section">
+        <section id="hero">
             <div class="container">
-                <h1>SOBRE NÓS</h1>
+                <h1>Soluções financeiras para você</h1>
+                <p>Descubra as melhores opções de financiamento com a Valor Financiamentos</p>
+                <a href="#simulador" class="cta-button">Simule agora</a>
+            </div>
+        </section>
+
+        <section id="simulador">
+            <div class="container">
+                <h2>Simulador de Financiamento</h2>
+                <form id="simulador-form">
+                    <input type="number" id="valor" placeholder="Valor desejado" required>
+                    <input type="number" id="prazo" placeholder="Prazo (em meses)" required>
+                    <button type="submit">Simular</button>
+                </form>
+                <div id="resultado-simulacao"></div>
+            </div>
+        </section>
+
+        <section id="produtos">
+            <div class="container">
+                <h2>Nossos Produtos</h2>
+                <div class="produtos-grid">
+                    <div class="produto">
+                        <i class="fas fa-user"></i>
+                        <h3>Empréstimo Pessoal</h3>
+                        <p>Crédito para realizar seus sonhos</p>
+                    </div>
+                    <div class="produto">
+                        <i class="fas fa-building"></i>
+                        <h3>Empréstimo Consignado CLT</h3>
+                        <p>Para funcionários de empresas de Segurança e Facilities</p>
+                    </div>
+                    <div class="produto">
+                        <i class="fas fa-landmark"></i>
+                        <h3>Empréstimo Consignado Servidor Público</h3>
+                        <p>Condições especiais para servidores públicos</p>
+                    </div>
+                    <div class="produto">
+                        <i class="fas fa-piggy-bank"></i>
+                        <h3>Adiantamento Saque Aniversário FGTS</h3>
+                        <p>Antecipe seu saque aniversário do FGTS</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sobre">
+            <div class="container">
+                <h2>Sobre Nós</h2>
                 <p>A Valor Financiamentos é regulamentada e autorizada pelo Banco Central do Brasil, focamos na compreensão das necessidades de crédito para realização das conquistas dos nossos clientes.</p>
                 <p>Você pode contar com atendimento em todo território nacional, através de correspondentes certificados ou com atendimento 100% digital.</p>
             </div>
         </section>
 
-        <section id="nossa-missao" class="page-section">
+        <section id="como-funciona">
             <div class="container">
-                <h2>Nossa Missão</h2>
-                <p>Proporcionar soluções financeiras acessíveis e personalizadas, contribuindo para o crescimento e realização dos sonhos de nossos clientes.</p>
+                <h2>Como Funciona</h2>
+                <div class="passos">
+                    <div class="passo">
+                        <span class="numero">1</span>
+                        <h3>Simule online</h3>
+                        <p>Escolha o valor e prazo desejados</p>
+                    </div>
+                    <div class="passo">
+                        <span class="numero">2</span>
+                        <h3>Envie seus dados</h3>
+                        <p>Preencha o formulário com suas informações</p>
+                    </div>
+                    <div class="passo">
+                        <span class="numero">3</span>
+                        <h3>Análise rápida</h3>
+                        <p>Faremos uma análise em poucos minutos</p>
+                    </div>
+                    <div class="passo">
+                        <span class="numero">4</span>
+                        <h3>Receba o dinheiro</h3>
+                        <p>Após aprovação, receba o valor em sua conta</p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="nossos-valores" class="page-section">
+        <section id="contato">
             <div class="container">
-                <h2>Nossos Valores</h2>
-                <ul>
-                    <li><i class="fas fa-check"></i> Transparência</li>
-                    <li><i class="fas fa-check"></i> Integridade</li>
-                    <li><i class="fas fa-check"></i> Excelência no atendimento</li>
-                    <li><i class="fas fa-check"></i> Inovação</li>
-                    <li><i class="fas fa-check"></i> Responsabilidade social</li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="nossa-historia" class="page-section">
-            <div class="container">
-                <h2>Nossa História</h2>
-                <p>Fundada em [ano], a Valor Financiamentos nasceu com o propósito de democratizar o acesso ao crédito no Brasil. Ao longo dos anos, expandimos nossa atuação e nos tornamos referência no mercado financeiro, sempre priorizando a satisfação de nossos clientes e a oferta de soluções inovadoras.</p>
+                <h2>Entre em Contato</h2>
+                <form id="contato-form">
+                    <input type="text" id="nome" placeholder="Nome" required>
+                    <input type="email" id="email" placeholder="E-mail" required>
+                    <textarea id="mensagem" placeholder="Mensagem" required></textarea>
+                    <button type="submit">Enviar</button>
+                </form>
             </div>
         </section>
     </main>
 
     <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Contato</h3>
-                <p>Telefone: (11) 3717-6415</p>
-                <p>Email: comercial@valorfinanciamentos.com.br</p>
-                <p>Endereço: Rua Augusta, 101</p>
-            </div>
-            <div class="footer-section">
-                <h3>Redes Sociais</h3>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <p>Telefone: (11) 3717-6415</p>
+                    <p>Email: comercial@valorfinanciamentos.com.br</p>
+                    <p>Endereço: Rua Augusta, 101</p>
+                </div>
+                  <div class="footer-section">
+                    <h3>Ouvidoria</h3>
+                    <p>Telefone: 0800 591 3076</p>
+                    <p>Email: ouvidoria@valorfinanciamentos.com.br</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Redes Sociais</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
