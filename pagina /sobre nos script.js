@@ -17,13 +17,3 @@ document.addEventListener('DOMContentLoaded', function() {
         fadeInObserver.observe(section);
     });
 });
-
-// Adicione esta classe ao seu CSS
-.fade-in {
-    animation: fadeIn 1s ease-in;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
