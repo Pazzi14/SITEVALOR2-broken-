@@ -237,6 +237,28 @@ blockquote {
     font-weight: bold;
 }
 
+/* Sobre Nós */
+#sobre-nos {
+    padding: 50px 5%;
+    background-color: var(--light-blue);
+}
+
+#sobre-nos .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#sobre-nos h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#sobre-nos p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
 /* Contato */
 #contato {
     padding: 50px 5%;
