@@ -27,20 +27,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Animação de fade-in para os elementos da página Sobre Nós
-    const sections = document.querySelectorAll('.page-section');
-    
-    const fadeInObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in');
-                fadeInObserver.unobserve(entry.target);
-            }
+    // Scroll suave para links internos
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
         });
-    }, { threshold: 0.1 });
-
-    sections.forEach(section => {
-        fadeInObserver.observe(section);
     });
 });
 
@@ -48,7 +42,14 @@ function simularFinanciamento() {
     const valor = document.getElementById('valor').value;
     const prazo = document.getElementById('prazo').value;
     // Lógica de simulação aqui
-    alert(`Simulação para R$ ${valor} em ${prazo} meses realizada com sucesso!`);
+    const resultado = document.getElementById('resultado-simulacao');
+    resultado.innerHTML = `
+        <h3>Resultado da Simulação</h3>
+        <p>Valor: R$ ${valor}</p>
+        <p>Prazo: ${prazo} meses</p>
+        <p>Taxa de juros estimada: 1.5% ao mês</p>
+        <p>Parcela estimada: R$ ${(valor / prazo * 1.015).toFixed(2)}</p>
+    `;
 }
 
 function enviarFormularioContato() {
@@ -57,15 +58,5 @@ function enviarFormularioContato() {
     const mensagem = document.getElementById('mensagem').value;
     // Lógica de envio de formulário aqui
     alert(`Obrigado pelo contato, ${nome}! Responderemos em breve para ${email}.`);
-}
-
-// Função para verificar se estamos na página Sobre Nós
-function isAboutPage() {
-    return window.location.pathname.includes('sobre-nos.html');
-}
-
-// Executar código específico da página Sobre Nós apenas se estivermos nela
-if (isAboutPage()) {
-    console.log('Página Sobre Nós carregada');
-    // Adicione aqui qualquer código específico para a página Sobre Nós
+    document.getElementById('contato-form').reset();
 }
