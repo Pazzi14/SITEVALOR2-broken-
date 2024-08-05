@@ -4,8 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.nav-links li');
 
     burger.addEventListener('click', () => {
+        // Toggle Nav
         nav.classList.toggle('nav-active');
 
+        // Animate Links
         navLinks.forEach((link, index) => {
             if (link.style.animation) {
                 link.style.animation = '';
@@ -14,9 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
+        // Burger Animation
         burger.classList.toggle('toggle');
     });
 
+    // Simulador de Financiamento
     const simuladorForm = document.getElementById('simulador-form');
     const resultadoSimulacao = document.getElementById('resultado-simulacao');
 
@@ -38,7 +42,8 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
     });
 
-        const contatoForm = document.getElementById('contato-form');
+    // Formulário de Contato
+    const contatoForm = document.getElementById('contato-form');
 
     contatoForm.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -64,23 +69,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
-
-// Função para animação de elementos quando entrarem na viewport
-function animateOnScroll() {
-    const elements = document.querySelectorAll('.animate-on-scroll');
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animated');
-            }
-        });
-    }, { threshold: 0.1 });
-
-    elements.forEach(element => {
-        observer.observe(element);
-    });
-}
-
-// Chamar a função de animação quando a página carregar
-window.addEventListener('load', animateOnScroll);
