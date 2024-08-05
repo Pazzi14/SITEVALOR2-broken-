@@ -1,6 +1,16 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Simulador rápido
-    const simuladorForm = document.getElementById('simulador-rapido');
+    // Navegação responsiva
+    const menuToggle = document.createElement('button');
+    menuToggle.textContent = 'Menu';
+    menuToggle.classList.add('menu-toggle');
+    document.querySelector('nav').prepend(menuToggle);
+
+    menuToggle.addEventListener('click', function() {
+        document.querySelector('nav ul').classList.toggle('show');
+    });
+
+    // Simulador de financiamento
+    const simuladorForm = document.getElementById('simulador-form');
     if (simuladorForm) {
         simuladorForm.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -17,49 +27,45 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Botão Voltar ao Topo
-    const backToTopButton = document.querySelector('.back-to-top');
-    window.addEventListener('scroll', function() {
-        if (window.pageYOffset > 300) {
-            backToTopButton.classList.add('show');
-        } else {
-            backToTopButton.classList.remove('show');
-        }
-    });
-
-    backToTopButton.addEventListener('click', function(e) {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // Smooth scroll para links internos
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+    // Animação de fade-in para os elementos da página Sobre Nós
+    const sections = document.querySelectorAll('.page-section');
+    
+    const fadeInObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+                fadeInObserver.unobserve(entry.target);
+            }
         });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => {
+        fadeInObserver.observe(section);
     });
 });
 
 function simularFinanciamento() {
-    const valor = document.querySelector('#simulador-rapido input[type="number"]').value;
-    const tipo = document.querySelector('#simulador-rapido select').value;
-
-    // Aqui você pode implementar a lógica real de simulação
-    // Por enquanto, vamos apenas exibir uma mensagem de exemplo
-    alert(`Simulação para ${tipo} no valor de R$ ${valor} realizada com sucesso! Um de nossos consultores entrará em contato em breve.`);
+    const valor = document.getElementById('valor').value;
+    const prazo = document.getElementById('prazo').value;
+    // Lógica de simulação aqui
+    alert(`Simulação para R$ ${valor} em ${prazo} meses realizada com sucesso!`);
 }
 
 function enviarFormularioContato() {
-    const nome = document.querySelector('#contato-form input[type="text"]').value;
-    const email = document.querySelector('#contato-form input[type="email"]').value;
-    const telefone = document.querySelector('#contato-form input[type="tel"]').value;
-    const mensagem = document.querySelector('#contato-form textarea').value;
-
-    // Aqui você deve implementar o envio real do formulário para seu servidor
-    // Por enquanto, vamos apenas simular um envio bem-sucedido
+    const nome = document.getElementById('nome').value;
+    const email = document.getElementById('email').value;
+    const mensagem = document.getElementById('mensagem').value;
+    // Lógica de envio de formulário aqui
     alert(`Obrigado pelo contato, ${nome}! Responderemos em breve para ${email}.`);
-    document.getElementById('contato-form').reset();
+}
+
+// Função para verificar se estamos na página Sobre Nós
+function isAboutPage() {
+    return window.location.pathname.includes('sobre-nos.html');
+}
+
+// Executar código específico da página Sobre Nós apenas se estivermos nela
+if (isAboutPage()) {
+    console.log('Página Sobre Nós carregada');
+    // Adicione aqui qualquer código específico para a página Sobre Nós
 }
