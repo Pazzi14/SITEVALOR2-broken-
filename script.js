@@ -33,7 +33,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (contatoForm) {
         contatoForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            enviarFormularioContato();
+            if (validarFormulario()) {
+                enviarFormularioContato();
+            }
         });
     }
 });
@@ -62,30 +64,37 @@ function simularFinanciamento() {
     resultadoDiv.scrollIntoView({ behavior: 'smooth' });
 }
 
-function enviarFormularioContato() {
+function validarFormulario() {
     const nome = document.getElementById('nome').value.trim();
     const email = document.getElementById('email').value.trim();
     const mensagem = document.getElementById('mensagem').value.trim();
 
     if (nome === '' || email === '' || mensagem === '') {
         mostrarAlerta('Por favor, preencha todos os campos do formulário.');
-        return;
+        return false;
     }
 
     if (!validarEmail(email)) {
         mostrarAlerta('Por favor, insira um endereço de e-mail válido.');
-        return;
+        return false;
     }
 
-    // Aqui você deve implementar o envio real do formulário para seu servidor
-    // Por enquanto, vamos apenas simular um envio bem-sucedido
-    mostrarAlerta(`Obrigado pelo contato, ${nome}! Responderemos em breve para ${email}.`, 'sucesso');
-    document.getElementById('contato-form').reset();
+    return true;
 }
 
 function validarEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
+}
+
+function enviarFormularioContato() {
+    // Aqui você deve implementar o envio real do formulário para seu servidor
+    // Por enquanto, vamos apenas simular um envio bem-sucedido
+    const nome = document.getElementById('nome').value;
+    const email = document.getElementById('email').value;
+    
+    mostrarAlerta(`Obrigado pelo contato, ${nome}! Responderemos em breve para ${email}.`, 'sucesso');
+    document.getElementById('contato-form').reset();
 }
 
 function mostrarAlerta(mensagem, tipo = 'erro') {
@@ -100,7 +109,24 @@ function mostrarAlerta(mensagem, tipo = 'erro') {
     }, 5000);
 }
 
-// Adicionar animações de entrada para os elementos
+// Botão "Voltar ao topo"
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    const btnTopo = document.getElementById("btnTopo");
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        btnTopo.style.display = "block";
+    } else {
+        btnTopo.style.display = "none";
+    }
+}
+
+function topFunction() {
+    document.body.scrollTop = 0; // Para Safari
+    document.documentElement.scrollTop = 0; // Para Chrome, Firefox, IE e Opera
+}
+
+// Animações de entrada para os elementos
 window.addEventListener('scroll', function() {
     const elements = document.querySelectorAll('.produto, .sobre, .contato');
     elements.forEach(element => {
@@ -119,3 +145,47 @@ function isElementInViewport(el) {
         rect.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
 }
+
+// Service Worker para cache
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js').then(function(registration) {
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, function(err) {
+            console.log('ServiceWorker registration failed: ', err);
+        });
+    });
+}
+// sw.js
+const CACHE_NAME = 'valor-financiamentos-v1';
+const urlsToCache = [
+  '/',
+  '/index.html',
+  '/style.css',
+  '/script.js',
+  '/logo.png',
+  '/favicon.png'
+];
+
+self.addEventListener('install', function(event) {
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(function(cache) {
+        console.log('Opened cache');
+        return cache.addAll(urlsToCache);
+      })
+  );
+});
+
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    caches.match(event.request)
+      .then(function(response) {
+        if (response) {
+          return response;
+        }
+        return fetch(event.request);
+      }
+    )
+  );
+});
