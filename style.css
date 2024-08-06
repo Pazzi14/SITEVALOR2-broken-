@@ -56,13 +56,30 @@ nav {
 .nav-links a {
     color: var(--white);
     text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--secondary-color);
 }
 
 .menu-toggle {
     display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
-#hero {
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--white);
+    transition: all 0.3s ease-in-out;
+}
+
+.hero {
     background-color: var(--primary-color);
     color: var(--white);
     text-align: center;
@@ -77,6 +94,11 @@ nav {
     text-decoration: none;
     border-radius: 5px;
     margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #e65c00;
 }
 
 section {
@@ -97,6 +119,8 @@ input, textarea, button {
     width: 100%;
     margin-bottom: 20px;
     padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
 }
 
 button {
@@ -104,6 +128,11 @@ button {
     color: var(--white);
     border: none;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0052a3;
 }
 
 .produtos-grid {
@@ -117,6 +146,11 @@ button {
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.produto:hover {
+    transform: translateY(-5px);
 }
 
 footer {
@@ -135,22 +169,24 @@ footer {
     padding: 10px 20px;
     border-radius: 50px;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    transition: background-color 0.3s ease;
+}
+
+.whatsapp-button:hover {
+    background-color: #128c7e;
+}
+
+.whatsapp-button i {
+    margin-right: 10px;
 }
 
 @media (max-width: 768px) {
     .menu-toggle {
         display: block;
-        background: none;
-        border: none;
-        cursor: pointer;
-    }
-
-    .menu-toggle .bar {
-        display: block;
-        width: 25px;
-        height: 3px;
-        margin: 5px auto;
-        background-color: var(--white);
     }
 
     .nav-links {
@@ -162,6 +198,7 @@ footer {
         background-color: var(--primary-color);
         flex-direction: column;
         padding: 20px;
+        text-align: center;
     }
 
     .nav-links.active {
