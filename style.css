@@ -105,7 +105,7 @@ section {
     padding: 4rem 0;
 }
 
-h1, h2 {
+h1, h2, h3 {
     margin-bottom: 20px;
 }
 
@@ -202,24 +202,6 @@ footer {
 
 #btnTopo:hover {
     background-color: #0052a3;
-}
-
-.alerta {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    padding: 10px 20px;
-    border-radius: 5px;
-    color: var(--white);
-    z-index: 1000;
-}
-
-.alerta.erro {
-    background-color: #ff3333;
-}
-
-.alerta.sucesso {
-    background-color: #33cc33;
 }
 
 @media (max-width: 768px) {
