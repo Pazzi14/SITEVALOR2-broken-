@@ -29,6 +29,9 @@ body {
 header {
     background-color: var(--primary-color);
     padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 nav {
@@ -38,7 +41,12 @@ nav {
 }
 
 .logo {
-    height: 50px;
+    height: 70px;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
 }
 
 .nav-links {
@@ -126,6 +134,28 @@ nav {
     background-color: #c73d16;
 }
 
+/* Simulador Section */
+#simulador {
+    background: url('https://mmurad.com.br/wp-content/uploads/2023/02/Business-Intelligence-2023-MMurad-FGV.jpg') no-repeat center center/cover;
+    padding: 4rem 0;
+    position: relative;
+}
+
+#simulador::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+#simulador .container {
+    position: relative;
+    z-index: 1;
+}
+
 /* Sections */
 section {
     padding: 4rem 0;
@@ -142,7 +172,6 @@ form {
     max-width: 600px;
     margin: 0 auto;
 }
-
 .form-group {
     margin-bottom: 1rem;
 }
@@ -202,6 +231,39 @@ button:hover {
     margin-bottom: 1rem;
 }
 
+/* Depoimentos */
+.depoimentos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.depoimento {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.depoimento p {
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.depoimento .cliente {
+    font-weight: bold;
+}
+
+/* FAQ */
+.faq-item {
+    margin-bottom: 2rem;
+}
+
+.faq-item h3 {
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
 /* Footer */
 footer {
     background-color: var(--primary-color);
@@ -243,18 +305,36 @@ footer {
     right: 20px;
     background-color: #25d366;
     color: #fff;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    text-align: center;
-    font-size: 30px;
-    line-height: 60px;
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .whatsapp-button:hover {
     background-color: #128c7e;
+    transform: scale(1.05);
+}
+
+.whatsapp-button i {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+/* Fade-in Animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-in.appear {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Media Queries */
@@ -321,71 +401,4 @@ footer {
 
 .toggle .line3 {
     transform: rotate(45deg) translate(-5px, -6px);
-}
-
-/* Resultado da simulação */
-#resultado-simulacao {
-    background-color: #fff;
-    padding: 1rem;
-    border-radius: 5px;
-    margin-top: 1rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-#resultado-simulacao h3 {
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
-}
-
-#resultado-simulacao p {
-    margin-bottom: 0.5rem;
-}
-
-/* Animações */
-.fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.fade-in.appear {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Acessibilidade */
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-}
-
-/* Melhorias adicionais */
-input:focus,
-textarea:focus,
-button:focus {
-    outline: 2px solid var(--primary-color);
-}
-
-.produto h3 {
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
-}
-
-.produto p {
-    font-size: 0.9rem;
-}
-
-#sobre p {
-    margin-bottom: 1rem;
-}
-
-#sobre p:last-child {
-    margin-bottom: 0;
 }
