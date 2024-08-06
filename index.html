@@ -14,7 +14,6 @@
             <nav>
                 <img src="https://valorfinanciamentos.com.br/wp-content/uploads/2020/08/logo_grande_valor.png.png" alt="Logo Valor Financiamentos" class="logo">
                 <ul class="nav-links">
-                    <li><a href="#simulador">Simulador</a></li>
                     <li><a href="#sobre">Sobre</a></li>
                     <li><a href="#produtos">Produtos</a></li>
                     <li><a href="#depoimentos">Depoimentos</a></li>
@@ -31,31 +30,29 @@
     </header>
 
     <main>
-        <section id="hero">
+        <section id="hero-simulador" class="fade-in">
             <div class="container">
-                <h1>Soluções financeiras para realizar seus sonhos</h1>
-                <p>Descubra as melhores opções de financiamento com a Valor Financiamentos</p>
-                <a href="#simulador" class="cta-button">Simule agora</a>
-            </div>
-        </section>
-
-        <section id="simulador" class="fade-in">
-            <div class="container">
-                <h2>Simulador de Financiamento</h2>
-                <form id="simulador-form">
-                    <div class="form-group">
-                        <label for="valor">Valor desejado:</label>
-                        <input type="number" id="valor" name="valor" required min="1000" step="100" aria-describedby="valor-desc">
-                        <small id="valor-desc">Insira o valor desejado (mínimo R$ 1.000)</small>
-                    </div>
-                    <div class="form-group">
-                        <label for="prazo">Prazo (em meses):</label>
-                        <input type="number" id="prazo" name="prazo" required min="1" max="120" aria-describedby="prazo-desc">
-                        <small id="prazo-desc">Insira o prazo desejado (entre 1 e 120 meses)</small>
-                    </div>
-                    <button type="submit">Simular</button>
-                </form>
-                <div id="resultado-simulacao" aria-live="polite"></div>
+                <div class="hero-content">
+                    <h1>Soluções financeiras para realizar seus sonhos</h1>
+                    <p>Descubra as melhores opções de financiamento com a Valor Financiamentos</p>
+                </div>
+                <div class="simulador-content">
+                    <h2>Simulador de Financiamento</h2>
+                    <form id="simulador-form">
+                        <div class="form-group">
+                            <label for="valor">Valor desejado:</label>
+                            <input type="number" id="valor" name="valor" required min="1000" step="100" aria-describedby="valor-desc">
+                            <small id="valor-desc">Insira o valor desejado (mínimo R$ 1.000)</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="prazo">Prazo (em meses):</label>
+                            <input type="number" id="prazo" name="prazo" required min="1" max="120" aria-describedby="prazo-desc">
+                            <small id="prazo-desc">Insira o prazo desejado (entre 1 e 120 meses)</small>
+                        </div>
+                        <button type="submit">Simular</button>
+                    </form>
+                    <div id="resultado-simulacao" aria-live="polite"></div>
+                </div>
             </div>
         </section>
 
