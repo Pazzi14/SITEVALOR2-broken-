@@ -77,7 +77,7 @@ function enviarFormularioContato() {
         return;
     }
 
-        // Aqui você deve implementar o envio real do formulário para seu servidor
+    // Aqui você deve implementar o envio real do formulário para seu servidor
     // Por enquanto, vamos apenas simular um envio bem-sucedido
     mostrarAlerta(`Obrigado pelo contato, ${nome}! Responderemos em breve para ${email}.`, 'sucesso');
     document.getElementById('contato-form').reset();
