@@ -41,12 +41,12 @@ nav {
 }
 
 .logo {
-    height: 70px;
+    height: 100px;
     transition: transform 0.3s ease;
 }
 
 .logo:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
 .nav-links {
@@ -82,78 +82,58 @@ nav {
     transition: all 0.3s ease;
 }
 
-/* Hero Section */
-#hero {
-    background: url('https://valorfinanciamentos.com.br/wp-content/uploads/2020/08/banner_home.jpg') no-repeat center center/cover;
-    height: 500px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #fff;
+/* Hero-Simulador Section */
+#hero-simulador {
+    background: url('https://mmurad.com.br/wp-content/uploads/2023/02/Business-Intelligence-2023-MMurad-FGV.jpg') no-repeat center center/cover;
+    padding: 4rem 0;
     position: relative;
+    color: #fff;
 }
 
-#hero::before {
+#hero-simulador::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.6);
 }
 
-#hero .container {
+#hero-simulador .container {
     position: relative;
     z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-#hero h1 {
+.hero-content {
+    flex: 1;
+    padding-right: 2rem;
+}
+
+.hero-content h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
 }
 
-#hero p {
+.hero-content p {
     font-size: 1.2rem;
     margin-bottom: 2rem;
 }
 
-.cta-button {
-    display: inline-block;
-    background-color: var(--secondary-color);
-    color: #fff;
-    padding: 0.8rem 1.5rem;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+.simulador-content {
+    flex: 1;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 10px;
+    color: var(--text-color);
 }
 
-.cta-button:hover {
-    background-color: #c73d16;
-}
-
-/* Simulador Section */
-#simulador {
-    background: url('https://mmurad.com.br/wp-content/uploads/2023/02/Business-Intelligence-2023-MMurad-FGV.jpg') no-repeat center center/cover;
-    padding: 4rem 0;
-    position: relative;
-}
-
-#simulador::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.8);
-}
-
-#simulador .container {
-    position: relative;
-    z-index: 1;
+.simulador-content h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
 }
 
 /* Sections */
@@ -199,9 +179,8 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition:transform 0.3s ease;
 }
-
 button:hover {
     background-color: #c73d16;
 }
@@ -302,27 +281,29 @@ footer {
 /* WhatsApp Button */
 .whatsapp-button {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 30px;
+    right: 30px;
     background-color: #25d366;
     color: #fff;
-    padding: 10px 20px;
+    padding: 15px 25px;
     border-radius: 50px;
     text-decoration: none;
     font-weight: bold;
+    font-size: 18px;
     display: flex;
     align-items: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
 }
 
 .whatsapp-button:hover {
     background-color: #128c7e;
-    transform: scale(1.05);
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
 
 .whatsapp-button i {
-    font-size: 24px;
+    font-size: 28px;
     margin-right: 10px;
 }
 
@@ -340,6 +321,23 @@ footer {
 
 /* Media Queries */
 @media (max-width: 768px) {
+    #hero-simulador .container {
+        flex-direction: column;
+    }
+
+    .hero-content, .simulador-content {
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .hero-content {
+        margin-bottom: 2rem;
+    }
+
+    .logo {
+        height: 80px;
+    }
+
     .nav-links {
         position: absolute;
         right: 0;
@@ -366,18 +364,6 @@ footer {
 
     .nav-active {
         transform: translateX(0%);
-    }
-
-    #hero h1 {
-        font-size: 2rem;
-    }
-
-    #hero p {
-        font-size: 1rem;
-    }
-
-    .footer-content {
-        flex-direction: column;
     }
 }
 
