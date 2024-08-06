@@ -3,14 +3,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelector('.nav-links');
     const simuladorForm = document.getElementById('simulador-form');
     const contatoForm = document.getElementById('contato-form');
-    const faders = document.querySelectorAll('.fade-in');
 
     // Menu toggle para dispositivos móveis
     menuToggle.addEventListener('click', () => {
         navLinks.classList.toggle('active');
-        menuToggle.setAttribute('aria-expanded', 
-            menuToggle.getAttribute('aria-expanded') === 'false' ? 'true' : 'false'
-        );
+        menuToggle.classList.toggle('active');
     });
 
     // Smooth scroll para links internos
@@ -39,24 +36,6 @@ document.addEventListener('DOMContentLoaded', function() {
             enviarFormularioContato();
         });
     }
-
-    // Animação de fade-in
-    const appearOptions = {
-        threshold: 0.5,
-        rootMargin: "0px 0px -100px 0px"
-    };
-
-    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) return;
-            entry.target.classList.add('appear');
-            appearOnScroll.unobserve(entry.target);
-        });
-    }, appearOptions);
-
-    faders.forEach(fader => {
-        appearOnScroll.observe(fader);
-    });
 });
 
 function simularFinanciamento() {
@@ -98,7 +77,7 @@ function enviarFormularioContato() {
         return;
     }
 
-    // Aqui você deve implementar o envio real do formulário para seu servidor
+        // Aqui você deve implementar o envio real do formulário para seu servidor
     // Por enquanto, vamos apenas simular um envio bem-sucedido
     mostrarAlerta(`Obrigado pelo contato, ${nome}! Responderemos em breve para ${email}.`, 'sucesso');
     document.getElementById('contato-form').reset();
@@ -113,6 +92,7 @@ function mostrarAlerta(mensagem, tipo = 'erro') {
     const alertaDiv = document.createElement('div');
     alertaDiv.className = `alerta ${tipo}`;
     alertaDiv.textContent = mensagem;
+
     document.body.appendChild(alertaDiv);
 
     setTimeout(() => {
@@ -120,58 +100,22 @@ function mostrarAlerta(mensagem, tipo = 'erro') {
     }, 5000);
 }
 
-// Lazy loading para imagens
-document.addEventListener("DOMContentLoaded", function() {
-    var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
-
-    if ("IntersectionObserver" in window) {
-        let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    let lazyImage = entry.target;
-                    lazyImage.src = lazyImage.dataset.src;
-                    lazyImage.classList.remove("lazy");
-                    lazyImageObserver.unobserve(lazyImage);
-                }
-            });
-        });
-
-        lazyImages.forEach(function(lazyImage) {
-            lazyImageObserver.observe(lazyImage);
-        });
-    } else {
-        // Fallback para navegadores que não suportam IntersectionObserver
-        let active = false;
-
-        const lazyLoad = function() {
-            if (active === false) {
-                active = true;
-
-                setTimeout(function() {
-                    lazyImages.forEach(function(lazyImage) {
-                        if ((lazyImage.getBoundingClientRect().top <= window.innerHeight && lazyImage.getBoundingClientRect().bottom >= 0) && getComputedStyle(lazyImage).display !== "none") {
-                            lazyImage.src = lazyImage.dataset.src;
-                            lazyImage.classList.remove("lazy");
-
-                            lazyImages = lazyImages.filter(function(image) {
-                                return image !== lazyImage;
-                            });
-
-                            if (lazyImages.length === 0) {
-                                document.removeEventListener("scroll", lazyLoad);
-                                window.removeEventListener("resize", lazyLoad);
-                                window.removeEventListener("orientationchange", lazyLoad);
-                            }
-                        }
-                    });
-
-                    active = false;
-                }, 200);
-            }
-        };
-
-        document.addEventListener("scroll", lazyLoad);
-        window.addEventListener("resize", lazyLoad);
-        window.addEventListener("orientationchange", lazyLoad);
-    }
+// Adicionar animações de entrada para os elementos
+window.addEventListener('scroll', function() {
+    const elements = document.querySelectorAll('.produto, .sobre, .contato');
+    elements.forEach(element => {
+        if (isElementInViewport(element)) {
+            element.classList.add('animate');
+        }
+    });
 });
+
+function isElementInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
