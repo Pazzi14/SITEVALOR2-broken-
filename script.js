@@ -24,15 +24,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     btnTopo.onclick = function() {
-        document.body.scrollTop = 0; // Para Safari
-        document.documentElement.scrollTop = 0; // Para Chrome, Firefox, IE e Opera
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
     }
 });
 
 function simularFinanciamento() {
     const valor = parseFloat(document.getElementById('valor').value);
     const prazo = parseInt(document.getElementById('prazo').value);
-    const taxaJuros = 0.015; // 1.5% ao mês (exemplo)
+    const taxaJuros = 0.015;
 
     if (isNaN(valor) || isNaN(prazo) || valor < 1000 || prazo < 1 || prazo > 120) {
         alert('Por favor, insira valores válidos. O valor mínimo é R$ 1.000 e o prazo deve ser entre 1 e 120 meses.');
@@ -43,18 +43,13 @@ function simularFinanciamento() {
     const totalPagar = parcela * prazo;
 
     const resultadoDiv = document.getElementById('resultado-simulacao');
-        resultadoDiv.innerHTML = `
+    resultadoDiv.innerHTML = `
         <h3>Resultado da Simulação</h3>
         <p>Valor financiado: R$ ${valor.toFixed(2)}</p>
         <p>Prazo: ${prazo} meses</p>
         <p>Parcela mensal: R$ ${parcela.toFixed(2)}</p>
         <p>Total a pagar: R$ ${totalPagar.toFixed(2)}</p>
     `;
-}
-
-function validarEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
 }
 
 function enviarFormularioContato() {
@@ -67,8 +62,11 @@ function enviarFormularioContato() {
         return;
     }
 
-    // Aqui você deve implementar o envio real do formulário para seu servidor
-    // Por enquanto, vamos apenas simular um envio bem-sucedido
     alert(`Obrigado pelo contato, ${nome}! Responderemos em breve para ${email}.`);
     document.getElementById('contato-form').reset();
+}
+
+function validarEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
 }
