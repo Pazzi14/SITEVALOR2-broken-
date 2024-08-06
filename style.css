@@ -185,14 +185,13 @@ button:hover {
     background-color: var(--white);
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s ease;
 }
 
 .produto:hover {
     transform: translateY(-10px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
 .produto i {
@@ -309,13 +308,13 @@ footer {
     .nav-links {
         display: none;
         position: absolute;
-        top: 60px;
+        top: 70px;
         left: 0;
         width: 100%;
         background-color: var(--primary-color);
         flex-direction: column;
         padding: 20px;
-        text-align: center;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
 
     .nav-links.active {
@@ -326,10 +325,6 @@ footer {
         margin: 15px 0;
     }
 
-    .produtos-grid {
-        grid-template-columns: 1fr;
-    }
-
     #hero h1 {
         font-size: 2rem;
     }
@@ -338,8 +333,8 @@ footer {
         font-size: 1rem;
     }
 
-    .footer-content {
-        flex-direction: column;
+    .produtos-grid {
+        grid-template-columns: 1fr;
     }
 
     .whatsapp-button {
