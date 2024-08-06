@@ -1,11 +1,4 @@
-:root {
-    --primary-color: #0066cc;
-    --secondary-color: #ff6600;
-    --text-color: #333;
-    --bg-color: #f4f4f4;
-    --white: #ffffff;
-}
-
+/* Reset e estilos gerais */
 * {
     margin: 0;
     padding: 0;
@@ -15,8 +8,8 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    color: var(--text-color);
-    background-color: var(--bg-color);
+    color: #333;
+    background-color: #f4f4f4;
 }
 
 .container {
@@ -26,12 +19,11 @@ body {
     padding: 0 20px;
 }
 
+/* Header e navegação */
 header {
-    background-color: var(--primary-color);
+    background-color: #0066cc;
+    color: #ffffff;
     padding: 1rem 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
 }
 
 nav {
@@ -41,12 +33,13 @@ nav {
 }
 
 .logo {
-    height: 50px;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 .nav-links {
-    display: flex;
     list-style: none;
+    display: flex;
 }
 
 .nav-links li {
@@ -54,87 +47,54 @@ nav {
 }
 
 .nav-links a {
-    color: var(--white);
+    color: #ffffff;
     text-decoration: none;
-    transition: color 0.3s ease;
 }
 
-.nav-links a:hover {
-    color: var(--secondary-color);
-}
-
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.menu-toggle span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    background-color: var(--white);
-    transition: all 0.3s ease-in-out;
-}
-
-.hero {
-    background-color: var(--primary-color);
-    color: var(--white);
-    text-align: center;
-    padding: 4rem 0;
-}
-
-.cta-button {
-    display: inline-block;
-    background-color: var(--secondary-color);
-    color: var(--white);
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 20px;
-    transition: background-color 0.3s ease;
-}
-
-.cta-button:hover {
-    background-color: #e65c00;
-}
-
+/* Seções */
 section {
-    padding: 4rem 0;
+    padding: 2rem 0;
 }
 
 h1, h2, h3 {
-    margin-bottom: 20px;
+    margin-bottom: 1rem;
 }
 
+/* Formulários */
 form {
     max-width: 500px;
     margin: 0 auto;
 }
 
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
 input, textarea, button {
     display: block;
     width: 100%;
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    padding: 0.5rem;
 }
 
 button {
-    background-color: var(--primary-color);
-    color: var(--white);
+    background-color: #0066cc;
+    color: #ffffff;
     border: none;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    padding: 10px 20px;
+    margin-top: 10px;
 }
 
 button:hover {
     background-color: #0052a3;
 }
 
+/* Produtos */
 .produtos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -142,30 +102,67 @@ button:hover {
 }
 
 .produto {
-    background-color: var(--white);
+    background-color: #ffffff;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
 }
 
-.produto:hover {
-    transform: translateY(-5px);
+/* Depoimentos */
+.depoimentos-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
 }
 
+.depoimento {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.depoimento p {
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.depoimento cite {
+    font-weight: bold;
+}
+
+/* FAQ */
+.faq-item {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 20px;
+}
+
+.faq-item h3 {
+    margin-bottom: 10px;
+    color: #0066cc;
+}
+
+/* Footer */
 footer {
-    background-color: var(--primary-color);
-    color: var(--white);
+    background-color: #0066cc;
+    color: #ffffff;
     text-align: center;
-    padding: 20px 0;
+    padding: 1rem 0;
+    margin-top: 2rem;
 }
 
+/* Botão WhatsApp */
 .whatsapp-button {
     position: fixed;
     bottom: 20px;
     right: 20px;
     background-color: #25d366;
-    color: var(--white);
+    color: #ffffff;
     padding: 10px 20px;
     border-radius: 50px;
     text-decoration: none;
@@ -173,17 +170,13 @@ footer {
     align-items: center;
     font-weight: bold;
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    transition: background-color 0.3s ease;
 }
 
 .whatsapp-button:hover {
     background-color: #128c7e;
 }
 
-.whatsapp-button i {
-    margin-right: 10px;
-}
-
+/* Botão Voltar ao Topo */
 #btnTopo {
     display: none;
     position: fixed;
@@ -192,8 +185,8 @@ footer {
     z-index: 99;
     border: none;
     outline: none;
-    background-color: var(--primary-color);
-    color: var(--white);
+    background-color: #0066cc;
+    color: white;
     cursor: pointer;
     padding: 15px;
     border-radius: 50%;
@@ -204,28 +197,25 @@ footer {
     background-color: #0052a3;
 }
 
-.media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
     }
 
     .nav-links {
         display: none;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background-color: var(--primary-color);
-        flex-direction: column;
-        padding: 20px;
-        text-align: center;
     }
 
-    .nav-links.active {
-        display: flex;
+    .menu-toggle {
+        display: block;
     }
 
-    .nav-links li {
-        margin: 10px 0;
+    .produtos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .depoimento {
+        flex: 0 0 90%;
     }
 }
