@@ -145,9 +145,9 @@ function simularFinanciamento() {
     resultadoDiv.innerHTML = `
         <h3>Resultado da Simulação</h3>
         <p>Valor financiado: R$ ${valor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
-        <p>Prazo: ${prazo} meses</p>
+            <p>Prazo: ${prazo} meses</p>
         <p>Parcela mensal: R$ ${parcela.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
-        <p>Total a pagar: R$ ${totalPagar.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+            <p>Total a pagar: R$ ${totalPagar.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
     `;
     resultadoDiv.scrollIntoView({ behavior: 'smooth' });
 }
