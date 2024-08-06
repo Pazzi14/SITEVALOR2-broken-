@@ -204,7 +204,7 @@ footer {
     background-color: #0052a3;
 }
 
-@media (max-width: 768px) {
+.media (max-width: 768px) {
     .menu-toggle {
         display: block;
     }
