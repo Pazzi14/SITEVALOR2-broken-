@@ -7,32 +7,39 @@ document.addEventListener('DOMContentLoaded', function() {
     // Menu toggle functionality
     menuToggle.addEventListener('click', () => {
         navLinks.classList.toggle('active');
-        menuToggle.setAttribute('aria-expanded', 
-            menuToggle.getAttribute('aria-expanded') === 'false' ? 'true' : 'false'
-        );
+        const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+        menuToggle.setAttribute('aria-expanded', !isExpanded);
     });
 
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
         });
     });
 
     // Simulador form submission
-    simuladorForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        simularFinanciamento();
-    });
+    if (simuladorForm) {
+        simuladorForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            simularFinanciamento();
+        });
+    }
 
     // Contato form submission
-    contatoForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        enviarFormularioContato();
-    });
+    if (contatoForm) {
+        contatoForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            enviarFormularioContato();
+        });
+    }
 
     // Intersection Observer for fade-in animations
     const faders = document.querySelectorAll('.fade-in');
@@ -43,12 +50,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
         entries.forEach(entry => {
-            if (!entry.isIntersecting) {
-                return;
-            } else {
-                entry.target.classList.add('appear');
-                appearOnScroll.unobserve(entry.target);
-            }
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('appear');
+            appearOnScroll.unobserve(entry.target);
         });
     }, appearOptions);
 
@@ -71,13 +75,15 @@ function simularFinanciamento() {
     const totalPagar = parcela * prazo;
 
     const resultadoDiv = document.getElementById('resultado-simulacao');
-    resultadoDiv.innerHTML = `
-        <h3>Resultado da Simulação</h3>
-        <p>Valor financiado: R$ ${valor.toFixed(2)}</p>
-        <p>Prazo: ${prazo} meses</p>
-        <p>Parcela mensal: R$ ${parcela.toFixed(2)}</p>
-        <p>Total a pagar: R$ ${totalPagar.toFixed(2)}</p>
-    `;
+    if (resultadoDiv) {
+        resultadoDiv.innerHTML = `
+            <h3>Resultado da Simulação</h3>
+            <p>Valor financiado: R$ ${valor.toFixed(2)}</p>
+            <p>Prazo: ${prazo} meses</p>
+            <p>Parcela mensal: R$ ${parcela.toFixed(2)}</p>
+            <p>Total a pagar: R$ ${totalPagar.toFixed(2)}</p>
+        `;
+    }
 }
 
 function enviarFormularioContato() {
