@@ -3,11 +3,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const nav = document.querySelector('.nav-links');
     const navLinks = document.querySelectorAll('.nav-links li');
 
+    // Toggle navigation
     burger.addEventListener('click', () => {
-        // Toggle Nav
         nav.classList.toggle('nav-active');
 
-        // Animate Links
+        // Animate links
         navLinks.forEach((link, index) => {
             if (link.style.animation) {
                 link.style.animation = '';
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Burger Animation
+        // Burger animation
         burger.classList.toggle('toggle');
     });
 
@@ -41,6 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p>Parcela mensal: R$ ${parcela.toFixed(2)}</p>
                 <p>Total a pagar: R$ ${totalPagar.toFixed(2)}</p>
             `;
+
+            resultadoSimulacao.style.display = 'block';
         });
     }
 
@@ -71,5 +73,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 behavior: 'smooth'
             });
         });
+    });
+
+    // Animação de fade-in para elementos quando entram na viewport
+    const fadeElements = document.querySelectorAll('.fade-in');
+
+    const fadeInOptions = {
+        threshold: 0.5,
+        rootMargin: "0px 0px -100px 0px"
+    };
+
+    const fadeInObserver = new IntersectionObserver(function(entries, fadeInObserver) {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) {
+                return;
+            } else {
+                entry.target.classList.add('appear');
+                fadeInObserver.unobserve(entry.target);
+            }
+        });
+    }, fadeInOptions);
+
+    fadeElements.forEach(element => {
+        fadeInObserver.observe(element);
     });
 });
