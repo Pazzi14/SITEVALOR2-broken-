@@ -4,18 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valor Financiamentos - Soluções Financeiras Personalizadas</title>
+    <meta name="description" content="A Valor Financiamentos oferece as melhores soluções em empréstimos pessoais, financiamento de veículos e crédito imobiliário. Simule agora e realize seus sonhos!">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
         <div class="container">
             <nav>
-                <div class="logo">Valor Financiamentos</div>
+                <a href="#" class="logo" aria-label="Valor Financiamentos">
+                    <img src="logo.png" alt="Logo Valor Financiamentos" width="150" height="50">
+                </a>
+                <button class="menu-toggle" aria-label="Abrir menu">
+                    <span class="hamburger"></span>
+                </button>
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
                     <li><a href="#simulador">Simulador</a></li>
-                    <li><a href="#produtos">Produtos</a></li>
+                    <li><a href="#sobre">Sobre Nós</a></li>
                     <li><a href="#contato">Contato</a></li>
                 </ul>
             </nav>
@@ -23,10 +33,39 @@
     </header>
 
     <main>
-        <section id="home">
+        <section id="home" class="hero">
             <div class="container">
                 <h1>Soluções Financeiras Personalizadas</h1>
                 <p>Descubra as melhores opções de financiamento com a Valor Financiamentos</p>
+                <a href="#simulador" class="cta-button">Simular Agora</a>
+            </div>
+        </section>
+
+        <section id="servicos">
+            <div class="container">
+                <h2>Nossos Serviços</h2>
+                <div class="servicos-grid">
+                    <div class="servico">
+                        <i class="fas fa-hand-holding-usd"></i>
+                        <h3>Empréstimo Pessoal</h3>
+                        <p>Crédito rápido e fácil para suas necessidades pessoais.</p>
+                    </div>
+                    <div class="servico">
+                        <i class="fas fa-car"></i>
+                        <h3>Financiamento de Veículos</h3>
+                        <p>Realize o sonho do seu carro novo com as melhores taxas.</p>
+                    </div>
+                    <div class="servico">
+                        <i class="fas fa-home"></i>
+                        <h3>Crédito Imobiliário</h3>
+                        <p>Financie seu imóvel com condições especiais.</p>
+                    </div>
+                    <div class="servico">
+                        <i class="fas fa-building"></i>
+                        <h3>Crédito para Empresas</h3>
+                        <p>Soluções financeiras para impulsionar seu negócio.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -48,25 +87,22 @@
             </div>
         </section>
 
-        <section id="produtos">
+        <section id="sobre">
             <div class="container">
-                <h2>Nossos Produtos</h2>
-                <div class="produtos-grid">
-                    <div class="produto">
-                        <h3>Empréstimo Pessoal</h3>
-                        <p>Crédito rápido e fácil para suas necessidades pessoais.</p>
+                <h2>Sobre a Valor Financiamentos</h2>
+                <p>Com anos de experiência no mercado financeiro, a Valor Financiamentos se destaca por oferecer soluções personalizadas e taxas competitivas. Nossa missão é ajudar nossos clientes a realizarem seus sonhos e alcançarem estabilidade financeira.</p>
+                <div class="valores">
+                    <div class="valor">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>Transparência</h3>
                     </div>
-                    <div class="produto">
-                        <h3>Financiamento de Veículos</h3>
-                        <p>Realize o sonho do seu carro novo com as melhores taxas.</p>
+                    <div class="valor">
+                        <i class="fas fa-handshake"></i>
+                        <h3>Confiança</h3>
                     </div>
-                    <div class="produto">
-                        <h3>Crédito Imobiliário</h3>
-                        <p>Financie seu imóvel com condições especiais.</p>
-                    </div>
-                    <div class="produto">
-                        <h3>Crédito para Empresas</h3>
-                        <p>Soluções financeiras para impulsionar seu negócio.</p>
+                    <div class="valor">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Excelência</h3>
                     </div>
                 </div>
             </div>
@@ -96,17 +132,29 @@
 
     <footer>
         <div class="container">
-            <p>Telefone: (11) 3717-6415 | Email: comercial@valorfinanciamentos.com.br</p>
-            <p>Endereço: Rua Augusta, 101</p>
-            <p>&copy; 2023 Valor Financiamentos. Todos os direitos reservados.</p>
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>Telefone: (11) 3717-6415</p>
+                    <p>Email: comercial@valorfinanciamentos.com.br</p>
+                    <p>Endereço: Rua Augusta, 101</p>
+                </div>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <p class="copyright">&copy; 2023 Valor Financiamentos. Todos os direitos reservados.</p>
         </div>
     </footer>
 
-    <a href="https://wa.me/551137176415" class="whatsapp-button" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-whatsapp"></i> Fale Conosco
+    <a href="https://wa.me/551137176415" class="whatsapp-button" target="_blank" rel="noopener noreferrer" aria-label="Fale conosco pelo WhatsApp">
+        <i class="fab fa-whatsapp"></i>
     </a>
 
-    <button id="btnTopo" title="Voltar ao topo">↑</button>
+    <button id="btnTopo" aria-label="Voltar ao topo">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 
     <script src="script.js"></script>
 </body>
