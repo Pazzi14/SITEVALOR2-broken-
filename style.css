@@ -321,3 +321,71 @@ footer {
 
 .toggle .line3 {
     transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Resultado da simulação */
+#resultado-simulacao {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-top: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#resultado-simulacao h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+#resultado-simulacao p {
+    margin-bottom: 0.5rem;
+}
+
+/* Animações */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-in.appear {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Acessibilidade */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Melhorias adicionais */
+input:focus,
+textarea:focus,
+button:focus {
+    outline: 2px solid var(--primary-color);
+}
+
+.produto h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.produto p {
+    font-size: 0.9rem;
+}
+
+#sobre p {
+    margin-bottom: 1rem;
+}
+
+#sobre p:last-child {
+    margin-bottom: 0;
+}
