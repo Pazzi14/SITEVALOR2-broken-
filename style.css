@@ -93,6 +93,16 @@ nav ul li a {
     background-color: #e65c00;
 }
 
+/* Seções gerais */
+section {
+    padding: 60px 0;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
 /* Sobre Nós */
 .sobre-content {
     max-width: 1200px;
@@ -181,7 +191,6 @@ nav ul li a {
 /* Simulador */
 #simulador {
     background-color: var(--bg-color);
-    padding: 60px 0;
 }
 
 #simulador-form {
@@ -189,6 +198,8 @@ nav ul li a {
     margin: 0 auto;
 }
 
+#simulador-form select,
+#simulador-form input,
 #simulador-form button {
     display: block;
     width: 100%;
@@ -220,7 +231,6 @@ nav ul li a {
 /* Depoimentos */
 #depoimentos {
     background-color: #f8f8f8;
-    padding: 60px 0;
 }
 
 .depoimentos-slider {
@@ -276,7 +286,6 @@ nav ul li a {
 /* Ouvidoria */
 #ouvidoria {
     background-color: #f8f8f8;
-    padding: 60px 0;
 }
 
 .ouvidoria-content {
@@ -321,6 +330,37 @@ nav ul li a {
 
 .btn-denuncia:hover {
     background-color: #005bb5;
+}
+
+/* Contatos */
+#contatos {
+    background-color: var(--bg-color);
+}
+
+#contato-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+#contato-form input,
+#contato-form textarea,
+#contato-form button {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+#contato-form button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#contato-form button:hover {
+    background-color: #0052a3;
 }
 
 /* Footer */
