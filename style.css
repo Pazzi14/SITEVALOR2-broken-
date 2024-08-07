@@ -1,340 +1,64 @@
-/* Estilos gerais */
-:root {
-    --primary-color: #0066cc;
-    --secondary-color: #ff6600;
-    --text-color: #333;
-    --background-color: #f4f4f4;
-}
-
-* {
-    box-sizing: border-box;
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
     margin: 0;
     padding: 0;
 }
 
-body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    color: var(--text-color);
-    background-color: var(--background-color);
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Header */
 header {
-    background-color: var(--primary-color);
+    background-color: #0066cc;
     color: white;
-    padding: 1rem 0;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
+    padding: 1rem;
 }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+nav ul {
+    list-style-type: none;
+    padding: 0;
 }
 
-.logo img {
-    height: 50px;
+nav ul li {
+    display: inline;
+    margin-right: 1rem;
 }
 
-.nav-links {
-    display: flex;
-    list-style: none;
-}
-
-.nav-links li {
-    margin-left: 20px;
-}
-
-.nav-links a {
+nav ul li a {
     color: white;
     text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
 }
 
-.nav-links a:hover {
-    color: var(--secondary-color);
+main {
+    padding: 2rem;
 }
 
-/* Hero Section */
-.hero {
-    background-image: url('hero-bg.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: white;
-}
-
-.hero h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-}
-
-.cta-button {
-    display: inline-block;
-    background-color: var(--secondary-color);
-    color: white;
-    padding: 12px 24px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-
-.cta-button:hover {
-    background-color: #e65c00;
-}
-
-/* Seções */
 section {
-    padding: 80px 0;
+    margin-bottom: 2rem;
 }
 
-h2 {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 2.5rem;
-}
-
-/* Serviços */
 .servicos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+    gap: 1rem;
 }
 
 .servico-card {
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.servico-card:hover {
-    transform: translateY(-10px);
-}
-
-.servico-card i {
-    font-size: 3rem;
-    color: var(--primary-color);
-    margin-bottom: 20px;
-}
-
-.saiba-mais {
-    display: inline-block;
-    margin-top: 15px;
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: bold;
-}
-
-/* Simulador */
-#simulador-form {
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-#simulador-form input,
-#simulador-form select,
-#simulador-form button {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    padding: 1rem;
 }
 
-#simulador-form button {
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-#simulador-form button:hover {
-    background-color: #005bb5;
-}
-
-/* Sobre Nós */
-.metricas {
+form {
     display: flex;
-    justify-content: space-around;
-    text-align: center;
-    margin-top: 40px;
+    flex-direction: column;
+    max-width: 300px;
 }
 
-.metrica h3 {
-    font-size: 2.5rem;
-    color: var(--primary-color);
+input, select, textarea, button {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
 }
 
-/* Depoimentos */
-.depoimentos-slider {
-    /* Estilos para o slider de depoimentos */
-}
-
-/* Blog */
-.blog-posts {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-/* Contato */
-#contato-form {
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-#contato-form input,
-#contato-form select,
-#contato-form textarea,
-#contato-form button {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-#contato-form button {
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-#contato-form button:hover {
-    background-color: #005bb5;
-}
-
-/* Footer */
 footer {
     background-color: #333;
     color: white;
-    padding: 40px 0 20px;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.footer-section {
-    margin-bottom: 20px;
-}
-
-.social-icon {
-    color: white;
-    font-size: 1.5rem;
-    margin-right: 10px;
-    transition: color 0.3s ease;
-}
-
-.social-icon:hover {
-    color: var(--secondary-color);
-}
-
-.footer-bottom {
     text-align: center;
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px solid #555;
-}
-
-/* WhatsApp Button */
-.whatsapp-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #25d366;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 50px;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    font-weight: bold;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    transition: background-color 0.3s ease;
-}
-
-.whatsapp-button:hover {
-    background-color: #128c7e;
-}
-
-.whatsapp-button i {
-    margin-right: 10px;
-}
-
-/* Cookie Consent */
-.cookie-banner {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: #333;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    z-index: 1000;
-}
-
-.cookie-banner button {
-    background-color: var(--secondary-color);
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    margin-left: 10px;
-    cursor: pointer;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
-
-    .burger {
-        display: block;
-    }
-
-    .hero h1 {
-        font-size: 2rem;
-    }
-
-    .hero p {
-        font-size: 1rem;
-    }
-
-    .metricas {
-        flex-direction: column;
-    }
-
-    .metrica {
-        margin-bottom: 20px;
-    }
+    padding: 1rem;
 }
