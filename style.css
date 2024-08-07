@@ -1,14 +1,22 @@
 /* Estilos gerais */
+:root {
+    --primary-color: #0066cc;
+    --secondary-color: #ff6600;
+    --text-color: #333;
+    --background-color: #f4f4f4;
+}
+
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    color: #333;
+    color: var(--text-color);
+    background-color: var(--background-color);
 }
 
 .container {
@@ -17,18 +25,21 @@ body {
     padding: 0 20px;
 }
 
-/* Header e navegação */
+/* Header */
 header {
-    background-color: #0066cc;
+    background-color: var(--primary-color);
     color: white;
     padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
 }
 
 .logo img {
@@ -48,64 +59,93 @@ nav {
     color: white;
     text-decoration: none;
     font-weight: bold;
+    transition: color 0.3s ease;
 }
 
-.burger {
-    display: none;
-    cursor: pointer;
+.nav-links a:hover {
+    color: var(--secondary-color);
 }
 
-.burger div {
-    width: 25px;
-    height: 3px;
-    background-color: white;
-    margin: 5px;
-    transition: all 0.3s ease;
-}
-
-/* Seções principais */
-section {
-    padding: 50px 0;
-}
-
-h1, h2 {
+/* Hero Section */
+.hero {
+    background-image: url('hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
     text-align: center;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
     margin-bottom: 30px;
 }
 
 .cta-button {
     display: inline-block;
-    background-color: #ff6600;
+    background-color: var(--secondary-color);
     color: white;
-    padding: 10px 20px;
+    padding: 12px 24px;
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease;
 }
 
 .cta-button:hover {
     background-color: #e65c00;
 }
 
+/* Seções */
+section {
+    padding: 80px 0;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+}
+
 /* Serviços */
 .servicos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    gap: 30px;
 }
 
 .servico-card {
-    background-color: #f4f4f4;
-    padding: 20px;
-    border-radius: 5px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.servico-card:hover {
+    transform: translateY(-10px);
 }
 
 .servico-card i {
     font-size: 3rem;
-    color: #0066cc;
-    margin-bottom: 15px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.saiba-mais {
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
 }
 
 /* Simulador */
@@ -119,20 +159,46 @@ h1, h2 {
 #simulador-form button {
     width: 100%;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
 }
 
-/* Sobre nós */
+#simulador-form button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#simulador-form button:hover {
+    background-color: #005bb5;
+}
+
+/* Sobre Nós */
 .metricas {
     display: flex;
     justify-content: space-around;
     text-align: center;
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
 .metrica h3 {
-    font-size: 2rem;
-    color: #0066cc;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+}
+
+/* Depoimentos */
+.depoimentos-slider {
+    /* Estilos para o slider de depoimentos */
+}
+
+/* Blog */
+.blog-posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
 }
 
 /* Contato */
@@ -142,23 +208,38 @@ h1, h2 {
 }
 
 #contato-form input,
+#contato-form select,
 #contato-form textarea,
 #contato-form button {
     width: 100%;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#contato-form button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#contato-form button:hover {
+    background-color: #005bb5;
 }
 
 /* Footer */
 footer {
     background-color: #333;
     color: white;
-    padding: 30px 0;
+    padding: 40px 0 20px;
 }
 
 .footer-content {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-wrap: wrap;
 }
 
@@ -170,16 +251,21 @@ footer {
     color: white;
     font-size: 1.5rem;
     margin-right: 10px;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: var(--secondary-color);
 }
 
 .footer-bottom {
     text-align: center;
     margin-top: 20px;
-    padding-top: 10px;
+    padding-top: 20px;
     border-top: 1px solid #555;
 }
 
-/* WhatsApp button */
+/* WhatsApp Button */
 .whatsapp-button {
     position: fixed;
     bottom: 20px;
@@ -193,14 +279,41 @@ footer {
     align-items: center;
     font-weight: bold;
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    transition: background-color 0.3s ease;
+}
+
+.whatsapp-button:hover {
+    background-color: #128c7e;
 }
 
 .whatsapp-button i {
     margin-right: 10px;
 }
 
+/* Cookie Consent */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    z-index: 1000;
+}
+
+.cookie-banner button {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
 /* Responsividade */
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
     .nav-links {
         display: none;
     }
@@ -209,26 +322,19 @@ footer {
         display: block;
     }
 
-    .nav-active {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        position: absolute;
-        right: 0px;
-        height: 92vh;
-        top: 8vh;
-        background-color: #0066cc;
-        width: 50%;
-        transform: translateX(100%);
-        transition: transform 0.5s ease-in;
+    .hero h1 {
+        font-size: 2rem;
     }
 
-    .nav-active li {
-        opacity: 0;
+    .hero p {
+        font-size: 1rem;
     }
 
-    .footer-content {
+    .metricas {
         flex-direction: column;
-        align-items: center;
+    }
+
+    .metrica {
+        margin-bottom: 20px;
     }
 }
