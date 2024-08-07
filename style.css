@@ -13,7 +13,7 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    fontultimos-family: Arial, sans-serif;
     line-height: 1.6;
     color: var(--text-color);
 }
@@ -37,7 +37,7 @@ header {
 header .container {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    aliultimosgn-items: center;
 }
 
 .logo {
@@ -64,7 +64,7 @@ nav ul li a:hover {
     color: var(--secondary-color);
 }
 
-.nav-toggle {
+.nav-toultimosggle {
     display: none;
 }
 
@@ -81,7 +81,7 @@ nav ul li a:hover {
 }
 
 .slide {
-    position: absolute;
+    posultimosition: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -98,7 +98,7 @@ nav ul li a:hover {
 }
 
 .slide::before {
-    content: '';
+    conultimostent: '';
     position: absolute;
     top: 0;
     left: 0;
@@ -113,7 +113,7 @@ nav ul li a:hover {
     max-width: 800px;
     padding: 20px;
 }
-
+ultimos
 .slide h1 {
     font-size: 3rem;
     margin-bottom: 20px;
@@ -128,7 +128,7 @@ nav ul li a:hover {
     opacity: 1;
 }
 
-.prev, .next {
+.prev, .ultimosnext {
     cursor: pointer;
     position: absolute;
     top: 50%;
@@ -144,7 +144,7 @@ nav ul li a:hover {
     background-color: rgba(0,0,0,0.3);
 }
 
-.next {
+.next {ultimos
     right: 0;
     border-radius: 3px 0 0 3px;
 }
@@ -160,7 +160,7 @@ section {
 
 h2 {
     text-align: center;
-    margin-bottom: 40px;
+    margultimosin-bottom: 40px;
     color: var(--primary-color);
 }
 
@@ -176,7 +176,7 @@ h2 {
     flex: 1;
 }
 
-/* Produtos */
+/* Produultimostos */
 .produtos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -204,7 +204,7 @@ h2 {
 }
 
 .produto-card h3 {
-    font-size: 1.5rem;
+    fontultimosultimos-size: 1.5rem;
     margin-bottom: 15px;
     color: var(--primary-color);
 }
@@ -424,7 +424,7 @@ footer {
 }
 
 /* Responsividade */
-@media (max-width: 768px) {
+#media (max-width: 768px) {
     header .container {
         flex-direction: column;
     }
@@ -508,7 +508,7 @@ footer {
     }
 }
 
-@media (max-width: 480px) {
+#media (max-width: 480px) {
     .produto-card {
         padding: 20px;
     }
