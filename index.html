@@ -14,6 +14,10 @@
         <div class="container">
             <img src="https://valorfinanciamentos.com.br/wp-content/uploads/2020/08/logo_grande_valor.png.png" alt="Logo Valor Financiamentos" class="logo">
             <nav>
+                <input type="checkbox" id="nav-toggle" class="nav-toggle">
+                <label for="nav-toggle" class="nav-toggle-label">
+                    <span></span>
+                </label>
                 <ul>
                     <li><a href="#simulador">Simulador</a></li>
                     <li><a href="#sobre">Sobre Nós</a></li>
@@ -50,13 +54,6 @@
                         <a href="#produtos" class="cta-button">Ver Produtos</a>
                     </div>
                 </div>
-                <div class="slide fade">
-                    <div class="slide-content">
-                        <h1>O que nossos clientes dizem</h1>
-                        <p>Depoimentos de quem já realizou seus sonhos</p>
-                        <a href="#depoimentos" class="cta-button">Ver Depoimentos</a>
-                    </div>
-                </div>
                 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                 <a class="next" onclick="plusSlides(1)">&#10095;</a>
             </div>
@@ -67,11 +64,8 @@
                 <h2>Sobre a Valor Financiamentos</h2>
                 <div class="sobre-content">
                     <div class="sobre-text">
-                        <p>Com anos de experiência no mercado financeiro, a Valor Financiamentos é referência em soluções de crédito personalizadas. Nossa missão é proporcionar aos nossos clientes as melhores condições para realizarem seus sonhos e impulsionarem seus negócios.</p>
-                        <p>Contamos com uma equipe de especialistas prontos para oferecer o melhor atendimento e as soluções mais adequadas às suas necessidades financeiras.</p>
-                    </div>
-                    <div class="sobre-image">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLAFOiCGpFmszKUHM8LB0Fa7XNKpAZHOSifTa_8kiDMR3OcjJN5yHd0O0&s=10" alt="Equipe Valor Financiamentos">
+                        <p>Com mais de uma década de experiência no mercado financeiro, a Valor Financiamentos se destaca como referência em soluções de crédito personalizadas. Nossa missão é proporcionar aos nossos clientes as melhores condições para realizarem seus sonhos e impulsionarem seus negócios.</p>
+                        <p>Contamos com uma equipe de especialistas altamente qualificados, prontos para oferecer um atendimento personalizado e as soluções mais adequadas às suas necessidades financeiras. Na Valor Financiamentos, acreditamos que cada cliente é único, e por isso, nos dedicamos a entender suas necessidades específicas para oferecer as melhores opções de crédito.</p>
                     </div>
                 </div>
             </div>
@@ -118,7 +112,7 @@
                     </select>
                     <input type="number" id="valor" placeholder="Valor desejado" required>
                     <input type="number" id="prazo" placeholder="Prazo (em meses)" required>
-                    <button type="submit">Simular</button>
+                    <button type="submit">Simular Agora e Economize</button>
                 </form>
                 <div id="resultado-simulacao"></div>
             </div>
@@ -126,22 +120,19 @@
 
         <section id="depoimentos">
             <div class="container">
-                <h2>Depoimentos de Clientes</h2>
+                <h2>O que nossos clientes dizem</h2>
                 <div class="depoimentos-grid">
                     <div class="depoimento-card">
-                        <img src="https://via.placeholder.com/100" alt="Cliente 1">
                         <p>"A Valor Financiamentos me ajudou a realizar o sonho da casa própria. Atendimento excelente e taxas justas!"</p>
-                        <h4>Maria Silva</h4>
+                        <h4>Cliente Satisfeito</h4>
                     </div>
                     <div class="depoimento-card">
-                        <img src="https://via.placeholder.com/100" alt="Cliente 2">
                         <p>"Consegui o crédito para expandir meu negócio de forma rápida e sem burocracia. Recomendo!"</p>
-                        <h4>João Santos</h4>
+                        <h4>Empreendedor</h4>
                     </div>
                     <div class="depoimento-card">
-                        <img src="https://via.placeholder.com/100" alt="Cliente 3">
                         <p>"Ótimas condições de financiamento e um atendimento personalizado. Estou muito satisfeita!"</p>
-                        <h4>Ana Oliveira</h4>
+                        <h4>Cliente Fiel</h4>
                     </div>
                 </div>
             </div>
@@ -150,17 +141,19 @@
         <section id="faq">
             <div class="container">
                 <h2>Perguntas Frequentes</h2>
-                <div class="faq-item">
-                    <h3>Qual é o prazo máximo para pagamento?</h3>
-                    <p>O prazo máximo varia de acordo com o tipo de financiamento, podendo chegar até 72 meses em alguns casos.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>Quais documentos são necessários para solicitar um empréstimo?</h3>
-                    <p>Geralmente, são necessários RG, CPF, comprovante de residência e comprovante de renda. Requisitos específicos podem variar de acordo com o tipo de financiamento.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>Posso fazer uma simulação sem compromisso?</h3>
-                    <p>Sim, você pode usar nosso simulador online para ter uma ideia dos valores e prazos, sem nenhum compromisso.</p>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <h3>Qual é o prazo máximo para pagamento?</h3>
+                        <p>O prazo máximo varia de acordo com o tipo de financiamento, podendo chegar até 72 meses em alguns casos.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Quais documentos são necessários para solicitar um empréstimo?</h3>
+                        <p>Geralmente, são necessários RG, CPF, comprovante de residência e comprovante de renda. Requisitos específicos podem variar de acordo com o tipo de financiamento.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Posso fazer uma simulação sem compromisso?</h3>
+                        <p>Sim, você pode usar nosso simulador online para ter uma ideia dos valores e prazos, sem nenhum compromisso.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -172,7 +165,7 @@
                     <input type="text" id="nome" placeholder="Nome" required>
                     <input type="email" id="email" placeholder="E-mail" required>
                     <textarea id="mensagem" placeholder="Mensagem" required></textarea>
-                    <button type="submit">Enviar</button>
+                    <button type="submit">Enviar Mensagem</button>
                 </form>
             </div>
         </section>
