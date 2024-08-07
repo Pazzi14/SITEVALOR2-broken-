@@ -4,21 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valor Financiamentos - Soluções Financeiras Personalizadas</title>
+    <meta name="description" content="A Valor Financiamentos oferece soluções personalizadas de financiamento imobiliário, veicular e empresarial. Simule agora e realize seus sonhos.">
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <link rel="icon" href="https://valorfinanciamentos.com.br/wp-content/uploads/2020/08/logo_grande_valor.png.png" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
     <header>
         <nav>
             <div class="logo">
-                <img src="https://valorfinanciamentos.com.br/wp-content/uploads/2020/08/logo_grande_valor.png.png" alt="Valor Financiamentos Logo">
+                <img src="logo.png" alt="Valor Financiamentos Logo">
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#servicos">Serviços</a></li>
                 <li><a href="#simulador">Simulador</a></li>
                 <li><a href="#sobre">Sobre Nós</a></li>
+                <li><a href="#blog">Blog</a></li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
             <div class="burger">
@@ -30,7 +32,7 @@
     </header>
 
     <main>
-        <section id="home" class="fade-in">
+        <section id="home" class="hero">
             <div class="container">
                 <h1>Soluções Financeiras Personalizadas</h1>
                 <p>Descubra o financiamento ideal para realizar seus sonhos</p>
@@ -46,16 +48,19 @@
                         <i class="fas fa-home"></i>
                         <h3>Financiamento Imobiliário</h3>
                         <p>Realize o sonho da casa própria</p>
+                        <a href="financiamento-imobiliario.html" class="saiba-mais">Saiba mais</a>
                     </div>
                     <div class="servico-card">
                         <i class="fas fa-car"></i>
                         <h3>Financiamento de Veículos</h3>
                         <p>Conquiste seu novo carro</p>
+                        <a href="financiamento-veiculos.html" class="saiba-mais">Saiba mais</a>
                     </div>
                     <div class="servico-card">
                         <i class="fas fa-briefcase"></i>
                         <h3>Financiamento Empresarial</h3>
                         <p>Impulsione seu negócio</p>
+                        <a href="financiamento-empresarial.html" class="saiba-mais">Saiba mais</a>
                     </div>
                 </div>
             </div>
@@ -82,20 +87,38 @@
         <section id="sobre" class="fade-in">
             <div class="container">
                 <h2>Sobre a Valor Financiamentos</h2>
-                <p>Somos especialistas em soluções financeiras personalizadas, comprometidos em ajudar nossos clientes a alcançarem seus objetivos com as melhores condições do mercado.</p>
+                <p>Há mais de 15 anos, a Valor Financiamentos é referência em soluções financeiras personalizadas. Nossa missão é proporcionar aos nossos clientes as melhores condições para realizarem seus sonhos e impulsionarem seus negócios.</p>
                 <div class="metricas">
                     <div class="metrica">
-                        <h3>10000</h3>
+                        <h3>10.000+</h3>
                         <p>Clientes Satisfeitos</p>
                     </div>
                     <div class="metrica">
-                        <h3>1000000000</h3>
-                        <p>Em Financiamentos (R$)</p>
+                        <h3>R$ 1 Bilhão+</h3>
+                        <p>Em Financiamentos</p>
                     </div>
                     <div class="metrica">
-                        <h3>15</h3>
-                        <p>Anos de Experiência</p>
+                        <h3>15 Anos</h3>
+                        <p>De Experiência</p>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="depoimentos" class="fade-in">
+            <div class="container">
+                <h2>O que nossos clientes dizem</h2>
+                <div class="depoimentos-slider">
+                    <!-- Adicione depoimentos aqui -->
+                </div>
+            </div>
+        </section>
+
+        <section id="blog" class="fade-in">
+            <div class="container">
+                <h2>Blog Financeiro</h2>
+                <div class="blog-posts">
+                    <!-- Adicione posts do blog aqui -->
                 </div>
             </div>
         </section>
@@ -106,6 +129,13 @@
                 <form id="contato-form">
                     <input type="text" id="nome" placeholder="Seu Nome" required>
                     <input type="email" id="email" placeholder="Seu E-mail" required>
+                    <input type="tel" id="telefone" placeholder="Seu Telefone" required>
+                    <select id="assunto" required>
+                        <option value="">Selecione o assunto</option>
+                        <option value="financiamento">Financiamento</option>
+                        <option value="duvida">Dúvida</option>
+                        <option value="outro">Outro</option>
+                    </select>
                     <textarea id="mensagem" placeholder="Sua Mensagem" required></textarea>
                     <button type="submit">Enviar</button>
                 </form>
@@ -135,6 +165,8 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2024 Valor Financiamentos. Todos os direitos reservados.</p>
+                <a href="politica-privacidade.html">Política de Privacidade</a> | 
+                <a href="termos-uso.html">Termos de Uso</a>
             </div>
         </div>
     </footer>
@@ -142,6 +174,11 @@
     <a href="https://wa.me/551137176415" class="whatsapp-button" target="_blank" rel="noopener noreferrer">
         <i class="fab fa-whatsapp"></i> Fale Conosco
     </a>
+
+    <div id="cookie-consent" class="cookie-banner">
+        <p>Usamos cookies para melhorar sua experiência. Ao continuar navegando, você concorda com nossa <a href="politica-privacidade.html">Política de Privacidade</a>.</p>
+        <button id="accept-cookies">Aceitar</button>
+    </div>
 
     <script src="script.js"></script>
 </body>
