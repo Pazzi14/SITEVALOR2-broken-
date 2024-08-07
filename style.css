@@ -24,7 +24,6 @@ body {
     margin: 0 auto;
     padding: 0 20px;
 }
-
 /* Header */
 header {
     background-color: white;
@@ -80,6 +79,7 @@ nav ul li a:hover {
     height: 500px;
     overflow: hidden;
 }
+
 .slide {
     position: absolute;
     top: 0;
@@ -266,6 +266,23 @@ h2 {
     font-size: 1rem;
     color: #666;
     margin-bottom: 20px;
+}
+
+/* Cobertura */
+#cobertura {
+    background-color: var(--bg-color);
+    text-align: center;
+}
+
+.cobertura-img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+#cobertura p {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 /* Depoimentos */
