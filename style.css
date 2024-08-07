@@ -25,19 +25,22 @@ body {
 
 /* Header */
 header {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 1rem;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-nav {
+header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .logo {
-    height: 50px;
+    height: 60px;
 }
 
 nav ul {
@@ -50,19 +53,23 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white;
+    color: var(--primary-color);
     text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--secondary-color);
 }
 
 /* Hero Section */
 #hero {
-    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbxpGj_KwvbXU0AOIDNxP4ZDHklzwwv7w4vw&usqp=CAU');
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://valorfinanciamentos.com.br/wp-content/uploads/2020/08/logo_grande_valor.png.png');
     background-size: cover;
     background-position: center;
     height: 500px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
     text-align: center;
     color: white;
@@ -82,7 +89,7 @@ nav ul li a {
     display: inline-block;
     background-color: var(--secondary-color);
     color: white;
-    padding: 10px 20px;
+    padding: 15px 30px;
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
@@ -95,12 +102,13 @@ nav ul li a {
 
 /* Seções gerais */
 section {
-    padding: 60px 0;
+    padding: 80px 0;
 }
 
 h2 {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
+    color: var(--primary-color);
 }
 
 /* Sobre Nós */
@@ -108,12 +116,11 @@ h2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 40px;
+    gap: 40px;
 }
 
 .sobre-text {
     flex: 1;
-    padding-right: 30px;
 }
 
 .sobre-image {
@@ -123,6 +130,7 @@ h2 {
 .sobre-image img {
     max-width: 100%;
     border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 /* Produtos */
@@ -179,7 +187,9 @@ h2 {
     display: block;
     width: 100%;
     margin-bottom: 20px;
-    padding: 10px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
 }
 
 #simulador-form button {
@@ -217,34 +227,6 @@ h2 {
     margin-bottom: 10px;
 }
 
-/* Redes Sociais */
-.social-feed {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
-
-.social-post {
-    background-color: white;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    max-width: 300px;
-}
-
-.social-post img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
-
-/* Localização */
-#mapa {
-    border-radius: 10px;
-    overflow: hidden;
-}
-
 /* Contatos */
 .contato-content {
     display: flex;
@@ -263,7 +245,9 @@ h2 {
     display: block;
     width: 100%;
     margin-bottom: 20px;
-    padding: 10px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
 }
 
 #contato-form button {
@@ -282,14 +266,8 @@ h2 {
     flex: 1;
 }
 
-.contato-info img {
-    max-width: 100%;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-
 .contato-info p {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .contato-info i {
@@ -308,9 +286,6 @@ footer {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
 }
 
 .footer-section {
@@ -323,14 +298,21 @@ footer {
     margin-bottom: 15px;
 }
 
-.social-icon {
+.footer-section ul {
+    list-style-type: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
     color: white;
-    font-size: 1.5rem;
-    margin-right: 15px;
+    text-decoration: none;
     transition: color 0.3s;
 }
 
-.social-icon:hover {
+.footer-section ul li a:hover {
     color: var(--secondary-color);
 }
 
@@ -344,31 +326,35 @@ footer {
 /* WhatsApp Button */
 .whatsapp-button {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 30px;
+    right: 30px;
     background-color: #25d366;
     color: white;
-    padding: 10px 20px;
+    padding: 15px 25px;
     border-radius: 50px;
     text-decoration: none;
     display: flex;
     align-items: center;
     font-weight: bold;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    transition: background-color 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    z-index: 1000;
 }
 
 .whatsapp-button:hover {
     background-color: #128c7e;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
 .whatsapp-button i {
     margin-right: 10px;
+    font-size: 1.2em;
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
-    nav {
+    header .container {
         flex-direction: column;
     }
 
@@ -389,14 +375,14 @@ footer {
         flex-direction: column;
     }
 
-    .sobre-text,
-    .sobre-image {
-        padding-right: 0;
-        margin-bottom: 20px;
-    }
-
     .footer-content {
         flex-direction: column;
+    }
+
+    .whatsapp-button {
+        bottom: 20px;
+        right: 20px;
+        padding: 10px 20px;
     }
 }
 
