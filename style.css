@@ -416,7 +416,7 @@ footer {
 }
 
 /* Responsividade */
-@media (max-width: 768px) {
+#media (max-width: 768px) {
     header .container {
         flex-direction: column;
     }
@@ -450,7 +450,7 @@ footer {
     }
 }
 
-@media (max-width: 480px) {
+#media (max-width: 480px) {
     .produto-card {
         padding: 20px;
     }
