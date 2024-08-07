@@ -15,21 +15,6 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(showSlides, 5000); // Change image every 5 seconds
     }
 
-    window.plusSlides = function(n) {
-        showSlidesByIndex(slideIndex += n);
-    }
-
-    function showSlidesByIndex(n) {
-        let i;
-        let slides = document.getElementsByClassName("slide");
-        if (n > slides.length) {slideIndex = 1}
-        if (n < 1) {slideIndex = slides.length}
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.opacity = "0";
-        }
-        slides[slideIndex-1].style.opacity = "1";
-    }
-
     // Simulador de financiamento
     const simuladorForm = document.getElementById('simulador-form');
     simuladorForm.addEventListener('submit', function(e) {
@@ -75,19 +60,41 @@ document.addEventListener('DOMContentLoaded', function() {
     const contatoForm = document.getElementById('contato-form');
     contatoForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
-        this.reset();
+        const nome = document.getElementById('nome').value;
+        const email = document.getElementById('email').value;
+        const mensagem = document.getElementById('mensagem').value;
+
+        if (nome.trim() === '' || email.trim() === '' || mensagem.trim() === '') {
+            alert('Por favor, preencha todos os campos.');
+            return;
+        }
+
+        if (!isValidEmail(email)) {
+            alert('Por favor, insira um email válido.');
+            return;
+        }
+
+                // Aqui você enviaria os dados para o servidor
+        // Por enquanto, vamos apenas simular um envio bem-sucedido
+        alert(`Obrigado pelo contato, ${nome}! Responderemos em breve para ${email}.`);
+        contatoForm.reset();
     });
 
-    // FAQ accordion
+    function isValidEmail(email) {
+        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+    }
+
+    // FAQ Toggle
     const faqItems = document.querySelectorAll('.faq-item');
     faqItems.forEach(item => {
-        item.addEventListener('click', () => {
+        const question = item.querySelector('h3');
+        question.addEventListener('click', () => {
             item.classList.toggle('active');
         });
     });
 
-    // Smooth scroll
+    // Smooth Scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -97,4 +104,59 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     });
+
+    // Mobile Navigation Toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('nav ul');
+
+    navToggle.addEventListener('change', function() {
+        if(this.checked) {
+            nav.style.clipPath = 'circle(150% at top right)';
+        } else {
+            nav.style.clipPath = 'circle(0 at top right)';
+        }
+    });
+
+    // Close mobile menu when a link is clicked
+    const navLinks = document.querySelectorAll('nav ul li a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navToggle.checked = false;
+            nav.style.clipPath = 'circle(0 at top right)';
+        });
+    });
+
+    // Lazy Loading Images
+    const lazyImages = document.querySelectorAll('img.lazy');
+    const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.classList.remove('lazy');
+                imageObserver.unobserve(img);
+            }
+        });
+    }, options);
+
+    lazyImages.forEach(img => imageObserver.observe(img));
+
+    // Animate on Scroll
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+
+    const animationObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    animatedElements.forEach(el => animationObserver.observe(el));
 });
