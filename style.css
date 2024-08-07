@@ -400,7 +400,7 @@ footer {
     }
 }
 
-@media (max-width: 480px) {
+#media (max-width: 480px) {
     .produto-card {
         padding: 20px;
     }
