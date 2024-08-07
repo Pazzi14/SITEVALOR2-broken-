@@ -5,16 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valor Financiamentos</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
     <header>
         <nav>
-            <img src="logo.png" alt="Logo Valor Financiamentos" class="logo">
+            <img src="https://valorfinanciamentos.com.br/wp-content/uploads/2020/08/logo_grande_valor.png.png" alt="Logo Valor Financiamentos" class="logo">
             <ul>
                 <li><a href="#simulador">Simulador</a></li>
                 <li><a href="#sobre">Sobre Nós</a></li>
                 <li><a href="#produtos">Produtos</a></li>
+                <li><a href="#faq">FAQ</a></li>
                 <li><a href="#contatos">Contatos</a></li>
             </ul>
         </nav>
@@ -28,125 +30,122 @@
         </section>
 
         <section id="sobre">
-            <h2>Sobre a Valor Financiamentos</h2>
-            <div class="sobre-content">
-                <div class="sobre-text">
-                    <p>Com anos de experiência no mercado financeiro, a Valor Financiamentos é referência em soluções de crédito personalizadas. Nossa missão é proporcionar aos nossos clientes as melhores condições para realizarem seus sonhos e impulsionarem seus negócios.</p>
-                </div>
-                <div class="mvv-container">
-                    <div class="mvv-card">
-                        <h3>Missão</h3>
-                        <p>Atender pessoas físicas com produtos de crédito a fim de aumentar a oferta e facilitar o seu acesso.</p>
+            <div class="container">
+                <h2>Sobre a Valor Financiamentos</h2>
+                <div class="sobre-content">
+                    <div class="sobre-text">
+                        <p>Com anos de experiência no mercado financeiro, a Valor Financiamentos é referência em soluções de crédito personalizadas. Nossa missão é proporcionar aos nossos clientes as melhores condições para realizarem seus sonhos e impulsionarem seus negócios.</p>
                     </div>
-                    <div class="mvv-card">
-                        <h3>Visão</h3>
-                        <p>Ser referência no setor de crédito com soluções ágeis, inovadoras e inclusivas.</p>
-                    </div>
-                    <div class="mvv-card">
-                        <h3>Valores</h3>
-                        <p>Responsabilidade, respeito e confiança no trato com funcionários, clientes e fornecedores.</p>
+                    <div class="sobre-image">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLAFOiCGpFmszKUHM8LB0Fa7XNKpAZHOSifTa_8kiDMR3OcjJN5yHd0O0&s=10" alt="Equipe Valor Financiamentos">
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="produtos">
-            <h2>Nossos Produtos</h2>
-            <div class="produtos-grid">
-                <div class="produto-card">
-                    <i class="fas fa-user-shield"></i>
-                    <h3>Crédito Pessoal sem Garantia</h3>
-                    <p>Obtenha crédito rápido e fácil para suas necessidades pessoais, sem necessidade de garantia.</p>
-                </div>
-                <div class="produto-card">
-                    <i class="fas fa-piggy-bank"></i>
-                    <h3>Débito em Conta Corrente</h3>
-                    <p>Facilidade de pagamento com débito automático em sua conta corrente.</p>
-                </div>
-                <div class="produto-card">
-                    <i class="fas fa-lightbulb"></i>
-                    <h3>Credluz - Débito em Conta de Luz</h3>
-                    <p>Crédito com a comodidade de pagar junto com sua conta de energia elétrica.</p>
-                </div>
-                <div class="produto-card">
-                    <i class="fas fa-building"></i>
-                    <h3>Consignado Privado</h3>
-                    <p>Empréstimo com desconto em folha para funcionários de empresas privadas conveniadas.</p>
-                </div>
-                <div class="produto-card">
-                    <i class="fas fa-landmark"></i>
-                    <h3>Consignado Público</h3>
-                    <p>Crédito consignado para servidores públicos, com as melhores taxas do mercado.</p>
+            <div class="container">
+                <h2>Nossos Produtos</h2>
+                <div class="produtos-grid">
+                    <div class="produto-card">
+                        <i class="fas fa-user-shield"></i>
+                        <h3>Crédito Pessoal sem Garantia</h3>
+                        <p>Obtenha crédito rápido e fácil para suas necessidades pessoais, sem necessidade de garantia.</p>
+                    </div>
+                    <div class="produto-card">
+                        <i class="fas fa-piggy-bank"></i>
+                        <h3>Débito em Conta Corrente</h3>
+                        <p>Facilidade de pagamento com débito automático em sua conta corrente.</p>
+                    </div>
+                    <div class="produto-card">
+                        <i class="fas fa-lightbulb"></i>
+                        <h3>Credluz - Débito em Conta de Luz</h3>
+                        <p>Crédito com a comodidade de pagar junto com sua conta de energia elétrica.</p>
+                    </div>
+                    <div class="produto-card">
+                        <i class="fas fa-building"></i>
+                        <h3>Consignado Privado</h3>
+                        <p>Empréstimo com desconto em folha para funcionários de empresas privadas conveniadas.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section id="simulador">
-            <h2>Simulador de Financiamento</h2>
-            <form id="simulador-form">
-                <select id="tipo-financiamento" required>
-                    <option value="">Selecione o tipo de financiamento</option>
-                    <option value="pessoal">Crédito Pessoal sem Garantia</option>
-                    <option value="debito_conta">Débito em Conta Corrente</option>
-                    <option value="credluz">Credluz - Débito em Conta de Luz</option>
-                    <option value="consignado_privado">Consignado Privado</option>
-                    <option value="consignado_publico">Consignado Público</option>
-                </select>
-                <input type="number" id="valor" placeholder="Valor desejado" required>
-                <input type="number" id="prazo" placeholder="Prazo (em meses)" required>
-                <button type="submit">Simular</button>
-            </form>
-            <div id="resultado-simulacao"></div>
-        </section>
-
-        <section id="depoimentos">
             <div class="container">
-                <h2>O que nossos clientes dizem</h2>
-                <div class="depoimentos-slider">
-                    <div class="depoimento">
-                        <p class="depoimento-texto">"A Valor Financiamentos me ajudou a realizar o sonho da casa própria. O processo foi rápido e a equipe foi muito atenciosa."</p>
-                        <p class="depoimento-autor">Maria Silva, São Paulo</p>
-                    </div>
-                    <div class="depoimento">
-                        <p class="depoimento-texto">"Consegui o financiamento para o meu carro novo com condições excelentes. Recomendo a todos!"</p>
-                        <p class="depoimento-autor">João Santos, Rio de Janeiro</p>
-                    </div>
-                    <div class="depoimento">
-                        <p class="depoimento-texto">"O crédito empresarial da Valor Financiamentos foi fundamental para expandir meu negócio. Atendimento de primeira!"</p>
-                        <p class="depoimento-autor">Ana Oliveira, Belo Horizonte</p>
-                    </div>
-                </div>
-                <div class="depoimentos-dots"></div>
+                <h2>Simulador de Financiamento</h2>
+                <form id="simulador-form">
+                    <select id="tipo-financiamento" required>
+                        <option value="">Selecione o tipo de financiamento</option>
+                        <option value="pessoal">Crédito Pessoal sem Garantia</option>
+                        <option value="debito_conta">Débito em Conta Corrente</option>
+                        <option value="credluz">Credluz - Débito em Conta de Luz</option>
+                        <option value="consignado_privado">Consignado Privado</option>
+                    </select>
+                    <input type="number" id="valor" placeholder="Valor desejado" required>
+                    <input type="number" id="prazo" placeholder="Prazo (em meses)" required>
+                    <button type="submit">Simular</button>
+                </form>
+                <div id="resultado-simulacao"></div>
             </div>
         </section>
 
-        <section id="ouvidoria">
+        <section id="faq">
             <div class="container">
-                <h2>Ouvidoria e Canal de Denúncias</h2>
-                <div class="ouvidoria-content">
-                    <div class="ouvidoria-info">
-                        <h3>Ouvidoria</h3>
-                        <p>Estamos aqui para ouvir você. Entre em contato com nossa ouvidoria:</p>
-                        <p><i class="fas fa-phone"></i> 0800 591 3076</p>
-                        <p><i class="fas fa-envelope"></i> ouvidoria@valorfinanciamentos.com.br</p>
-                    </div>
-                    <div class="ouvidoria-info">
-                        <h3>Canal de Denúncias</h3>
-                        <p>Denuncie irregularidades de forma segura e confidencial:</p>
-                        <a href="#" class="btn-denuncia">Fazer Denúncia</a>
-                    </div>
+                <h2>Perguntas Frequentes</h2>
+                <div class="faq-item">
+                    <h3>Qual é o prazo máximo para pagamento?</h3>
+                    <p>O prazo máximo varia de acordo com o tipo de financiamento, podendo chegar até 72 meses em alguns casos.</p>
                 </div>
+                <div class="faq-item">
+                    <h3>Quais documentos são necessários para solicitar um empréstimo?</h3>
+                    <p>Geralmente, são necessários RG, CPF, comprovante de residência e comprovante de renda. Requisitos específicos podem variar de acordo com o tipo de financiamento.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Posso fazer uma simulação sem compromisso?</h3>
+                    <p>Sim, você pode usar nosso simulador online para ter uma ideia dos valores e prazos, sem nenhum compromisso.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="redes-sociais">
+            <div class="container">
+                <h2>Siga-nos nas Redes Sociais</h2>
+                <div class="social-feed">
+                    <div class="social-post">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjCFj89CPZXfOQodrA3yyxgmpzY4u0gjXTyWdPMqp-G7ZaXbOQ_oALaznK&s=10" alt="Post das redes sociais">
+                        <p>Confira nossas últimas novidades e dicas financeiras!</p>
+                    </div>
+                    <!-- Adicione mais posts conforme necessário -->
+                </div>
+            </div>
+        </section>
+
+        <section id="localizacao">
+            <div class="container">
+                <h2>Nossa Localização</h2>
+                <div id="mapa" style="height: 400px; width: 100%;"></div>
             </div>
         </section>
 
         <section id="contatos">
-            <h2>Entre em Contato</h2>
-            <form id="contato-form">
-                <input type="text" id="nome" placeholder="Nome" required>
-                <input type="email" id="email" placeholder="E-mail" required>
-                <textarea id="mensagem" placeholder="Mensagem" required></textarea>
-                <button type="submit">Enviar</button>
-            </form>
+            <div class="container">
+                <h2>Entre em Contato</h2>
+                <div class="contato-content">
+                    <form id="contato-form">
+                        <input type="text" id="nome" placeholder="Nome" required>
+                        <input type="email" id="email" placeholder="E-mail" required>
+                        <textarea id="mensagem" placeholder="Mensagem" required></textarea>
+                        <button type="submit">Enviar</button>
+                    </form>
+                    <div class="contato-info">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbxpGj_KwvbXU0AOIDNxP4ZDHklzwwv7w4vw&usqp=CAU" alt="Atendimento Valor Financiamentos">
+                        <p><i class="fas fa-phone"></i> (11) 3717-6415</p>
+                        <p><i class="fas fa-envelope"></i> comercial@valorfinanciamentos.com.br</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Rua Augusta, 101 - São Paulo, SP</p>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
@@ -159,19 +158,15 @@
             </div>
             <div class="footer-section">
                 <h3>Contato</h3>
-                <p>Telefone: (11) 3717-6415</p>
-                <p>Email: comercial@valorfinanciamentos.com.br</p>
-            </div>
-            <div class="footer-section">
-                <h3>Ouvidoria</h3>
-                <p>0800 591 3076</p>
-                <p>ouvidoria@valorfinanciamentos.com.br</p>
+                <p>Matriz: (11) 3717-6444</p>
+                <p>Comercial: (11) 3717-6415</p>
+                <p>Cobrança: (11) 3717-6422</p>
             </div>
             <div class="footer-section">
                 <h3>Redes Sociais</h3>
-                <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
             </div>
         </div>
         <div class="footer-bottom">
@@ -179,10 +174,11 @@
         </div>
     </footer>
 
-    <a href="https://wa.me/551137176415" class="whatsapp-button" target="_blank">
+    <a href="https://wa.me/551137176415" class="whatsapp-button" target="_blank" aria-label="Contato via WhatsApp">
         <i class="fab fa-whatsapp"></i> Fale Conosco
     </a>
 
     <script src="script.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=SUA_CHAVE_API&callback=initMap"></script>
 </body>
 </html>
