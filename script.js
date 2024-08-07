@@ -1,77 +1,74 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Simulador de financiamento
-    const simuladorForm = document.getElementById('simulador-form');
-    const resultadoSimulacao = document.getElementById('resultado-simulacao');
+let slideIndex = 0;
+showSlides();
 
-    simuladorForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const tipo = document.getElementById('tipo-financiamento').value;
-        const valor = parseFloat(document.getElementById('valor').value);
-        const prazo = parseInt(document.getElementById('prazo').value);
+function showSlides() {
+    let i;
+    let slides = document.getElementsByClassName("slide");
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.opacity = "0";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}
+    slides[slideIndex-1].style.opacity = "1";
+    setTimeout(showSlides, 5000); // Change image every 5 seconds
+}
 
-        let taxa;
-        switch(tipo) {
-            case 'pessoal':
-                taxa = 0.025; // 2.5% ao mês
-                break;
-            case 'debito_conta':
-                taxa = 0.02; // 2% ao mês
-                break;
-            case 'credluz':
-                taxa = 0.018; // 1.8% ao mês
-                break;
-            case 'consignado_privado':
-                taxa = 0.015; // 1.5% ao mês
-                break;
-            default:
-                taxa = 0.02; // 2% ao mês como padrão
-        }
+function plusSlides(n) {
+    showSlidesByIndex(slideIndex += n);
+}
 
-        const parcela = (valor * taxa * Math.pow(1 + taxa, prazo)) / (Math.pow(1 + taxa, prazo) - 1);
-        const totalPagar = parcela * prazo;
+function showSlidesByIndex(n) {
+    let i;
+    let slides = document.getElementsByClassName("slide");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.opacity = "0";
+    }
+    slides[slideIndex-1].style.opacity = "1";
+}
 
-        resultadoSimulacao.innerHTML = `
-            <h3>Resultado da Simulação</h3>
-            <p>Tipo de crédito: ${document.getElementById('tipo-financiamento').options[document.getElementById('tipo-financiamento').selectedIndex].text}</p>
-            <p>Valor solicitado: R$ ${valor.toFixed(2)}</p>
-            <p>Prazo: ${prazo} meses</p>
-            <p>Taxa de juros: ${(taxa * 100).toFixed(2)}% ao mês</p>
-            <p>Parcela mensal estimada: R$ ${parcela.toFixed(2)}</p>
-            <p>Total a pagar: R$ ${totalPagar.toFixed(2)}</p>
-            <p class="disclaimer">* Esta simulação é apenas uma estimativa. Para uma cotação precisa, entre em contato conosco.</p>
-        `;
-    });
+// Simulador de financiamento
+document.getElementById('simulador-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const valor = parseFloat(document.getElementById('valor').value);
+    const prazo = parseInt(document.getElementById('prazo').value);
+    const tipoFinanciamento = document.getElementById('tipo-financiamento').value;
 
-    // Formulário de contato
-    const contatoForm = document.getElementById('contato-form');
-    contatoForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
-        contatoForm.reset();
-    });
+    // Simulação simplificada (ajuste conforme necessário)
+    let taxa;
+    switch(tipoFinanciamento) {
+        case 'pessoal':
+            taxa = 0.02; // 2% ao mês
+            break;
+        case 'debito_conta':
+            taxa = 0.018; // 1.8% ao mês
+            break;
+        case 'credluz':
+            taxa = 0.015; // 1.5% ao mês
+            break;
+        case 'consignado_privado':
+            taxa = 0.012; // 1.2% ao mês
+            break;
+        default:
+            taxa = 0.02;
+    }
 
-    // Scroll suave para links internos
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
+    const parcela = (valor * taxa * Math.pow(1 + taxa, prazo)) / (Math.pow(1 + taxa, prazo) - 1);
+    const total = parcela * prazo;
 
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
+    document.getElementById('resultado-simulacao').innerHTML = `
+        <h3>Resultado da Simulação</h3>
+        <p>Valor financiado: R$ ${valor.toFixed(2)}</p>
+        <p>Prazo: ${prazo} meses</p>
+        <p>Parcela mensal: R$ ${parcela.toFixed(2)}</p>
+        <p>Total a pagar: R$ ${total.toFixed(2)}</p>
+    `;
+});
 
-    // Animação de fade-in para elementos quando entram na viewport
-    const fadeElements = document.querySelectorAll('.fade-in');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    });
-
-    fadeElements.forEach(element => {
-        observer.observe(element);
-    });
+// Formulário de contato
+document.getElementById('contato-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+    this.reset();
 });
