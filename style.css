@@ -63,41 +63,72 @@ nav ul li a:hover {
     color: var(--secondary-color);
 }
 
-/* Hero Section */
-#hero {
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://valorfinanciamentos.com.br/wp-content/uploads/2020/08/logo_grande_valor.png.png');
+/* Slideshow */
+.slideshow-container {
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
     background-size: cover;
     background-position: center;
-    height: 500px;
     display: flex;
     align-items: center;
+    justify-content: center;
     text-align: center;
     color: white;
 }
 
-#hero h1 {
+.slide-content {
+    max-width: 800px;
+    padding: 20px;
+}
+
+.slide h1 {
     font-size: 3rem;
     margin-bottom: 20px;
 }
 
-#hero p {
+.slide p {
     font-size: 1.2rem;
     margin-bottom: 30px;
 }
 
-.cta-button {
-    display: inline-block;
-    background-color: var(--secondary-color);
-    color: white;
-    padding: 15px 30px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s;
+.slide.active {
+    opacity: 1;
 }
 
-.cta-button:hover {
-    background-color: #e65c00;
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0,0,0,0.3);
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
 }
 
 /* Seções gerais */
@@ -222,6 +253,37 @@ h2 {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
+/* Depoimentos */
+.depoimentos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.depoimento-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.depoimento-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.depoimento-card p {
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.depoimento-card h4 {
+    color: var(--primary-color);
+}
+
 /* FAQ */
 .faq-item {
     background-color: white;
@@ -330,12 +392,13 @@ footer {
     right: 30px;
     background-color: #25d366;
     color: white;
-    padding: 15px 25px;
+    padding: 20px 30px;
     border-radius: 50px;
     text-decoration: none;
     display: flex;
     align-items: center;
     font-weight: bold;
+    font-size: 1.2rem;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     transition: all 0.3s ease;
     z-index: 1000;
@@ -343,13 +406,13 @@ footer {
 
 .whatsapp-button:hover {
     background-color: #128c7e;
-    transform: translateY(-5px);
+    transform: translateY(-5px) scale(1.05);
     box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
 .whatsapp-button i {
     margin-right: 10px;
-    font-size: 1.2em;
+    font-size: 1.4em;
 }
 
 /* Responsividade */
@@ -362,11 +425,11 @@ footer {
         margin-top: 20px;
     }
 
-    #hero h1 {
+    .slide h1 {
         font-size: 2rem;
     }
 
-    #hero p {
+    .slide p {
         font-size: 1rem;
     }
 
@@ -382,7 +445,8 @@ footer {
     .whatsapp-button {
         bottom: 20px;
         right: 20px;
-        padding: 10px 20px;
+        padding: 15px 25px;
+        font-size: 1rem;
     }
 }
 
@@ -392,7 +456,7 @@ footer {
     }
 
     .whatsapp-button {
-        padding: 8px 15px;
+        padding: 12px 20px;
         font-size: 0.9rem;
     }
 }
