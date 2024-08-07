@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Simulador de financiamento
-    const simuladorForm = document.getElementById('simulador-form');
+                              const simuladorForm = document.getElementById('simulador-form');
     simuladorForm.addEventListener('submit', function(e) {
         e.preventDefault();
         const valor = parseFloat(document.getElementById('valor').value);
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <h3>Resultado da Simulação</h3>
             <p>Valor financiado: R$ ${valor.toFixed(2)}</p>
             <p>Prazo: ${prazo} meses</p>
-                        <p>Parcela mensal: R$ ${parcela.toFixed(2)}</p>
+            <p>Parcela mensal: R$ ${parcela.toFixed(2)}</p>
             <p>Total a pagar: R$ ${total.toFixed(2)}</p>
         `;
         resultadoDiv.style.display = 'block';
