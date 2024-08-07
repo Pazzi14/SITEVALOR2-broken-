@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <h3>Resultado da Simulação</h3>
             <p>Valor financiado: R$ ${valor.toFixed(2)}</p>
             <p>Prazo: ${prazo} meses</p>
-            <p>Parcela mensal: R$ ${parcela.toFixed(2)}</p>
+                        <p>Parcela mensal: R$ ${parcela.toFixed(2)}</p>
             <p>Total a pagar: R$ ${total.toFixed(2)}</p>
         `;
         resultadoDiv.style.display = 'block';
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-                // Aqui você enviaria os dados para o servidor
+        // Aqui você enviaria os dados para o servidor
         // Por enquanto, vamos apenas simular um envio bem-sucedido
         alert(`Obrigado pelo contato, ${nome}! Responderemos em breve para ${email}.`);
         contatoForm.reset();
@@ -126,26 +126,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Lazy Loading Images
-    const lazyImages = document.querySelectorAll('img.lazy');
-    const options = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
+    // Back to Top Button
+    const backToTopButton = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            backToTopButton.classList.add('show');
+        } else {
+            backToTopButton.classList.remove('show');
+        }
+    });
 
-    const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.classList.remove('lazy');
-                imageObserver.unobserve(img);
-            }
-        });
-    }, options);
-
-    lazyImages.forEach(img => imageObserver.observe(img));
+    backToTopButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 
     // Animate on Scroll
     const animatedElements = document.querySelectorAll('.animate-on-scroll');
@@ -159,4 +153,35 @@ document.addEventListener('DOMContentLoaded', function() {
     }, { threshold: 0.1 });
 
     animatedElements.forEach(el => animationObserver.observe(el));
+
+    // Slide Navigation
+    const prevButton = document.querySelector('.prev');
+    const nextButton = document.querySelector('.next');
+    const slides = document.querySelectorAll('.slide');
+
+    prevButton.addEventListener('click', () => {
+        slideIndex--;
+        if (slideIndex < 1) {
+            slideIndex = slides.length;
+        }
+        updateSlides();
+    });
+
+    nextButton.addEventListener('click', () => {
+        slideIndex++;
+        if (slideIndex > slides.length) {
+            slideIndex = 1;
+        }
+        updateSlides();
+    });
+
+    function updateSlides() {
+        slides.forEach((slide, index) => {
+            if (index === slideIndex - 1) {
+                slide.style.opacity = "1";
+            } else {
+                slide.style.opacity = "0";
+            }
+        });
+    }
 });
