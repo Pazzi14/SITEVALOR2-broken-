@@ -50,19 +50,6 @@ document.addEventListener('DOMContentLoaded', function() {
         contatoForm.reset();
     });
 
-    // Mapa
-    window.initMap = function() {
-        const location = {lat: -23.5505, lng: -46.6333}; // Coordenadas de São Paulo, ajuste conforme necessário
-        const map = new google.maps.Map(document.getElementById('mapa'), {
-            zoom: 15,
-            center: location
-        });
-        const marker = new google.maps.Marker({
-            position: location,
-            map: map
-        });
-    }
-
     // Scroll suave para links internos
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -72,5 +59,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 behavior: 'smooth'
             });
         });
+    });
+
+    // Animação de fade-in para elementos quando entram na viewport
+    const fadeElements = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    });
+
+    fadeElements.forEach(element => {
+        observer.observe(element);
     });
 });
