@@ -56,7 +56,7 @@ nav ul li a {
 
 /* Hero Section */
 #hero {
-    background-image: url('hero-bg.jpg');
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbxpGj_KwvbXU0AOIDNxP4ZDHklzwwv7w4vw&usqp=CAU');
     background-size: cover;
     background-position: center;
     height: 500px;
@@ -105,48 +105,24 @@ h2 {
 
 /* Sobre Nós */
 .sobre-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.sobre-text {
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 40px;
 }
 
-.mvv-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.mvv-card {
-    background-color: #f8f8f8;
-    border-radius: 10px;
-    padding: 30px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+.sobre-text {
     flex: 1;
-    min-width: 250px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding-right: 30px;
 }
 
-.mvv-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+.sobre-image {
+    flex: 1;
 }
 
-.mvv-card h3 {
-    color: var(--primary-color);
-    margin-bottom: 15px;
-    font-size: 1.5rem;
-}
-
-.mvv-card p {
-    color: #333;
-    font-size: 1rem;
-    line-height: 1.6;
+.sobre-image img {
+    max-width: 100%;
+    border-radius: 10px;
 }
 
 /* Produtos */
@@ -154,7 +130,6 @@ h2 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
-    padding: 0 20px;
 }
 
 .produto-card {
@@ -228,118 +203,58 @@ h2 {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-/* Depoimentos */
-#depoimentos {
-    background-color: #f8f8f8;
-}
-
-.depoimentos-slider {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.depoimento {
-    display: none;
+/* FAQ */
+.faq-item {
+    background-color: white;
+    border-radius: 10px;
     padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    margin: 20px 0;
-}
-
-.depoimento.active {
-    display: block;
-}
-
-.depoimento-texto {
-    font-style: italic;
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-    line-height: 1.6;
-}
-
-.depoimento-autor {
-    font-weight: bold;
-    color: var(--primary-color);
-}
-
-.depoimentos-dots {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.dot {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: #ccc;
-    margin: 0 5px;
-    cursor: pointer;
-}
-
-.dot.active {
-    background-color: var(--primary-color);
-}
-
-/* Ouvidoria */
-#ouvidoria {
-    background-color: #f8f8f8;
-}
-
-.ouvidoria-content {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 30px;
-}
-
-.ouvidoria-info {
-    flex: 1;
-    min-width: 250px;
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
+    margin-bottom: 20px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-.ouvidoria-info h3 {
+.faq-item h3 {
     color: var(--primary-color);
-    margin-bottom: 15px;
-}
-
-.ouvidoria-info p {
     margin-bottom: 10px;
 }
 
-.ouvidoria-info i {
-    color: var(--primary-color);
-    margin-right: 10px;
+/* Redes Sociais */
+.social-feed {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 
-.btn-denuncia {
-    display: inline-block;
-    background-color: var(--primary-color);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
+.social-post {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    max-width: 300px;
 }
 
-.btn-denuncia:hover {
-    background-color: #005bb5;
+.social-post img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* Localização */
+#mapa {
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 /* Contatos */
-#contatos {
-    background-color: var(--bg-color);
+.contato-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
 }
 
 #contato-form {
-    max-width: 500px;
-    margin: 0 auto;
+    flex: 1;
 }
 
 #contato-form input,
@@ -361,6 +276,25 @@ h2 {
 
 #contato-form button:hover {
     background-color: #0052a3;
+}
+
+.contato-info {
+    flex: 1;
+}
+
+.contato-info img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.contato-info p {
+    margin-bottom: 10px;
+}
+
+.contato-info i {
+    color: var(--primary-color);
+    margin-right: 10px;
 }
 
 /* Footer */
@@ -450,8 +384,29 @@ footer {
         font-size: 1rem;
     }
 
-    .mvv-container,
-    .ouvidoria-content {
+    .sobre-content,
+    .contato-content {
         flex-direction: column;
+    }
+
+    .sobre-text,
+    .sobre-image {
+        padding-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .produto-card {
+        padding: 20px;
+    }
+
+    .whatsapp-button {
+        padding: 8px 15px;
+        font-size: 0.9rem;
     }
 }
