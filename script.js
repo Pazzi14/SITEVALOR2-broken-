@@ -1,42 +1,32 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Slideshow
-    let slideIndex = 0;
-    showSlides();
-
-    function showSlides() {
-        let i;
-        let slides = document.getElementsByClassName("slide");
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.opacity = "0";
-        }
-        slideIndex++;
-        if (slideIndex > slides.length) {slideIndex = 1}
-        slides[slideIndex-1].style.opacity = "1";
-        setTimeout(showSlides, 5000); // Change image every 5 seconds
-    }
+    const simuladorForm = document.getElementById('simulador-form');
+    const contatoForm = document.getElementById('contato-form');
+    const navToggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('nav ul');
+    const faqItems = document.querySelectorAll('.faq-item');
 
     // Simulador de financiamento
-                              const simuladorForm = document.getElementById('simulador-form');
     simuladorForm.addEventListener('submit', function(e) {
         e.preventDefault();
+        const tipoFinanciamento = document.getElementById('tipo-financiamento').value;
         const valor = parseFloat(document.getElementById('valor').value);
         const prazo = parseInt(document.getElementById('prazo').value);
-        const tipoFinanciamento = document.getElementById('tipo-financiamento').value;
 
-        // Simulação simplificada (ajuste conforme necessário)
+        if (!tipoFinanciamento || isNaN(valor) || isNaN(prazo)) {
+            alert('Por favor, preencha todos os campos corretamente.');
+            return;
+        }
+
         let taxa;
         switch(tipoFinanciamento) {
             case 'pessoal':
                 taxa = 0.02; // 2% ao mês
                 break;
-            case 'debito_conta':
-                taxa = 0.018; // 1.8% ao mês
-                break;
-            case 'credluz':
+            case 'consignado_publico':
                 taxa = 0.015; // 1.5% ao mês
                 break;
             case 'consignado_privado':
-                taxa = 0.012; // 1.2% ao mês
+                taxa = 0.018; // 1.8% ao mês
                 break;
             default:
                 taxa = 0.02;
@@ -48,16 +38,17 @@ document.addEventListener('DOMContentLoaded', function() {
         const resultadoDiv = document.getElementById('resultado-simulacao');
         resultadoDiv.innerHTML = `
             <h3>Resultado da Simulação</h3>
+            <p>Tipo de Financiamento: ${document.getElementById('tipo-financiamento').options[document.getElementById('tipo-financiamento').selectedIndex].text}</p>
             <p>Valor financiado: R$ ${valor.toFixed(2)}</p>
             <p>Prazo: ${prazo} meses</p>
+            <p>Taxa de juros: ${(taxa * 100).toFixed(2)}% ao mês</p>
             <p>Parcela mensal: R$ ${parcela.toFixed(2)}</p>
             <p>Total a pagar: R$ ${total.toFixed(2)}</p>
         `;
-        resultadoDiv.style.display = 'block';
+        resultadoDiv.classList.add('show');
     });
 
     // Formulário de contato
-    const contatoForm = document.getElementById('contato-form');
     contatoForm.addEventListener('submit', function(e) {
         e.preventDefault();
         const nome = document.getElementById('nome').value;
@@ -85,103 +76,41 @@ document.addEventListener('DOMContentLoaded', function() {
         return re.test(String(email).toLowerCase());
     }
 
-    // FAQ Toggle
-    const faqItems = document.querySelectorAll('.faq-item');
-    faqItems.forEach(item => {
-        const question = item.querySelector('h3');
-        question.addEventListener('click', () => {
-            item.classList.toggle('active');
+    // Navegação móvel
+    navToggle.addEventListener('change', function() {
+        if(this.checked) {
+            nav.style.display = 'flex';
+        } else {
+            nav.style.display = 'none';
+        }
+    });
+
+    // Fechar menu móvel ao clicar em um link
+    const navLinks = document.querySelectorAll('nav ul li a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navToggle.checked = false;
+            nav.style.display = 'none';
         });
     });
 
-    // Smooth Scrolling
+    // Scroll suave para links internos
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-
             document.querySelector(this.getAttribute('href')).scrollIntoView({
                 behavior: 'smooth'
             });
         });
     });
 
-    // Mobile Navigation Toggle
-    const navToggle = document.querySelector('.nav-toggle');
-    const nav = document.querySelector('nav ul');
-
-    navToggle.addEventListener('change', function() {
-        if(this.checked) {
-            nav.style.clipPath = 'circle(150% at top right)';
-        } else {
-            nav.style.clipPath = 'circle(0 at top right)';
-        }
-    });
-
-    // Close mobile menu when a link is clicked
-    const navLinks = document.querySelectorAll('nav ul li a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            navToggle.checked = false;
-            nav.style.clipPath = 'circle(0 at top right)';
+    // FAQ toggle
+    faqItems.forEach(item => {
+        const question = item.querySelector('h3');
+        const answer = item.querySelector('p');
+        
+        question.addEventListener('click', () => {
+            answer.style.display = answer.style.display === 'none' ? 'block' : 'none';
         });
     });
-
-    // Back to Top Button
-    const backToTopButton = document.getElementById('back-to-top');
-    window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 300) {
-            backToTopButton.classList.add('show');
-        } else {
-            backToTopButton.classList.remove('show');
-        }
-    });
-
-    backToTopButton.addEventListener('click', (e) => {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // Animate on Scroll
-    const animatedElements = document.querySelectorAll('.animate-on-scroll');
-
-    const animationObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate');
-            }
-        });
-    }, { threshold: 0.1 });
-
-    animatedElements.forEach(el => animationObserver.observe(el));
-
-    // Slide Navigation
-    const prevButton = document.querySelector('.prev');
-    const nextButton = document.querySelector('.next');
-    const slides = document.querySelectorAll('.slide');
-
-    prevButton.addEventListener('click', () => {
-        slideIndex--;
-        if (slideIndex < 1) {
-            slideIndex = slides.length;
-        }
-        updateSlides();
-    });
-
-    nextButton.addEventListener('click', () => {
-        slideIndex++;
-        if (slideIndex > slides.length) {
-            slideIndex = 1;
-        }
-        updateSlides();
-    });
-
-    function updateSlides() {
-        slides.forEach((slide, index) => {
-            if (index === slideIndex - 1) {
-                slide.style.opacity = "1";
-            } else {
-                slide.style.opacity = "0";
-            }
-        });
-    }
 });
