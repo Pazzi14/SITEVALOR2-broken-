@@ -403,7 +403,7 @@ footer {
 }
 
 .whatsapp-button:hover {
-    background-color: #128c7e;
+    background-color: #006400;
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
