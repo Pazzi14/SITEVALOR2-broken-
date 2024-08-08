@@ -479,4 +479,12 @@ footer {
     .whatsapp-button i {
         font-size: 15px;
     }
+    
+    .whatsapp-img {
+    width: 15%;
+    height: 20px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    }
 }
