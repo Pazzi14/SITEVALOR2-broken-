@@ -98,12 +98,11 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 function enviarFormularioContato() {
     const nome = document.getElementById('nome').value;
     const email = document.getElementById('email').value;
-    const mensagem = document.getElementById('mensagem').value;// Aqui você deve implementar o envio real do formulário para seu servidor
-// Por enquanto, vamos apenas simular um envio bem-sucedido
+    const mensagem = document.getElementById('mensagem').value;
 
-alert(`Obrigado pelo contato, ${nome}! Responderemos em breve para ${email}.`);
-document.getElementById('contato-form').reset();
+    // Aqui você deve implementar o envio real do formulário para seu servidor
+    // Por enquanto, vamos apenas simular um envio bem-sucedido
+
+    alert(`Obrigado pelo contato, ${nome}! Responderemos em breve para ${email}.`);
+    document.getElementById('contato-form').reset();
 }
-        });
-    });
-});
