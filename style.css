@@ -176,7 +176,9 @@ h2 {
 #simulador-form select:focus,
 #simulador-form input:focus {
     box-shadow: 0 0 5px var(--secondary-color);
-    #resultado-simulacao {
+}
+
+#resultado-simulacao {
     max-width: 500px;
     margin: 20px auto;
     padding: 20px;
@@ -286,6 +288,12 @@ h2 {
 .faq-item h3 {
     color: var(--primary-color);
     margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.faq-item p {
+    display: none;
+    margin-top: 10px;
 }
 
 /* Contato */
