@@ -4,24 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valor Financiamentos - Soluções Financeiras Personalizadas</title>
-    <meta name="description" content="Valor Financiamentos oferece soluções financeiras personalizadas. Simulação online, crédito pessoal, financiamento de veículos e mais.">
-    <meta name="keywords" content="financiamento, crédito pessoal, empréstimo, simulação online, Valor Financiamentos">
+    <meta name="description" content="A Valor Financiamentos oferece soluções de crédito personalizadas para você. Simule agora e descubra as melhores opções de financiamento.">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
         <div class="container">
-            <img src="https://valorfinanciamentos.com.br/wp-content/uploads/2020/08/logo_grande_valor.png.png" alt="Logo Valor Financiamentos" class="logo">
+            <a href="#inicio" class="logo-link">
+                <img src="https://valorfinanciamentos.com.br/wp-content/uploads/2020/08/logo_grande_valor.png.png" alt="Logo Valor Financiamentos" class="logo">
+            </a>
             <nav>
                 <input type="checkbox" id="nav-toggle" class="nav-toggle">
                 <label for="nav-toggle" class="nav-toggle-label">
                     <span></span>
                 </label>
                 <ul>
+                    <li><a href="#inicio">Início</a></li>
                     <li><a href="#simulador">Simulador</a></li>
-                    <li><a href="#sobre">Sobre Nós</a></li>
                     <li><a href="#produtos">Produtos</a></li>
+                    <li><a href="#sobre">Sobre Nós</a></li>
                     <li><a href="#depoimentos">Depoimentos</a></li>
                     <li><a href="#faq">FAQ</a></li>
                     <li><a href="#contato">Contato</a></li>
@@ -31,157 +33,109 @@
     </header>
 
     <main>
-        <section id="hero">
-            <div class="slideshow-container">
-                <div class="slide fade">
-                    <img src="https://png.pngtree.com/thumb_back/fh260/background/20230314/pngtree-beautiful-background-of-high-rise-buildings-image_1947772.jpg" alt="Slide 1">
-                    <div class="slide-content">
-                        <h1>Simule seu financiamento</h1>
-                        <p>Descubra as melhores opções para você</p>
-                        <a href="#simulador" class="cta-button">Simular Agora</a>
-                    </div>
-                </div>
-                <div class="slide fade">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLAFOiCGpFmszKUHM8LB0Fa7XNKpAZHOSifTa_8kiDMR3OcjJN5yHd0O0&s=10" alt="Slide 2">
-                    <div class="slide-content">
-                        <h1>Conheça nossa história</h1>
-                        <p>Anos de experiência em soluções financeiras</p>
-                        <a href="#sobre" class="cta-button">Saiba Mais</a>
-                    </div>
-                </div>
-                <div class="slide fade">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjCFj89CPZXfOQodrA3yyxgmpzY4u0gjXTyWdPMqp-G7ZaXbOQ_oALaznK&s=10" alt="Slide 3">
-                    <div class="slide-content">
-                        <h1>Nossos produtos</h1>
-                        <p>Soluções personalizadas para você</p>
-                        <a href="#produtos" class="cta-button">Ver Produtos</a>
-                    </div>
-                </div>
-                <button class="prev" aria-label="Slide anterior">&#10094;</button>
-                <button class="next" aria-label="Próximo slide">&#10095;</button>
+        <section id="inicio" class="hero" style="background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20230314/pngtree-beautiful-background-of-high-rise-buildings-image_1947772.jpg');">
+            <div class="container">
+                <h1>Soluções Financeiras Personalizadas</h1>
+                <p>Descubra as melhores opções de crédito para você ou sua empresa</p>
+                <a href="#simulador" class="cta-button">Simular Agora</a>
             </div>
         </section>
 
-        <section id="simulador" class="animate-on-scroll">
+        <section id="simulador" class="simulador">
             <div class="container">
                 <h2>Simulador de Financiamento</h2>
                 <form id="simulador-form">
                     <select id="tipo-financiamento" required>
                         <option value="">Selecione o tipo de financiamento</option>
-                        <option value="pessoal">Crédito Pessoal sem Garantia</option>
-                        <option value="debito_conta">Débito em Conta Corrente</option>
-                        <option value="credluz">Credluz - Débito em Conta de Luz</option>
+                        <option value="pessoal">Empréstimo Pessoal / Débito em Conta</option>
+                        <option value="consignado_publico">Consignado Público</option>
                         <option value="consignado_privado">Consignado Privado</option>
                     </select>
                     <input type="number" id="valor" placeholder="Valor desejado" required>
                     <input type="number" id="prazo" placeholder="Prazo (em meses)" required>
-                    <button type="submit" class="cta-button">Simular Agora</button>
+                    <button type="submit" class="cta-button">Simular</button>
                 </form>
                 <div id="resultado-simulacao"></div>
             </div>
         </section>
 
-        <section id="sobre" class="animate-on-scroll">
-            <div class="container">
-                <h2>Sobre a Valor Financiamentos</h2>
-                <div class="sobre-content">
-                    <div class="sobre-text">
-                        <p>Com mais de uma década de experiência no mercado financeiro, a Valor Financiamentos se destaca como referência em soluções de crédito personalizadas. Nossa missão é proporcionar aos nossos clientes as melhores condições para realizarem seus sonhos e impulsionarem seus negócios.</p>
-                        <p>Contamos com uma equipe de especialistas altamente qualificados, prontos para oferecer um atendimento personalizado e as soluções mais adequadas às suas necessidades financeiras. Na Valor Financiamentos, acreditamos que cada cliente é único, e por isso, nos dedicamos a entender suas necessidades específicas para oferecer as melhores opções de crédito.</p>
-                    </div>
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbxpGj_KwvbXU0AOIDNxP4ZDHklzwwv7w4vw&usqp=CAU" alt="Sobre a Valor Financiamentos" class="sobre-img">
-                </div>
-            </div>
-        </section>
-
-        <section id="produtos" class="animate-on-scroll">
+        <section id="produtos" class="produtos">
             <div class="container">
                 <h2>Nossos Produtos</h2>
                 <div class="produtos-grid">
                     <div class="produto-card">
-                        <i class="fas fa-user-shield"></i>
-                        <h3>Crédito Pessoal sem Garantia</h3>
-                        <p>Obtenha crédito rápido e fácil para suas necessidades pessoais, sem necessidade de garantia.</p>
-                        <a href="#contato" class="cta-button">Solicitar Agora</a>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLAFOiCGpFmszKUHM8LB0Fa7XNKpAZHOSifTa_8kiDMR3OcjJN5yHd0O0&s=10" alt="Empréstimo Pessoal" class="produto-img">
+                        <h3>Empréstimo Pessoal / Débito em Conta</h3>
+                        <p>Crédito rápido e fácil para suas necessidades pessoais, com opção de débito direto em conta.</p>
                     </div>
                     <div class="produto-card">
-                        <i class="fas fa-piggy-bank"></i>
-                        <h3>Débito em Conta Corrente</h3>
-                        <p>Facilidade de pagamento com débito automático em sua conta corrente.</p>
-                        <a href="#contato" class="cta-button">Solicitar Agora</a>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjCFj89CPZXfOQodrA3yyxgmpzY4u0gjXTyWdPMqp-G7ZaXbOQ_oALaznK&s=10" alt="Consignado Público" class="produto-img">
+                        <h3>Consignado Público</h3>
+                        <p>Crédito com desconto em folha para servidores públicos, com taxas especiais.</p>
                     </div>
                     <div class="produto-card">
-                        <i class="fas fa-lightbulb"></i>
-                        <h3>Credluz - Débito em Conta de Luz</h3>
-                        <p>Crédito com a comodidade de pagar junto com sua conta de energia elétrica.</p>
-                        <a href="#contato" class="cta-button">Solicitar Agora</a>
-                    </div>
-                    <div class="produto-card">
-                        <i class="fas fa-building"></i>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbxpGj_KwvbXU0AOIDNxP4ZDHklzwwv7w4vw&usqp=CAU" alt="Consignado Privado" class="produto-img">
                         <h3>Consignado Privado</h3>
-                        <p>Empréstimo com desconto em folha para funcionários de empresas privadas conveniadas.</p>
-                        <a href="#contato" class="cta-button">Solicitar Agora</a>
+                        <p>Crédito com desconto em folha para funcionários de empresas privadas conveniadas.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="cobertura" class="animate-on-scroll">
+        <section id="sobre" class="sobre">
             <div class="container">
-                <h2>Nossa Cobertura</h2>
-                <img src="https://valorfinanciamentos.com.br/images/todo-o-brasil2.png" alt="Cobertura em todo o Brasil" class="cobertura-img">
-                <p>A Valor Financiamentos atende clientes em todo o território nacional, oferecendo soluções financeiras personalizadas para cada região do Brasil.</p>
+                <h2>Sobre a Valor Financiamentos</h2>
+                <p>A Valor Financiamentos é uma empresa especializada em soluções de crédito personalizadas. Com anos de experiência no mercado financeiro, nossa missão é oferecer as melhores opções de financiamento, sempre com transparência e compromisso com nossos clientes.</p>
+                <img src="https://valorfinanciamentos.com.br/images/todo-o-brasil2.png" alt="Cobertura Nacional" class="cobertura-img">
             </div>
         </section>
 
-        <section id="depoimentos" class="animate-on-scroll">
+        <section id="depoimentos" class="depoimentos">
             <div class="container">
-                <h2>O que nossos clientes dizem</h2>
+                <h2>Depoimentos de Clientes</h2>
                 <div class="depoimentos-grid">
                     <div class="depoimento-card">
-                        <p>"A Valor Financiamentos me ajudou a realizar o sonho da casa própria. Atendimento excelente e taxas justas!"</p>
-                        <h4>Maria Silva</h4>
+                        <p>"Excelente atendimento e condições muito boas. Recomendo!"</p>
+                        <p class="autor">- Cliente Anônimo</p>
                     </div>
                     <div class="depoimento-card">
-                        <p>"Consegui o crédito para expandir meu negócio de forma rápida e sem burocracia. Recomendo!"</p>
-                        <h4>João Santos</h4>
+                        <p>"Processo rápido e sem burocracia. Ótima experiência!"</p>
+                        <p class="autor">- Cliente Satisfeito</p>
                     </div>
                     <div class="depoimento-card">
-                        <p>"Ótimas condições de financiamento e um atendimento personalizado. Estou muito satisfeita!"</p>
-                        <h4>Ana Oliveira</h4>
+                        <p>"As melhores taxas do mercado. Fiquei muito satisfeito!"</p>
+                        <p class="autor">- Cliente Feliz</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="faq" class="animate-on-scroll">
+        <section id="faq" class="faq">
             <div class="container">
                 <h2>Perguntas Frequentes</h2>
-                <div class="faq-list">
-                    <div class="faq-item">
-                        <h3>Qual é o prazo máximo para pagamento?</h3>
-                        <p>O prazo máximo varia de acordo com o tipo de financiamento, podendo chegar até 72 meses em alguns casos.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3>Quais documentos são necessários para solicitar um empréstimo?</h3>
-                        <p>Geralmente, são necessários RG, CPF, comprovante de residência e comprovante de renda. Requisitos específicos podem variar de acordo com o tipo de financiamento.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3>Posso fazer uma simulação sem compromisso?</h3>
-                        <p>Sim, você pode usar nosso simulador online para ter uma ideia dos valores e prazos, sem nenhum compromisso.</p>
-                    </div>
+                <div class="faq-item">
+                    <h3>Como funciona o empréstimo consignado?</h3>
+                    <p>O empréstimo consignado é uma modalidade onde as parcelas são descontadas diretamente da folha de pagamento ou do benefício previdenciário do contratante.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Quais documentos são necessários para solicitar um empréstimo?</h3>
+                    <p>Geralmente, são necessários documento de identidade, CPF, comprovante de renda e comprovante de residência. Requisitos específicos podem variar de acordo com o tipo de empréstimo.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Qual é o prazo máximo para pagamento?</h3>
+                    <p>O prazo máximo varia de acordo com o tipo de empréstimo e sua situação financeira. Entre em contato conosco para obter informações específicas para o seu caso.</p>
                 </div>
             </div>
         </section>
 
-        <section id="contato" class="animate-on-scroll">
+        <section id="contato" class="contato">
             <div class="container">
                 <h2>Entre em Contato</h2>
                 <form id="contato-form">
                     <input type="text" id="nome" placeholder="Nome" required>
                     <input type="email" id="email" placeholder="E-mail" required>
                     <textarea id="mensagem" placeholder="Mensagem" required></textarea>
-                    <button type="submit" class="cta-button">Enviar Mensagem</button>
+                    <button type="submit" class="cta-button">Enviar</button>
                 </form>
             </div>
         </section>
@@ -191,26 +145,18 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Valor Financiamentos</h3>
-                    <p>Rua Augusta, 101</p>
-                    <p>São Paulo - SP</p>
-                </div>
-                <div class="footer-section">
                     <h3>Contato</h3>
-                    <p>Matriz: (11) 3717-6444</p>
-                    <p>Comercial: (11) 3717-6415</p>
-                    <p>Cobrança: (11) 3717-6422</p>
+                    <p>Telefone: (11) 3717-6415</p>
                     <p>Email: comercial@valorfinanciamentos.com.br</p>
+                    <p>Endereço: Rua Augusta, 101</p>
                 </div>
                 <div class="footer-section">
-                    <h3>Menu</h3>
+                    <h3>Links Rápidos</h3>
                     <ul>
+                        <li><a href="#inicio">Início</a></li>
                         <li><a href="#simulador">Simulador</a></li>
-                        <li><a href="#sobre">Sobre Nós</a></li>
                         <li><a href="#produtos">Produtos</a></li>
-                        <li><a href="#depoimentos">Depoimentos</a></li>
-                        <li><a href="#faq">FAQ</a></li>
-                        <li><a href="#contato">Contato</a></li>
+                        <li><a href="#sobre">Sobre Nós</a></li>
                     </ul>
                 </div>
             </div>
@@ -220,12 +166,8 @@
         </div>
     </footer>
 
-    <a href="https://wa.me/551137176415" class="whatsapp-button" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-whatsapp"></i> Fale Conosco no WhatsApp
-    </a>
-
-    <a href="#" id="back-to-top" title="Voltar ao topo">
-        <i class="fas fa-chevron-up"></i>
+    <a href="https://wa.me/551137176415" class="whatsapp-button" target="_blank">
+        <i class="fab fa-whatsapp"></i> Fale Conosco
     </a>
 
     <script src="script.js"></script>
