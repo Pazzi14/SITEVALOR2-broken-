@@ -66,8 +66,10 @@ nav ul li a {
     color: var(--primary-color);
     text-decoration: none;
     font-weight: bold;
-    transition
-    nav ul li a:hover {
+    transition: color 0.3s, transform 0.3s;
+}
+
+nav ul li a:hover {
     color: var(--secondary-color);
     transform: translateY(-2px);
 }
