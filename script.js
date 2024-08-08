@@ -125,13 +125,15 @@ document.addEventListener('DOMContentLoaded', function() {
         autoplaySpeed: 5000
     });
 
-    $('.depoimentos-slider').slick({
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        adaptiveHeight: true,
-        autoplay: true,
-        autoplaySpeed: 5000
+// Inicialização do Slick Slider para os depoimentos
+$('.depoimentos-slider').slick({
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    adaptiveHeight: true,
+    autoplay: true,
+    autoplaySpeed: 5000
+});
     });
 });
