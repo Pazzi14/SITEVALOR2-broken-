@@ -104,13 +104,34 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // FAQ toggle
+        // FAQ toggle
     faqItems.forEach(item => {
         const question = item.querySelector('h3');
-        const answer = item.querySelector('p');
+        const answer = item.querySelector('.faq-answer');
         
         question.addEventListener('click', () => {
             answer.style.display = answer.style.display === 'none' ? 'block' : 'none';
         });
+    });
+
+    // Inicialização do Slick Slider
+    $('.hero-slider').slick({
+        dots: true,
+        infinite: true,
+        speed: 500,
+        fade: true,
+        cssEase: 'linear',
+        autoplay: true,
+        autoplaySpeed: 5000
+    });
+
+    $('.depoimentos-slider').slick({
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        adaptiveHeight: true,
+        autoplay: true,
+        autoplaySpeed: 5000
     });
 });
