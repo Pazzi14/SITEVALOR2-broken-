@@ -319,7 +319,7 @@ h2 {
 
 /* Footer */
 footer {
-    background-color: #333;
+    background-color: #0066cc;
     color: white;
     padding: 40px 0 20px;
 }
@@ -388,7 +388,7 @@ footer {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    background-color: #25d366;
+    background-color: #006400;
     color: white;
     padding: 20px 30px;
     border-radius: 50px;
