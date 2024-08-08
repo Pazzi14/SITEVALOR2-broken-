@@ -368,7 +368,7 @@ footer {
 
 .social-icons li a {
     color: white;
-    font-size: 20px;
+    font-size: 24px;
     transition: color 0.3s;
 }
 
@@ -390,13 +390,14 @@ footer {
     right: 30px;
     background-color: #25d366;
     color: white;
-    padding: 15px 25px;
+    padding: 20px 30px;
     border-radius: 50px;
     text-decoration: none;
     display: flex;
     align-items: center;
     font-weight: bold;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    font-size: 18px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
     z-index: 1000;
 }
@@ -404,11 +405,12 @@ footer {
 .whatsapp-button:hover {
     background-color: #128c7e;
     transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
 .whatsapp-button i {
     margin-right: 10px;
-    font-size: 24px;
+    font-size: 28px;
 }
 
 /* Animations */
@@ -470,6 +472,11 @@ footer {
     .whatsapp-button {
         bottom: 20px;
         right: 20px;
-        padding: 12px 20px;
+        padding: 15px 25px;
+        font-size: 16px;
+    }
+
+    .whatsapp-button i {
+        font-size: 24px;
     }
 }
