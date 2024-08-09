@@ -413,6 +413,181 @@ footer {
     font-size: 28px;
 }
 
+/* Estilos específicos para a página Sobre Nós */
+.sobre-nos-hero {
+    background-image: url('https://media.licdn.com/dms/image/C4D1BAQGEzJ6PcWKoVA/company-background_10000/0/1628252333804/valorfinanciamentos_cover?e=2147483647&v=beta&t=bCs5YyVYVdFRZUC3ZcM-TjPO_UvuZSFSga2nWdl2krY');
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.sobre-nos-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.sobre-nos-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.sobre-nos-hero p {
+    font-size: 1.2rem;
+    position: relative;
+    z-index: 1;
+}
+
+#sobre-nos-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.sobre-nos-text {
+    flex: 1;
+    min-width: 300px;
+    margin-right: 30px;
+}
+
+.sobre-nos-text h2 {
+    text-align: left;
+    margin-top: 30px;
+    color: #0066cc;
+}
+
+.sobre-nos-text p {
+    margin-bottom: 20px;
+}
+
+.sobre-nos-text ul {
+    list-style-type: none;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.sobre-nos-text ul li:before {
+    content: "•";
+    color: #0066cc;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+.mission-vision-values {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.mission-vision-values div {
+    flex: 1;
+    min-width: 200px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.mission-vision-values div:hover {
+    transform: translateY(-5px);
+}
+
+.mission-vision-values h3 {
+    color: #0066cc;
+    margin-bottom: 10px;
+}
+
+.sobre-nos-images {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sobre-nos-images img {
+    max-width: 100%;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.sobre-nos-images img:hover {
+    transform: scale(1.05);
+}
+
+.team-image {
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.coverage-image {
+    max-height: 300px;
+    object-fit: contain;
+    width: 100%;
+}
+
+#cta.sobre-nos-cta {
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 50px 0;
+    margin-top: 50px;
+}
+
+#cta.sobre-nos-cta h2 {
+    color: #0066cc;
+    margin-bottom: 20px;
+}
+
+/* Responsividade para a página Sobre Nós */
+@media (max-width: 768px) {
+    .sobre-nos-hero h1 {
+        font-size: 2rem;
+    }
+
+    .sobre-nos-hero p {
+        font-size: 1rem;
+    }
+
+    #sobre-nos-content {
+        flex-direction: column;
+    }
+
+    .sobre-nos-text, .sobre-nos-images {
+        margin-right: 0;
+        margin-bottom: 30px;
+    }
+
+    .mission-vision-values {
+        flex-direction: column;
+    }
+
+    .mission-vision-values div {
+        margin-right: 0;
+    }
+}
+
 /* Animations */
 @keyframes fadeInUp {
     from {
