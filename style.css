@@ -19,27 +19,15 @@ body {
 
 /* Header */
 header {
-    background-color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    background-color: #0066cc;
+    color: white;
+    padding: 1rem;
 }
 
-header .container {
+nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 0;
-}
-
-.logo-link {
-    display: inline-block;
-    transition: transform 0.3s ease;
-}
-
-.logo-link:hover {
-    transform: scale(1.05);
 }
 
 .logo {
@@ -56,444 +44,22 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #0066cc;
+    color: white;
     text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s, transform 0.3s;
+    transition: color 0.3s;
 }
 
-nav ul li a:hover {
-    color: #cdffff;
-    transform: translateY(-2px);
-}
-
-.nav-toggle {
-    display: none;
-}
-
-.nav-toggle-label {
-    display: none;
-    cursor: pointer;
+nav ul li a:hover,
+nav ul li a.active {
+    color: #ff6600;
 }
 
 /* Hero Section */
-.hero {
-    position: relative;
-}
-
-.hero-slider {
-    position: relative;
-}
-
-.hero-slide {
+#hero {
+    background-image: url('hero-bg.jpg');
     background-size: cover;
     background-position: center;
-    color: white;
-    text-align: center;
-    padding: 150px 0;
-    position: relative;
-}
-
-.hero-slide::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.hero-slide .container {
-    position: relative;
-    z-index: 1;
-}
-
-.hero-slide h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    animation: fadeInUp 1s ease;
-}
-
-.hero-slide p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    animation: fadeInUp 1s ease 0.2s;
-}
-
-/* CTA Button */
-.cta-button {
-    display: inline-block;
-    background-color: #cdffff;
-    color: #0066cc;
-    padding: 12px 24px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s, transform 0.3s;
-    border: none;
-    cursor: pointer;
-    animation: fadeInUp 1s ease 0.4s;
-}
-
-.cta-button:hover {
-    background-color: #b0ffff;
-    transform: translateY(-3px);
-}
-
-/* Sections */
-section {
-    padding: 80px 0;
-}
-
-h2 {
-    text-align: center;
-    margin-bottom: 40px;
-    color: #0066cc;
-}
-
-/* Simulador */
-.simulador {
-    background-color: #f4f4f4;
-}
-
-#simulador-form {
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-#simulador-form select,
-#simulador-form input,
-#simulador-form button {
-    display: block;
-    width: 100%;
-    margin-bottom: 20px;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    transition: box-shadow 0.3s ease;
-}
-
-#simulador-form select:focus,
-#simulador-form input:focus {
-    box-shadow: 0 0 5px #cdffff;
-}
-
-#resultado-simulacao {
-    max-width: 500px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-#resultado-simulacao.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Produtos */
-.produtos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.produto-card {
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.produto-card:hover {
-    transform: translateY(-10px);
-}
-
-.produto-img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 5px;
-    margin-bottom: 20px;
-}
-
-.produto-card h3 {
-    margin-bottom: 15px;
-    color: #0066cc;
-}
-
-/* Sobre */
-.sobre {
-    background-color: #f4f4f4;
-}
-
-.cobertura-img {
-    max-width: 100%;
-    height: auto;
-    margin-top: 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-/* Depoimentos */
-.depoimentos-slider {
-    margin-top: 40px;
-}
-
-.depoimento-card {
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.depoimento-card:hover {
-    transform: translateY(-5px);
-}
-
-.depoimento-card p {
-    font-style: italic;
-    margin-bottom: 15px;
-}
-
-.depoimento-card .autor {
-    font-weight: bold;
-    color: #0066cc;
-}
-
-/* FAQ */
-.faq-item {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    transition: transform 0.3s ease;
-}
-
-.faq-item:hover {
-    transform: translateY(-5px);
-}
-
-.faq-item h3 {
-    color: #0066cc;
-    margin-bottom: 10px;
-    cursor: pointer;
-}
-
-.faq-answer {
-    display: none;
-    margin-top: 10px;
-}
-
-/* Contato */
-#contato-form {
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-#contato-form input,
-#contato-form textarea {
-    display: block;
-    width: 100%;
-    margin-bottom: 20px;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    transition: box-shadow 0.3s ease;
-}
-
-#contato-form input:focus,
-#contato-form textarea:focus {
-    box-shadow: 0 0 5px #cdffff;
-}
-
-/* Footer */
-footer {
-    background-color: #0066cc;
-    color: white;
-    padding: 40px 0 20px;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.footer-section {
-    flex: 1;
-    min-width: 200px;
-    margin-bottom: 20px;
-}
-
-.footer-section h3 {
-    margin-bottom: 15px;
-}
-
-.footer-section ul {
-    list-style-type: none;
-}
-
-.footer-section ul li {
-    margin-bottom: 10px;
-}
-
-.footer-section ul li a {
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.footer-section ul li a:hover {
-    color: #cdffff;
-}
-
-.social-icons {
-    display: flex;
-}
-
-.social-icons li {
-    margin-right: 10px;
-}
-
-.social-icons li a {
-    color: white;
-    font-size: 24px;
-    transition: color 0.3s;
-}
-
-.social-icons li a:hover {
-    color: #cdffff;
-}
-
-.footer-bottom {
-    text-align: center;
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px solid #555;
-}
-
-/* WhatsApp Button */
-.whatsapp-button {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background-color: #006400;
-    color: white;
-    padding: 20px 30px;
-    border-radius: 50px;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    font-weight: bold;
-    font-size: 18px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-    z-index: 1000;
-}
-
-.whatsapp-button:hover {
-    background-color: #006400;
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-}
-
-.whatsapp-button i {
-    margin-right: 10px;
-    font-size: 28px;
-}
-
-/* Animations */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    header .container {
-        flex-direction: column;
-    }
-
-    .nav-toggle-label {
-        display: block;
-        position: absolute;
-        top: 20px;
-        right: 20px;
-    }
-
-    nav ul {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        text-align: center;
-        background-color: white;
-        position: absolute;
-        top: 100%;
-        left: 0;
-    }
-
-    nav ul li {
-        margin: 15px 0;
-    }
-
-    .nav-toggle:checked ~ ul {
-        display: flex;
-    }
-
-    .hero-slide h1 {
-        font-size: 2rem;
-    }
-
-    .hero-slide p {
-        font-size: 1rem;
-    }
-
-    .footer-content {
-        flex-direction: column;
-    }
-
-    .whatsapp-button {
-        bottom: 10px;
-        right: 10px;
-        padding: 5px 15px;
-        font-size: 8px;
-    }
-
-    .whatsapp-button i {
-        font-size: 15px;
-    }
-    
-    .whatsapp-img {
-    width: 15%;
-    height: 20px;
-    object-fit: cover;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    }
-
-/* Estilos para a página Sobre Nós */
-.sobre-nos-hero {
-    background-image: url('https://media.licdn.com/dms/image/C4D1BAQGEzJ6PcWKoVA/company-background_10000/0/1628252333804/valorfinanciamentos_cover?e=2147483647&v=beta&t=bCs5YyVYVdFRZUC3ZcM-TjPO_UvuZSFSga2nWdl2krY');
-    background-size: cover;
-    background-position: center;
-    height: 400px;
+    height: 500px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -502,13 +68,107 @@ footer {
     color: white;
 }
 
-.sobre-nos-hero h1 {
+#hero h1 {
     font-size: 3rem;
-    margin-bottom: 1rem;
+    margin-bottom: 20px;
 }
 
-.sobre-nos-hero p {
-    font-size: 1.5rem;
+#hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+/* Botões */
+.cta-button {
+    display: inline-block;
+    background-color: #ff6600;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #e65c00;
+}
+
+/* Seções */
+section {
+    padding: 50px 0;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #0066cc;
+}
+
+/* Formulários */
+form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+input, textarea, button {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0052a3;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Botão WhatsApp */
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    transition: background-color 0.3s;
+}
+
+.whatsapp-button:hover {
+    background-color: #128c7e;
+}
+
+.whatsapp-button i {
+    margin-right: 10px;
+}
+
+/* Estilos específicos para a página Sobre Nós */
+#hero.sobre-nos-hero {
+    background-image: url('https://media.licdn.com/dms/image/C4D1BAQGEzJ6PcWKoVA/company-background_10000/0/1628252333804/valorfinanciamentos_cover?e=2147483647&v=beta&t=bCs5YyVYVdFRZUC3ZcM-TjPO_UvuZSFSga2nWdl2krY');
+    height: 400px;
 }
 
 #sobre-nos-content {
@@ -525,14 +185,13 @@ footer {
 }
 
 .sobre-nos-text h2 {
-    color: #0066cc;
+    text-align: left;
     margin-top: 30px;
-    margin-bottom: 15px;
 }
 
 .sobre-nos-text ul {
     list-style-type: none;
-    padding-left: 0;
+    padding-left: 20px;
 }
 
 .sobre-nos-text ul li:before {
@@ -580,11 +239,13 @@ footer {
 .team-image {
     height: 200px;
     object-fit: cover;
+    width: 100%;
 }
 
 .coverage-image {
     max-height: 300px;
     object-fit: contain;
+    width: 100%;
 }
 
 #cta {
@@ -594,33 +255,33 @@ footer {
     margin-top: 50px;
 }
 
-#cta h2 {
-    margin-bottom: 20px;
-}
-
-.cta-button {
-    display: inline-block;
-    background-color: #ff6600;
-    color: white;
-    padding: 15px 30px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
-
-.cta-button:hover {
-    background-color: #e65c00;
-}
-
+/* Responsividade */
 @media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+    }
+
+    nav ul {
+        margin-top: 20px;
+    }
+
+    #hero h1 {
+        font-size: 2rem;
+    }
+
+    #hero p {
+        font-size: 1rem;
+    }
+
     #sobre-nos-content {
         flex-direction: column;
     }
+
     .sobre-nos-text, .sobre-nos-images {
         margin-right: 0;
         margin-bottom: 30px;
     }
+
     .mission-vision-values {
         flex-direction: column;
     }
