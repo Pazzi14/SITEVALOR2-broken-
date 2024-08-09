@@ -488,24 +488,34 @@ footer {
     margin-bottom: 20px;
     }
 
-    /* Estilos para a página Sobre Nós */
-.sobre-nos {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 50px 20px;
-}
-
-.sobre-nos h1 {
-    color: #0066cc;
+/* Estilos para a página Sobre Nós */
+.sobre-nos-hero {
+    background-image: url('https://media.licdn.com/dms/image/C4D1BAQGEzJ6PcWKoVA/company-background_10000/0/1628252333804/valorfinanciamentos_cover?e=2147483647&v=beta&t=bCs5YyVYVdFRZUC3ZcM-TjPO_UvuZSFSga2nWdl2krY');
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    margin-bottom: 30px;
+    color: white;
 }
 
-.sobre-nos-content {
+.sobre-nos-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.sobre-nos-hero p {
+    font-size: 1.5rem;
+}
+
+#sobre-nos-content {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: flex-start;
+    margin-top: 50px;
 }
 
 .sobre-nos-text {
@@ -516,8 +526,8 @@ footer {
 
 .sobre-nos-text h2 {
     color: #0066cc;
-    margin-top: 20px;
-    margin-bottom: 10px;
+    margin-top: 30px;
+    margin-bottom: 15px;
 }
 
 .sobre-nos-text ul {
@@ -531,6 +541,25 @@ footer {
     display: inline-block;
     width: 1em;
     margin-left: -1em;
+}
+
+.mission-vision-values {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.mission-vision-values div {
+    flex: 1;
+    min-width: 200px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.mission-vision-values h3 {
+    color: #0066cc;
+    margin-bottom: 10px;
 }
 
 .sobre-nos-images {
@@ -548,12 +577,51 @@ footer {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
+.team-image {
+    height: 200px;
+    object-fit: cover;
+}
+
+.coverage-image {
+    max-height: 300px;
+    object-fit: contain;
+}
+
+#cta {
+    background-color: #f8f8f8;
+    text-align: center;
+    padding: 50px 0;
+    margin-top: 50px;
+}
+
+#cta h2 {
+    margin-bottom: 20px;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #ff6600;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #e65c00;
+}
+
 @media (max-width: 768px) {
-    .sobre-nos-content {
+    #sobre-nos-content {
         flex-direction: column;
     }
     .sobre-nos-text, .sobre-nos-images {
         margin-right: 0;
         margin-bottom: 30px;
+    }
+    .mission-vision-values {
+        flex-direction: column;
     }
 }
