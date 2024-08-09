@@ -44,7 +44,6 @@ header .container {
 
 .logo {
     height: 50px;
-    content: url('https://valorfinanciamentos.com.br/wp-content/uploads/2020/08/logo_grande_valor.png-1-300x155.png');
 }
 
 nav ul {
@@ -78,19 +77,24 @@ nav ul li a:hover {
 }
 
 /* Hero Section */
-.hero-section {
-    background-size: cover;
-    background-position: center;
-    height: 500px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
+.hero {
     position: relative;
 }
 
-.hero-section::before {
+.hero-slider {
+    position: relative;
+}
+
+.hero-slide {
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 150px 0;
+    position: relative;
+}
+
+.hero-slide::before {
     content: '';
     position: absolute;
     top: 0;
@@ -100,66 +104,53 @@ nav ul li a:hover {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.hero-content {
+.hero-slide .container {
     position: relative;
     z-index: 1;
 }
 
-.hero-content h1 {
+.hero-slide h1 {
     font-size: 3rem;
-    margin-bottom: 1rem;
+    margin-bottom: 20px;
+    animation: fadeInUp 1s ease;
 }
 
-.hero-content p {
+.hero-slide p {
     font-size: 1.2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 30px;
+    animation: fadeInUp 1s ease 0.2s;
 }
 
-/* Seções */
-section {
-    padding: 80px 0;
-}
-
-section:nth-child(even) {
-    background-color: #f4f4f4;
-}
-
-/* Títulos */
-h2 {
-    font-size: 2.5rem;
-    color: #0066cc;
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-/* Botões */
+/* CTA Button */
 .cta-button {
     display: inline-block;
-    background-color: #0066cc;
-    color: white;
+    background-color: #cdffff;
+    color: #0066cc;
     padding: 12px 24px;
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
+    border: none;
+    cursor: pointer;
+    animation: fadeInUp 1s ease 0.4s;
 }
 
 .cta-button:hover {
-    background-color: #0052a3;
+    background-color: #b0ffff;
+    transform: translateY(-3px);
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-    .hero-content h1 {
-        font-size: 2rem;
-    }
+/* Sections */
+section {
+    padding: 80px 0;
+}
 
-    .hero-content p {
-        font-size: 1rem;
-    }
-
-    h2 {
-        font-size: 2rem;
+h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #0066cc;
+}
 
 /* Simulador */
 .simulador {
@@ -397,29 +388,29 @@ footer {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    background-color: #25D366;
+    background-color: #006400;
     color: white;
-    padding: 15px 25px;
+    padding: 20px 30px;
     border-radius: 50px;
     text-decoration: none;
     display: flex;
     align-items: center;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 18px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
     z-index: 1000;
 }
 
 .whatsapp-button:hover {
-    background-color: #128C7E;
+    background-color: #006400;
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
 .whatsapp-button i {
     margin-right: 10px;
-    font-size: 24px;
+    font-size: 28px;
 }
 
 /* Animations */
@@ -479,190 +470,21 @@ footer {
     }
 
     .whatsapp-button {
-        bottom: 20px;
-        right: 20px;
-        padding: 10px 20px;
-        font-size: 14px;
+        bottom: 10px;
+        right: 10px;
+        padding: 5px 15px;
+        font-size: 8px;
     }
 
     .whatsapp-button i {
-        font-size: 20px;
+        font-size: 15px;
     }
-}
-
-/* Estilos específicos para a página Sobre Nós */
-.sobre-nos-hero {
-    background-image: url('https://mir-s3-cdn-cf.behance.net/projects/404/83fb0598894811.Y3JvcCwxMDgwLDg0NCwwLDEzMA.png');
-    background-size: cover;
-    background-position: center;
-    height: 400px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-    position: relative;
-}
-
-.sobre-nos-hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.sobre-nos-hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    position: relative;
-    z-index: 1;
-}
-
-.sobre-nos-hero p {
-    font-size: 1.2rem;
-    position: relative;
-    z-index: 1;
-}
-
-#sobre-nos-content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-top: 50px;
-}
-
-.sobre-nos-text {
-    flex: 1;
-    min-width: 300px;
-    margin-right: 30px;
-}
-
-.sobre-nos-text h2 {
-    text-align: left;
-    margin-top: 30px;
-    color: #0066cc;
-}
-
-.sobre-nos-text p {
-    margin-bottom: 20px;
-}
-
-.sobre-nos-text ul {
-    list-style-type: none;
-    padding-left: 20px;
-    margin-bottom: 20px;
-}
-
-.sobre-nos-text ul li:before {
-    content: "•";
-    color: #0066cc;
-    display: inline-block;
-    width: 1em;
-    margin-left: -1em;
-}
-
-.mission-vision-values {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-top: 30px;
-}
-
-.mission-vision-values div {
-    flex: 1;
-    min-width: 200px;
-    margin-right: 20px;
-    margin-bottom: 20px;
-    background-color: #f4f4f4;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.mission-vision-values div:hover {
-    transform: translateY(-5px);
-}
-
-.mission-vision-values h3 {
-    color: #0066cc;
-    margin-bottom: 10px;
-}
-
-.sobre-nos-images {
-    flex: 1;
-    min-width: 300px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.sobre-nos-images img {
-    max-width: 100%;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transform: scale(1.05);
-}
-
-.team-image {
-    height: 200px;
+    
+    .whatsapp-img {
+    width: 15%;
+    height: 20px;
     object-fit: cover;
-    width: 100%;
-    transition: transform 0.3s ease;
-}
-
-.sobre-nos-images img:hover {
-    content: url('data:image/jpeg;base64,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
-
-}
-
-.coverage-image {
-    max-height: 300px;
-    object-fit: contain;
-    width: 100%;
-}
-
-#cta.sobre-nos-cta {
-    background-color: #f4f4f4;
-    text-align: center;
-    padding: 50px 0;
-    margin-top: 50px;
-}
-
-#cta.sobre-nos-cta h2 {
-    color: #0066cc;
+    border-radius: 5px;
     margin-bottom: 20px;
-}
-
-/* Responsividade para a página Sobre Nós */
-@media (max-width: 768px) {
-    .sobre-nos-hero h1 {
-        font-size: 2rem;
-    }
-
-    .sobre-nos-hero p {
-        font-size: 1rem;
-    }
-
-    #sobre-nos-content {
-        flex-direction: column;
-    }
-
-    .sobre-nos-text, .sobre-nos-images {
-        margin-right: 0;
-        margin-bottom: 30px;
-    }
-
-    .mission-vision-values {
-        flex-direction: column;
-    }
-
-    .mission-vision-values div {
-        margin-right: 0;
     }
 }
