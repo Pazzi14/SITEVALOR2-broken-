@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const simuladorForm = document.getElementById('simulador-form');
     const contatoForm = document.getElementById('contato-form');
-    const faqItems = document.querySelectorAll('.faq-item h3');
 
     if (simuladorForm) {
         simuladorForm.addEventListener('submit', function(e) {
@@ -17,16 +16,31 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    faqItems.forEach(item => {
-        item.addEventListener('click', toggleFAQ);
-    });
+    // Adiciona classes de animação aos elementos
+    const fadeElements = document.querySelectorAll('.hero, .section-padding');
+    const slideElements = document.querySelectorAll('.produto-item, .flex-container > div, form input, form textarea, form button');
 
-    // Adiciona classe de animação aos elementos
-    const fadeElements = document.querySelectorAll('.hero, section');
-    fadeElements.forEach(el => el.classList.add('fade-in'));
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
 
-    // Marca o item de menu ativo
-    markActiveMenuItem();
+    fadeElements.forEach(el => observer.observe(el));
+
+    const slideObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('slide-in');
+                slideObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    slideElements.forEach(el => slideObserver.observe(el));
 });
 
 function simularFinanciamento() {
@@ -59,74 +73,13 @@ function enviarFormularioContato() {
     document.getElementById('contato-form').reset();
 }
 
-function toggleFAQ() {
-    const answer = this.nextElementSibling;
-    answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
-}
+// Função para scroll suave
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
 
-function markActiveMenuItem() {
-    const currentPage = window.location.pathname.split("/").pop();
-    const menuItems = document.querySelectorAll('nav ul li a');
-    
-    menuItems.forEach(item => {
-        if (item.getAttribute('href') === currentPage) {
-            item.classList.add('active');
-        }
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
     });
-}
-
-// Lazy loading para imagens
-document.addEventListener("DOMContentLoaded", function() {
-    var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
-
-    if ("IntersectionObserver" in window) {
-        let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    let lazyImage = entry.target;
-                    lazyImage.src = lazyImage.dataset.src;
-                    lazyImage.classList.remove("lazy");
-                    lazyImageObserver.unobserve(lazyImage);
-                }
-            });
-        });
-
-        lazyImages.forEach(function(lazyImage) {
-            lazyImageObserver.observe(lazyImage);
-        });
-    } else {
-        // Fallback para navegadores que não suportam IntersectionObserver
-        let active = false;
-
-        const lazyLoad = function() {
-            if (active === false) {
-                active = true;
-
-                setTimeout(function() {
-                    lazyImages.forEach(function(lazyImage) {
-                        if ((lazyImage.getBoundingClientRect().top <= window.innerHeight && lazyImage.getBoundingClientRect().bottom >= 0) && getComputedStyle(lazyImage).display !== "none") {
-                            lazyImage.src = lazyImage.dataset.src;
-                            lazyImage.classList.remove("lazy");
-
-                            lazyImages = lazyImages.filter(function(image) {
-                                return image !== lazyImage;
-                            });
-
-                            if (lazyImages.length === 0) {
-                                document.removeEventListener("scroll", lazyLoad);
-                                window.removeEventListener("resize", lazyLoad);
-                                window.removeEventListener("orientationchange", lazyLoad);
-                            }
-                        }
-                    });
-
-                    active = false;
-                }, 200);
-            }
-        };
-
-        document.addEventListener("scroll", lazyLoad);
-        window.addEventListener("resize", lazyLoad);
-        window.addEventListener("orientationchange", lazyLoad);
-    }
 });
