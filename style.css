@@ -13,7 +13,7 @@
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: Arial, sans-serif;
     line-height: 1.6;
     color: var(--text-color);
 }
@@ -242,6 +242,29 @@ footer {
     margin-right: 10px;
 }
 
+/* Sobre Nós Page */
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.text-content, .image-content {
+    flex: 1;
+}
+
+.image-content img, .team-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.image-content img:hover, .team-image img:hover {
+    transform: scale(1.05);
+}
+
 /* Animações */
 @keyframes fadeIn {
     from { opacity: 0; }
@@ -279,8 +302,8 @@ footer {
         font-size: 1rem;
     }
 
-    h2 {
-        font-size: 2rem;
+    .flex-container {
+        flex-direction: column;
     }
 
     .footer-content {
