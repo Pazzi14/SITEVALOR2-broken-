@@ -16,31 +16,35 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Adiciona classes de animação aos elementos
-    const fadeElements = document.querySelectorAll('.hero, .section-padding');
-    const slideElements = document.querySelectorAll('.produto-item, .flex-container > div, form input, form textarea, form button');
+    // Efeitos de fade-in e slide-in
+    const fadeElements = document.querySelectorAll('.fade-in');
+    const slideElements = document.querySelectorAll('.slide-in');
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in');
-                observer.unobserve(entry.target);
+                entry.target.classList.add('visible');
             }
         });
     }, { threshold: 0.1 });
 
-    fadeElements.forEach(el => observer.observe(el));
+    fadeElements.forEach(el => {
+        observer.observe(el);
+    });
 
-    const slideObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('slide-in');
-                slideObserver.unobserve(entry.target);
-            }
+    slideElements.forEach(el => {
+        observer.observe(el);
+    });
+
+    // Scroll suave para links internos
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
         });
-    }, { threshold: 0.1 });
-
-    slideElements.forEach(el => slideObserver.observe(el));
+    });
 });
 
 function simularFinanciamento() {
@@ -72,14 +76,3 @@ function enviarFormularioContato() {
     alert(`Obrigado pelo contato, ${nome}! Responderemos em breve para ${email}.`);
     document.getElementById('contato-form').reset();
 }
-
-// Função para scroll suave
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
