@@ -297,3 +297,75 @@ footer {
         margin-top: 20px;
     }
 }
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+#contato {
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+#contato::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+
+#contato .container {
+    position: relative;
+    z-index: 2;
+}
+
+#contato h2,
+#contato form {
+    color: var(--white);
+}
+
+#resultado-simulacao {
+    background-color: var(--bg-light);
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+#resultado-simulacao h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.footer-info p {
+    margin-bottom: 10px;
+}
+
+/* Ajustes para a página Sobre Nós */
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.text-content,
+.image-content {
+    flex: 1;
+}
+
+.team-image {
+    text-align: center;
+    margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+    .flex-container {
+        flex-direction: column;
+    }
+}
