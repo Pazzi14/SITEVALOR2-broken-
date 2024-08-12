@@ -1,36 +1,41 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-
     // Simulador de Financiamento
     const simuladorForm = document.getElementById('simulador-form');
+    const resultadoSimulacao = document.getElementById('resultado-simulacao');
+
     if (simuladorForm) {
         simuladorForm.addEventListener('submit', function(e) {
             e.preventDefault();
             const valor = parseFloat(document.getElementById('valor').value);
             const prazo = parseInt(document.getElementById('prazo').value);
-            const taxaJuros = 0.015; // 1.5% ao mês (exemplo)
+            const tipoCredito = document.getElementById('tipo-credito').value;
+
+            let taxaJuros;
+            switch(tipoCredito) {
+                case 'pessoal':
+                    taxaJuros = 0.02; // 2% ao mês
+                    break;
+                case 'consignado-privado':
+                    taxaJuros = 0.015; // 1.5% ao mês
+                    break;
+                case 'consignado-publico':
+                    taxaJuros = 0.01; // 1% ao mês
+                    break;
+                default:
+                    taxaJuros = 0.02;
+            }
 
             const parcela = (valor * taxaJuros * Math.pow(1 + taxaJuros, prazo)) / (Math.pow(1 + taxaJuros, prazo) - 1);
             const totalPagar = parcela * prazo;
 
-            const resultadoDiv = document.getElementById('resultado-simulacao');
-            resultadoDiv.innerHTML = `
+            resultadoSimulacao.innerHTML = `
                 <h3>Resultado da Simulação</h3>
                 <p>Valor financiado: R$ ${valor.toFixed(2)}</p>
                 <p>Prazo: ${prazo} meses</p>
+                <p>Tipo de crédito: ${tipoCredito.replace('-', ' ').charAt(0).toUpperCase() + tipoCredito.replace('-', ' ').slice(1)}</p>
                 <p>Parcela mensal: R$ ${parcela.toFixed(2)}</p>
                 <p>Total a pagar: R$ ${totalPagar.toFixed(2)}</p>
             `;
-            resultadoDiv.classList.add('fade-in');
         });
     }
 
@@ -39,34 +44,62 @@ document.addEventListener('DOMContentLoaded', function() {
     if (contatoForm) {
         contatoForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Obrigado pelo seu contato! Retornaremos em breve.');
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const mensagem = document.getElementById('mensagem').value;
+
+            // Aqui você pode implementar o envio real do formulário para seu servidor
+            // Por enquanto, vamos apenas simular um envio bem-sucedido
+            alert(`Obrigado pelo contato, ${nome}! Responderemos em breve para ${email}.`);
             contatoForm.reset();
         });
     }
 
-    // Animação de entrada para elementos
-    const animateOnScroll = function() {
-        const elements = document.querySelectorAll('.produto-item, .section-padding');
-        elements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            const elementBottom = element.getBoundingClientRect().bottom;
-            if (elementTop < window.innerHeight && elementBottom > 0) {
-                element.classList.add('fade-in');
+    // Animações de scroll
+    const animatedElements = document.querySelectorAll('.fade-in, .slide-in');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
             }
         });
-    };
-
-    window.addEventListener('scroll', animateOnScroll);
-    animateOnScroll(); // Trigger on initial load
-
-    // Menu mobile
-    const menuToggle = document.createElement('button');
-    menuToggle.classList.add('menu-toggle');
-    menuToggle.innerHTML = '&#9776;';
-    document.querySelector('nav .container').prepend(menuToggle);
-
-    menuToggle.addEventListener('click', function() {
-        const navUl = document.querySelector('nav ul');
-        navUl.classList.toggle('show');
     });
+
+    animatedElements.forEach(el => observer.observe(el));
+
+    // Smooth scroll para links internos
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Adicionar classe 'active' ao item de menu atual
+    const currentLocation = location.href;
+    const menuItems = document.querySelectorAll('nav ul li a');
+    const menuLength = menuItems.length;
+    for (let i = 0; i < menuLength; i++) {
+        if (menuItems[i].href === currentLocation) {
+            menuItems[i].className = 'active';
+        }
+    }
+
+    // Animação para a página Sobre Nós
+    const teamGrid = document.querySelector('.team-grid');
+    if (teamGrid) {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            },
+            { threshold: 0.1 }
+        );
+        observer.observe(teamGrid);
+    }
 });
