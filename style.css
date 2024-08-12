@@ -202,15 +202,22 @@ footer {
     align-items: center;
 }
 
+.social-media {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
 .social-media a {
-    color: var(--white);
+    color: var(--secondary-color);
     font-size: 24px;
-    margin-left: 20px;
-    transition: color 0.3s ease;
+    margin: 0 15px;
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .social-media a:hover {
-    color: var(--secondary-color);
+    color: var(--white);
+    transform: scale(1.2);
 }
 
 /* Botão WhatsApp */
@@ -242,46 +249,25 @@ footer {
     margin-right: 10px;
 }
 
-/* Sobre Nós Page */
-.flex-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 30px;
-}
-
-.text-content, .image-content {
-    flex: 1;
-}
-
-.image-content img, .team-image img {
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-}
-
-.image-content img:hover, .team-image img:hover {
-    transform: scale(1.05);
-}
-
-/* Animações */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
+/* Efeitos */
 .fade-in {
-    animation: fadeIn 1s ease-out;
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
 }
 
-@keyframes slideIn {
-    from { transform: translateY(50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+.fade-in.visible {
+    opacity: 1;
 }
 
 .slide-in {
-    animation: slideIn 0.5s ease-out;
+    transform: translateY(50px);
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.slide-in.visible {
+    transform: translateY(0);
+    opacity: 1;
 }
 
 /* Responsividade */
@@ -302,10 +288,6 @@ footer {
         font-size: 1rem;
     }
 
-    .flex-container {
-        flex-direction: column;
-    }
-
     .footer-content {
         flex-direction: column;
         text-align: center;
@@ -313,9 +295,5 @@ footer {
 
     .social-media {
         margin-top: 20px;
-    }
-
-    .social-media a {
-        margin: 0 10px;
     }
 }
