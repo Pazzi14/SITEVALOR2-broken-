@@ -361,3 +361,138 @@ footer {
 .slide-in {
     animation: slideInFromBottom 0.5s ease-out;
 }
+
+/* Accessibility */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 8px;
+    z-index: 100;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Print styles */
+@media print {
+    .whatsapp-button,
+    .social-grid,
+    nav,
+    .cta-button {
+        display: none;
+    }
+
+    body {
+        font-size: 12pt;
+    }
+
+    .container {
+        width: 100%;
+        max-width: none;
+    }
+}
+
+/* Additional styles for Sobre Nós page */
+.sobre-nos-hero h1 {
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.sobre-nos-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+.sobre-nos-hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.section-padding p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.team-grid h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+/* Enhancements for better visual hierarchy */
+h2 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+}
+
+h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.section-padding:nth-child(even) {
+    background-color: var(--bg-light);
+}
+
+/* Improve form styling */
+form input:focus,
+form textarea:focus,
+form select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(0, 102, 204, 0.5);
+}
+
+/* Enhance button styles */
+.cta-button,
+button[type="submit"] {
+    font-size: 1.1rem;
+    padding: 12px 24px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Improve footer layout */
+.footer-content {
+    flex-wrap: wrap;
+}
+
+.footer-info,
+.footer-social {
+    flex: 1 1 300px;
+    margin-bottom: 20px;
+}
+
+/* Add hover effect to product items */
+.produto-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.produto-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Enhance WhatsApp button */
+.whatsapp-button {
+    font-size: 1rem;
+    padding: 12px 24px;
+}
+
+.whatsapp-button:hover {
+    background-color: #128C7E;
+}
+
+/* Add smooth scrolling for all browsers */
+html {
+    scroll-behavior: smooth;
+}
