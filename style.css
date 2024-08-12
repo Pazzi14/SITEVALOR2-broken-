@@ -364,3 +364,68 @@ footer {
     border-radius: 5px;
     margin: 20px 0;
 }
+
+/* Additional styles for better responsiveness */
+@media (max-width: 480px) {
+    .produto-item {
+        padding: 15px;
+    }
+
+    .produto-item img {
+        height: 150px;
+    }
+
+    .social-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .whatsapp-button {
+        bottom: 10px;
+        right: 10px;
+        padding: 10px;
+    }
+
+    .whatsapp-icon {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+/* Accessibility improvements */
+:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 8px;
+    z-index: 100;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Print styles */
+@media print {
+    .whatsapp-button,
+    .social-grid,
+    .cta-button,
+    nav {
+        display: none;
+    }
+
+    body {
+        font-size: 12pt;
+    }
+
+    .container {
+        width: 100%;
+        max-width: none;
+    }
+}
