@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valor Financiamentos - Soluções Financeiras Personalizadas</title>
+    <meta name="description" content="A Valor Financiamentos oferece as melhores soluções de crédito pessoal, consignado privado e público. Atendimento em todo o Brasil.">
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
@@ -65,6 +67,12 @@
                 <form id="simulador-form">
                     <input type="number" id="valor" placeholder="Valor desejado" required>
                     <input type="number" id="prazo" placeholder="Prazo (em meses)" required>
+                    <select id="tipo-credito" required>
+                        <option value="">Selecione o tipo de crédito</option>
+                        <option value="pessoal">Crédito Pessoal</option>
+                        <option value="consignado-privado">Consignado Privado</option>
+                        <option value="consignado-publico">Consignado Público</option>
+                    </select>
                     <button type="submit">Simular</button>
                 </form>
                 <div id="resultado-simulacao"></div>
@@ -76,7 +84,7 @@
                 <h2>Sobre a Valor Financiamentos</h2>
                 <p>A Valor Financiamentos é regulamentada e autorizada pelo Banco Central do Brasil, focamos na compreensão das necessidades de crédito para realização das conquistas dos nossos clientes. Você pode contar com atendimento em todo território nacional, através de correspondentes certificados ou com atendimento 100% digital.</p>
                 <img src="https://i.pinimg.com/originals/72/c0/55/72c05566763a3d799eae1928879e6f78.jpg" alt="Mapa do Brasil" class="img-fluid">
-                <a href="#" class="cta-button">Saiba Mais</a>
+                <a href="sobre-nos.html" class="cta-button">Saiba Mais</a>
             </div>
         </section>
 
@@ -134,7 +142,8 @@
     </footer>
 
     <a href="https://wa.me/551137176415" class="whatsapp-button" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-whatsapp"></i>
+        <img src="https://static.whatsapp.net/rsrc.php/yZ/r/JvsnINJ2CZv.svg" alt="WhatsApp" class="whatsapp-icon">
+        Fale Conosco
     </a>
 
     <script src="script.js"></script>
