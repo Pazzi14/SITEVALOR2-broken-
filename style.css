@@ -13,7 +13,7 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', Arial, sans-serif;
     line-height: 1.6;
     color: var(--text-color);
 }
@@ -109,12 +109,13 @@ nav ul li a:hover {
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .cta-button:hover {
     background-color: var(--primary-color);
     color: var(--white);
+    transform: translateY(-3px);
 }
 
 /* Sections */
@@ -144,11 +145,12 @@ h2 {
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .produto-item:hover {
     transform: translateY(-10px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 .produto-item img {
@@ -170,7 +172,7 @@ form {
     margin: 0 auto;
 }
 
-input, textarea, button {
+input, textarea, select, button {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
@@ -183,12 +185,13 @@ button {
     color: var(--primary-color);
     border: none;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 button:hover {
     background-color: var(--primary-color);
     color: var(--white);
+    transform: translateY(-3px);
 }
 
 /* Redes Sociais Section */
@@ -205,41 +208,36 @@ button:hover {
     align-items: center;
     justify-content: center;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 5px;
     color: var(--white);
     text-decoration: none;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 .social-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .social-item i {
-    font-size: 48px;
+    font-size: 3rem;
     margin-bottom: 10px;
 }
 
-.social-item span {
-    font-weight: bold;
-}
-
 .instagram {
-    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+    background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
 }
 
 .facebook {
-    background-color: #1877F2;
+    background-color: #3b5998;
 }
 
 .linkedin {
-    background-color: #0A66C2;
+    background-color: #0077b5;
 }
 
 /* Footer */
 footer {
-    background-color: #333;
+    background-color: var(--primary-color);
     color: var(--white);
     padding: 40px 0;
 }
@@ -255,24 +253,18 @@ footer {
 }
 
 .footer-social h3 {
-    color: var(--secondary-color);
     margin-bottom: 15px;
-}
-
-.social-icons {
-    display: flex;
-    gap: 15px;
 }
 
 .social-icons a {
     color: var(--white);
-    font-size: 24px;
-    transition: color 0.3s ease, transform 0.3s ease;
+    font-size: 1.5rem;
+    margin-right: 15px;
+    transition: opacity 0.3s ease;
 }
 
 .social-icons a:hover {
-    color: var(--secondary-color);
-    transform: scale(1.2);
+    opacity: 0.8;
 }
 
 /* WhatsApp Button */
@@ -282,56 +274,26 @@ footer {
     right: 20px;
     background-color: #25D366;
     color: var(--white);
-    padding: 15px;
-    border-radius: 50%;
+    padding: 15px 20px;
+    border-radius: 50px;
     display: flex;
     align-items: center;
-    justify-content: center;
     text-decoration: none;
+    font-weight: bold;
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1000;
 }
 
 .whatsapp-button:hover {
-    transform: scale(1.1);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
 .whatsapp-icon {
-    width: 30px;
-    height: 30px;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-    }
-
-    nav ul {
-        margin-top: 20px;
-    }
-
-    .hero {
-        height: 400px;
-    }
-
-    .hero h1 {
-        font-size: 2rem;
-    }
-
-    .hero p {
-        font-size: 1rem;
-    }
-
-    .footer-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .footer-social {
-        margin-top: 20px;
-    }
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
 }
 
 /* Animations */
@@ -341,62 +303,66 @@ footer {
 }
 
 .fade-in {
-    animation: fadeIn 1s ease-in;
+    animation: fadeIn 1s ease-out;
 }
 
-@keyframes slideIn {
+@keyframes slideInFromBottom {
     from { transform: translateY(50px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
 }
 
 .slide-in {
-    animation: slideIn 0.5s ease-out;
+    animation: slideInFromBottom 0.5s ease-out;
 }
 
-/* Sobre Nós Page */
-.sobre-hero {
+/* Estilos específicos para a página Sobre Nós */
+.sobre-nos-hero {
     background-image: url('https://w0.peakpx.com/wallpaper/234/832/HD-wallpaper-glass-bank-with-coins-piggy-bank-savings-money-concepts-finance-saving-concept-business-stacks-of-coins.jpg');
+    height: 300px;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: center;
 }
 
 .img-fluid {
     max-width: 100%;
     height: auto;
     border-radius: 5px;
-    margin: 20px 0;
+    margin-bottom: 20px;
 }
 
-/* Additional styles for better responsiveness */
-@media (max-width: 480px) {
-    .produto-item {
-        padding: 15px;
+/* Responsiveness */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
     }
 
-    .produto-item img {
-        height: 150px;
+    nav ul {
+        margin-top: 20px;
     }
 
-    .social-grid {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .footer-social {
+        margin-top: 20px;
+    }
+
+    .team-grid {
         grid-template-columns: 1fr;
     }
-
-    .whatsapp-button {
-        bottom: 10px;
-        right: 10px;
-        padding: 10px;
-    }
-
-    .whatsapp-icon {
-        width: 25px;
-        height: 25px;
-    }
 }
 
-/* Accessibility improvements */
-:focus {
-    outline: 2px solid var(--primary-color);
-    outline-offset: 2px;
-}
-
+/* Accessibility */
 .skip-link {
     position: absolute;
     top: -40px;
@@ -415,8 +381,8 @@ footer {
 @media print {
     .whatsapp-button,
     .social-grid,
-    .cta-button,
-    nav {
+    nav,
+    .cta-button {
         display: none;
     }
 
