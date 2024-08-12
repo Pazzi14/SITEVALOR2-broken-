@@ -33,6 +33,12 @@ header {
     z-index: 1000;
 }
 
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .logo img {
     height: 50px;
     width: auto;
@@ -125,6 +131,18 @@ input, textarea, button {
     border-radius: 5px;
 }
 
+button {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0052a3;
+}
+
 /* Footer */
 footer {
     background-color: #333;
@@ -167,6 +185,10 @@ footer {
 
 .whatsapp-button:hover {
     background-color: #128c7e;
+}
+
+.whatsapp-button i {
+    margin-right: 10px;
 }
 
 /* Produtos Grid */
@@ -274,6 +296,14 @@ footer {
 
 /* Responsividade */
 @media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+    }
+
+    nav ul {
+        margin-top: 20px;
+    }
+
     .hero h1 {
         font-size: 2rem;
     }
@@ -284,10 +314,6 @@ footer {
 
     h2 {
         font-size: 2rem;
-    }
-
-    .flex-container {
-        flex-direction: column;
     }
 
     .footer-content {
