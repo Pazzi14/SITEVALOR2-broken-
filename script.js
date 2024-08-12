@@ -86,20 +86,4 @@ document.addEventListener('DOMContentLoaded', function() {
             menuItems[i].className = 'active';
         }
     }
-
-    // Animação para a página Sobre Nós
-    const teamGrid = document.querySelector('.team-grid');
-    if (teamGrid) {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('fade-in');
-                    }
-                });
-            },
-            { threshold: 0.1 }
-        );
-        observer.observe(teamGrid);
-    }
 });
