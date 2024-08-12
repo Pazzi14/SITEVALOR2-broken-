@@ -3,19 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valor Financiamentos</title>
+    <title>Valor Financiamentos - Soluções Financeiras Personalizadas</title>
+    <meta name="description" content="A Valor Financiamentos oferece as melhores soluções em financiamentos e crédito pessoal. Simule agora e realize seus sonhos!">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FinancialService",
+      "name": "Valor Financiamentos",
+      "url": "https://pazzi14.github.io/SITEVALOR2/",
+      "logo": "https://valorfinanciamentos.com.br/wp-content/uploads/2020/08/logo_grande_valor.png-1-300x155.png",
+      "telephone": "+551137176415",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rua Augusta, 101",
+        "addressLocality": "São Paulo",
+        "addressRegion": "SP",
+        "postalCode": "01305-000",
+        "addressCountry": "BR"
+      }
+    }
+    </script>
 </head>
 <body>
     <header>
         <div class="container">
             <a href="index.html" class="logo">
-                <img src="https://valorfinanciamentos.com.br/wp-content/uploads/2020/08/logo_grande_valor.png-1-300x155.png" alt="Valor Financiamentos Logo">
+                <img src="https://valorfinanciamentos.com.br/wp-content/uploads/2020/08/logo_grande_valor.png-1-300x155.png" alt="Valor Financiamentos Logo" width="150" height="78">
             </a>
             <nav>
                 <ul>
-                    <li><a href="index.html">Início</a></li>
+                    <li><a href="index.html" class="active">Início</a></li>
                     <li><a href="#simulador">Simulador</a></li>
                     <li><a href="sobre-nos.html">Sobre Nós</a></li>
                     <li><a href="#contato">Contato</a></li>
@@ -53,6 +75,45 @@
             </div>
         </section>
 
+        <section id="produtos" class="section-padding">
+            <div class="container">
+                <h2>Nossos Produtos</h2>
+                <div class="produtos-grid">
+                    <div class="produto-item">
+                        <i class="fas fa-home"></i>
+                        <h3>Financiamento Imobiliário</h3>
+                        <p>Realize o sonho da casa própria com as melhores taxas do mercado.</p>
+                    </div>
+                    <div class="produto-item">
+                        <i class="fas fa-car"></i>
+                        <h3>Financiamento de Veículos</h3>
+                        <p>Adquira seu veículo com condições especiais de financiamento.</p>
+                    </div>
+                    <div class="produto-item">
+                        <i class="fas fa-briefcase"></i>
+                        <h3>Crédito Empresarial</h3>
+                        <p>Soluções financeiras para impulsionar o crescimento do seu negócio.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="depoimentos" class="section-padding bg-light">
+            <div class="container">
+                <h2>O que nossos clientes dizem</h2>
+                <div class="depoimentos-slider">
+                    <div class="depoimento-item">
+                        <p>"Excelente atendimento e condições imbatíveis. Recomendo!"</p>
+                        <p class="cliente-nome">- Maria S.</p>
+                    </div>
+                    <div class="depoimento-item">
+                        <p>"Consegui realizar o sonho da casa própria graças à Valor Financiamentos."</p>
+                        <p class="cliente-nome">- João P.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="contato" class="section-padding">
             <div class="container">
                 <h2>Entre em Contato</h2>
@@ -68,13 +129,27 @@
 
     <footer>
         <div class="container">
-            <p>Telefone: (11) 3717-6415</p>
-            <p>Email: comercial@valorfinanciamentos.com.br</p>
-            <p>Endereço: Rua Augusta, 101</p>
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>Telefone: (11) 3717-6415</p>
+                    <p>Email: comercial@valorfinanciamentos.com.br</p>
+                    <p>Endereço: Rua Augusta, 101</p>
+                </div>
+                <div class="footer-links">
+                    <a href="politica-privacidade.html">Política de Privacidade</a>
+                    <a href="termos-uso.html">Termos de Uso</a>
+                    <a href="mapa-site.html">Mapa do Site</a>
+                </div>
+                <div class="social-media">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
         </div>
     </footer>
 
-    <a href="https://wa.me/551137176415" class="whatsapp-button" target="_blank">
+    <a href="https://wa.me/551137176415" class="whatsapp-button" target="_blank" rel="noopener noreferrer">
         <i class="fab fa-whatsapp"></i> Fale Conosco
     </a>
 
