@@ -296,26 +296,7 @@ footer {
     margin-right: 10px;
 }
 
-/* Animations */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-.fade-in {
-    animation: fadeIn 1s ease-out;
-}
-
-@keyframes slideInFromBottom {
-    from { transform: translateY(50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
-.slide-in {
-    animation: slideInFromBottom 0.5s ease-out;
-}
-
-/* Estilos específicos para a página Sobre Nós */
+/* Sobre Nós Page */
 .sobre-nos-hero {
     background-image: url('https://w0.peakpx.com/wallpaper/234/832/HD-wallpaper-glass-bank-with-coins-piggy-bank-savings-money-concepts-finance-saving-concept-business-stacks-of-coins.jpg');
     height: 300px;
@@ -362,36 +343,21 @@ footer {
     }
 }
 
-/* Accessibility */
-.skip-link {
-    position: absolute;
-    top: -40px;
-    left: 0;
-    background: var(--primary-color);
-    color: var(--white);
-    padding: 8px;
-    z-index: 100;
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-.skip-link:focus {
-    top: 0;
+.fade-in {
+    animation: fadeIn 1s ease-out;
 }
 
-/* Print styles */
-@media print {
-    .whatsapp-button,
-    .social-grid,
-    nav,
-    .cta-button {
-        display: none;
-    }
+@keyframes slideInFromBottom {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
 
-    body {
-        font-size: 12pt;
-    }
-
-    .container {
-        width: 100%;
-        max-width: none;
-    }
+.slide-in {
+    animation: slideInFromBottom 0.5s ease-out;
 }
