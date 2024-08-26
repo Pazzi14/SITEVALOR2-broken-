@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
         navUl.classList.toggle('show');
     });
 
-    // Simulador de Financiamento
     const simuladorForm = document.getElementById('simulador-form');
     if (simuladorForm) {
         simuladorForm.addEventListener('submit', function(e) {
@@ -15,7 +14,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Formulário de Contato
     const contatoForm = document.getElementById('contato-form');
     if (contatoForm) {
         contatoForm.addEventListener('submit', function(e) {
@@ -24,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Scroll suave para links internos
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -38,18 +35,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Animação do header no scroll
-    let prevScrollpos = window.pageYOffset;
     window.onscroll = function() {
-        let currentScrollPos = window.pageYOffset;
-        if (prevScrollpos > currentScrollPos) {
-            document.querySelector("header").style.top = "0";
-        } else {
-            document.querySelector("header").style.top = "-70px";
-        }
-        prevScrollpos = currentScrollPos;
         scrollFunction();
-    }
+    };
 });
 
 function simularFinanciamento() {
@@ -91,9 +79,6 @@ function enviarFormularioContato() {
         return;
     }
 
-    // Aqui você deve implementar o envio real do formulário para seu servidor
-    // Por enquanto, vamos apenas simular um envio bem-sucedido
-
     alert(`Obrigado pelo contato, ${nome}! Responderemos em breve para ${email}.`);
     document.getElementById('contato-form').reset();
 }
@@ -113,6 +98,6 @@ function scrollFunction() {
 }
 
 function topFunction() {
-    document.body.scrollTop = 0; // Para Safari
-    document.documentElement.scrollTop = 0; // Para Chrome, Firefox, IE e Opera
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
 }
