@@ -17,7 +17,7 @@
     <header>
         <nav class="container" aria-label="Navegação principal">
             <a href="index.html" class="logo">
-                <img src="https://valorfinanciamentos.com.br/wp-content/uploads/2020/08/logo_grande_valor.png-1-300x155.png" alt="Valor Financiamentos Logo">
+                <img src="logo.png" alt="Valor Financiamentos Logo" width="200" height="50">
             </a>
             <button class="mobile-menu-toggle" aria-label="Abrir menu">
                 <span></span>
@@ -25,10 +25,10 @@
                 <span></span>
             </button>
             <ul class="nav-menu" role="menubar">
-                <li role="menuitem"><a href="index.html#home">Início</a></li>
+                <li role="menuitem"><a href="index.html">Início</a></li>
                 <li role="menuitem"><a href="index.html#produtos">Produtos</a></li>
                 <li role="menuitem"><a href="index.html#simulador">Simulador</a></li>
-                <li role="menuitem"><a href="sobre-nos.html">Sobre Nós</a></li>
+                <li role="menuitem"><a href="sobre-nos.html" class="active">Sobre Nós</a></li>
                 <li role="menuitem"><a href="index.html#contato">Contato</a></li>
             </ul>
         </nav>
@@ -46,11 +46,7 @@
                 <h2>Nossa História</h2>
                 <p>Fundada em 2010, a Valor Financiamentos nasceu com o propósito de democratizar o acesso ao crédito no Brasil. Desde o início, nossa missão tem sido proporcionar soluções financeiras personalizadas, contribuindo para o crescimento e realização dos sonhos de nossos clientes em todo o território nacional.</p>
                 <p>Ao longo dos anos, expandimos nossa atuação e hoje somos reconhecidos como uma das principais instituições financeiras do país, sempre comprometidos com a excelência no atendimento e a oferta de produtos inovadores.</p>
-                <picture>
-                    <source srcset="historia-valor.webp" type="image/webp">
-                    <source srcset="historia-valor.jpg" type="image/jpeg">
-                    <img src="historia-valor.jpg" alt="Linha do tempo da Valor Financiamentos" class="img-fluid lazy-load">
-                </picture>
+                <img src="historia-valor.jpg" alt="Linha do tempo da Valor Financiamentos" class="img-fluid lazy-load" width="800" height="400">
             </div>
         </section>
 
@@ -72,40 +68,12 @@
                 <h2>Nossa Equipe</h2>
                 <p>Contamos com uma equipe altamente qualificada e comprometida em oferecer o melhor atendimento e as soluções mais adequadas para cada cliente.</p>
                 <div class="team-grid">
-                    <picture>
-                        <source srcset="equipe-valor.webp" type="image/webp">
-                        <source srcset="equipe-valor.jpg" type="image/jpeg">
-                        <img src="equipe-valor.jpg" alt="Equipe Valor Financiamentos" class="img-fluid lazy-load">
-                    </picture>
+                    <img src="equipe-valor.jpg" alt="Equipe Valor Financiamentos" class="img-fluid lazy-load" width="600" height="400">
                     <div>
                         <h3>Compromisso com a Excelência</h3>
                         <p>Nossa equipe trabalha em conjunto para garantir que cada cliente receba um atendimento personalizado e soluções financeiras que atendam às suas necessidades específicas.</p>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section class="section-padding bg-light">
-            <div class="container">
-                <h2>Nosso Compromisso</h2>
-                <p>Na Valor Financiamentos, estamos comprometidos com a transparência, ética e responsabilidade em todas as nossas operações. Nosso objetivo é construir relacionamentos duradouros com nossos clientes, baseados na confiança e no respeito mútuo.</p>
-                <picture>
-                    <source srcset="compromisso-valor.webp" type="image/webp">
-                    <source srcset="compromisso-valor.jpg" type="image/jpeg">
-                    <img src="compromisso-valor.jpg" alt="Compromisso com o cliente" class="img-fluid lazy-load">
-                </picture>
-            </div>
-        </section>
-
-        <section class="section-padding">
-            <div class="container">
-                <h2>Atendimento Nacional</h2>
-                <p>Você pode contar com atendimento em todo território nacional, através de correspondentes certificados ou com atendimento 100% digital. Estamos sempre prontos para ajudar você a alcançar seus objetivos financeiros.</p>
-                <picture>
-                    <source srcset="mapa-brasil.webp" type="image/webp">
-                    <source srcset="mapa-brasil.jpg" type="image/jpeg">
-                    <img src="mapa-brasil.jpg" alt="Mapa do Brasil" class="img-fluid lazy-load">
-                </picture>
             </div>
         </section>
 
@@ -149,12 +117,11 @@
                 <div class="sitemap">
                     <h3>Mapa do Site</h3>
                     <ul>
-                        <li><a href="index.html#home">Início</a></li>
+                        <li><a href="index.html">Início</a></li>
                         <li><a href="index.html#produtos">Produtos</a></li>
                         <li><a href="index.html#simulador">Simulador</a></li>
                         <li><a href="sobre-nos.html">Sobre Nós</a></li>
                         <li><a href="index.html#contato">Contato</a></li>
-                        <li><a href="index.html#blog">Blog</a></li>
                     </ul>
                 </div>
             </div>
@@ -162,9 +129,13 @@
     </footer>
 
     <a href="https://wa.me/551137176415" class="whatsapp-button" target="_blank" rel="noopener noreferrer">
-        <img src="https://static.whatsapp.net/rsrc.php/yZ/r/JvsnINJ2CZv.svg" alt="WhatsApp" class="whatsapp-icon">
-        Fale Conosco
+        <i class="fab fa-whatsapp"></i> Fale Conosco
     </a>
+
+    <div id="cookie-banner" class="cookie-banner">
+        <p>Usamos cookies para melhorar sua experiência em nosso site. Ao continuar navegando, você concorda com nossa <a href="politica-de-privacidade.html">Política de Privacidade</a>.</p>
+        <button id="accept-cookies">Aceitar</button>
+    </div>
 
     <script src="script.js"></script>
 </body>
