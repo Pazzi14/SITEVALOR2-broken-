@@ -69,7 +69,7 @@ nav ul li a:hover {
 }
 
 /* Hero Section */
-#hero {
+#hero, #sobre-hero {
     background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20230314/pngtree-beautiful-background-of-high-rise-buildings-image_1947772.jpg');
     background-size: cover;
     background-position: center;
@@ -80,10 +80,25 @@ nav ul li a:hover {
     align-items: center;
     text-align: center;
     color: white;
-    padding-top: 80px;
+    position: relative;
 }
 
-#hero h1 {
+#hero::before, #sobre-hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#hero *, #sobre-hero * {
+    position: relative;
+    z-index: 1;
+}
+
+#hero h1, #sobre-hero h1 {
     font-size: 3rem;
     margin-bottom: 20px;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
@@ -103,12 +118,13 @@ nav ul li a:hover {
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .cta-button:hover {
     background-color: #0066cc;
     color: #cdffff;
+    transform: scale(1.05);
 }
 
 /* Seções */
@@ -124,12 +140,17 @@ h2 {
 
 /* Simulador */
 #simulador {
-    background-color: white;
+    background-color: #f9f9f9;
 }
 
 #simulador-form {
     max-width: 500px;
     margin: 0 auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
 }
 
 input, textarea, button {
@@ -146,12 +167,13 @@ button {
     color: white;
     border: none;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 button:hover {
     background-color: #cdffff;
     color: #0066cc;
+    transform: scale(1.05);
 }
 
 /* Produtos */
@@ -166,46 +188,18 @@ button:hover {
     font-size: 1.1rem;
 }
 
-.products-image {
+.products-image, .history-image, .values-image, .team-image {
     max-width: 100%;
     height: auto;
     display: block;
     margin: 20px auto;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-}
-
-.products-image:hover {
-    transform: scale(1.05);
 }
 
 /* Contatos */
 #contatos {
     background-color: #f9f9f9;
-}
-
-/* Redes Sociais */
-#redes-sociais {
-    background-color: #f0f0f0;
-    padding: 40px 0;
-}
-
-.social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.social-icons a {
-    font-size: 2rem;
-    color: #0066cc;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.social-icons a:hover {
-    color: #cdffff;
-    transform: scale(1.2);
 }
 
 /* Footer */
@@ -249,6 +243,24 @@ footer {
     border-top: 1px solid #555;
 }
 
+/* Redes Sociais */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-icons a {
+    font-size: 1.5rem;
+    color: #cdffff;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #0066cc;
+    transform: scale(1.2);
+}
+
 /* WhatsApp Button */
 .whatsapp-button {
     position: fixed;
@@ -264,6 +276,7 @@ footer {
     font-weight: bold;
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
     transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
 }
 
 .whatsapp-button:hover {
@@ -271,9 +284,7 @@ footer {
     transform: scale(1.05);
 }
 
-.whatsapp-icon {
-    width: 24px;
-    height: 24px;
+.whatsapp-button i {
     margin-right: 10px;
 }
 
@@ -301,31 +312,14 @@ footer {
     transform: scale(1.1);
 }
 
-/* Estilos específicos para a página Sobre Nós */
-#sobre-hero {
-    background-image: url('https://i.pinimg.com/originals/72/c0/55/72c05566763a3d799eae1928879e6f78.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-align: center;
+/* Animações */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-#sobre-hero h1 {
-    font-size: 3rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-}
-
-.history-image, .values-image, .team-image {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 20px auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+.fade-in {
+    animation: fadeIn 1s ease-in;
 }
 
 /* Responsividade */
@@ -346,13 +340,14 @@ footer {
 
     nav ul li {
         margin: 10px 0;
+        text-align: center;
     }
 
     .menu-toggle {
         display: block;
     }
 
-    #hero h1 {
+    #hero h1, #sobre-hero h1 {
         font-size: 2rem;
     }
 
@@ -366,7 +361,7 @@ footer {
 }
 
 @media (max-width: 480px) {
-    #hero {
+    #hero, #sobre-hero {
         height: auto;
         padding: 100px 0 50px;
     }
