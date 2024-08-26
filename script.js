@@ -1,4 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Menu móvel
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+
+    if (mobileMenuToggle && navMenu) {
+        mobileMenuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+        });
+    }
+
     // Simulador de Financiamento
     const simuladorForm = document.getElementById('simulador-form');
     const resultadoSimulacao = document.getElementById('resultado-simulacao');
@@ -44,20 +54,58 @@ document.addEventListener('DOMContentLoaded', function() {
     if (contatoForm) {
         contatoForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            const nome = document.getElementById('nome').value;
-            const email = document.getElementById('email').value;
-            const mensagem = document.getElementById('mensagem').value;
+            const nome = document.getElementById('nome').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const mensagem = document.getElementById('mensagem').value.trim();
 
-            // Aqui você pode implementar o envio real do formulário para seu servidor
-            // Por enquanto, vamos apenas simular um envio bem-sucedido
+            if (nome === '' || email === '' || mensagem === '') {
+                alert('Por favor, preencha todos os campos.');
+                return;
+            }
+
+            if (!isValidEmail(email)) {
+                alert('Por favor, insira um e-mail válido.');
+                return;
+            }
+
+            // Aqui você implementaria o envio real do formulário
             alert(`Obrigado pelo contato, ${nome}! Responderemos em breve para ${email}.`);
             contatoForm.reset();
         });
     }
 
+    function isValidEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    }
+
+    // FAQ Accordion
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+            item.classList.toggle('active');
+        });
+    });
+
+    // Lazy Loading para imagens
+    const lazyImages = document.querySelectorAll('img.lazy-load');
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.classList.remove('lazy-load');
+                observer.unobserve(img);
+            }
+        });
+    });
+
+    lazyImages.forEach(img => imageObserver.observe(img));
+
     // Animações de scroll
     const animatedElements = document.querySelectorAll('.fade-in, .slide-in');
-    const observer = new IntersectionObserver((entries) => {
+    const animationObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
@@ -65,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    animatedElements.forEach(el => observer.observe(el));
+    animatedElements.forEach(el => animationObserver.observe(el));
 
     // Smooth scroll para links internos
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -85,5 +133,50 @@ document.addEventListener('DOMContentLoaded', function() {
         if (menuItems[i].href === currentLocation) {
             menuItems[i].className = 'active';
         }
+    }
+
+    // Cookie banner
+    const cookieBanner = document.getElementById('cookie-banner');
+    const acceptCookiesButton = document.getElementById('accept-cookies');
+
+    if (cookieBanner && acceptCookiesButton) {
+        if (!localStorage.getItem('cookiesAccepted')) {
+            cookieBanner.classList.add('show');
+        }
+
+        acceptCookiesButton.addEventListener('click', function() {
+            localStorage.setItem('cookiesAccepted', 'true');
+            cookieBanner.classList.remove('show');
+        });
+    }
+
+    // Depoimentos slider
+    const depoimentosSlider = document.querySelector('.depoimentos-slider');
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    if (depoimentosSlider) {
+        depoimentosSlider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - depoimentosSlider.offsetLeft;
+            scrollLeft = depoimentosSlider.scrollLeft;
+        });
+
+        depoimentosSlider.addEventListener('mouseleave', () => {
+            isDown = false;
+        });
+
+        depoimentosSlider.addEventListener('mouseup', () => {
+            isDown = false;
+        });
+
+        depoimentosSlider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - depoimentosSlider.offsetLeft;
+            const walk = (x - startX) * 3;
+            depoimentosSlider.scrollLeft = scrollLeft - walk;
+        });
     }
 });
