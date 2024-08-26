@@ -1,4 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navUl = document.querySelector('nav ul');
+
+    menuToggle.addEventListener('click', function() {
+        navUl.classList.toggle('show');
+    });
+
     // Simulador de Financiamento
     const simuladorForm = document.getElementById('simulador-form');
     if (simuladorForm) {
@@ -24,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
                 window.scrollTo({
-                    top: target.offsetTop - 70, // Ajuste para o header fixo
+                    top: target.offsetTop - 70,
                     behavior: 'smooth'
                 });
             }
@@ -38,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (prevScrollpos > currentScrollPos) {
             document.querySelector("header").style.top = "0";
         } else {
-            document.querySelector("header").style.top = "-70px"; // Ajuste conforme a altura do seu header
+            document.querySelector("header").style.top = "-70px";
         }
         prevScrollpos = currentScrollPos;
         scrollFunction();
@@ -96,7 +103,6 @@ function validarEmail(email) {
     return re.test(String(email).toLowerCase());
 }
 
-// Função para mostrar/ocultar o botão "Voltar ao topo"
 function scrollFunction() {
     const backToTopButton = document.getElementById("backToTop");
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
@@ -106,7 +112,6 @@ function scrollFunction() {
     }
 }
 
-// Função para voltar ao topo da página
 function topFunction() {
     document.body.scrollTop = 0; // Para Safari
     document.documentElement.scrollTop = 0; // Para Chrome, Firefox, IE e Opera
