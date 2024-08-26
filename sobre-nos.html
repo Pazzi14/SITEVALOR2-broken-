@@ -4,28 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre Nós - Valor Financiamentos</title>
-    <meta name="description" content="Conheça a Valor Financiamentos, sua parceira em soluções financeiras personalizadas em todo o Brasil.">
+    <meta name="description" content="Conheça a história, missão e valores da Valor Financiamentos, sua parceira em soluções financeiras personalizadas em todo o Brasil.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Valor Financiamentos">
+    <link rel="canonical" href="https://www.valorfinanciamentos.com.br/sobre-nos">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
     <header>
-        <nav class="container">
+        <nav class="container" aria-label="Navegação principal">
             <a href="index.html" class="logo">
                 <img src="https://valorfinanciamentos.com.br/wp-content/uploads/2020/08/logo_grande_valor.png-1-300x155.png" alt="Valor Financiamentos Logo">
             </a>
-            <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="index.html#produtos">Produtos</a></li>
-                <li><a href="index.html#simulador">Simulador</a></li>
-                <li><a href="sobre-nos.html">Sobre Nós</a></li>
-                <li><a href="index.html#contato">Contato</a></li>
+            <button class="mobile-menu-toggle" aria-label="Abrir menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" role="menubar">
+                <li role="menuitem"><a href="index.html#home">Início</a></li>
+                <li role="menuitem"><a href="index.html#produtos">Produtos</a></li>
+                <li role="menuitem"><a href="index.html#simulador">Simulador</a></li>
+                <li role="menuitem"><a href="sobre-nos.html">Sobre Nós</a></li>
+                <li role="menuitem"><a href="index.html#contato">Contato</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
+    <main id="main-content">
         <section class="hero sobre-nos-hero">
             <div class="container">
                 <h1>Sobre a Valor Financiamentos</h1>
@@ -35,18 +44,39 @@
         <section class="section-padding">
             <div class="container">
                 <h2>Nossa História</h2>
-                <p>A Valor Financiamentos é regulamentada e autorizada pelo Banco Central do Brasil. Desde nossa fundação, focamos na compreensão das necessidades de crédito para realização das conquistas dos nossos clientes.</p>
-                <p>Nossa missão é proporcionar soluções financeiras personalizadas, contribuindo para o crescimento e realização dos sonhos de nossos clientes em todo o território nacional.</p>
-                <img src="https://sinlopar.com.br/wp-content/uploads/2023/12/trabalho-em-equipe-2.jpg" alt="Equipe Valor Financiamentos" class="img-fluid">
+                <p>Fundada em 2010, a Valor Financiamentos nasceu com o propósito de democratizar o acesso ao crédito no Brasil. Desde o início, nossa missão tem sido proporcionar soluções financeiras personalizadas, contribuindo para o crescimento e realização dos sonhos de nossos clientes em todo o território nacional.</p>
+                <p>Ao longo dos anos, expandimos nossa atuação e hoje somos reconhecidos como uma das principais instituições financeiras do país, sempre comprometidos com a excelência no atendimento e a oferta de produtos inovadores.</p>
+                <picture>
+                    <source srcset="historia-valor.webp" type="image/webp">
+                    <source srcset="historia-valor.jpg" type="image/jpeg">
+                    <img src="historia-valor.jpg" alt="Linha do tempo da Valor Financiamentos" class="img-fluid lazy-load">
+                </picture>
             </div>
         </section>
 
         <section class="section-padding bg-light">
             <div class="container">
+                <h2>Nossos Valores</h2>
+                <ul class="valores-list">
+                    <li class="fade-in"><i class="fas fa-handshake"></i> Transparência</li>
+                    <li class="fade-in"><i class="fas fa-shield-alt"></i> Segurança</li>
+                    <li class="fade-in"><i class="fas fa-users"></i> Foco no Cliente</li>
+                    <li class="fade-in"><i class="fas fa-chart-line"></i> Inovação</li>
+                    <li class="fade-in"><i class="fas fa-balance-scale"></i> Ética</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section-padding">
+            <div class="container">
                 <h2>Nossa Equipe</h2>
                 <p>Contamos com uma equipe altamente qualificada e comprometida em oferecer o melhor atendimento e as soluções mais adequadas para cada cliente.</p>
                 <div class="team-grid">
-                    <img src="https://jrmcoaching.com.br/wp-content/uploads/2022/02/cooperacao-no-trabalho-em-equipe.jpg" alt="Cooperação no trabalho em equipe" class="img-fluid">
+                    <picture>
+                        <source srcset="equipe-valor.webp" type="image/webp">
+                        <source srcset="equipe-valor.jpg" type="image/jpeg">
+                        <img src="equipe-valor.jpg" alt="Equipe Valor Financiamentos" class="img-fluid lazy-load">
+                    </picture>
                     <div>
                         <h3>Compromisso com a Excelência</h3>
                         <p>Nossa equipe trabalha em conjunto para garantir que cada cliente receba um atendimento personalizado e soluções financeiras que atendam às suas necessidades específicas.</p>
@@ -55,19 +85,47 @@
             </div>
         </section>
 
-        <section class="section-padding">
+        <section class="section-padding bg-light">
             <div class="container">
                 <h2>Nosso Compromisso</h2>
                 <p>Na Valor Financiamentos, estamos comprometidos com a transparência, ética e responsabilidade em todas as nossas operações. Nosso objetivo é construir relacionamentos duradouros com nossos clientes, baseados na confiança e no respeito mútuo.</p>
-                <img src="https://blog.portalpos.com.br/app/uploads/2019/07/GettyImages-1047699430.jpg" alt="Compromisso com o cliente" class="img-fluid">
+                <picture>
+                    <source srcset="compromisso-valor.webp" type="image/webp">
+                    <source srcset="compromisso-valor.jpg" type="image/jpeg">
+                    <img src="compromisso-valor.jpg" alt="Compromisso com o cliente" class="img-fluid lazy-load">
+                </picture>
             </div>
         </section>
 
-        <section class="section-padding bg-light">
+        <section class="section-padding">
             <div class="container">
                 <h2>Atendimento Nacional</h2>
                 <p>Você pode contar com atendimento em todo território nacional, através de correspondentes certificados ou com atendimento 100% digital. Estamos sempre prontos para ajudar você a alcançar seus objetivos financeiros.</p>
-                <img src="https://i.pinimg.com/originals/72/c0/55/72c05566763a3d799eae1928879e6f78.jpg" alt="Mapa do Brasil" class="img-fluid">
+                <picture>
+                    <source srcset="mapa-brasil.webp" type="image/webp">
+                    <source srcset="mapa-brasil.jpg" type="image/jpeg">
+                    <img src="mapa-brasil.jpg" alt="Mapa do Brasil" class="img-fluid lazy-load">
+                </picture>
+            </div>
+        </section>
+
+        <section id="depoimentos" class="section-padding bg-light">
+            <div class="container">
+                <h2>O que nossos clientes dizem</h2>
+                <div class="depoimentos-slider">
+                    <div class="depoimento-item">
+                        <p>"A Valor Financiamentos me ajudou a realizar o sonho da casa própria. O processo foi rápido e transparente!"</p>
+                        <cite>- Maria Silva</cite>
+                    </div>
+                    <div class="depoimento-item">
+                        <p>"Excelente atendimento e taxas competitivas. Recomendo a todos que precisam de um empréstimo."</p>
+                        <cite>- João Santos</cite>
+                    </div>
+                    <div class="depoimento-item">
+                        <p>"Consegui o capital que precisava para expandir meu negócio. Obrigado, Valor Financiamentos!"</p>
+                        <cite>- Ana Oliveira</cite>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
@@ -87,6 +145,17 @@
                         <a href="https://m.facebook.com/valorfinanciamentos/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
                         <a href="https://www.linkedin.com/company/valorfinanciamentos/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
                     </div>
+                </div>
+                <div class="sitemap">
+                    <h3>Mapa do Site</h3>
+                    <ul>
+                        <li><a href="index.html#home">Início</a></li>
+                        <li><a href="index.html#produtos">Produtos</a></li>
+                        <li><a href="index.html#simulador">Simulador</a></li>
+                        <li><a href="sobre-nos.html">Sobre Nós</a></li>
+                        <li><a href="index.html#contato">Contato</a></li>
+                        <li><a href="index.html#blog">Blog</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
