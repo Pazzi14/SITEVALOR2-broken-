@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
         navUl.classList.toggle('show');
     });
 
-    // Simulador de financiamento
+        // Simulador de financiamento
     if (simuladorForm) {
         simuladorForm.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -54,6 +54,15 @@ document.addEventListener('DOMContentLoaded', function() {
     fadeElements.forEach(element => {
         observer.observe(element);
     });
+
+    // Funcionalidade para o FAQ
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+            const answer = question.nextElementSibling;
+            answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+        });
+    });
 });
 
 function simularFinanciamento() {
@@ -81,12 +90,17 @@ function simularFinanciamento() {
 }
 
 function enviarFormularioContato() {
-    const nome = document.getElementById('nome').value;
-    const email = document.getElementById('email').value;
-    const mensagem = document.getElementById('mensagem').value;
+    const nome = document.getElementById('nome').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const mensagem = document.getElementById('mensagem').value.trim();
 
-    if (nome.trim() === '' || email.trim() === '' || mensagem.trim() === '') {
+    if (nome === '' || email === '' || mensagem === '') {
         alert('Por favor, preencha todos os campos do formulário.');
+        return;
+    }
+
+    if (!validarEmail(email)) {
+        alert('Por favor, insira um endereço de e-mail válido.');
         return;
     }
 
@@ -95,6 +109,11 @@ function enviarFormularioContato() {
 
     alert(`Obrigado pelo contato, ${nome}! Responderemos em breve para ${email}.`);
     document.getElementById('contato-form').reset();
+}
+
+function validarEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
 }
 
 function scrollFunction() {
@@ -110,7 +129,7 @@ function topFunction() {
     document.documentElement.scrollTop = 0; // Para Chrome, Firefox, IE e Opera
 }
 
-// Adicione esta função para criar um efeito de parallax no hero
+// Efeito parallax no hero
 window.addEventListener('scroll', function() {
     const scrollPosition = window.pageYOffset;
     const heroSection = document.getElementById('hero');
