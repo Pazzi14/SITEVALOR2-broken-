@@ -9,13 +9,11 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     color: #333;
-    background-color: #f4f4f4;
 }
 
 .container {
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 0 20px;
 }
 
@@ -61,6 +59,15 @@ nav ul li a:hover {
     color: #cdffff;
 }
 
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
 /* Hero Section */
 #hero {
     background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20230314/pngtree-beautiful-background-of-high-rise-buildings-image_1947772.jpg');
@@ -95,7 +102,7 @@ nav ul li a:hover {
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
-        font-weight: bold;
+    font-weight: bold;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -147,25 +154,6 @@ button:hover {
     color: #0066cc;
 }
 
-/* Sobre Nós */
-#sobre, #nossa-historia, #nossos-valores, #nossa-equipe {
-    background-color: white;
-}
-
-.about-image, .products-image, .history-image, .team-image, .values-image {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 20px auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-}
-
-.about-image:hover, .products-image:hover, .history-image:hover, .team-image:hover, .values-image:hover {
-    transform: scale(1.05);
-}
-
 /* Produtos */
 #produtos ul {
     list-style-type: none;
@@ -178,26 +166,87 @@ button:hover {
     font-size: 1.1rem;
 }
 
+.products-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.products-image:hover {
+    transform: scale(1.05);
+}
+
 /* Contatos */
 #contatos {
     background-color: #f9f9f9;
+}
+
+/* Redes Sociais */
+#redes-sociais {
+    background-color: #f0f0f0;
+    padding: 40px 0;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-icons a {
+    font-size: 2rem;
+    color: #0066cc;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #cdffff;
+    transform: scale(1.2);
 }
 
 /* Footer */
 footer {
     background-color: #333;
     color: white;
-    text-align: center;
-    padding: 20px 0;
+    padding: 40px 0 20px;
 }
 
-footer p {
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    margin-bottom: 20px;
+}
+
+.footer-section h3 {
     margin-bottom: 10px;
 }
 
-footer a {
+.footer-section ul {
+    list-style-type: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 5px;
+}
+
+.footer-section a {
     color: #cdffff;
     text-decoration: none;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #555;
 }
 
 /* WhatsApp Button */
@@ -228,29 +277,6 @@ footer a {
     margin-right: 10px;
 }
 
-/* Redes Sociais */
-#redes-sociais {
-    background-color: #f0f0f0;
-    padding: 40px 0;
-}
-
-.social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.social-icons a {
-    font-size: 2rem;
-    color: #0066cc;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.social-icons a:hover {
-    color: #cdffff;
-    transform: scale(1.2);
-}
-
 /* Botão Voltar ao Topo */
 #backToTop {
     display: none;
@@ -277,16 +303,26 @@ footer a {
 
 /* Responsividade */
 @media (max-width: 768px) {
-    nav {
+    nav ul {
+        display: none;
         flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: #0066cc;
     }
 
-    nav ul {
-        margin-top: 20px;
+    nav ul.show {
+        display: flex;
     }
 
     nav ul li {
-        margin: 0 10px;
+        margin: 10px 0;
+    }
+
+    .menu-toggle {
+        display: block;
     }
 
     #hero h1 {
@@ -297,12 +333,8 @@ footer a {
         font-size: 1rem;
     }
 
-    .container {
-        width: 90%;
-    }
-
-    section {
-        padding: 40px 0;
+    .footer-content {
+        flex-direction: column;
     }
 }
 
