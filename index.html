@@ -5,27 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valor Financiamentos - Soluções Financeiras Personalizadas</title>
     <meta name="description" content="A Valor Financiamentos oferece as melhores soluções de crédito pessoal, consignado privado e público. Atendimento em todo o Brasil.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Valor Financiamentos">
+    <link rel="canonical" href="https://www.valorfinanciamentos.com.br/">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
     <header>
-        <nav class="container">
+        <nav class="container" aria-label="Navegação principal">
             <a href="index.html" class="logo">
                 <img src="https://valorfinanciamentos.com.br/wp-content/uploads/2020/08/logo_grande_valor.png-1-300x155.png" alt="Valor Financiamentos Logo">
             </a>
-            <ul>
-                <li><a href="#home">Início</a></li>
-                <li><a href="#produtos">Produtos</a></li>
-                <li><a href="#simulador">Simulador</a></li>
-                <li><a href="sobre-nos.html">Sobre Nós</a></li>
-                <li><a href="#contato">Contato</a></li>
+            <button class="mobile-menu-toggle" aria-label="Abrir menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" role="menubar">
+                <li role="menuitem"><a href="#home">Início</a></li>
+                <li role="menuitem"><a href="#produtos">Produtos</a></li>
+                <li role="menuitem"><a href="#simulador">Simulador</a></li>
+                <li role="menuitem"><a href="sobre-nos.html">Sobre Nós</a></li>
+                <li role="menuitem"><a href="#contato">Contato</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
+    <main id="main-content">
         <section id="home" class="hero">
             <div class="container">
                 <h1>Soluções Financeiras para Você</h1>
@@ -38,18 +47,30 @@
             <div class="container">
                 <h2>Linhas de Crédito</h2>
                 <div class="produtos-grid">
-                    <div class="produto-item">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLAFOiCGpFmszKUHM8LB0Fa7XNKpAZHOSifTa_8kiDMR3OcjJN5yHd0O0&s=10" alt="Crédito Pessoal">
+                    <div class="produto-item fade-in">
+                        <picture>
+                            <source srcset="credito-pessoal.webp" type="image/webp">
+                            <source srcset="credito-pessoal.jpg" type="image/jpeg">
+                            <img src="credito-pessoal.jpg" alt="Crédito Pessoal" class="lazy-load">
+                        </picture>
                         <h3>Crédito Pessoal</h3>
                         <p>Soluções financeiras personalizadas para suas necessidades.</p>
                     </div>
-                    <div class="produto-item">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjCFj89CPZXfOQodrA3yyxgmpzY4u0gjXTyWdPMqp-G7ZaXbOQ_oALaznK&s=10" alt="Consignado Privado">
+                    <div class="produto-item fade-in">
+                        <picture>
+                            <source srcset="consignado-privado.webp" type="image/webp">
+                            <source srcset="consignado-privado.jpg" type="image/jpeg">
+                            <img src="consignado-privado.jpg" alt="Consignado Privado" class="lazy-load">
+                        </picture>
                         <h3>Consignado Privado</h3>
                         <p>Crédito com desconto em folha para empresas privadas.</p>
                     </div>
-                    <div class="produto-item">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbxpGj_KwvbXU0AOIDNxP4ZDHklzwwv7w4vw&usqp=CAU" alt="Consignado Público">
+                    <div class="produto-item fade-in">
+                        <picture>
+                            <source srcset="consignado-publico.webp" type="image/webp">
+                            <source srcset="consignado-publico.jpg" type="image/jpeg">
+                            <img src="consignado-publico.jpg" alt="Consignado Público" class="lazy-load">
+                        </picture>
                         <h3>Consignado Público</h3>
                         <p>Crédito com desconto em folha para servidores públicos.</p>
                     </div>
@@ -75,6 +96,26 @@
             </div>
         </section>
 
+        <section id="depoimentos" class="section-padding">
+            <div class="container">
+                <h2>O que nossos clientes dizem</h2>
+                <div class="depoimentos-slider">
+                    <div class="depoimento-item">
+                        <p>"A Valor Financiamentos me ajudou a realizar o sonho da casa própria. O processo foi rápido e transparente!"</p>
+                        <cite>- Maria Silva</cite>
+                    </div>
+                    <div class="depoimento-item">
+                        <p>"Excelente atendimento e taxas competitivas. Recomendo a todos que precisam de um empréstimo."</p>
+                        <cite>- João Santos</cite>
+                    </div>
+                    <div class="depoimento-item">
+                        <p>"Consegui o capital que precisava para expandir meu negócio. Obrigado, Valor Financiamentos!"</p>
+                        <cite>- Ana Oliveira</cite>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="contato" class="section-padding">
             <div class="container">
                 <h2>Entre em Contato</h2>
@@ -87,22 +128,49 @@
             </div>
         </section>
 
-        <section id="redes-sociais" class="section-padding bg-light">
+        <section id="faq" class="section-padding bg-light">
             <div class="container">
-                <h2>Siga-nos nas Redes Sociais</h2>
-                <div class="social-grid">
-                    <a href="https://www.instagram.com/valorfinanciamentosoficial/?hl=pt-br" target="_blank" rel="noopener noreferrer" class="social-item instagram">
-                        <i class="fab fa-instagram"></i>
-                        <span>Instagram</span>
-                    </a>
-                    <a href="https://m.facebook.com/valorfinanciamentos/" target="_blank" rel="noopener noreferrer" class="social-item facebook">
-                        <i class="fab fa-facebook"></i>
-                        <span>Facebook</span>
-                    </a>
-                    <a href="https://www.linkedin.com/company/valorfinanciamentos/" target="_blank" rel="noopener noreferrer" class="social-item linkedin">
-                        <i class="fab fa-linkedin"></i>
-                        <span>LinkedIn</span>
-                    </a>
+                <h2>Perguntas Frequentes</h2>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <h3 class="faq-question">Como funciona o processo de solicitação de crédito?</h3>
+                        <div class="faq-answer">
+                            <p>O processo de solicitação de crédito é simples e rápido. Primeiro, você preenche nosso formulário online ou entra em contato conosco. Em seguida, analisamos sua solicitação e, se aprovada, apresentamos as melhores opções para você. Após a escolha, finalizamos o contrato e o crédito é liberado.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-question">Quais documentos são necessários para solicitar um empréstimo?</h3>
+                        <div class="faq-answer">
+                            <p>Geralmente, são necessários documentos de identificação (RG e CPF), comprovante de residência e comprovante de renda. Dependendo do tipo de crédito, podem ser solicitados documentos adicionais.</p>
+                        </div>
+                    </div>
+                    <!-- Adicione mais itens de FAQ conforme necessário -->
+                </div>
+            </div>
+        </section>
+
+        <section id="blog" class="section-padding">
+            <div class="container">
+                <h2>Blog Financeiro</h2>
+                <div class="blog-posts">
+                    <article class="blog-post fade-in">
+                        <img src="dicas-economia.jpg" alt="Dicas de economia" class="blog-post-img lazy-load">
+                        <h3>5 Dicas para economizar dinheiro</h3>
+                        <p>Aprenda estratégias simples para guardar mais dinheiro no dia a dia.</p>
+                        <a href="#" class="read-more">Ler mais</a>
+                    </article>
+                    <article class="blog-post fade-in">
+                        <img src="investimentos.jpg" alt="Investimentos" class="blog-post-img lazy-load">
+                        <h3>Investimentos para iniciantes</h3>
+                        <p>Descubra as melhores opções de investimento para quem está começando.</p>
+                        <a href="#" class="read-more">Ler mais</a>
+                    </article>
+                    <article class="blog-post fade-in">
+                        <img src="credito-consciente.jpg" alt="Crédito consciente" class="blog-post-img lazy-load">
+                        <h3>Como usar o crédito de forma consciente</h3>
+                        <p>Saiba como utilizar o crédito a seu favor sem cair em armadilhas financeiras.</p>
+                        <a href="#" class="read-more">Ler mais</a>
+                    </article>
                 </div>
             </div>
         </section>
@@ -123,6 +191,17 @@
                         <a href="https://m.facebook.com/valorfinanciamentos/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
                         <a href="https://www.linkedin.com/company/valorfinanciamentos/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
                     </div>
+                </div>
+                <div class="sitemap">
+                    <h3>Mapa do Site</h3>
+                    <ul>
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#produtos">Produtos</a></li>
+                        <li><a href="#simulador">Simulador</a></li>
+                        <li><a href="sobre-nos.html">Sobre Nós</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
