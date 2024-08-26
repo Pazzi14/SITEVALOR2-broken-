@@ -1,4 +1,4 @@
-/* Estilos gerais */
+/* Reset e estilos gerais */
 * {
     margin: 0;
     padding: 0;
@@ -17,11 +17,10 @@ body {
     padding: 0 20px;
 }
 
-/* Header */
+/* Header e navegação */
 header {
-    background-color: #0066cc;
-    color: white;
-    padding: 1rem 0;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     position: fixed;
     width: 100%;
     top: 0;
@@ -32,347 +31,221 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
+    padding: 15px 0;
 }
 
-.logo {
-    height: 50px;
+.logo img {
+    height: 40px;
+    width: auto;
 }
 
-nav ul {
+.nav-links {
     display: flex;
-    list-style-type: none;
+    list-style: none;
 }
 
-nav ul li {
-    margin-left: 20px;
+.nav-links li {
+    margin-left: 30px;
 }
 
-nav ul li a {
-    color: white;
+.nav-links a {
     text-decoration: none;
+    color: #333;
     font-weight: bold;
     transition: color 0.3s ease;
 }
 
-nav ul li a:hover {
-    color: #cdffff;
+.nav-links a:hover {
+    color: #0066cc;
 }
 
 .menu-toggle {
     display: none;
     background: none;
     border: none;
-    color: white;
     font-size: 1.5rem;
     cursor: pointer;
+    color: #333;
 }
 
-/* Hero Section */
-#hero, #sobre-hero {
-    background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20230314/pngtree-beautiful-background-of-high-rise-buildings-image_1947772.jpg');
+/* Hero section */
+.hero-section {
+    background-image: url('hero-background.jpg');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
-    height: 100vh;
+    height: 70vh;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     text-align: center;
-    color: white;
+    color: #fff;
     position: relative;
 }
 
-#hero::before, #sobre-hero::before {
-    content: "";
+.hero-section::before {
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    right: 0;
+    bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-#hero *, #sobre-hero * {
+.hero-content {
     position: relative;
     z-index: 1;
 }
 
-#hero h1, #sobre-hero h1 {
+.hero-content h1 {
     font-size: 3rem;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
-#hero p {
+.hero-content p {
     font-size: 1.2rem;
     margin-bottom: 30px;
-    max-width: 600px;
 }
 
+/* Botões */
 .cta-button {
     display: inline-block;
-    background-color: #cdffff;
-    color: #0066cc;
-    padding: 10px 20px;
+    background-color: #0066cc;
+    color: #fff;
+    padding: 12px 30px;
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
 .cta-button:hover {
-    background-color: #0066cc;
-    color: #cdffff;
-    transform: scale(1.05);
+    background-color: #004c99;
 }
 
 /* Seções */
-section {
-    padding: 60px 0;
+.section-padding {
+    padding: 80px 0;
 }
 
-h2 {
-    text-align: center;
-    margin-bottom: 30px;
-    color: #0066cc;
-}
-
-/* Simulador */
-#simulador {
+.bg-light {
     background-color: #f9f9f9;
 }
 
-#simulador-form {
-    max-width: 500px;
-    margin: 0 auto;
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Formulários */
+.form-group {
+    margin-bottom: 20px;
 }
 
 label {
     display: block;
     margin-bottom: 5px;
+    font-weight: bold;
 }
 
-input, textarea, button {
-    display: block;
+input, textarea {
     width: 100%;
-    margin-bottom: 20px;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
 }
 
-button {
+.submit-button {
     background-color: #0066cc;
-    color: white;
+    color: #fff;
     border: none;
+    padding: 12px 30px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background-color: #cdffff;
-    color: #0066cc;
-    transform: scale(1.05);
+.submit-button:hover {
+    background-color: #004c99;
 }
 
 /* Produtos */
-#produtos ul {
-    list-style-type: none;
-    padding: 0;
+.produtos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.produto-card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     text-align: center;
 }
 
-#produtos li {
-    margin-bottom: 10px;
-    font-size: 1.1rem;
+.produto-card i {
+    font-size: 3rem;
+    color: #0066cc;
+    margin-bottom: 20px;
 }
 
-.products-image, .history-image, .values-image, .team-image {
+/* Sobre nós */
+.about-image {
     max-width: 100%;
     height: auto;
-    display: block;
-    margin: 20px auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    margin-top: 30px;
 }
 
-/* Contatos */
-#contatos {
-    background-color: #f9f9f9;
+.mission-vision-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
 }
 
-/* Footer */
-footer {
-    background-color: #333;
-    color: white;
-    padding: 40px 0 20px;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-.footer-section {
-    margin-bottom: 20px;
-}
-
-.footer-section h3 {
-    margin-bottom: 10px;
-}
-
-.footer-section ul {
-    list-style-type: none;
-}
-
-.footer-section ul li {
-    margin-bottom: 5px;
-}
-
-.footer-section a {
-    color: #cdffff;
-    text-decoration: none;
-}
-
-.footer-bottom {
-    text-align: center;
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px solid #555;
-}
-
-/* Redes Sociais */
-.social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.social-icons a {
-    font-size: 1.5rem;
-    color: #cdffff;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.social-icons a:hover {
-    color: #0066cc;
-    transform: scale(1.2);
-}
-
-/* WhatsApp Button */
-.whatsapp-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #25d366;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 50px;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    font-weight: bold;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    z-index: 1000;
-}
-
-.whatsapp-button:hover {
-    background-color: #128c7e;
-    transform: scale(1.05);
-}
-
-.whatsapp-button i {
-    margin-right: 10px;
-}
-
-/* Botão Voltar ao Topo */
-#backToTop {
-    display: none;
-    position: fixed;
-    bottom: 80px;
-    right: 30px;
-    z-index: 99;
-    font-size: 18px;
-    border: none;
-    outline: none;
-    background-color: #0066cc;
-    color: white;
-    cursor: pointer;
-    padding: 15px;
-    border-radius: 50%;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-#backToTop:hover {
-    background-color: #cdffff;
-    color: #0066cc;
-    transform: scale(1.1);
-}
-
-/* Animações */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-.fade-in {
-    animation: fadeIn 1s ease-in;
-}
-
-/* Melhorar acessibilidade */
-a:focus, button:focus, input:focus, textarea:focus {
-    outline: 2px solid #0066cc;
-    outline-offset: 2px;
-}
-
-/* Estilos para novas seções */
-#depoimentos, #faq, #porque-escolher {
-    padding: 60px 0;
-    background-color: #f9f9f9;
-}
-
-.depoimento {
-    background-color: white;
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 20px;
+.mission-vision-card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.faq-item {
-    margin-bottom: 20px;
+.valores-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
 }
 
-.faq-question {
-    font-weight: bold;
-    cursor: pointer;
+.valores-list li {
+    display: flex;
+    align-items: center;
 }
 
-.faq-answer {
-    display: none;
-    padding: 10px 0;
+.valores-list i {
+    color: #0066cc;
+    margin-right: 10px;
 }
 
-/* Linha do tempo */
+/* Timeline */
 .timeline {
     position: relative;
-    max-width: 1200px;
+    max-width: 800px;
     margin: 0 auto;
 }
 
 .timeline::after {
     content: '';
     position: absolute;
-    width: 6px;
+    width: 2px;
     background-color: #0066cc;
     top: 0;
     bottom: 0;
     left: 50%;
-    margin-left: -3px;
+    margin-left: -1px;
 }
 
 .timeline-item {
@@ -382,66 +255,127 @@ a:focus, button:focus, input:focus, textarea:focus {
     width: 50%;
 }
 
-.timeline-item::after {
-    content: '';
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    right: -17px;
-    background-color: white;
-    border: 4px solid #0066cc;
-    top: 15px;
-    border-radius: 50%;
-    z-index: 1;
-}
-
-.left {
+.timeline-item:nth-child(odd) {
     left: 0;
 }
 
-.right {
+.timeline-item:nth-child(even) {
     left: 50%;
 }
 
-.right::after {
-    left: -16px;
+.timeline-content {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 60px 0 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    margin-bottom: 30px;
+}
+
+.footer-section h3 {
+    margin-bottom: 20px;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.social-icons a {
+    display: inline-block;
+    margin-right: 15px;
+    font-size: 1.5rem;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #555;
+}
+
+/* WhatsApp button */
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366;
+    color: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    transition: background-color 0.3s ease;
+}
+
+.whatsapp-button:hover {
+    background-color: #128c7e;
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
-    nav ul {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
         display: none;
         flex-direction: column;
         position: absolute;
         top: 70px;
         left: 0;
         width: 100%;
-        background-color: #0066cc;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
-    nav ul.show {
+    .nav-links.active {
         display: flex;
     }
 
-    nav ul li {
-        margin: 10px 0;
+    .nav-links li {
+        margin: 0;
         text-align: center;
     }
 
-    .menu-toggle {
+    .nav-links a {
         display: block;
+        padding: 15px;
     }
 
-    #hero h1, #sobre-hero h1 {
-        font-size: 2rem;
+    .hero-content h1 {
+        font-size: 2.5rem;
     }
 
-    #hero p {
+    .hero-content p {
         font-size: 1rem;
-    }
-
-    .footer-content {
-        flex-direction: column;
     }
 
     .timeline::after {
@@ -454,30 +388,7 @@ a:focus, button:focus, input:focus, textarea:focus {
         padding-right: 25px;
     }
 
-    .timeline-item::before {
-        left: 60px;
-        border: medium solid white;
-        border-width: 10px 10px 10px 0;
-        border-color: transparent white transparent transparent;
-    }
-
-    .left::after, .right::after {
-        left: 15px;
-    }
-
-    .right {
-        left: 0%;
-    }
-}
-
-@media (max-width: 480px) {
-    #hero, #sobre-hero {
-        height: auto;
-        padding: 100px 0 50px;
-    }
-
-    .whatsapp-button {
-        padding: 8px 16px;
-        font-size: 0.9rem;
+    .timeline-item:nth-child(even) {
+        left: 0;
     }
 }
