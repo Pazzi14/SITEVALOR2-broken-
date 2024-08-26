@@ -1,12 +1,16 @@
 document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.querySelector('.menu-toggle');
     const navUl = document.querySelector('nav ul');
+    const simuladorForm = document.getElementById('simulador-form');
+    const contatoForm = document.getElementById('contato-form');
+    const backToTopButton = document.getElementById('backToTop');
 
+    // Menu toggle para dispositivos móveis
     menuToggle.addEventListener('click', function() {
         navUl.classList.toggle('show');
     });
 
-    const simuladorForm = document.getElementById('simulador-form');
+    // Simulador de financiamento
     if (simuladorForm) {
         simuladorForm.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -14,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    const contatoForm = document.getElementById('contato-form');
+    // Formulário de contato
     if (contatoForm) {
         contatoForm.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -22,22 +26,34 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Botão Voltar ao Topo
+    window.onscroll = function() {
+        scrollFunction();
+    };
+
+    // Smooth scroll para links internos
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                window.scrollTo({
-                    top: target.offsetTop - 70,
-                    behavior: 'smooth'
-                });
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Animação de fade-in para elementos
+    const fadeElements = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
             }
         });
     });
 
-    window.onscroll = function() {
-        scrollFunction();
-    };
+    fadeElements.forEach(element => {
+        observer.observe(element);
+    });
 });
 
 function simularFinanciamento() {
@@ -74,30 +90,31 @@ function enviarFormularioContato() {
         return;
     }
 
-    if (!validarEmail(email)) {
-        alert('Por favor, insira um endereço de e-mail válido.');
-        return;
-    }
+    // Aqui você deve implementar o envio real do formulário para seu servidor
+    // Por enquanto, vamos apenas simular um envio bem-sucedido
 
     alert(`Obrigado pelo contato, ${nome}! Responderemos em breve para ${email}.`);
     document.getElementById('contato-form').reset();
 }
 
-function validarEmail(email) {
-    const re = /^(([^<>()$$$$\\.,;:\s@"]+(\.[^<>()$$$$\\.,;:\s@"]+)*)|(".+"))@(($$[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
-}
-
 function scrollFunction() {
-    const backToTopButton = document.getElementById("backToTop");
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        backToTopButton.style.display = "block";
+        document.getElementById('backToTop').style.display = 'block';
     } else {
-        backToTopButton.style.display = "none";
+        document.getElementById('backToTop').style.display = 'none';
     }
 }
 
 function topFunction() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0; // Para Safari
+    document.documentElement.scrollTop = 0; // Para Chrome, Firefox, IE e Opera
 }
+
+// Adicione esta função para criar um efeito de parallax no hero
+window.addEventListener('scroll', function() {
+    const scrollPosition = window.pageYOffset;
+    const heroSection = document.getElementById('hero');
+    if (heroSection) {
+        heroSection.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
+    }
+});
