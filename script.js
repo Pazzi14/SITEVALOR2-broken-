@@ -1,16 +1,15 @@
 document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.querySelector('.menu-toggle');
-    const navUl = document.querySelector('nav ul');
+    const navLinks = document.querySelector('.nav-links');
     const simuladorForm = document.getElementById('simulador-form');
     const contatoForm = document.getElementById('contato-form');
-    const backToTopButton = document.getElementById('backToTop');
 
     // Menu toggle para dispositivos móveis
     menuToggle.addEventListener('click', function() {
-        navUl.classList.toggle('show');
+        navLinks.classList.toggle('active');
     });
 
-        // Simulador de financiamento
+    // Simulador de financiamento
     if (simuladorForm) {
         simuladorForm.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -26,11 +25,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Botão Voltar ao Topo
-    window.onscroll = function() {
-        scrollFunction();
-    };
-
     // Smooth scroll para links internos
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -38,29 +32,6 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelector(this.getAttribute('href')).scrollIntoView({
                 behavior: 'smooth'
             });
-        });
-    });
-
-    // Animação de fade-in para elementos
-    const fadeElements = document.querySelectorAll('.fade-in');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    });
-
-    fadeElements.forEach(element => {
-        observer.observe(element);
-    });
-
-    // Funcionalidade para o FAQ
-    const faqQuestions = document.querySelectorAll('.faq-question');
-    faqQuestions.forEach(question => {
-        question.addEventListener('click', () => {
-            const answer = question.nextElementSibling;
-            answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
         });
     });
 });
@@ -106,7 +77,6 @@ function enviarFormularioContato() {
 
     // Aqui você deve implementar o envio real do formulário para seu servidor
     // Por enquanto, vamos apenas simular um envio bem-sucedido
-
     alert(`Obrigado pelo contato, ${nome}! Responderemos em breve para ${email}.`);
     document.getElementById('contato-form').reset();
 }
@@ -115,25 +85,3 @@ function validarEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
 }
-
-function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        document.getElementById('backToTop').style.display = 'block';
-    } else {
-        document.getElementById('backToTop').style.display = 'none';
-    }
-}
-
-function topFunction() {
-    document.body.scrollTop = 0; // Para Safari
-    document.documentElement.scrollTop = 0; // Para Chrome, Firefox, IE e Opera
-}
-
-// Efeito parallax no hero
-window.addEventListener('scroll', function() {
-    const scrollPosition = window.pageYOffset;
-    const heroSection = document.getElementById('hero');
-    if (heroSection) {
-        heroSection.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
-    }
-});
