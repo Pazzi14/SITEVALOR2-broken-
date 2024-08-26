@@ -301,6 +301,33 @@ footer {
     transform: scale(1.1);
 }
 
+/* Estilos específicos para a página Sobre Nós */
+#sobre-hero {
+    background-image: url('https://i.pinimg.com/originals/72/c0/55/72c05566763a3d799eae1928879e6f78.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+#sobre-hero h1 {
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.history-image, .values-image, .team-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
     nav ul {
