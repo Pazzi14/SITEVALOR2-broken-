@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valor Financiamentos - Soluções Financeiras Personalizadas</title>
-    <meta name="description" content="A Valor Financiamentos oferece soluções financeiras personalizadas para você. Simule agora seu financiamento e realize seus objetivos com as melhores taxas do mercado.">
+    <meta name="description" content="A Valor Financiamentos oferece as melhores soluções em crédito pessoal, consignado privado e público. Simule agora e realize seus objetivos com as taxas mais competitivas do mercado.">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="favicon.png">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
     <header>
@@ -18,8 +22,9 @@
             <ul class="nav-links">
                 <li><a href="#simulador">Simulador</a></li>
                 <li><a href="#produtos">Produtos</a></li>
-                <li><a href="sobre-nos.html">Sobre Nós</a></li>
+                <li><a href="#sobre">Sobre Nós</a></li>
                 <li><a href="#contato">Contato</a></li>
+                <li><a href="#faq">FAQ</a></li>
             </ul>
             <button class="menu-toggle" aria-label="Menu">
                 <i class="fas fa-bars"></i>
@@ -28,7 +33,7 @@
     </header>
 
     <main>
-        <section id="hero">
+        <section id="hero" class="hero-section">
             <div class="hero-content">
                 <h1>Soluções Financeiras Personalizadas</h1>
                 <p>Descubra as melhores opções de financiamento para realizar seus objetivos.</p>
@@ -42,36 +47,48 @@
                 <form id="simulador-form">
                     <div class="form-group">
                         <label for="valor">Valor desejado:</label>
-                        <input type="number" id="valor" placeholder="R$" required>
+                        <input type="number" id="valor" placeholder="R$" required min="1000" max="1000000">
                     </div>
                     <div class="form-group">
                         <label for="prazo">Prazo (em meses):</label>
-                        <input type="number" id="prazo" placeholder="Meses" required>
+                        <input type="number" id="prazo" placeholder="Meses" required min="6" max="120">
+                    </div>
+                    <div class="form-group">
+                        <label for="tipo-financiamento">Tipo de Financiamento:</label>
+                        <select id="tipo-financiamento" required>
+                            <option value="">Selecione</option>
+                            <option value="pessoal">Crédito Pessoal</option>
+                            <option value="consignado-privado">Consignado Privado</option>
+                            <option value="consignado-publico">Consignado Público</option>
+                        </select>
                     </div>
                     <button type="submit" class="submit-button">Simular</button>
                 </form>
-                <div id="resultado-simulacao"></div>
+                <div id="resultado-simulacao" class="hidden"></div>
             </div>
         </section>
 
-        <section id="produtos" class="section-padding">
+        <section id="produtos" class="section-padding bg-light">
             <div class="container">
                 <h2>Nossos Produtos</h2>
                 <div class="produtos-grid">
                     <div class="produto-card">
                         <i class="fas fa-money-bill-wave"></i>
                         <h3>Crédito Pessoal</h3>
-                        <p>Empréstimo para realizar seus projetos pessoais com taxas competitivas.</p>
+                        <p>Empréstimo para realizar seus projetos pessoais com taxas competitivas e aprovação rápida.</p>
+                        <a href="#" class="saiba-mais">Saiba Mais</a>
                     </div>
                     <div class="produto-card">
                         <i class="fas fa-building"></i>
                         <h3>Consignado Privado</h3>
-                        <p>Crédito com desconto em folha para funcionários de empresas privadas.</p>
+                        <p>Crédito com desconto em folha para funcionários de empresas privadas, com as melhores condições do mercado.</p>
+                        <a href="#" class="saiba-mais">Saiba Mais</a>
                     </div>
                     <div class="produto-card">
                         <i class="fas fa-landmark"></i>
                         <h3>Consignado Público</h3>
-                        <p>Financiamento com desconto em folha para servidores públicos.</p>
+                        <p>Financiamento com desconto em folha para servidores públicos, oferecendo taxas exclusivas e prazos estendidos.</p>
+                        <a href="#" class="saiba-mais">Saiba Mais</a>
                     </div>
                 </div>
             </div>
@@ -81,7 +98,78 @@
             <div class="container">
                 <h2>Sobre a Valor Financiamentos</h2>
                 <p>Somos especialistas em oferecer as melhores soluções financeiras para nossos clientes. Com anos de experiência no mercado, garantimos um atendimento personalizado e taxas competitivas.</p>
-                <a href="sobre-nos.html" class="cta-button">Saiba Mais</a>
+                <div class="sobre-grid">
+                    <div class="sobre-item">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>Experiência</h3>
+                        <p>Mais de 10 anos no mercado financeiro</p>
+                    </div>
+                    <div class="sobre-item">
+                        <i class="fas fa-users"></i>
+                        <h3>Clientes Satisfeitos</h3>
+                        <p>Mais de 50.000 sonhos realizados</p>
+                    </div>
+                    <div class="sobre-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Segurança</h3>
+                        <p>Autorizada pelo Banco Central do Brasil</p>
+                    </div>
+                </div>
+                <a href="sobre-nos.html" class="cta-button">Conheça Nossa História</a>
+            </div>
+        </section>
+
+        <section id="depoimentos" class="section-padding bg-light">
+            <div class="container">
+                <h2>O Que Nossos Clientes Dizem</h2>
+                <div class="depoimentos-slider">
+                    <div class="depoimento">
+                        <p>"A Valor Financiamentos me ajudou a realizar o sonho da casa própria. Atendimento excelente e condições imbatíveis!"</p>
+                        <div class="cliente-info">
+                            <img src="cliente1.jpg" alt="Maria Silva" class="cliente-foto">
+                            <p class="cliente-nome">Maria Silva</p>
+                        </div>
+                    </div>
+                    <div class="depoimento">
+                        <p>"Processo rápido e sem burocracia. Consegui o crédito que precisava para expandir meu negócio. Recomendo!"</p>
+                        <div class="cliente-info">
+                            <img src="cliente2.jpg" alt="João Santos" class="cliente-foto">
+                            <p class="cliente-nome">João Santos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="parceiros" class="section-padding">
+            <div class="container">
+                <h2>Nossos Parceiros</h2>
+                <div class="parceiros-grid">
+                    <img src="parceiro1.png" alt="Banco Parceiro 1" class="parceiro-logo">
+                    <img src="parceiro2.png" alt="Banco Parceiro 2" class="parceiro-logo">
+                    <img src="parceiro3.png" alt="Financeira Parceira" class="parceiro-logo">
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="section-padding bg-light">
+            <div class="container">
+                <h2>Perguntas Frequentes</h2>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <h3 class="faq-question">Quais documentos preciso para solicitar um financiamento?</h3>
+                        <div class="faq-answer">
+                            <p>Geralmente, são necessários RG, CPF, comprovante de renda e comprovante de residência. Requisitos específicos podem variar de acordo com o tipo de financiamento.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-question">Qual o prazo médio para aprovação do financiamento?</h3>
+                        <div class="faq-answer">
+                            <p>O prazo médio é de 2 a 5 dias úteis, podendo variar de acordo com o tipo e valor do financiamento solicitado.</p>
+                        </div>
+                    </div>
+                    <!-- Adicione mais perguntas e respostas aqui -->
+                </div>
             </div>
         </section>
 
@@ -98,9 +186,14 @@
                         <input type="email" id="email" required>
                     </div>
                     <div class="form-group">
+                        <label for="telefone">Telefone:</label>
+                        <input type="tel" id="telefone" required>
+                    </div>
+                    <div class="form-group">
                         <label for="mensagem">Mensagem:</label>
                         <textarea id="mensagem" required></textarea>
                     </div>
+                    <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div>
                     <button type="submit" class="submit-button">Enviar</button>
                 </form>
             </div>
@@ -123,6 +216,7 @@
                         <li><a href="#produtos">Produtos</a></li>
                         <li><a href="sobre-nos.html">Sobre Nós</a></li>
                         <li><a href="#contato">Contato</a></li>
+                        <li><a href="#faq">FAQ</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -136,6 +230,10 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2024 Valor Financiamentos. Todos os direitos reservados.</p>
+                <ul class="footer-links">
+                    <li><a href="termos-de-uso.html">Termos de Uso</a></li>
+                    <li><a href="politica-de-privacidade.html">Política de Privacidade</a></li>
+                </ul>
             </div>
         </div>
     </footer>
@@ -144,6 +242,11 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
+    <button id="backToTop" title="Voltar ao topo" aria-label="Voltar ao topo">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
     <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 </body>
 </html>
