@@ -7,6 +7,15 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeLazyLoading();
     initializeNewsletterForm();
     initializeLoginForm();
+    checkHighContrastPreference();
+    initializeBlogSearch();
+    initializeBlogPagination();
+    initializeClientAreaLogin();
+
+    const contrastToggle = document.getElementById('contrast-toggle');
+    if (contrastToggle) {
+        contrastToggle.addEventListener('click', toggleHighContrast);
+    }
 });
 
 function initializeMenu() {
@@ -26,11 +35,18 @@ function initializeMenu() {
 function initializeSimulator() {
     const simulatorForm = document.getElementById('simulador-form');
     const resultadoSimulacao = document.getElementById('resultado-simulacao');
+    const valorInput = document.getElementById('valor');
+
+    if (valorInput) {
+        valorInput.addEventListener('input', function() {
+            formatCurrency(this);
+        });
+    }
 
     if (simulatorForm) {
         simulatorForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            const valor = parseFloat(document.getElementById('valor').value);
+            const valor = parseFloat(valorInput.value.replace(/[^\d,]/g, '').replace(',', '.'));
             const prazo = parseInt(document.getElementById('prazo').value);
             const tipoCredito = document.getElementById('tipo-credito').value;
 
@@ -55,22 +71,21 @@ const debouncedSimulation = debounce(async function(valor, prazo, tipoCredito) {
 }, 300);
 
 async function calcularFinanciamento(valor, prazo, tipoCredito) {
-    // Simula uma chamada assíncrona para um serviço de cálculo
     return new Promise((resolve) => {
         setTimeout(() => {
             let taxaJuros;
             switch(tipoCredito) {
                 case 'pessoal':
-                    taxaJuros = 0.025; // 2.5% ao mês
+                    taxaJuros = 0.025;
                     break;
                 case 'consignado-privado':
-                    taxaJuros = 0.018; // 1.8% ao mês
+                    taxaJuros = 0.018;
                     break;
                 case 'consignado-publico':
-                    taxaJuros = 0.015; // 1.5% ao mês
+                    taxaJuros = 0.015;
                     break;
                 default:
-                    taxaJuros = 0.02; // 2% ao mês (padrão)
+                    taxaJuros = 0.02;
             }
 
             const parcela = (valor * taxaJuros * Math.pow(1 + taxaJuros, prazo)) / (Math.pow(1 + taxaJuros, prazo) - 1);
@@ -84,7 +99,7 @@ async function calcularFinanciamento(valor, prazo, tipoCredito) {
                 parcela,
                 totalPagar
             });
-        }, 500); // Simula um atraso de 500ms
+        }, 500);
     });
 }
 
@@ -100,7 +115,6 @@ function exibirResultadoSimulacao(resultado) {
     `;
     resultadoSimulacao.style.display = 'block';
 
-    // Registrar evento no Google Analytics
     trackEvent('Simulador', 'Simulacao_Financiamento', resultado.tipoCredito);
 }
 
@@ -116,6 +130,9 @@ function initializeContactForm() {
         inputs.forEach(input => {
             input.addEventListener('input', function() {
                 validateInput(this);
+                if (this.id === 'telefone') {
+                    maskTelefone(this);
+                }
             });
         });
 
@@ -138,7 +155,6 @@ function initializeContactForm() {
 }
 
 async function enviarFormularioContato(dados) {
-    // Simula o envio do formulário para um servidor
     return new Promise((resolve) => {
         setTimeout(() => {
             console.log('Dados do formulário:', dados);
@@ -212,7 +228,6 @@ function initializeLazyLoading() {
         lazyImages.forEach(img => observer.observe(img));
         lazyVideos.forEach(video => observer.observe(video));
     } else {
-        // Fallback para navegadores que não suportam IntersectionObserver
         const lazyLoad = () => {
             const lazyImages = document.querySelectorAll('img[data-src]');
             const lazyVideos = document.querySelectorAll('video[data-src]');
@@ -354,8 +369,7 @@ function initializeLoginForm() {
             e.preventDefault();
             const cpf = document.getElementById('cpf').value;
             const senha = document.getElementById('senha').value;
-            if (isValidCPF(cpf) && senha) {
-                // Aqui você normalmente faria uma chamada para o servidor para autenticar
+            if (validateCPF(cpf) && senha) {
                 alert('Função de login não implementada. Esta é apenas uma demonstração.');
                 trackEvent('Login', 'Tentativa_Login', 'Sucesso');
             } else {
@@ -364,7 +378,7 @@ function initializeLoginForm() {
         });
 
         const cpfInput = document.getElementById('cpf');
-        if (cpfInput) {
+                if (cpfInput) {
             cpfInput.addEventListener('input', function() {
                 maskCPF(this);
             });
@@ -372,10 +386,9 @@ function initializeLoginForm() {
     }
 }
 
-function isValidCPF(cpf) {
+function validateCPF(cpf) {
     cpf = cpf.replace(/[^\d]+/g,'');
     if(cpf == '') return false;
-    // Elimina CPFs invalidos conhecidos
     if (cpf.length != 11 || 
         cpf == "00000000000" || 
         cpf == "11111111111" || 
@@ -388,7 +401,6 @@ function isValidCPF(cpf) {
         cpf == "88888888888" || 
         cpf == "99999999999")
             return false;
-    // Valida 1o digito	
     add = 0;
     for (i=0; i < 9; i ++)
         add += parseInt(cpf.charAt(i)) * (10 - i);
@@ -397,7 +409,6 @@ function isValidCPF(cpf) {
         rev = 0;
     if (rev != parseInt(cpf.charAt(9)))
         return false;
-    // Valida 2o digito	
     add = 0;
     for (i = 0; i < 10; i ++)
         add += parseInt(cpf.charAt(i)) * (11 - i);
@@ -417,7 +428,6 @@ function maskCPF(input) {
     input.value = value;
 }
 
-// Adicione esta função para lidar com a validação de telefone
 function maskTelefone(input) {
     let value = input.value.replace(/\D/g, '');
     if (value.length > 10) {
@@ -432,7 +442,6 @@ function maskTelefone(input) {
     input.value = value;
 }
 
-// Adicione esta função para formatar valores monetários
 function formatCurrency(input) {
     let value = input.value.replace(/\D/g, '');
     value = (parseInt(value) / 100).toFixed(2) + '';
@@ -441,128 +450,57 @@ function formatCurrency(input) {
     input.value = 'R$ ' + value;
 }
 
-// Modifique a função initializeSimulator para incluir a formatação de moeda
-function initializeSimulator() {
-    const simulatorForm = document.getElementById('simulador-form');
-    const resultadoSimulacao = document.getElementById('resultado-simulacao');
-    const valorInput = document.getElementById('valor');
-
-    if (valorInput) {
-        valorInput.addEventListener('input', function() {
-            formatCurrency(this);
-        });
-    }
-
-    if (simulatorForm) {
-        simulatorForm.addEventListener('submit', function(e) {
+function initializeBlogSearch() {
+    const searchForm = document.getElementById('blog-search-form');
+    if (searchForm) {
+        searchForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            const valor = parseFloat(valorInput.value.replace(/[^\d,]/g, '').replace(',', '.'));
-            const prazo = parseInt(document.getElementById('prazo').value);
-            const tipoCredito = document.getElementById('tipo-credito').value;
-
-            if (isNaN(valor) || isNaN(prazo) || valor <= 0 || prazo <= 0) {
-                showError('Por favor, insira valores válidos para o financiamento.', 'simulador-error');
-                return;
-            }
-
-            debouncedSimulation(valor, prazo, tipoCredito);
+            const searchTerm = document.getElementById('blog-search').value;
+            console.log('Pesquisando por:', searchTerm);
+            // Implementar lógica de pesquisa aqui
         });
     }
 }
 
-// Modifique a função initializeContactForm para incluir a máscara de telefone
-function initializeContactForm() {
-    const contactForm = document.getElementById('contato-form');
-
-    if (contactForm) {
-        const inputs = contactForm.querySelectorAll('input, textarea');
-        inputs.forEach(input => {
-            input.addEventListener('input', function() {
-                validateInput(this);
-                if (this.id === 'telefone') {
-                    maskTelefone(this);
-                }
-            });
-        });
-
-        contactForm.addEventListener('submit', async function(e) {
+function initializeBlogPagination() {
+    const paginationLinks = document.querySelectorAll('.blog-pagination a');
+    paginationLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
             e.preventDefault();
-            if (validateForm(contactForm)) {
-                const formData = new FormData(contactForm);
-                try {
-                    await enviarFormularioContato(Object.fromEntries(formData));
-                    alert(`Obrigado pelo contato, ${formData.get('nome')}! Responderemos em breve para ${formData.get('email')}.`);
-                    contactForm.reset();
-                    trackEvent('Formulário', 'Envio_Formulario_Contato', 'Sucesso');
-                } catch (error) {
-                    showError('Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.', 'contato-error');
-                    trackEvent('Formulário', 'Envio_Formulario_Contato', 'Erro');
-                }
-            }
-        });
-    }
-}
-
-// Adicione esta função para lidar com a acessibilidade do teclado no menu
-function handleMenuKeyboardAccess() {
-    const menuItems = document.querySelectorAll('.nav-links a');
-    menuItems.forEach((item, index) => {
-        item.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight' && index < menuItems.length - 1) {
-                menuItems[index + 1].focus();
-            } else if (e.key === 'ArrowLeft' && index > 0) {
-                menuItems[index - 1].focus();
-            }
+            const page = this.getAttribute('data-page');
+            console.log('Carregando página:', page);
+            // Implementar lógica de paginação aqui
         });
     });
 }
 
-// Modifique a função initializeMenu para incluir a acessibilidade do teclado
-function initializeMenu() {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-
-    if (menuToggle && navLinks) {
-        menuToggle.addEventListener('click', function() {
-            navLinks.classList.toggle('active');
-            menuToggle.setAttribute('aria-expanded', 
-                menuToggle.getAttribute('aria-expanded') === 'false' ? 'true' : 'false'
-            );
+function initializeClientAreaLogin() {
+    const loginForm = document.getElementById('login-form');
+    if (loginForm) {
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const cpf = document.getElementById('cpf').value;
+            const senha = document.getElementById('senha').value;
+            
+            if (validateCPF(cpf) && senha) {
+                console.log('Tentativa de login com CPF:', cpf);
+                alert('Login bem-sucedido! Redirecionando para o painel do cliente...');
+                // Implementar redirecionamento para o painel do cliente aqui
+            } else {
+                showError('CPF ou senha inválidos. Por favor, tente novamente.', 'login-error');
+            }
         });
-
-        handleMenuKeyboardAccess();
     }
 }
 
-// Adicione esta função para lidar com o modo de alto contraste
 function toggleHighContrast() {
     document.body.classList.toggle('high-contrast');
     localStorage.setItem('highContrast', document.body.classList.contains('high-contrast'));
 }
 
-// Adicione esta função para verificar e aplicar as preferências de contraste do usuário
 function checkHighContrastPreference() {
     const highContrast = localStorage.getItem('highContrast') === 'true';
     if (highContrast) {
         document.body.classList.add('high-contrast');
     }
 }
-
-// Modifique a função principal para incluir as novas inicializações
-document.addEventListener('DOMContentLoaded', function() {
-    initializeMenu();
-    initializeSimulator();
-    initializeContactForm();
-    initializeBackToTop();
-    initializeSmoothScroll();
-    initializeLazyLoading();
-    initializeNewsletterForm();
-    initializeLoginForm();
-    checkHighContrastPreference();
-
-    // Adicione um ouvinte de evento para o botão de alto contraste, se existir
-    const contrastToggle = document.getElementById('contrast-toggle');
-    if (contrastToggle) {
-        contrastToggle.addEventListener('click', toggleHighContrast);
-    }
-});
