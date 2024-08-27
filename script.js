@@ -1,149 +1,250 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Menu toggle para dispositivos móveis
+    initializeMenu();
+    initializeSimulator();
+    initializeContactForm();
+    initializeBackToTop();
+    initializeSmoothScroll();
+    initializeLazyLoading();
+});
+
+function initializeMenu() {
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
 
-    menuToggle.addEventListener('click', function() {
-        navLinks.classList.toggle('active');
-    });
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', 
+                menuToggle.getAttribute('aria-expanded') === 'false' ? 'true' : 'false'
+            );
+        });
+    }
+}
 
-    // Simulador de Financiamento
-    const simuladorForm = document.getElementById('simulador-form');
+function initializeSimulator() {
+    const simulatorForm = document.getElementById('simulador-form');
     const resultadoSimulacao = document.getElementById('resultado-simulacao');
 
-    if (simuladorForm) {
-        simuladorForm.addEventListener('submit', function(e) {
+    if (simulatorForm) {
+        simulatorForm.addEventListener('submit', async function(e) {
             e.preventDefault();
-            
             const valor = parseFloat(document.getElementById('valor').value);
             const prazo = parseInt(document.getElementById('prazo').value);
             const tipoCredito = document.getElementById('tipo-credito').value;
 
-            // Taxas de juros fictícias para cada tipo de crédito
-            const taxas = {
-                'pessoal': 0.025,
-                'consignado': 0.015,
-                'veiculo': 0.02,
-                'imovel': 0.008
-            };
+            if (isNaN(valor) || isNaN(prazo) || valor <= 0 || prazo <= 0) {
+                showError('Por favor, insira valores válidos para o financiamento.');
+                return;
+            }
 
-            const taxa = taxas[tipoCredito];
-            const parcela = calcularParcela(valor, taxa, prazo);
-
-            resultadoSimulacao.innerHTML = `
-                <h3>Resultado da Simulação</h3>
-                <p>Valor financiado: R$ ${valor.toFixed(2)}</p>
-                <p>Prazo: ${prazo} meses</p>
-                <p>Taxa de juros mensal: ${(taxa * 100).toFixed(2)}%</p>
-                <p>Valor da parcela: R$ ${parcela.toFixed(2)}</p>
-            `;
-        });
-    }
-
-    function calcularParcela(valor, taxa, prazo) {
-        return (valor * taxa * Math.pow(1 + taxa, prazo)) / (Math.pow(1 + taxa, prazo) - 1);
-    }
-
-    // Formulário de Contato
-    const contatoForm = document.getElementById('contato-form');
-
-    if (contatoForm) {
-        contatoForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const nome = document.getElementById('nome').value;
-            const email = document.getElementById('email').value;
-            const telefone = document.getElementById('telefone').value;
-            const mensagem = document.getElementById('mensagem').value;
-
-            // Aqui você pode adicionar a lógica para enviar os dados do formulário
-            // Por exemplo, usando fetch para enviar uma requisição POST para seu servidor
-
-            alert(`Obrigado pelo contato, ${nome}! Em breve entraremos em contato.`);
-            contatoForm.reset();
-        });
-    }
-
-    // Slider de Depoimentos
-    const depoimentosSlider = document.querySelector('.depoimentos-slider');
-    if (depoimentosSlider) {
-        let isDown = false;
-        let startX;
-        let scrollLeft;
-
-        depoimentosSlider.addEventListener('mousedown', (e) => {
-            isDown = true;
-            startX = e.pageX - depoimentosSlider.offsetLeft;
-            scrollLeft = depoimentosSlider.scrollLeft;
-        });
-
-        depoimentosSlider.addEventListener('mouseleave', () => {
-            isDown = false;
-        });
-
-        depoimentosSlider.addEventListener('mouseup', () => {
-            isDown = false;
-        });
-
-        depoimentosSlider.addEventListener('mousemove', (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - depoimentosSlider.offsetLeft;
-            const walk = (x - startX) * 2;
-            depoimentosSlider.scrollLeft = scrollLeft - walk;
-        });
-    }
-
-    // Animação de fade-in para elementos quando entram na viewport
-    const fadeElements = document.querySelectorAll('.fade-in');
-
-    const fadeInObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                fadeInObserver.unobserve(entry.target);
+            try {
+                const resultado = await calcularFinanciamento(valor, prazo, tipoCredito);
+                exibirResultadoSimulacao(resultado);
+                salvarResultadoSimulacao(resultado);
+            } catch (error) {
+                showError('Ocorreu um erro ao calcular o financiamento. Por favor, tente novamente.');
             }
         });
-    }, {
+    }
+}
+
+async function calcularFinanciamento(valor, prazo, tipoCredito) {
+    // Simula uma chamada assíncrona para um serviço de cálculo
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            let taxaJuros;
+            switch(tipoCredito) {
+                case 'pessoal':
+                    taxaJuros = 0.025; // 2.5% ao mês
+                    break;
+                case 'consignado-privado':
+                    taxaJuros = 0.018; // 1.8% ao mês
+                    break;
+                case 'consignado-publico':
+                    taxaJuros = 0.015; // 1.5% ao mês
+                    break;
+                default:
+                    taxaJuros = 0.02; // 2% ao mês (padrão)
+            }
+
+            const parcela = (valor * taxaJuros * Math.pow(1 + taxaJuros, prazo)) / (Math.pow(1 + taxaJuros, prazo) - 1);
+            const totalPagar = parcela * prazo;
+
+            resolve({
+                valor,
+                prazo,
+                tipoCredito,
+                taxaJuros,
+                parcela,
+                totalPagar
+            });
+        }, 500); // Simula um atraso de 500ms
+    });
+}
+
+function exibirResultadoSimulacao(resultado) {
+    const resultadoSimulacao = document.getElementById('resultado-simulacao');
+    resultadoSimulacao.innerHTML = `
+        <h3>Resultado da Simulação</h3>
+        <p>Valor financiado: R$ ${resultado.valor.toFixed(2)}</p>
+        <p>Prazo: ${resultado.prazo} meses</p>
+        <p>Taxa de juros: ${(resultado.taxaJuros * 100).toFixed(2)}% ao mês</p>
+        <p>Parcela mensal: R$ ${resultado.parcela.toFixed(2)}</p>
+        <p>Total a pagar: R$ ${resultado.totalPagar.toFixed(2)}</p>
+    `;
+    resultadoSimulacao.style.display = 'block';
+
+    // Registrar evento no Google Analytics
+    trackEvent('Simulador', 'Simulacao_Financiamento', resultado.tipoCredito);
+}
+
+function salvarResultadoSimulacao(resultado) {
+    localStorage.setItem('ultimaSimulacao', JSON.stringify(resultado));
+}
+
+function initializeContactForm() {
+    const contactForm = document.getElementById('contato-form');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const nome = document.getElementById('nome').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const telefone = document.getElementById('telefone').value.trim();
+            const mensagem = document.getElementById('mensagem').value.trim();
+
+            if (nome === '' || email === '' || telefone === '' || mensagem === '') {
+                showError('Por favor, preencha todos os campos do formulário.');
+                return;
+            }
+
+            if (!isValidEmail(email)) {
+                showError('Por favor, insira um endereço de e-mail válido.');
+                return;
+            }
+
+            try {
+                await enviarFormularioContato({ nome, email, telefone, mensagem });
+                alert(`Obrigado pelo contato, ${nome}! Responderemos em breve para ${email}.`);
+                contactForm.reset();
+                trackEvent('Formulário', 'Envio_Formulario_Contato', 'Sucesso');
+            } catch (error) {
+                showError('Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.');
+                trackEvent('Formulário', 'Envio_Formulario_Contato', 'Erro');
+            }
+        });
+    }
+}
+
+async function enviarFormularioContato(dados) {
+    // Simula o envio do formulário para um servidor
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            console.log('Dados do formulário:', dados);
+            resolve();
+        }, 1000);
+    });
+}
+
+function initializeBackToTop() {
+    const backToTopButton = document.getElementById('backToTop');
+
+    if (backToTopButton) {
+        window.addEventListener('scroll', throttle(function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        }, 200));
+
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+}
+
+function initializeSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+}
+
+function initializeLazyLoading() {
+    const lazyImages = document.querySelectorAll('img[data-src]');
+    const lazyVideos = document.querySelectorAll('video[data-src]');
+
+    const lazyLoad = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const element = entry.target;
+                if (element.tagName.toLowerCase() === 'img') {
+                    element.src = element.dataset.src;
+                } else if (element.tagName.toLowerCase() === 'video') {
+                    element.src = element.dataset.src;
+                    element.load();
+                }
+                element.removeAttribute('data-src');
+                observer.unobserve(element);
+            }
+        });
+    };
+
+    const observer = new IntersectionObserver(lazyLoad, {
+        root: null,
+        rootMargin: '0px',
         threshold: 0.1
     });
 
-    fadeElements.forEach(element => {
-        fadeInObserver.observe(element);
-    });
+    lazyImages.forEach(img => observer.observe(img));
+    lazyVideos.forEach(video => observer.observe(video));
+}
 
-    // Validação de formulários
-    function validateForm(form) {
-        let isValid = true;
-        const inputs = form.querySelectorAll('input, select, textarea');
-        
-        inputs.forEach(input => {
-            if (input.hasAttribute('required') && !input.value.trim()) {
-                isValid = false;
-                input.classList.add('error');
-            } else {
-                input.classList.remove('error');
-            }
-        });
+function showError(message) {
+    const errorElement = document.createElement('div');
+    errorElement.classList.add('error-message');
+    errorElement.textContent = message;
+    document.body.appendChild(errorElement);
 
-        return isValid;
+    setTimeout(() => {
+        errorElement.remove();
+    }, 5000);
+}
+
+function isValidEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+}
+
+function throttle(func, limit) {
+    let inThrottle;
+    return function() {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
     }
+}
 
-    if (simuladorForm) {
-        simuladorForm.addEventListener('submit', function(e) {
-            if (!validateForm(this)) {
-                e.preventDefault();
-                alert('Por favor, preencha todos os campos obrigatórios.');
-            }
+function trackEvent(category, action, label) {
+    if (typeof gtag !== 'undefined') {
+        gtag('event', action, {
+            'event_category': category,
+            'event_label': label
         });
     }
-
-    if (contatoForm) {
-        contatoForm.addEventListener('submit', function(e) {
-            if (!validateForm(this)) {
-                e.preventDefault();
-                alert('Por favor, preencha todos os campos obrigatórios.');
-            }
-        });
-    }
-});
+}
