@@ -1,55 +1,140 @@
-document.addEventListener('DOMContentLoaded', function() {
+// Importação de módulos
+import { simularFinanciamento } from './modules/simulador.js';
+import { validarFormulario } from './modules/validacao.js';
+import { inicializarAnimacoes } from './modules/animacoes.js';
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Inicialização de componentes
+    inicializarMenu();
+    inicializarSimulador();
+    inicializarFormularioContato();
+    inicializarFAQ();
+    inicializarDepoimentos();
+    inicializarBackToTop();
+    inicializarAnimacoes();
+});
+
+function inicializarMenu() {
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
-    const simuladorForm = document.getElementById('simulador-form');
-    const contatoForm = document.getElementById('contato-form');
-    const faqItems = document.querySelectorAll('.faq-item');
-    const backToTopButton = document.getElementById('backToTop');
 
-    // Menu toggle para dispositivos móveis
-    menuToggle.addEventListener('click', function() {
+    menuToggle.addEventListener('click', () => {
         navLinks.classList.toggle('active');
+        menuToggle.setAttribute('aria-expanded', 
+            menuToggle.getAttribute('aria-expanded') === 'false' ? 'true' : 'false'
+        );
     });
+}
 
-    // Simulador de financiamento
+function inicializarSimulador() {
+    const simuladorForm = document.getElementById('simulador-form');
+    const resultadoSimulacao = document.getElementById('resultado-simulacao');
+
     if (simuladorForm) {
-        simuladorForm.addEventListener('submit', function(e) {
+        simuladorForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            simularFinanciamento();
+            const valor = parseFloat(document.getElementById('valor').value);
+            const prazo = parseInt(document.getElementById('prazo').value);
+            const tipo = document.getElementById('tipo-financiamento').value;
+
+            try {
+                const resultado = await simularFinanciamento(valor, prazo, tipo);
+                exibirResultadoSimulacao(resultado);
+            } catch (erro) {
+                console.error('Erro ao simular financiamento:', erro);
+                exibirMensagemErro('Ocorreu um erro ao processar sua solicitação. Por favor, tente novamente mais tarde.');
+            }
         });
     }
 
-    // Formulário de contato
+    function exibirResultadoSimulacao(resultado) {
+        resultadoSimulacao.innerHTML = `
+            <h3>Resultado da Simulação</h3>
+            <p>Valor financiado: R$ ${resultado.valorFinanciado.toFixed(2)}</p>
+            <p>Prazo: ${resultado.prazo} meses</p>
+            <p>Taxa de juros: ${resultado.taxaJuros.toFixed(2)}% ao mês</p>
+            <p>Parcela mensal: R$ ${resultado.parcelaMensal.toFixed(2)}</p>
+            <p>Total a pagar: R$ ${resultado.totalPagar.toFixed(2)}</p>
+        `;
+        resultadoSimulacao.classList.remove('hidden');
+        resultadoSimulacao.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function exibirMensagemErro(mensagem) {
+        resultadoSimulacao.innerHTML = `<p class="erro">${mensagem}</p>`;
+        resultadoSimulacao.classList.remove('hidden');
+    }
+}
+
+function inicializarFormularioContato() {
+    const contatoForm = document.getElementById('contato-form');
+
     if (contatoForm) {
-        contatoForm.addEventListener('submit', function(e) {
+        contatoForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            enviarFormularioContato();
+            if (validarFormulario(contatoForm)) {
+                try {
+                    await enviarFormularioContato();
+                    exibirMensagemSucesso('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+                    contatoForm.reset();
+                } catch (erro) {
+                    console.error('Erro ao enviar formulário:', erro);
+                    exibirMensagemErro('Ocorreu um erro ao enviar sua mensagem. Por favor, tente novamente mais tarde.');
+                }
+            }
         });
     }
 
-    // FAQ toggle
+    async function enviarFormularioContato() {
+        // Simula o envio do formulário (substitua por uma chamada real à API)
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve();
+            }, 1000);
+        });
+    }
+
+    function exibirMensagemSucesso(mensagem) {
+        alert(mensagem);
+    }
+
+    function exibirMensagemErro(mensagem) {
+        alert(mensagem);
+    }
+}
+
+function inicializarFAQ() {
+    const faqItems = document.querySelectorAll('.faq-item');
+
     faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
         const answer = item.querySelector('.faq-answer');
 
         question.addEventListener('click', () => {
-            question.classList.toggle('active');
             answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+            question.setAttribute('aria-expanded', 
+                question.getAttribute('aria-expanded') === 'false' ? 'true' : 'false'
+            );
         });
     });
+}
 
-    // Smooth scroll para links internos
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
+function inicializarDepoimentos() {
+    $('.depoimentos-slider').slick({
+        dots: true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        adaptiveHeight: true,
+        autoplay: true,
+        autoplaySpeed: 5000
     });
+}
 
-    // Back to Top button
-    window.addEventListener('scroll', function() {
+function inicializarBackToTop() {
+    const backToTopButton = document.getElementById('backToTop');
+
+    window.addEventListener('scroll', () => {
         if (window.pageYOffset > 300) {
             backToTopButton.classList.add('show');
         } else {
@@ -57,186 +142,38 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    backToTopButton.addEventListener('click', function() {
-        window.scrollTo({top: 0, behavior: 'smooth'});
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     });
+}
 
-    // Inicializar o slider de depoimentos
-    if (typeof $.fn.slick !== 'undefined') {
-        $('.depoimentos-slider').slick({
-            dots: true,
-            infinite: true,
-            speed: 300,
-            slidesToShow: 1,
-            adaptiveHeight: true
-        });
-    }
+// Service Worker para PWA
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+            .then(registration => {
+                console.log('Service Worker registrado com sucesso:', registration.scope);
+            })
+            .catch(error => {
+                console.log('Falha ao registrar o Service Worker:', error);
+            });
+    });
+}
 
-    // Animações ao scroll
-    const animateOnScroll = () => {
-        const elements = document.querySelectorAll('.animate-on-scroll');
-        elements.forEach(element => {
-            const elementPosition = element.getBoundingClientRect().top;
-            const screenPosition = window.innerHeight / 1.3;
-            if(elementPosition < screenPosition) {
-                element.classList.add('animated');
-            }
-        });
-    }
-
-    window.addEventListener('scroll', animateOnScroll);
-    animateOnScroll(); // Executar uma vez no carregamento da página
+// Tratamento de erros global
+window.addEventListener('error', function(event) {
+    console.error('Erro capturado:', event.error);
+    // Aqui você pode implementar o envio do erro para um serviço de monitoramento
 });
 
-function simularFinanciamento() {
-    const valor = parseFloat(document.getElementById('valor').value);
-    const prazo = parseInt(document.getElementById('prazo').value);
-    const tipoFinanciamento = document.getElementById('tipo-financiamento').value;
-    
-    let taxaJuros;
-    switch(tipoFinanciamento) {
-        case 'pessoal':
-            taxaJuros = 0.025; // 2.5% ao mês
-            break;
-        case 'consignado-privado':
-            taxaJuros = 0.018; // 1.8% ao mês
-            break;
-        case 'consignado-publico':
-            taxaJuros = 0.015; // 1.5% ao mês
-            break;
-        default:
-            alert('Por favor, selecione um tipo de financiamento.');
-            return;
-    }
+// Detecção de conexão offline
+window.addEventListener('offline', () => {
+    alert('Você está offline. Algumas funcionalidades podem não estar disponíveis.');
+});
 
-    if (isNaN(valor) || isNaN(prazo) || valor <= 0 || prazo <= 0) {
-        alert('Por favor, insira valores válidos para o financiamento.');
-        return;
-    }
-
-    const parcela = (valor * taxaJuros * Math.pow(1 + taxaJuros, prazo)) / (Math.pow(1 + taxaJuros, prazo) - 1);
-    const totalPagar = parcela * prazo;
-
-    const resultadoDiv = document.getElementById('resultado-simulacao');
-    resultadoDiv.innerHTML = `
-        <h3>Resultado da Simulação</h3>
-        <p>Valor financiado: R$ ${valor.toFixed(2)}</p>
-        <p>Prazo: ${prazo} meses</p>
-        <p>Taxa de juros: ${(taxaJuros * 100).toFixed(2)}% ao mês</p>
-        <p>Parcela mensal: R$ ${parcela.toFixed(2)}</p>
-        <p>Total a pagar: R$ ${totalPagar.toFixed(2)}</p>
-    `;
-    resultadoDiv.classList.remove('hidden');
-}
-
-function enviarFormularioContato() {
-    const nome = document.getElementById('nome').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const telefone = document.getElementById('telefone').value.trim();
-    const mensagem = document.getElementById('mensagem').value.trim();
-
-    if (nome === '' || email === '' || telefone === '' || mensagem === '') {
-        alert('Por favor, preencha todos os campos do formulário.');
-        return;
-    }
-
-    if (!validarEmail(email)) {
-        alert('Por favor, insira um endereço de e-mail válido.');
-        return;
-    }
-
-    if (!validarTelefone(telefone)) {
-        alert('Por favor, insira um número de telefone válido.');
-        return;
-    }
-
-    // Aqui você deve implementar o envio real do formulário para seu servidor
-    // Por enquanto, vamos apenas simular um envio bem-sucedido
-    alert(`Obrigado pelo contato, ${nome}! Responderemos em breve para ${email}.`);
-    document.getElementById('contato-form').reset();
-}
-
-function validarEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-}
-
-function validarTelefone(telefone) {
-    const re = /^(\+55|55)?(\d{2})?\d{8,9}$/;
-    return re.test(telefone.replace(/\D/g, ''));
-}
-
-// Máscara para o campo de telefone
-function mascaraTelefone(telefone) {
-    const texto = telefone.value;
-    const textoApenasNumeros = texto.replace(/\D/g, '').substring(0, 11);
-    
-    let telefoneFormatado = textoApenasNumeros.replace(/^(\d{2})(\d)/g, '($1) $2');
-    telefoneFormatado = telefoneFormatado.replace(/(\d)(\d{4})$/, '$1-$2');
-    
-    telefone.value = telefoneFormatado;
-}
-
-// Aplicar máscara ao campo de telefone
-const campoTelefone = document.getElementById('telefone');
-if (campoTelefone) {
-    campoTelefone.addEventListener('input', function() {
-        mascaraTelefone(this);
-    });
-}
-
-// Lazy loading para imagens
-document.addEventListener("DOMContentLoaded", function() {
-    var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
-
-    if ("IntersectionObserver" in window) {
-        let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    let lazyImage = entry.target;
-                    lazyImage.src = lazyImage.dataset.src;
-                    lazyImage.classList.remove("lazy");
-                    lazyImageObserver.unobserve(lazyImage);
-                }
-            });
-        });
-
-        lazyImages.forEach(function(lazyImage) {
-            lazyImageObserver.observe(lazyImage);
-        });
-    } else {
-        // Fallback para navegadores que não suportam IntersectionObserver
-        let active = false;
-
-        const lazyLoad = function() {
-            if (active === false) {
-                active = true;
-
-                setTimeout(function() {
-                    lazyImages.forEach(function(lazyImage) {
-                        if ((lazyImage.getBoundingClientRect().top <= window.innerHeight && lazyImage.getBoundingClientRect().bottom >= 0) && getComputedStyle(lazyImage).display !== "none") {
-                            lazyImage.src = lazyImage.dataset.src;
-                            lazyImage.classList.remove("lazy");
-
-                            lazyImages = lazyImages.filter(function(image) {
-                                return image !== lazyImage;
-                            });
-
-                            if (lazyImages.length === 0) {
-                                document.removeEventListener("scroll", lazyLoad);
-                                window.removeEventListener("resize", lazyLoad);
-                                window.removeEventListener("orientationchange", lazyLoad);
-                            }
-                        }
-                    });
-
-                    active = false;
-                }, 200);
-            }
-        };
-
-        document.addEventListener("scroll", lazyLoad);
-        window.addEventListener("resize", lazyLoad);
-        window.addEventListener("orientationchange", lazyLoad);
-    }
+window.addEventListener('online', () => {
+    alert('Você está online novamente. Todas as funcionalidades estão disponíveis.');
 });
