@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Área do Cliente - Valor Financiamentos</title>
-    <meta name="description" content="Acesse sua conta na Valor Financiamentos e gerencie seus empréstimos, pagamentos e informações pessoais.">
+    <title>Sobre Nós - Valor Financiamentos</title>
+    <meta name="description" content="Conheça a história e os valores da Valor Financiamentos, sua parceira em soluções financeiras personalizadas.">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
     <header>
-        <nav>
+        <nav class="container">
             <div class="logo">
                 <a href="index.html">
                     <img src="https://valorfinanciamentos.com.br/wp-content/uploads/2020/08/logo_grande_valor.png.png" alt="Logo Valor Financiamentos" width="200" height="50">
@@ -29,73 +30,93 @@
                 <li><a href="sobre-nos.html">Sobre Nós</a></li>
                 <li><a href="index.html#contato">Contato</a></li>
                 <li><a href="blog.html">Blog</a></li>
-                <li><a href="#" aria-current="page">Área do Cliente</a></li>
+                <li><a href="area-cliente.html">Área do Cliente</a></li>
             </ul>
         </nav>
     </header>
 
     <main id="main-content">
-        <section id="area-cliente-hero" class="hero-section">
+        <section class="hero-section">
             <div class="hero-content">
-                <h1>Área do Cliente</h1>
-                <p>Gerencie seus empréstimos e informações pessoais</p>
+                <h1>Sobre a Valor Financiamentos</h1>
+                <p>Conheça nossa história e compromisso com você</p>
             </div>
         </section>
 
-        <section id="login-area" class="section-padding">
+        <section class="section-padding">
             <div class="container">
-                <div class="login-container">
-                    <h2>Login</h2>
-                    <form id="login-form">
-                        <div class="form-group">
-                            <label for="cpf">CPF:</label>
-                            <input type="text" id="cpf" name="cpf" placeholder="Digite seu CPF" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="senha">Senha:</label>
-                            <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
-                        </div>
-                        <button type="submit" class="cta-button">Entrar</button>
-                    </form>
-                    <div class="login-links">
-                        <a href="#" class="forgot-password">Esqueceu a senha?</a>
-                        <a href="#" class="register">Criar uma conta</a>
-                    </div>
-                </div>
+                <h2>Nossa História</h2>
+                <p>A Valor Financiamentos nasceu em 2010 com a missão de simplificar o acesso ao crédito para brasileiros. Desde então, temos crescido e evoluído, sempre mantendo nosso compromisso com a transparência e a excelência no atendimento.</p>
+                <img src="caminho/para/imagem-equipe.jpg" alt="Equipe da Valor Financiamentos" class="about-image">
             </div>
         </section>
 
-        <section id="cliente-features" class="section-padding bg-light">
+        <section class="section-padding bg-light">
             <div class="container">
-                <h2>Recursos da Área do Cliente</h2>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <i class="fas fa-file-invoice-dollar fa-3x" aria-hidden="true"></i>
-                        <h3>Consulta de Saldo</h3>
-                        <p>Verifique o saldo atual de seus empréstimos e parcelas a pagar.</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-calendar-alt fa-3x" aria-hidden="true"></i>
-                        <h3>Histórico de Pagamentos</h3>
-                        <p>Acesse o histórico completo de seus pagamentos e transações.</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-file-alt fa-3x" aria-hidden="true"></i>
-                        <h3>Documentos</h3>
-                        <p>Baixe e visualize seus contratos e documentos importantes.</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-headset fa-3x" aria-hidden="true"></i>
-                        <h3>Suporte</h3>
-                        <p>Entre em contato com nossa equipe de suporte diretamente pela plataforma.</p>
-                    </div>
-                </div>
+                <h2>Nossos Valores</h2>
+                <ul class="values-list">
+                    <li>Transparência em todas as nossas operações</li>
+                    <li>Compromisso com a satisfação do cliente</li>
+                    <li>Inovação constante em nossos processos</li>
+                    <li>Responsabilidade social e financeira</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section-padding">
+            <div class="container">
+                <h2>Nossa Equipe</h2>
+                <p>Contamos com profissionais altamente qualificados e comprometidos com a excelência. Nossa equipe está sempre pronta para oferecer as melhores soluções financeiras para você.</p>
+                <!-- Adicione cards ou fotos da equipe aqui, se desejar -->
             </div>
         </section>
     </main>
 
     <footer>
-
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sobre Nós</h3>
+                    <p>A Valor Financiamentos é especializada em oferecer as melhores soluções financeiras para nossos clientes.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html#simulador">Simulador</a></li>
+                        <li><a href="index.html#produtos">Produtos</a></li>
+                        <li><a href="sobre-nos.html">Sobre Nós</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <address>
+                        <p><i class="fas fa-phone" aria-hidden="true"></i> <a href="tel:+551137176415">(11) 3717-6415</a></p>
+                        <p><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:comercial@valorfinanciamentos.com.br">comercial@valorfinanciamentos.com.br</a></p>
+                        <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Rua Augusta, 101 - São Paulo, SP</p>
+                    </address>
+                </div>
+                <div class="footer-section">
+                    <h3>Redes Sociais</h3>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/valorfinanciamentosoficial/?hl=pt-br" target="_blank" rel="noopener noreferrer nofollow" aria-label="Instagram">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://m.facebook.com/valorfinanciamentos/" target="_blank" rel="noopener noreferrer nofollow" aria-label="Facebook">
+                            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/valorfinanciamentos/" target="_blank" rel="noopener noreferrer nofollow" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Valor Financiamentos. Todos os direitos reservados.</p>
+            </div>
+        </div>
     </footer>
 
     <a href="https://wa.me/551137176415" class="whatsapp-button" target="_blank" rel="noopener noreferrer" aria-label="Fale conosco pelo WhatsApp">
