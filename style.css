@@ -1,3 +1,12 @@
+/* Variáveis CSS */
+:root {
+    --primary-color: #0066cc;
+    --secondary-color: #004c99;
+    --text-color: #333;
+    --background-light: #f9f9f9;
+    --font-main: 'Roboto', sans-serif;
+}
+
 /* Reset e estilos gerais */
 * {
     margin: 0;
@@ -6,9 +15,9 @@
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--font-main);
     line-height: 1.6;
-    color: #333;
+    color: var(--text-color);
 }
 
 .container {
@@ -50,13 +59,14 @@ nav {
 
 .nav-links a {
     text-decoration: none;
-    color: #333;
+    color: var(--text-color);
     font-weight: bold;
     transition: color 0.3s ease;
 }
 
-.nav-links a:hover {
-    color: #0066cc;
+.nav-links a:hover, .nav-links a:focus {
+    color: var(--primary-color);
+    outline: none;
 }
 
 .menu-toggle {
@@ -65,12 +75,12 @@ nav {
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
-    color: #333;
+    color: var(--text-color);
 }
 
 /* Hero section */
 .hero-section {
-    background-image: url('hero-background.jpg');
+    background-image: url('hero-background.webp');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -112,7 +122,7 @@ nav {
 /* Botões */
 .cta-button {
     display: inline-block;
-    background-color: #0066cc;
+    background-color: var(--primary-color);
     color: #fff;
     padding: 12px 30px;
     text-decoration: none;
@@ -121,9 +131,10 @@ nav {
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.cta-button:hover {
-    background-color: #004c99;
+.cta-button:hover, .cta-button:focus {
+    background-color: var(--secondary-color);
     transform: translateY(-3px);
+    outline: none;
 }
 
 /* Seções */
@@ -132,14 +143,14 @@ nav {
 }
 
 .bg-light {
-    background-color: #f9f9f9;
+    background-color: var(--background-light);
 }
 
 h2 {
     font-size: 2.5rem;
     margin-bottom: 30px;
     text-align: center;
-    color: #0066cc;
+    color: var(--primary-color);
 }
 
 /* Formulários */
@@ -161,8 +172,14 @@ input, textarea, select {
     font-size: 1rem;
 }
 
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
+}
+
 .submit-button {
-    background-color: #0066cc;
+    background-color: var(--primary-color);
     color: #fff;
     border: none;
     padding: 12px 30px;
@@ -172,9 +189,10 @@ input, textarea, select {
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.submit-button:hover {
-    background-color: #004c99;
+.submit-button:hover, .submit-button:focus {
+    background-color: var(--secondary-color);
     transform: translateY(-3px);
+    outline: none;
 }
 
 /* Produtos */
@@ -199,55 +217,44 @@ input, textarea, select {
 
 .produto-card i {
     font-size: 3rem;
-    color: #0066cc;
+    color: var(--primary-color);
     margin-bottom: 20px;
 }
 
 .saiba-mais {
     display: inline-block;
     margin-top: 15px;
-    color: #0066cc;
+    color: var(--primary-color);
     text-decoration: none;
     font-weight: bold;
 }
 
-/* Sobre nós */
-.about-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin-top: 30px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+/* Acessibilidade */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
 
-.mission-vision-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+/* Animações */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-.mission-vision-card {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+.animate-on-scroll {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
 }
 
-.valores-list {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-}
-
-.valores-list li {
-    display: flex;
-    align-items: center;
-}
-
-.valores-list i {
-    color: #0066cc;
-    margin-right: 10px;
+.animate-on-scroll.animated {
+    opacity: 1;
 }
 
 /* Timeline */
@@ -261,7 +268,7 @@ input, textarea, select {
     content: '';
     position: absolute;
     width: 2px;
-    background-color: #0066cc;
+    background-color: var(--primary-color);
     top: 0;
     bottom: 0;
     left: 50%;
@@ -288,82 +295,6 @@ input, textarea, select {
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-/* Depoimentos */
-.depoimentos-slider {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.depoimento {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    margin: 15px;
-}
-
-.cliente-info {
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
-}
-
-.cliente-foto {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    margin-right: 15px;
-}
-
-/* Parceiros */
-.parceiros-grid {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.parceiro-logo {
-    max-width: 150px;
-    height: auto;
-    margin: 20px;
-}
-
-/* FAQ */
-.faq-list {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.faq-item {
-    margin-bottom: 20px;
-}
-
-.faq-question {
-    background-color: #f0f0f0;
-    padding: 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    position: relative;
-}
-
-.faq-question::after {
-    content: '\f078';
-    font-family: 'Font Awesome 5 Free';
-    position: absolute;
-    right: 15px;
-    transition: transform 0.3s ease;
-}
-
-.faq-question.active::after {
-    transform: rotate(180deg);
-}
-
-.faq-answer {
-    padding: 15px;
-    display: none;
 }
 
 /* Footer */
@@ -408,7 +339,7 @@ footer {
 }
 
 .social-icons a:hover {
-    color: #0066cc;
+    color: var(--primary-color);
 }
 
 .footer-bottom {
@@ -446,7 +377,7 @@ footer {
     position: fixed;
     bottom: 20px;
     right: 90px;
-    background-color: #0066cc;
+    background-color: var(--primary-color);
     color: #fff;
     width: 50px;
     height: 50px;
@@ -465,7 +396,7 @@ footer {
 }
 
 #backToTop:hover {
-    background-color: #004c99;
+    background-color: var(--secondary-color);
 }
 
 /* Responsividade */
@@ -539,5 +470,32 @@ footer {
         width: 50px;
         height: 50px;
         font-size: 1.5rem;
+    }
+}
+
+/* Melhorias de performance */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Melhorias de acessibilidade */
+:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Estilos de impressão */
+@media print {
+    .no-print {
+        display: none;
+    }
+
+    body {
+        font-size: 12pt;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
     }
 }
