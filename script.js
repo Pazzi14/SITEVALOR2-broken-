@@ -248,3 +248,44 @@ function trackEvent(category, action, label) {
         });
     }
 }
+// Adicione isso ao final do arquivo script.js
+
+function initializeNewsletterForm() {
+    const newsletterForm = document.getElementById('newsletter-form');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email-newsletter').value;
+            if (isValidEmail(email)) {
+                alert('Obrigado por se inscrever em nossa newsletter!');
+                newsletterForm.reset();
+            } else {
+                showError('Por favor, insira um endereço de e-mail válido.');
+            }
+        });
+    }
+}
+
+function initializeLoginForm() {
+    const loginForm = document.getElementById('login-form');
+    if (loginForm) {
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const cpf = document.getElementById('cpf').value;
+            const senha = document.getElementById('senha').value;
+            if (cpf && senha) {
+                // Aqui você normalmente faria uma chamada para o servidor para autenticar
+                alert('Função de login não implementada. Esta é apenas uma demonstração.');
+            } else {
+                showError('Por favor, preencha todos os campos.');
+            }
+        });
+    }
+}
+
+// Adicione essas chamadas à função principal
+document.addEventListener('DOMContentLoaded', function() {
+    // ... outras inicializações ...
+    initializeNewsletterForm();
+    initializeLoginForm();
+});
