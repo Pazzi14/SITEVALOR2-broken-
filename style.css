@@ -1,9 +1,9 @@
 :root {
-    --primary-color: #003366;
-    --secondary-color: #0066cc;
-    --accent-color: #ff9900;
-    --text-color: #333333;
-    --background-color: #ffffff;
+    --primary-color: #0000ff;
+    --secondary-color: #00bfff;
+    --accent-color: #87cefa;
+    --text-color: #191970;
+    --background-color: #cdffff;
     --header-color: #ffffff;
 }
 
@@ -71,7 +71,6 @@ nav {
 
 /* Hero Section */
 .hero {
-    background-image: url('images/hero-background.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -95,7 +94,7 @@ nav {
 .cta-button {
     display: inline-block;
     background-color: var(--accent-color);
-    color: var(--header-color);
+    color: var(--text-color);
     padding: 12px 24px;
     border-radius: 5px;
     text-decoration: none;
@@ -104,18 +103,19 @@ nav {
 }
 
 .cta-button:hover {
-    background-color: #e68a00;
+    background-color: var(--secondary-color);
 }
 
 /* Simulador Section */
 .simulador {
     padding: 80px 0;
-    background-color: #f5f5f5;
+    background-color: var(--background-color);
 }
 
 .simulador h2 {
     text-align: center;
     margin-bottom: 40px;
+    color: var(--primary-color);
 }
 
 #simulador-form {
@@ -130,6 +130,7 @@ nav {
 label {
     display: block;
     margin-bottom: 5px;
+    color: var(--text-color);
 }
 
 input[type="number"],
@@ -140,8 +141,9 @@ select,
 textarea {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--secondary-color);
     border-radius: 5px;
+    background-color: var(--header-color);
 }
 
 /* Produtos Section */
@@ -152,6 +154,7 @@ textarea {
 .produtos h2 {
     text-align: center;
     margin-bottom: 40px;
+    color: var(--primary-color);
 }
 
 .produtos-grid {
@@ -161,10 +164,11 @@ textarea {
 }
 
 .produto-card {
-    background-color: #f5f5f5;
+    background-color: var(--header-color);
     border-radius: 5px;
     overflow: hidden;
     transition: transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .produto-card:hover {
@@ -173,12 +177,14 @@ textarea {
 
 .produto-card img {
     width: 100%;
-    height: auto;
+    height: 200px;
+    object-fit: cover;
 }
 
 .produto-card h3 {
     padding: 20px;
     text-align: center;
+    color: var(--primary-color);
 }
 
 .produto-card p {
@@ -195,7 +201,7 @@ textarea {
 
 /* Depoimentos Section */
 .depoimentos {
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
     color: var(--header-color);
     padding: 80px 0;
 }
@@ -236,6 +242,7 @@ textarea {
 .contato h2 {
     text-align: center;
     margin-bottom: 40px;
+    color: var(--primary-color);
 }
 
 #contato-form {
