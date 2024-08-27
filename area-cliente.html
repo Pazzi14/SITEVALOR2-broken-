@@ -4,83 +4,130 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Área do Cliente - Valor Financiamentos</title>
-    <meta name="description" content="Acesse sua conta na Valor Financiamentos para gerenciar seus financiamentos, verificar parcelas e atualizar suas informações.">
+    <meta name="description" content="Acesse sua área exclusiva de cliente na Valor Financiamentos e gerencie seus financiamentos.">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
     <header>
         <nav class="container">
-            <a href="index.html" class="logo">
-                <img src="images/logo.png" alt="Logo Valor Financiamentos" width="150" height="50">
-            </a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="https://valorfinanciamentos.com.br/wp-content/uploads/2020/08/logo_grande_valor.png.png" alt="Logo Valor Financiamentos" width="200" height="50">
+                </a>
+            </div>
+            <button class="menu-toggle" aria-expanded="false" aria-controls="primary-menu">
+                <span class="sr-only">Menu</span>
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </button>
+            <ul id="primary-menu" class="nav-links">
+                <li><a href="index.html#simulador">Simulador</a></li>
+                <li><a href="index.html#produtos">Produtos</a></li>
                 <li><a href="sobre-nos.html">Sobre Nós</a></li>
+                <li><a href="index.html#contato">Contato</a></li>
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="area-cliente.html">Área do Cliente</a></li>
             </ul>
-            <button class="menu-toggle" aria-label="Abrir menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
         </nav>
     </header>
 
-    <main>
-        <section class="hero area-cliente-hero" style="background-image: url('https://www.tradersdna.com/wp-content/uploads/2022/10/Modern-Banking.jpg');">
-            <div class="container">
+    <main id="main-content">
+        <section class="hero-section">
+            <div class="hero-content">
                 <h1>Área do Cliente</h1>
-                <p>Gerencie seus financiamentos com facilidade e segurança</p>
+                <p>Gerencie seus financiamentos e acesse informações exclusivas</p>
             </div>
         </section>
 
-        <section class="login-area">
+        <section class="section-padding">
             <div class="container">
-                <div class="login-form">
-                    <h2>Acesse sua conta</h2>
-                    <form id="login-form">
-                        <div class="form-group">
-                            <label for="email">E-mail:</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="senha">Senha:</label>
-                            <input type="password" id="senha" name="senha" required>
-                        </div>
-                        <button type="submit" class="cta-button">Entrar</button>
-                    </form>
-                    <p><a href="#">Esqueceu sua senha?</a></p>
-                </div>
-                <div class="register-info">
-                    <h2>Novo por aqui?</h2>
-                    <p>Crie sua conta agora e aproveite todos os benefícios da Área do Cliente.</p>
-                    <a href="#" class="cta-button">Criar conta</a>
-                </div>
+                <h2>Login</h2>
+                <form id="login-form" class="login-form">
+                    <div class="form-group">
+                        <label for="cpf">CPF:</label>
+                        <input type="text" id="cpf" name="cpf" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="senha">Senha:</label>
+                        <input type="password" id="senha" name="senha" required>
+                    </div>
+                    <button type="submit" class="cta-button">Entrar</button>
+                </form>
+                <div id="login-error" class="error-message" style="display: none;"></div>
+                <p class="forgot-password"><a href="#">Esqueceu sua senha?</a></p>
             </div>
         </section>
 
-        <section class="vantagens-area-cliente">
+        <section class="section-padding bg-light">
             <div class="container">
-                <h2>Vantagens da Área do Cliente</h2>
-                <ul>
-                    <li>Acompanhe o status dos seus financiamentos</li>
-                    <li>Visualize e pague suas parcelas</li>
-                    <li>Atualize seus dados cadastrais</li>
-                    <li>Solicite segunda via de boletos</li>
-                    <li>Acesse ofertas exclusivas</li>
-                    <li>Suporte prioritário</li>
-                </ul>
+                <h2>Ainda não é cliente?</h2>
+                <p>Conheça nossas opções de financiamento e comece a realizar seus sonhos.</p>
+                <div class="new-client-cta">
+                    <a href="index.html#simulador" class="cta-button">Simular Agora</a>
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
-
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sobre Nós</h3>
+                    <p>A Valor Financiamentos é especializada em oferecer as melhores soluções financeiras para nossos clientes.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html#simulador">Simulador</a></li>
+                        <li><a href="index.html#produtos">Produtos</a></li>
+                        <li><a href="sobre-nos.html">Sobre Nós</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <address>
+                        <p><i class="fas fa-phone" aria-hidden="true"></i> <a href="tel:+551137176415">(11) 3717-6415</a></p>
+                        <p><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:comercial@valorfinanciamentos.com.br">comercial@valorfinanciamentos.com.br</a></p>
+                        <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Rua Augusta, 101 - São Paulo, SP</p>
+                    </address>
+                </div>
+                <div class="footer-section">
+                    <h3>Redes Sociais</h3>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/valorfinanciamentosoficial/?hl=pt-br" target="_blank" rel="noopener noreferrer nofollow" aria-label="Instagram">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://m.facebook.com/valorfinanciamentos/" target="_blank" rel="noopener noreferrer nofollow" aria-label="Facebook">
+                            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/valorfinanciamentos/" target="_blank" rel="noopener noreferrer nofollow" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Valor Financiamentos. Todos os direitos reservados.</p>
+            </div>
+        </div>
     </footer>
 
+    <a href="https://wa.me/551137176415" class="whatsapp-button" target="_blank" rel="noopener noreferrer" aria-label="Fale conosco pelo WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    </a>
+
+    <button id="backToTop" aria-label="Voltar ao topo">
+        <i class="fas fa-chevron-up" aria-hidden="true"></i>
+    </button>
+
     <script src="script.js"></script>
-    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
 </body>
 </html>
