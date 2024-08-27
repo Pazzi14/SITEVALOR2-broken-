@@ -7,6 +7,11 @@
     <meta name="description" content="A Valor Financiamentos oferece soluções de crédito personalizadas para você realizar seus sonhos. Simule agora seu financiamento!">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta property="og:title" content="Valor Financiamentos - Soluções Financeiras Personalizadas">
+    <meta property="og:description" content="A Valor Financiamentos oferece soluções de crédito personalizadas para você realizar seus sonhos. Simule agora seu financiamento!">
+    <meta property="og:image" content="https://valorfinanciamentos.com.br/wp-content/uploads/2020/08/logo_grande_valor.png.png">
+    <meta property="og:url" content="https://valorfinanciamentos.com.br">
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -15,7 +20,7 @@
         <nav>
             <div class="logo">
                 <a href="index.html">
-                    <img src="https://valorfinanciamentos.com.br/wp-content/uploads/2020/08/logo_grande_valor.png.png" alt="Valor Financiamentos Logo">
+                    <img src="https://valorfinanciamentos.com.br/wp-content/uploads/2020/08/logo_grande_valor.png.png" alt="Valor Financiamentos Logo" width="200" height="50">
                 </a>
             </div>
             <ul class="nav-links">
@@ -26,9 +31,9 @@
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="area-cliente.html">Área do Cliente</a></li>
             </ul>
-            <div class="menu-toggle">
+            <button class="menu-toggle" aria-label="Abrir menu">
                 <i class="fas fa-bars"></i>
-            </div>
+            </button>
         </nav>
     </header>
 
@@ -37,7 +42,7 @@
             <div class="hero-content">
                 <h1>Soluções Financeiras Personalizadas</h1>
                 <p>Realize seus sonhos com a Valor Financiamentos</p>
-                                <a href="#simulador" class="cta-button">Simule Agora</a>
+                <a href="#simulador" class="cta-button">Simule Agora</a>
             </div>
         </section>
 
@@ -46,38 +51,38 @@
             <form id="simulador-form">
                 <div class="form-group">
                     <label for="valor">Valor desejado:</label>
-                    <input type="number" id="valor" name="valor" required>
+                    <input type="number" id="valor" name="valor" required min="1000" step="100">
                 </div>
                 <div class="form-group">
                     <label for="prazo">Prazo (em meses):</label>
-                    <input type="number" id="prazo" name="prazo" required>
+                    <input type="number" id="prazo" name="prazo" required min="1" max="120">
                 </div>
                 <button type="submit" class="cta-button">Simular</button>
             </form>
-            <div id="resultado-simulacao"></div>
+            <div id="resultado-simulacao" aria-live="polite"></div>
         </section>
 
         <section id="produtos" class="produtos-section">
             <h2>Nossas Linhas de Crédito</h2>
             <div class="produtos-grid">
-                <div class="produto-card">
-                    <img src="https://www.tradersdna.com/wp-content/uploads/2022/10/Modern-Banking.jpg" alt="Crédito Pessoal">
+                <article class="produto-card">
+                    <img src="https://www.tradersdna.com/wp-content/uploads/2022/10/Modern-Banking.jpg" alt="Crédito Pessoal" width="300" height="200">
                     <h3>Crédito Pessoal</h3>
                     <p>Solução ideal para suas necessidades financeiras imediatas.</p>
                     <a href="#" class="saiba-mais">Saiba Mais</a>
-                </div>
-                <div class="produto-card">
-                    <img src="https://www.cssoftsolutions.com/wp-content/uploads/2024/02/Modern-Banking-Apps-By-CS-Soft-Solutions-India-Pvt.-Ltd.jpg" alt="Consignado Privado">
+                </article>
+                <article class="produto-card">
+                    <img src="https://www.cssoftsolutions.com/wp-content/uploads/2024/02/Modern-Banking-Apps-By-CS-Soft-Solutions-India-Pvt.-Ltd.jpg" alt="Consignado Privado" width="300" height="200">
                     <h3>Consignado Privado</h3>
                     <p>Taxas especiais para funcionários de empresas privadas.</p>
                     <a href="#" class="saiba-mais">Saiba Mais</a>
-                </div>
-                <div class="produto-card">
-                    <img src="https://w0.peakpx.com/wallpaper/234/832/HD-wallpaper-glass-bank-with-coins-piggy-bank-savings-money-concepts-finance-saving-concept-business-stacks-of-coins.jpg" alt="Consignado Público">
+                </article>
+                <article class="produto-card">
+                    <img src="https://w0.peakpx.com/wallpaper/234/832/HD-wallpaper-glass-bank-with-coins-piggy-bank-savings-money-concepts-finance-saving-concept-business-stacks-of-coins.jpg" alt="Consignado Público" width="300" height="200">
                     <h3>Consignado Público</h3>
                     <p>Condições especiais para servidores públicos.</p>
                     <a href="#" class="saiba-mais">Saiba Mais</a>
-                </div>
+                </article>
             </div>
         </section>
 
@@ -90,24 +95,24 @@
         <section class="blog-section">
             <h2>Últimos Artigos do Blog</h2>
             <div class="blog-grid">
-                <div class="blog-card">
-                    <img src="https://www.isoonline.com/wp-content/uploads/2018/01/Physics-and-business.jpg" alt="Dicas de Finanças Pessoais">
+                <article class="blog-card">
+                    <img src="https://www.isoonline.com/wp-content/uploads/2018/01/Physics-and-business.jpg" alt="Dicas de Finanças Pessoais" width="300" height="200">
                     <h3>Dicas de Finanças Pessoais</h3>
                     <p>Aprenda a gerenciar melhor seu dinheiro com estas dicas práticas.</p>
                     <a href="blog.html" class="read-more">Ler Mais</a>
-                </div>
-                <div class="blog-card">
-                    <img src="https://www.bgateway.com/assets/images/general/_contentNarrow/Be-your-own-Boss.jpg" alt="Investimentos para Iniciantes">
+                </article>
+                <article class="blog-card">
+                    <img src="https://www.bgateway.com/assets/images/general/_contentNarrow/Be-your-own-Boss.jpg" alt="Investimentos para Iniciantes" width="300" height="200">
                     <h3>Investimentos para Iniciantes</h3>
                     <p>Descubra como começar a investir de forma segura e inteligente.</p>
                     <a href="blog.html" class="read-more">Ler Mais</a>
-                </div>
-                <div class="blog-card">
-                    <img src="https://online.vu.edu.au/sites/default/files/field/image/Easiest_countries_to_start_a_business_main_image.jpeg" alt="Entendendo o Crédito Consignado">
+                </article>
+                <article class="blog-card">
+                    <img src="https://online.vu.edu.au/sites/default/files/field/image/Easiest_countries_to_start_a_business_main_image.jpeg" alt="Entendendo o Crédito Consignado" width="300" height="200">
                     <h3>Entendendo o Crédito Consignado</h3>
                     <p>Tudo o que você precisa saber sobre esta modalidade de crédito.</p>
                     <a href="blog.html" class="read-more">Ler Mais</a>
-                </div>
+                </article>
             </div>
             <a href="blog.html" class="cta-button">Ver Todos os Artigos</a>
         </section>
@@ -132,15 +137,15 @@
             </div>
             <div class="footer-section">
                 <h3>Contato</h3>
-                <p>Email: contato@valorfinanciamentos.com.br</p>
-                <p>Telefone: (XX) XXXX-XXXX</p>
+                <p>Email: <a href="mailto:contato@valorfinanciamentos.com.br">contato@valorfinanciamentos.com.br</a></p>
+                <p>Telefone: <a href="tel:+55XXXXXXXXXX">(XX) XXXX-XXXX</a></p>
             </div>
             <div class="footer-section">
                 <h3>Redes Sociais</h3>
                 <div class="social-icons">
-                    <a href="https://www.instagram.com/valorfinanciamentosoficial/?hl=pt-br" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                    <a href="https://m.facebook.com/valorfinanciamentos/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.linkedin.com/company/valorfinanciamentos/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/valorfinanciamentosoficial/?hl=pt-br" target="_blank" rel="noopener noreferrer" aria-label="Siga-nos no Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://m.facebook.com/valorfinanciamentos/" target="_blank" rel="noopener noreferrer" aria-label="Curta nossa página no Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.linkedin.com/company/valorfinanciamentos/" target="_blank" rel="noopener noreferrer" aria-label="Conecte-se conosco no LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
         </div>
