@@ -1,102 +1,139 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Menu toggle para dispositivos móveis
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
-    const backToTopButton = document.getElementById('backToTop');
+
+    menuToggle.addEventListener('click', function() {
+        navLinks.classList.toggle('active');
+    });
+
+    // Simulador de Financiamento
     const simuladorForm = document.getElementById('simulador-form');
+    const resultadoSimulacao = document.getElementById('resultado-simulacao');
+
+    simuladorForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const valor = parseFloat(document.getElementById('valor').value);
+        const prazo = parseInt(document.getElementById('prazo').value);
+        const tipoCredito = document.getElementById('tipo-credito').value;
+
+        // Taxas de juros fictícias para cada tipo de crédito
+        const taxas = {
+            'pessoal': 0.025,
+            'consignado': 0.015,
+            'veiculo': 0.02,
+            'imovel': 0.008
+        };
+
+        const taxa = taxas[tipoCredito];
+        const parcela = calcularParcela(valor, taxa, prazo);
+
+        resultadoSimulacao.innerHTML = `
+            <h3>Resultado da Simulação</h3>
+            <p>Valor financiado: R$ ${valor.toFixed(2)}</p>
+            <p>Prazo: ${prazo} meses</p>
+            <p>Taxa de juros mensal: ${(taxa * 100).toFixed(2)}%</p>
+            <p>Valor da parcela: R$ ${parcela.toFixed(2)}</p>
+        `;
+    });
+
+    function calcularParcela(valor, taxa, prazo) {
+        return (valor * taxa * Math.pow(1 + taxa, prazo)) / (Math.pow(1 + taxa, prazo) - 1);
+    }
+
+    // Formulário de Contato
     const contatoForm = document.getElementById('contato-form');
 
-    // Toggle mobile menu
-    menuToggle?.addEventListener('click', function() {
-        navLinks.classList.toggle('active');
-        menuToggle.setAttribute('aria-expanded', navLinks.classList.contains('active').toString());
-    });
-
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-
-    // Back to top button
-    window.addEventListener('scroll', function() {
-        if (backToTopButton) {
-            backToTopButton.classList.toggle('visible', window.pageYOffset > 300);
-        }
-    });
-
-    backToTopButton?.addEventListener('click', function(e) {
+    contatoForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        
+        const nome = document.getElementById('nome').value;
+        const email = document.getElementById('email').value;
+        const telefone = document.getElementById('telefone').value;
+        const mensagem = document.getElementById('mensagem').value;
+
+        // Aqui você pode adicionar a lógica para enviar os dados do formulário
+        // Por exemplo, usando fetch para enviar uma requisição POST para seu servidor
+
+        alert(`Obrigado pelo contato, ${nome}! Em breve entraremos em contato.`);
+        contatoForm.reset();
     });
 
-    // Fade-in effect
+    // Slider de Depoimentos
+    const depoimentosSlider = document.querySelector('.depoimentos-slider');
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    depoimentosSlider.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX - depoimentosSlider.offsetLeft;
+        scrollLeft = depoimentosSlider.scrollLeft;
+    });
+
+    depoimentosSlider.addEventListener('mouseleave', () => {
+        isDown = false;
+    });
+
+    depoimentosSlider.addEventListener('mouseup', () => {
+        isDown = false;
+    });
+
+    depoimentosSlider.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - depoimentosSlider.offsetLeft;
+        const walk = (x - startX) * 2;
+        depoimentosSlider.scrollLeft = scrollLeft - walk;
+    });
+
+    // Animação de fade-in para elementos quando entram na viewport
     const fadeElements = document.querySelectorAll('.fade-in');
-    const observer = new IntersectionObserver((entries) => {
+
+    const fadeInObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
+                fadeInObserver.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.1 });
-
-    fadeElements.forEach(element => {
-        observer.observe(element);
+    }, {
+        threshold: 0.1
     });
 
-    // Simulador form submission
-    simuladorForm?.addEventListener('submit', function(e) {
-        e.preventDefault();
-        try {
-            const valor = document.getElementById('valor').value;
-            const prazo = document.getElementById('prazo').value;
-            const tipoCredito = document.getElementById('tipo-credito').value;
-            
-            // Simulação básica (você pode ajustar conforme necessário)
-            const taxa = 0.015; // 1.5% ao mês
-            const parcela = (valor * (taxa * Math.pow(1 + taxa, prazo))) / (Math.pow(1 + taxa, prazo) - 1);
-            const total = parcela * prazo;
-            
-            const resultado = `
-                <h3>Resultado da Simulação</h3>
-                <p>Tipo de Crédito: ${tipoCredito}</p>
-                <p>Valor solicitado: R$ ${parseFloat(valor).toFixed(2)}</p>
-                <p>Prazo: ${prazo} meses</p>
-                <p>Valor da parcela: R$ ${parcela.toFixed(2)}</p>
-                <p>Total a pagar: R$ ${total.toFixed(2)}</p>
-            `;
-            
-            document.getElementById('resultado-simulacao').innerHTML = resultado;
-        } catch (error) {
-            console.error('Erro na simulação:', error);
-            alert('Ocorreu um erro ao processar a simulação. Por favor, tente novamente.');
+    fadeElements.forEach(element => {
+        fadeInObserver.observe(element);
+    });
+
+    // Validação de formulários
+    function validateForm(form) {
+        let isValid = true;
+        const inputs = form.querySelectorAll('input, select, textarea');
+        
+        inputs.forEach(input => {
+            if (input.hasAttribute('required') && !input.value.trim()) {
+                isValid = false;
+                input.classList.add('error');
+            } else {
+                input.classList.remove('error');
+            }
+        });
+
+        return isValid;
+    }
+
+    simuladorForm.addEventListener('submit', function(e) {
+        if (!validateForm(this)) {
+            e.preventDefault();
+            alert('Por favor, preencha todos os campos obrigatórios.');
         }
     });
 
-    // Contato form submission
-    contatoForm?.addEventListener('submit', function(e) {
-        e.preventDefault();
-        try {
-            const nome = document.getElementById('nome').value;
-            const email = document.getElementById('email').value;
-            const telefone = document.getElementById('telefone').value;
-            const mensagem = document.getElementById('mensagem').value;
-            
-            // Aqui você pode adicionar a lógica para enviar o formulário de contato
-            console.log('Formulário enviado:', { nome, email, telefone, mensagem });
-            
-            // Limpar o formulário após o envio
-            contatoForm.reset();
-            alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
-        } catch (error) {
-            console.error('Erro no envio do formulário:', error);
-            alert('Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.');
+    contatoForm.addEventListener('submit', function(e) {
+        if (!validateForm(this)) {
+            e.preventDefault();
+            alert('Por favor, preencha todos os campos obrigatórios.');
         }
     });
 });
