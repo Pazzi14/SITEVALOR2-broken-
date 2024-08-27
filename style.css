@@ -5,7 +5,7 @@
     --text-color: #191970;
     --background-light: #cdffff;
     --background-dark: #191970;
-    --font-main: 'Arial', sans-serif;
+    --font-main: 'Roboto', Arial, sans-serif;
 }
 
 * {
@@ -16,6 +16,7 @@
 
 html {
     font-size: 16px;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -49,6 +50,15 @@ body {
 }
 
 :focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
     outline: 2px solid var(--primary-color);
     outline-offset: 2px;
 }
@@ -130,6 +140,9 @@ nav {
 .hero-content {
     position: relative;
     z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
 }
 
 .hero-content h1 {
@@ -152,6 +165,7 @@ nav {
     border-radius: 5px;
     font-weight: bold;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    will-change: transform;
 }
 
 .cta-button:hover, .cta-button:focus {
@@ -189,6 +203,7 @@ h2 {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     text-align: center;
     transition: transform 0.3s ease;
+    will-change: transform;
 }
 
 .produto-card:hover {
@@ -222,6 +237,16 @@ input:focus, textarea:focus, select:focus {
     outline: none;
     border-color: var(--primary-color);
     box-shadow: 0 0 0 2px rgba(0, 191, 255, 0.2);
+}
+
+.error-message {
+    color: #ff0000;
+    font-size: 0.875rem;
+    margin-top: 0.3125rem;
+}
+
+input.error, textarea.error, select.error {
+    border-color: #ff0000;
 }
 
 /* Footer */
@@ -326,6 +351,11 @@ footer {
     background-color: var(--secondary-color);
 }
 
+#backToTop:focus {
+    outline: 2px solid white;
+    outline-offset: 2px;
+}
+
 /* Redes Sociais */
 .social-grid {
     display: grid;
@@ -345,6 +375,7 @@ footer {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-decoration: none;
     color: var(--text-color);
+    will-change: transform;
 }
 
 .social-card:hover {
@@ -362,14 +393,6 @@ footer {
     font-weight: bold;
 }
 
-/* Sobre Nós */
-.about-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin-top: 2rem;
-}
-
 /* Responsividade */
 @media (max-width: 768px) {
     .menu-toggle {
@@ -385,10 +408,14 @@ footer {
         width: 100%;
         background-color: white;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
     }
 
     .nav-links.active {
         display: flex;
+        max-height: 300px;
     }
 
     .nav-links li {
@@ -415,6 +442,10 @@ footer {
 
     .footer-content {
         flex-direction: column;
+    }
+
+    input, textarea, select {
+        font-size: 16px;
     }
 }
 
@@ -463,5 +494,47 @@ img {
 
     a[href]:after {
         content: " (" attr(href) ")";
+    }
+}
+
+/* Suporte para preferências de movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Suporte para modo escuro */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-light: #191970;
+        --text-color: #ffffff;
+        --background-dark: #000033;
+    }
+
+    body {
+        background-color: var(--background-light);
+        color: var(--text-color);
+    }
+
+    .produto-card, .social-card {
+        background-color: var(--background-dark);
+        color: var(--text-color);
+    }
+}
+
+/* Suporte para navegadores mais antigos */
+@supports not (display: grid) {
+    .produtos-grid, .social-grid {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .produto-card, .social-card {
+        flex: 1 1 250px;
+        margin: 10px;
     }
 }
