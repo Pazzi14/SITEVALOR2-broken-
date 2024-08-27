@@ -6,31 +6,32 @@ document.addEventListener('DOMContentLoaded', function() {
     const contatoForm = document.getElementById('contato-form');
 
     // Toggle mobile menu
-    menuToggle.addEventListener('click', function() {
+    menuToggle?.addEventListener('click', function() {
         navLinks.classList.toggle('active');
-        menuToggle.setAttribute('aria-expanded', navLinks.classList.contains('active'));
+        menuToggle.setAttribute('aria-expanded', navLinks.classList.contains('active').toString());
     });
 
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
         });
     });
 
     // Back to top button
     window.addEventListener('scroll', function() {
-        if (window.pageYOffset > 300) {
-            backToTopButton.classList.add('visible');
-        } else {
-            backToTopButton.classList.remove('visible');
+        if (backToTopButton) {
+            backToTopButton.classList.toggle('visible', window.pageYOffset > 300);
         }
     });
 
-    backToTopButton.addEventListener('click', function(e) {
+    backToTopButton?.addEventListener('click', function(e) {
         e.preventDefault();
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
@@ -50,9 +51,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Simulador form submission
-    if (simuladorForm) {
-        simuladorForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+    simuladorForm?.addEventListener('submit', function(e) {
+        e.preventDefault();
+        try {
             const valor = document.getElementById('valor').value;
             const prazo = document.getElementById('prazo').value;
             const tipoCredito = document.getElementById('tipo-credito').value;
@@ -72,26 +73,30 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
             
             document.getElementById('resultado-simulacao').innerHTML = resultado;
-        });
-    }
+        } catch (error) {
+            console.error('Erro na simulação:', error);
+            alert('Ocorreu um erro ao processar a simulação. Por favor, tente novamente.');
+        }
+    });
 
     // Contato form submission
-    if (contatoForm) {
-        contatoForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+    contatoForm?.addEventListener('submit', function(e) {
+        e.preventDefault();
+        try {
             const nome = document.getElementById('nome').value;
             const email = document.getElementById('email').value;
             const telefone = document.getElementById('telefone').value;
             const mensagem = document.getElementById('mensagem').value;
             
             // Aqui você pode adicionar a lógica para enviar o formulário de contato
-            // Por exemplo, usando fetch para enviar os dados para um servidor
-            
             console.log('Formulário enviado:', { nome, email, telefone, mensagem });
             
             // Limpar o formulário após o envio
             contatoForm.reset();
             alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
-        });
-    }
+        } catch (error) {
+            console.error('Erro no envio do formulário:', error);
+            alert('Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.');
+        }
+    });
 });
