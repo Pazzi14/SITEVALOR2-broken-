@@ -1,422 +1,308 @@
-:root {
-    --primary-color: #0066cc;
-    --secondary-color: #004c99;
-    --accent-color: #ff9900;
-    --text-color: #333;
-    --background-light: #f9f9f9;
-    --background-dark: #333;
-    --font-main: 'Arial', sans-serif;
-}
+document.addEventListener('DOMContentLoaded', function() {
+    initializeMenu();
+    initializeSimulator();
+    initializeContactForm();
+    initializeBackToTop();
+    initializeSmoothScroll();
+    initializeLazyLoading();
+    initializeDepoimentosSlider();
+});
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+function initializeMenu() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
 
-html {
-    font-size: 16px;
-}
-
-body {
-    font-family: var(--font-main);
-    line-height: 1.6;
-    color: var(--text-color);
-    font-size: 1rem;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1.25rem;
-}
-
-/* Acessibilidade */
-.skip-link {
-    position: absolute;
-    top: -40px;
-    left: 0;
-    background: var(--primary-color);
-    color: white;
-    padding: 0.5rem;
-    z-index: 100;
-    transition: top 0.3s;
-}
-
-.skip-link:focus {
-    top: 0;
-}
-
-:focus {
-    outline: 2px solid var(--primary-color);
-    outline-offset: 2px;
-}
-
-/* Header e navegação */
-header {
-    background-color: white;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.9375rem 0;
-}
-
-.logo img {
-    height: 3.125rem;
-    width: auto;
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-}
-
-.nav-links li {
-    margin-left: 1.875rem;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: var(--text-color);
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-.nav-links a:hover, .nav-links a:focus {
-    color: var(--primary-color);
-}
-
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-/* Hero section */
-.hero-section {
-    background-image: url('hero-background.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    position: relative;
-}
-
-.hero-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.hero-content {
-    position: relative;
-    z-index: 1;
-}
-
-.hero-content h1 {
-    font-size: 3rem;
-    margin-bottom: 1.25rem;
-}
-
-.hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 1.875rem;
-}
-
-/* Botões */
-.cta-button {
-    display: inline-block;
-    background-color: var(--accent-color);
-    color: white;
-    padding: 0.75rem 1.875rem;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.cta-button:hover, .cta-button:focus {
-    background-color: #e68a00;
-    transform: translateY(-3px);
-}
-
-/* Seções */
-.section-padding {
-    padding: 5rem 0;
-}
-
-.bg-light {
-    background-color: var(--background-light);
-}
-
-h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1.875rem;
-    text-align: center;
-    color: var(--primary-color);
-}
-
-/* Produtos */
-.produtos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.875rem;
-}
-
-.produto-card {
-    background-color: white;
-    padding: 1.875rem;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.produto-card:hover {
-    transform: translateY(-5px);
-}
-
-.produto-card i {
-    color: var(--primary-color);
-    margin-bottom: 1.25rem;
-}
-
-/* Formulários */
-.form-group {
-    margin-bottom: 1.25rem;
-}
-
-label {
-    display: block;
-    margin-bottom: 0.3125rem;
-}
-
-input, textarea, select {
-    width: 100%;
-    padding: 0.625rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
-}
-
-input:focus, textarea:focus, select:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
-}
-
-/* Footer */
-footer {
-    background-color: var(--background-dark);
-    color: white;
-    padding: 3.75rem 0 1.25rem;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.footer-section {
-    margin-bottom: 1.875rem;
-}
-
-.footer-section h3 {
-    margin-bottom: 1.25rem;
-}
-
-.footer-section ul {
-    list-style: none;
-}
-
-.footer-section ul li {
-    margin-bottom: 0.625rem;
-}
-
-.footer-section a {
-    color: white;
-    text-decoration: none;
-}
-
-.social-icons a {
-    font-size: 1.5rem;
-    margin-right: 0.9375rem;
-    transition: color 0.3s ease;
-}
-
-.social-icons a:hover {
-    color: var(--accent-color);
-}
-
-.footer-bottom {
-    text-align: center;
-    margin-top: 2.5rem;
-    padding-top: 1.25rem;
-    border-top: 1px solid #555;
-}
-
-/* WhatsApp button */
-.whatsapp-button {
-    position: fixed;
-    bottom: 1.25rem;
-    right: 1.25rem;
-    background-color: #25d366;
-    color: white;
-    width: 3.75rem;
-    height: 3.75rem;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease;
-    z-index: 1000;
-}
-
-.whatsapp-button:hover {
-    transform: scale(1.1);
-}
-
-/* Back to Top Button */
-#backToTop {
-    position: fixed;
-    bottom: 1.25rem;
-    right: 5.625rem;
-    background-color: var(--primary-color);
-    color: white;
-    width: 3.125rem;
-    height: 3.125rem;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-    cursor: pointer;
-    opacity: 0;
-    transition: opacity 0.3s ease, background-color 0.3s ease;
-    z-index: 1000;
-}
-
-#backToTop.show {
-    opacity: 1;
-}
-
-#backToTop:hover {
-    background-color: var(--secondary-color);
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-    }
-
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 4.375rem;
-        left: 0;
-        width: 100%;
-        background-color: white;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-links li {
-        margin: 0;
-        text-align: center;
-    }
-
-    .nav-links a {
-        display: block;
-        padding: 0.9375rem;
-    }
-
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero-content p {
-        font-size: 1rem;
-    }
-
-    .produtos-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .footer-content {
-        flex-direction: column;
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', 
+                menuToggle.getAttribute('aria-expanded') === 'false' ? 'true' : 'false'
+            );
+        });
     }
 }
 
-@media (max-width: 480px) {
-    .hero-content h1 {
-        font-size: 2rem;
-    }
+function initializeSimulator() {
+    const simulatorForm = document.getElementById('simulador-form');
+    const resultadoSimulacao = document.getElementById('resultado-simulacao');
 
-    .cta-button {
-        padding: 0.625rem 1.25rem;
-    }
+    if (simulatorForm) {
+        simulatorForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const valor = parseFloat(document.getElementById('valor').value);
+            const prazo = parseInt(document.getElementById('prazo').value);
+            const tipoCredito = document.getElementById('tipo-credito').value;
 
-    .whatsapp-button {
-        width: 3.125rem;
-        height: 3.125rem;
-        font-size: 1.5rem;
+            if (isNaN(valor) || isNaN(prazo) || valor <= 0 || prazo <= 0) {
+                showError('Por favor, insira valores válidos para o financiamento.');
+                return;
+            }
+
+            try {
+                const resultado = await calcularFinanciamento(valor, prazo, tipoCredito);
+                exibirResultadoSimulacao(resultado);
+                salvarResultadoSimulacao(resultado);
+            } catch (error) {
+                showError('Ocorreu um erro ao calcular o financiamento. Por favor, tente novamente.');
+            }
+        });
+    }
+}
+
+async function calcularFinanciamento(valor, prazo, tipoCredito) {
+    // Simula uma chamada assíncrona para um serviço de cálculo
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            let taxaJuros;
+            switch(tipoCredito) {
+                case 'pessoal':
+                    taxaJuros = 0.025; // 2.5% ao mês
+                    break;
+                case 'consignado-privado':
+                    taxaJuros = 0.018; // 1.8% ao mês
+                    break;
+                case 'consignado-publico':
+                    taxaJuros = 0.015; // 1.5% ao mês
+                    break;
+                default:
+                    taxaJuros = 0.02; // 2% ao mês (padrão)
+            }
+
+            const parcela = (valor * taxaJuros * Math.pow(1 + taxaJuros, prazo)) / (Math.pow(1 + taxaJuros, prazo) - 1);
+            const totalPagar = parcela * prazo;
+
+            resolve({
+                valor,
+                prazo,
+                tipoCredito,
+                taxaJuros,
+                parcela,
+                totalPagar
+            });
+        }, 500); // Simula um atraso de 500ms
+    });
+}
+
+function exibirResultadoSimulacao(resultado) {
+    const resultadoSimulacao = document.getElementById('resultado-simulacao');
+    resultadoSimulacao.innerHTML = `
+        <h3>Resultado da Simulação</h3>
+        <p>Valor financiado: R$ ${resultado.valor.toFixed(2)}</p>
+        <p>Prazo: ${resultado.prazo} meses</p>
+        <p>Taxa de juros: ${(resultado.taxaJuros * 100).toFixed(2)}% ao mês</p>
+        <p>Parcela mensal: R$ ${resultado.parcela.toFixed(2)}</p>
+        <p>Total a pagar: R$ ${resultado.totalPagar.toFixed(2)}</p>
+    `;
+    resultadoSimulacao.style.display = 'block';
+
+    // Registrar evento no Google Analytics
+    trackEvent('Simulador', 'Simulacao_Financiamento', resultado.tipoCredito);
+}
+
+function salvarResultadoSimulacao(resultado) {
+    localStorage.setItem('ultimaSimulacao', JSON.stringify(resultado));
+}
+
+function initializeContactForm() {
+    const contactForm = document.getElementById('contato-form');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const nome = document.getElementById('nome').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const telefone = document.getElementById('telefone').value.trim();
+            const mensagem = document.getElementById('mensagem').value.trim();
+
+            if (nome === '' || email === '' || telefone === '' || mensagem === '') {
+                showError('Por favor, preencha todos os campos do formulário.');
+                return;
+            }
+
+            if (!isValidEmail(email)) {
+                showError('Por favor, insira um endereço de e-mail válido.');
+                return;
+            }
+
+            try {
+                await enviarFormularioContato({ nome, email, telefone, mensagem });
+                alert(`Obrigado pelo contato, ${nome}! Responderemos em breve para ${email}.`);
+                contactForm.reset();
+                trackEvent('Formulário', 'Envio_Formulario_Contato', 'Sucesso');
+            } catch (error) {
+                showError('Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.');
+                trackEvent('Formulário', 'Envio_Formulario_Contato', 'Erro');
+            }
+        });
     }
 }
 
-/* Animações */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+async function enviarFormularioContato(dados) {
+    // Simula o envio do formulário para um servidor
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            console.log('Dados do formulário:', dados);
+            resolve();
+        }, 1000);
+    });
 }
 
-.fade-in {
-    opacity: 0;
-    animation: fadeIn 1s ease-in forwards;
-}
+function initializeBackToTop() {
+    const backToTopButton = document.getElementById('backToTop');
 
-/* Melhorias de desempenho */
-img {
-    max-width: 100%;
-    height: auto;
-}
+    if (backToTopButton) {
+        window.addEventListener('scroll', throttle(function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        }, 200));
 
-/* Estilos de impressão */
-@media print {
-    .no-print {
-        display: none;
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
     }
+}
 
-    body {
-        font-size: 12pt;
-    }
+function initializeSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+}
 
-    a[href]:after {
-        content: " (" attr(href) ")";
+function initializeLazyLoading() {
+    const lazyImages = document.querySelectorAll('img[data-src]');
+    const lazyVideos = document.querySelectorAll('video[data-src]');
+
+    const lazyLoad = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const element = entry.target;
+                if (element.tagName.toLowerCase() === 'img') {
+                    element.src = element.dataset.src;
+                } else if (element.tagName.toLowerCase() === 'video') {
+                    element.src = element.dataset.src;
+                    element.load();
+                }
+                element.removeAttribute('data-src');
+                observer.unobserve(element);
+            }
+        });
+    };
+
+    const observer = new IntersectionObserver(lazyLoad, {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    });
+
+    lazyImages.forEach(img => observer.observe(img));
+    lazyVideos.forEach(video => observer.observe(video));
+}
+
+function initializeDepoimentosSlider() {
+    const slider = document.querySelector('.depoimentos-slider');
+    if (slider) {
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            slider.classList.add('active');
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        });
+
+        slider.addEventListener('mouseleave', () => {
+            isDown = false;
+            slider.classList.remove('active');
+        });
+
+        slider.addEventListener('mouseup', () => {
+            isDown = false;
+            slider.classList.remove('active');
+        });
+
+        slider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 3;
+            slider.scrollLeft = scrollLeft - walk;
+        });
+
+        // Adiciona controles de teclado
+        slider.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                slider.scrollLeft -= 100;
+            } else if (e.key === 'ArrowRight') {
+                slider.scrollLeft += 100;
+            }
+        });
     }
 }
+
+function showError(message) {
+    const errorElement = document.createElement('div');
+    errorElement.classList.add('error-message');
+    errorElement.textContent = message;
+    document.body.appendChild(errorElement);
+
+    setTimeout(() => {
+        errorElement.remove();
+    }, 5000);
+}
+
+function isValidEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+}
+
+function throttle(func, limit) {
+    let inThrottle;
+    return function() {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    }
+}
+
+function trackEvent(category, action, label) {
+    if (typeof gtag !== 'undefined') {
+        gtag('event', action, {
+            'event_category': category,
+            'event_label': label
+        });
+    }
+}
+
+// Adiciona funcionalidade de chat ao vivo (simulado)
+function initializeLiveChat() {
+    const chatButton = document.createElement('button');
+    chatButton.textContent = 'Chat ao Vivo';
+    chatButton.classList.add('live-chat-button');
+    document.body.appendChild(chatButton);
+
+    chatButton.addEventListener('click', () => {
+        alert('O chat ao vivo está em desenvolvimento. Por favor, entre em contato conosco por telefone ou e-mail.');
+    });
+}
+
+initializeLiveChat();
