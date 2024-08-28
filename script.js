@@ -1,110 +1,76 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    const backToTop = document.getElementById('backToTop');
     const simuladorForm = document.getElementById('simulador-form');
-    const contatoForm = document.getElementById('contato-form');
-    const loginForm = document.getElementById('login-form');
+    const resultadoSimulacao = document.getElementById('resultado-simulacao');
 
-    // Menu toggle
-    if (menuToggle) {
-        menuToggle.addEventListener('click', function() {
-            navLinks.classList.toggle('show');
-            menuToggle.setAttribute('aria-expanded', navLinks.classList.contains('show'));
-        });
-    }
-
-    // Back to top button
-    window.addEventListener('scroll', function() {
-        if (window.pageYOffset > 300) {
-            backToTop.classList.add('show');
-        } else {
-            backToTop.classList.remove('show');
-        }
-    });
-
-    if (backToTop) {
-        backToTop.addEventListener('click', function(e) {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    }
-
-        // Simulador form
     if (simuladorForm) {
         simuladorForm.addEventListener('submit', function(e) {
             e.preventDefault();
+            
             const valor = parseFloat(document.getElementById('valor').value);
             const prazo = parseInt(document.getElementById('prazo').value);
-            
-            // Simulação simplificada (ajuste conforme necessário)
-            const taxaJuros = 0.015; // 1.5% ao mês
-            const parcela = (valor * (taxaJuros * Math.pow(1 + taxaJuros, prazo))) / (Math.pow(1 + taxaJuros, prazo) - 1);
-            
-            const resultado = document.getElementById('resultado-simulacao');
-            resultado.innerHTML = `Parcela estimada: R$ ${parcela.toFixed(2)} por mês`;
+            const tipoCredito = document.getElementById('tipo-credito').value;
+
+            let taxaJuros;
+            switch (tipoCredito) {
+                case 'pessoal':
+                    taxaJuros = 0.025; // 2.5% ao mês
+                    break;
+                case 'consignado-privado':
+                    taxaJuros = 0.018; // 1.8% ao mês
+                    break;
+                case 'consignado-publico':
+                    taxaJuros = 0.015; // 1.5% ao mês
+                    break;
+                case 'fgts':
+                    taxaJuros = 0.02; // 2% ao mês
+                    break;
+                default:
+                    taxaJuros = 0.025;
+            }
+
+            const parcela = calcularParcela(valor, taxaJuros, prazo);
+            const totalPagar = parcela * prazo;
+
+            resultadoSimulacao.innerHTML = `
+                <h3>Resultado da Simulação</h3>
+                <p>Valor do empréstimo: R$ ${valor.toFixed(2)}</p>
+                <p>Prazo: ${prazo} meses</p>
+                <p>Taxa de juros: ${(taxaJuros * 100).toFixed(2)}% ao mês</p>
+                <p>Valor da parcela: R$ ${parcela.toFixed(2)}</p>
+                <p>Total a pagar: R$ ${totalPagar.toFixed(2)}</p>
+            `;
         });
     }
 
-    // Contato form
-    if (contatoForm) {
-        contatoForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Aqui você pode adicionar a lógica para enviar o formulário
-            alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
-            contatoForm.reset();
-        });
+    function calcularParcela(valor, taxaJuros, prazo) {
+        return (valor * taxaJuros * Math.pow(1 + taxaJuros, prazo)) / (Math.pow(1 + taxaJuros, prazo) - 1);
     }
 
-    // Login form
-    if (loginForm) {
-        loginForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Aqui você pode adicionar a lógica de autenticação
-            alert('Funcionalidade de login em desenvolvimento.');
-        });
-    }
-
-    // Smooth scrolling for anchor links
+    // Smooth scroll para links internos
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
+
             document.querySelector(this.getAttribute('href')).scrollIntoView({
                 behavior: 'smooth'
             });
         });
     });
 
-    // Mask for CPF input
-    const cpfInput = document.getElementById('cpf');
-    if (cpfInput) {
-        cpfInput.addEventListener('input', function (e) {
-            let value = e.target.value.replace(/\D/g, '');
-            if (value.length > 11) {
-                value = value.slice(0, 11);
+    // Mostrar/ocultar botão "Voltar ao topo"
+    const backToTopButton = document.getElementById('back-to-top');
+    if (backToTopButton) {
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
             }
-            value = value.replace(/(\d{3})(\d)/, '$1.$2');
-            value = value.replace(/(\d{3})(\d)/, '$1.$2');
-            value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
-            e.target.value = value;
         });
-    }
 
-    // Mask for telefone input
-    const telefoneInput = document.getElementById('telefone');
-    if (telefoneInput) {
-        telefoneInput.addEventListener('input', function (e) {
-            let value = e.target.value.replace(/\D/g, '');
-            if (value.length > 11) {
-                value = value.slice(0, 11);
-            }
-            if (value.length > 2) {
-                value = `(${value.slice(0, 2)}) ${value.slice(2)}`;
-            }
-            if (value.length > 10) {
-                value = `${value.slice(0, 10)}-${value.slice(10)}`;
-            }
-            e.target.value = value;
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
 });
