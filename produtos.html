@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produtos - Valor Financiamentos</title>
-    <meta name="description" content="Conheça nossos produtos financeiros: Crédito Pessoal, Consignado Privado, Consignado Público e Adiantamento do FGTS.">
+        <meta name="description" content="Conheça nossos produtos financeiros: Crédito Pessoal, Consignado Privado, Consignado Público e Adiantamento do FGTS.">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
-        <header>
         <div class="container">
             <a href="index.html" class="logo">
                 <img src="https://valorfinanciamentos.com.br/wp-content/uploads/2020/08/logo_grande_valor.png.png" alt="Valor Financiamentos Logo" width="200" height="50">
@@ -123,7 +122,25 @@
             <div class="container">
                 <h2>Simule Seu Empréstimo</h2>
                 <form id="simulador-form">
-                    <!-- Mesmo formulário do index.html -->
+                    <div class="form-group">
+                        <label for="valor">Valor Desejado:</label>
+                        <input type="number" id="valor" name="valor" min="1000" max="100000" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="prazo">Prazo (em meses):</label>
+                        <input type="number" id="prazo" name="prazo" min="6" max="72" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tipo-credito">Tipo de Crédito:</label>
+                        <select id="tipo-credito" name="tipo-credito" required>
+                            <option value="">Selecione</option>
+                            <option value="pessoal">Crédito Pessoal</option>
+                            <option value="consignado-privado">Consignado Privado</option>
+                            <option value="consignado-publico">Consignado Público</option>
+                            <option value="fgts">Adiantamento FGTS</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-primary">Simular</button>
                 </form>
                 <div id="resultado-simulacao" class="resultado-simulacao"></div>
             </div>
