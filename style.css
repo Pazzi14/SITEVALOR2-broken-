@@ -6,6 +6,9 @@
     --text-color: #000000;
     --link-color: #0000ff;
     --link-hover-color: #87ceeb;
+    --error-color: #ff0000;
+    --success-color: #008000;
+    --focus-outline-color: #4d90fe;
 }
 
 * {
@@ -21,21 +24,36 @@ body {
     background-color: var(--background-color);
 }
 
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
 a {
     color: var(--link-color);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
-a:hover {
+a:hover, a:focus {
     color: var(--link-hover-color);
 }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 8px;
+    z-index: 100;
+    transition: top 0.3s;
+}
+
+.skip-link:focus {
+    top: 0;
 }
 
 header {
@@ -50,7 +68,6 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
 }
 
 .logo img {
@@ -73,13 +90,15 @@ nav {
 
 .menu-toggle {
     display: none;
-    font-size: 1.5rem;
+    background: none;
+    border: none;
     color: white;
+    font-size: 1.5rem;
     cursor: pointer;
 }
 
 .hero-section {
-    background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20230314/pngtree-beautiful-background-of-high-rise-buildings-image_1947772.jpg');
+    background-image: url('hero-background.jpg');
     background-size: cover;
     background-position: center;
     height: 60vh;
@@ -126,24 +145,56 @@ nav {
     transition: background-color 0.3s ease;
 }
 
-.cta-button:hover {
+.cta-button:hover, .cta-button:focus {
     background-color: var(--link-hover-color);
 }
 
 .simulador-section,
 .produtos-section,
 .sobre-nos-section,
+.contato-section,
+.area-cliente-section,
 .blog-section {
     padding: 4rem 0;
 }
 
-.simulador-section h2,
-.produtos-section h2,
-.sobre-nos-section h2,
-.blog-section h2 {
-    text-align: center;
-    margin-bottom: 2rem;
+h1, h2, h3 {
     color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+form {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--focus-outline-color);
+    box-shadow: 0 0 0 2px var(--focus-outline-color);
 }
 
 .produtos-grid,
@@ -154,7 +205,7 @@ nav {
 }
 
 .produto-card,
-.blog-card {
+.blog-post {
     background-color: white;
     border-radius: 10px;
     overflow: hidden;
@@ -163,25 +214,24 @@ nav {
 }
 
 .produto-card:hover,
-.blog-card:hover {
+.blog-post:hover {
     transform: translateY(-5px);
 }
 
 .produto-card img,
-.blog-card img {
+.blog-post img {
     width: 100%;
     height: 200px;
     object-fit: cover;
 }
 
 .produto-card h3,
-.blog-card h3 {
+.blog-post h2 {
     padding: 1rem;
-    color: var(--secondary-color);
 }
 
 .produto-card p,
-.blog-card p {
+.blog-post p {
     padding: 0 1rem 1rem;
 }
 
@@ -197,8 +247,17 @@ nav {
 }
 
 .saiba-mais:hover,
-.read-more:hover {
+.saiba-mais:focus,
+.read-more:hover,
+.read-more:focus {
     background-color: var(--link-hover-color);
+}
+
+.sobre-nos-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 2rem;
+    border-radius: 10px;
 }
 
 footer {
@@ -211,9 +270,6 @@ footer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
 }
 
 .footer-section {
@@ -223,6 +279,7 @@ footer {
 }
 
 .footer-section h3 {
+    color: white;
     margin-bottom: 1rem;
 }
 
@@ -234,19 +291,8 @@ footer {
     margin-bottom: 0.5rem;
 }
 
-.social-icons {
-    display: flex;
-    gap: 1rem;
-}
-
-.social-icons a {
+.footer-section a {
     color: white;
-    font-size: 1.5rem;
-    transition: color 0.3s ease;
-}
-
-.social-icons a:hover {
-    color: var(--accent-color);
 }
 
 .footer-bottom {
@@ -295,109 +341,9 @@ footer {
     transition: transform 0.3s ease;
 }
 
-.whatsapp-button:hover {
+.whatsapp-button:hover,
+.whatsapp-button:focus {
     transform: scale(1.1);
-}
-
-.skip-link {
-    position: absolute;
-    top: -40px;
-    left: 0;
-    background-color: var(--primary-color);
-    color: white;
-    padding: 8px;
-    z-index: 100;
-    transition: top 0.3s;
-}
-
-.skip-link:focus {
-    top: 0;
-}
-
-#simulador-form {
-    max-width: 500px;
-    margin: 0 auto;
-    background-color: white;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.form-group {
-    margin-bottom: 1rem;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: var(--secondary-color);
-}
-
-.form-group input {
-    width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-#resultado-simulacao {
-    margin-top: 2rem;
-    text-align: center;
-    font-weight: bold;
-    color: var(--secondary-color);
-}
-
-.sobre-nos-image {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 2rem;
-    border-radius: 10px;
-}
-
-.sobre-nos-section ul {
-    margin-left: 2rem;
-    margin-bottom: 2rem;
-}
-
-.area-cliente-section {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 2rem;
-}
-
-.login-container,
-.new-client {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 2rem;
-}
-
-.forgot-password {
-    display: inline-block;
-    margin-top: 1rem;
-}
-
-.blog-section .pagination {
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
-}
-
-.blog-section .pagination a,
-.blog-section .pagination span {
-    padding: 0.5rem 1rem;
-    margin: 0 0.25rem;
-    border: 1px solid var(--primary-color);
-    border-radius: 5px;
-    color: var(--primary-color);
-}
-
-.blog-section .pagination a:hover,
-.blog-section .pagination span.current {
-    background-color: var(--primary-color);
-    color: white;
 }
 
 @media (max-width: 768px) {
@@ -424,6 +370,14 @@ footer {
         display: block;
     }
 
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
     .footer-content {
         flex-direction: column;
     }
@@ -431,12 +385,24 @@ footer {
     .footer-section {
         margin-bottom: 2rem;
     }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+        padding: 0 10px;
+    }
 
     .hero-content h1 {
-        font-size: 2rem;
+        font-size: 1.75rem;
     }
 
     .hero-content p {
-        font-size: 1rem;
+        font-size: 0.875rem;
+    }
+
+    .cta-button {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
     }
 }
