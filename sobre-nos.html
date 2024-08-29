@@ -4,141 +4,219 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre Nós - Valor Financiamentos</title>
-    <meta name="description" content="Conheça a história, missão e valores da Valor Financiamentos. Somos uma empresa comprometida em oferecer as melhores soluções financeiras para nossos clientes.">
-    <link rel="stylesheet" href="style.css">
-    <link rel="canonical" href="https://valorfinanciamentos.com.br/sobre-nos">
-    <!-- Adicione aqui os links para fontes, ícones e outros recursos externos -->
+    <meta name="description" content="Conheça a história, missão e valores da Valor Financiamentos. Descubra como nos tornamos referência em soluções financeiras personalizadas.">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/sobre-nos.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script src="js/script.js" defer></script>
+    <script src="js/analytics.js" async></script>
 </head>
 <body>
     <header>
-        <nav>
+        <div class="container">
             <a href="index.html" class="logo">
-                <img src="path/to/logo.png" alt="Logo Valor Financiamentos">
+                <img src="img/logo.png" alt="Valor Financiamentos Logo" width="200" height="50">
             </a>
-            <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="sobre-nos.html" class="active">Sobre Nós</a></li>
-                <li><a href="produtos.html">Produtos</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="area-cliente.html">Área do Cliente</a></li>
-            </ul>
-        </nav>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="produtos.html">Produtos</a></li>
+                    <li><a href="sobre-nos.html" class="active">Sobre Nós</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contato.php">Contato</a></li>
+                    <li><a href="area-cliente.html" class="btn-primary">Área do Cliente</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main>
-        <section class="hero">
-            <h1>Sobre a Valor Financiamentos</h1>
-            <p>Conheça nossa história e compromisso com você</p>
+        <section class="hero" style="background-image: url('img/about-hero-bg.jpg');">
+            <div class="container">
+                <h1>Sobre a Valor Financiamentos</h1>
+                <p>Transformando vidas através de soluções financeiras inovadoras</p>
+            </div>
         </section>
 
         <section class="nossa-historia">
-            <h2>Nossa História</h2>
-            <p>A Valor Financiamentos é uma empresa regulamentada e autorizada pelo Banco Central do Brasil, atuando no mercado financeiro há mais de 17 anos. Desde nossa fundação em 2007, temos nos dedicado a compreender as necessidades de crédito de nossos clientes, ajudando-os a realizar suas conquistas e sonhos.</p>
-            <p>Ao longo dos anos, expandimos nossa presença para todo o território nacional, oferecendo atendimento através de correspondentes certificados e uma plataforma 100% digital.</p>
+            <div class="container">
+                <h2>Nossa História</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="year">2010</div>
+                        <div class="content">
+                            <h3>Fundação</h3>
+                            <p>A Valor Financiamentos foi fundada com a missão de democratizar o acesso ao crédito no Brasil.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="year">2015</div>
+                        <div class="content">
+                            <h3>Expansão Nacional</h3>
+                            <p>Expandimos nossa atuação para todo o território nacional, levando nossas soluções financeiras a mais brasileiros.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="year">2018</div>
+                        <div class="content">
+                            <h3>Inovação Digital</h3>
+                            <p>Lançamos nossa plataforma digital, permitindo solicitações de crédito 100% online.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="year">2022</div>
+                        <div class="content">
+                            <h3>Reconhecimento</h3>
+                            <p>Fomos reconhecidos como uma das empresas mais inovadoras do setor financeiro no Brasil.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="year">Hoje</div>
+                        <div class="content">
+                            <h3>Compromisso Contínuo</h3>
+                            <p>Continuamos nossa missão de oferecer as melhores soluções financeiras, sempre priorizando a satisfação de nossos clientes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section class="missao-visao-valores">
-            <h2>Missão, Visão e Valores</h2>
-                        <div class="mvv-container">
+            <div class="container">
                 <div class="mvv-item">
-                    <h3>Missão</h3>
-                    <p>Proporcionar soluções financeiras acessíveis e personalizadas, contribuindo para a realização dos objetivos de nossos clientes e para o desenvolvimento econômico do país.</p>
+                    <h2>Missão</h2>
+                    <p>Proporcionar soluções financeiras acessíveis e personalizadas, contribuindo para a realização dos sonhos e o desenvolvimento econômico dos nossos clientes.</p>
                 </div>
                 <div class="mvv-item">
-                    <h3>Visão</h3>
-                    <p>Ser reconhecida como a instituição financeira mais confiável e inovadora do Brasil, liderando o mercado de crédito com excelência no atendimento e nas soluções oferecidas.</p>
+                    <h2>Visão</h2>
+                    <p>Ser reconhecida como a instituição financeira mais confiável e inovadora do Brasil, transformando a vida das pessoas através do acesso ao crédito justo e responsável.</p>
                 </div>
                 <div class="mvv-item">
-                    <h3>Valores</h3>
+                    <h2>Valores</h2>
                     <ul>
-                        <li>Ética e transparência em todas as nossas operações</li>
+                        <li>Transparência em todas as nossas operações</li>
                         <li>Compromisso com a satisfação do cliente</li>
-                        <li>Inovação constante em produtos e serviços</li>
+                        <li>Inovação constante em nossos produtos e serviços</li>
                         <li>Responsabilidade social e financeira</li>
-                        <li>Valorização e desenvolvimento de nossos colaboradores</li>
+                        <li>Ética e integridade em todas as relações</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <section class="diferenciais">
-            <h2>Nossos Diferenciais</h2>
-            <div class="diferenciais-grid">
-                <div class="diferencial-item">
-                    <img src="path/to/icon-atendimento.svg" alt="Ícone Atendimento Personalizado">
-                    <h3>Atendimento Personalizado</h3>
-                    <p>Oferecemos um atendimento individualizado, compreendendo as necessidades específicas de cada cliente.</p>
-                </div>
-                <div class="diferencial-item">
-                    <img src="path/to/icon-tecnologia.svg" alt="Ícone Tecnologia Avançada">
-                    <h3>Tecnologia Avançada</h3>
-                    <p>Utilizamos as mais modernas tecnologias para garantir processos ágeis e seguros.</p>
-                </div>
-                <div class="diferencial-item">
-                    <img src="path/to/icon-taxas.svg" alt="Ícone Taxas Competitivas">
-                    <h3>Taxas Competitivas</h3>
-                    <p>Trabalhamos para oferecer as melhores condições do mercado, com taxas justas e transparentes.</p>
-                </div>
-                <div class="diferencial-item">
-                    <img src="path/to/icon-flexibilidade.svg" alt="Ícone Flexibilidade">
-                    <h3>Flexibilidade nas Soluções</h3>
-                    <p>Adaptamos nossas soluções às necessidades e perfil de cada cliente.</p>
-                </div>
-            </div>
-        </section>
-
         <section class="equipe">
-            <h2>Nossa Equipe</h2>
-            <p>A Valor Financiamentos conta com uma equipe de profissionais altamente qualificados e comprometidos com a excelência no atendimento e na oferta de soluções financeiras.</p>
-            <div class="equipe-grid">
-                <!-- Adicione aqui cards ou fotos dos principais membros da equipe, se apropriado -->
+            <div class="container">
+                <h2>Nossa Equipe</h2>
+                <p>Conheça os líderes que fazem a Valor Financiamentos acontecer</p>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="img/ceo.jpg" alt="CEO da Valor Financiamentos">
+                        <h3>Maria Silva</h3>
+                        <p>CEO e Fundadora</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="img/cfo.jpg" alt="CFO da Valor Financiamentos">
+                        <h3>João Santos</h3>
+                        <p>Diretor Financeiro</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="img/cto.jpg" alt="CTO da Valor Financiamentos">
+                        <h3>Ana Oliveira</h3>
+                        <p>Diretora de Tecnologia</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="img/cmo.jpg" alt="CMO da Valor Financiamentos">
+                        <h3>Carlos Ferreira</h3>
+                        <p>Diretor de Marketing</p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section class="responsabilidade-social">
-            <h2>Responsabilidade Social</h2>
-            <p>Na Valor Financiamentos, acreditamos que temos um papel importante na sociedade. Por isso, desenvolvemos e apoiamos iniciativas que promovem a educação financeira e o desenvolvimento sustentável das comunidades onde atuamos.</p>
-            <!-- Adicione aqui informações sobre projetos sociais ou iniciativas da empresa -->
+        <section class="diferenciais">
+            <div class="container">
+                <h2>Nossos Diferenciais</h2>
+                <div class="diferenciais-grid">
+                    <div class="diferencial-item">
+                        <img src="img/icon-atendimento.svg" alt="Ícone Atendimento Personalizado">
+                        <h3>Atendimento Personalizado</h3>
+                        <p>Cada cliente é único, e nosso atendimento reflete isso. Oferecemos soluções sob medida para cada necessidade.</p>
+                    </div>
+                    <div class="diferencial-item">
+                        <img src="img/icon-tecnologia.svg" alt="Ícone Tecnologia de Ponta">
+                        <h3>Tecnologia de Ponta</h3>
+                        <p>Utilizamos as mais avançadas tecnologias para garantir processos ágeis, seguros e eficientes.</p>
+                    </div>
+                    <div class="diferencial-item">
+                        <img src="img/icon-transparencia.svg" alt="Ícone Transparência">
+                        <h3>Transparência Total</h3>
+                        <p>Acreditamos que a confiança é a base de qualquer relação. Por isso, somos 100% transparentes em todas as nossas operações.</p>
+                    </div>
+                    <div class="diferencial-item">
+                        <img src="img/icon-responsabilidade.svg" alt="Ícone Responsabilidade Social">
+                        <h3>Responsabilidade Social</h3>
+                        <p>Estamos comprometidos com o desenvolvimento sustentável e o impacto positivo nas comunidades onde atuamos.</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <section class="contato">
-            <h2>Entre em Contato</h2>
-            <p>Estamos sempre à disposição para atender você. Entre em contato conosco para saber mais sobre nossos serviços ou esclarecer suas dúvidas.</p>
-            <div class="contato-info">
-                <p>Email: contato@valorfinanciamentos.com.br</p>
-                <p>Telefone: (11) 1234-5678</p>
-                <p>Endereço: Rua Augusta, 101 - Consolação, São Paulo - SP, 01305-000</p>
+        <section class="cta">
+            <div class="container">
+                <h2>Faça parte da nossa história</h2>
+                <p>Descubra como podemos ajudar você a realizar seus sonhos financeiros.</p>
+                <a href="contato.php" class="btn-primary">Entre em Contato</a>
             </div>
-            <a href="#" class="cta-button">Fale Conosco</a>
         </section>
     </main>
 
     <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Contato</h3>
-                <p>Email: contato@valorfinanciamentos.com.br</p>
-                <p>Telefone: (11) 1234-5678</p>
-                <p>Endereço: Rua Augusta, 101 - Consolação, São Paulo - SP, 01305-000</p>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Valor Financiamentos</h4>
+                    <p>Soluções financeiras personalizadas para realizar seus sonhos.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="produtos.html">Produtos</a></li>
+                        <li><a href="sobre-nos.html">Sobre Nós</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contato.php">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contato</h4>
+                    <p>Telefone: (XX) XXXX-XXXX</p>
+                    <p>Email: contato@valorfinanciamentos.com.br</p>
+                    <p>Endereço: Rua Exemplo, 123 - Cidade, Estado</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Redes Sociais</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/valorfinanciamentos" target="_blank" rel="noopener noreferrer">
+                            <img src="img/icon-facebook.svg" alt="Facebook">
+                        </a>
+                        <a href="https://www.instagram.com/valorfinanciamentosoficial" target="_blank" rel="noopener noreferrer">
+                            <img src="img/icon-instagram.svg" alt="Instagram">
+                        </a>
+                        <a href="https://www.linkedin.com/company/valorfinanciamentos" target="_blank" rel="noopener noreferrer">
+                            <img src="img/icon-linkedin.svg" alt="LinkedIn">
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="footer-section">
-                <h3>Redes Sociais</h3>
-                <a href="https://www.facebook.com/valorfinanciamentos" target="_blank" rel="noopener noreferrer">Facebook</a>
-                <a href="https://www.instagram.com/valorfinanciamentosoficial" target="_blank" rel="noopener noreferrer">Instagram</a>
-                <a href="https://www.linkedin.com/company/valorfinanciamentos" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Valor Financiamentos. Todos os direitos reservados.</p>
+                <ul>
+                    <li><a href="termos-de-uso.html">Termos de Uso</a></li>
+                    <li><a href="politica-de-privacidade.html">Política de Privacidade</a></li>
+                </ul>
             </div>
-            <div class="footer-section">
-                <h3>Links Úteis</h3>
-                <a href="#">Política de Privacidade</a>
-                <a href="#">Termos de Uso</a>
-                <a href="#">FAQ</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Valor Financiamentos. Todos os direitos reservados. CNPJ: 07.799.277/0001-75</p>
         </div>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
