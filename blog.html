@@ -6,139 +6,133 @@
     <title>Blog - Valor Financiamentos</title>
     <meta name="description" content="Fique por dentro das últimas notícias e dicas sobre finanças pessoais, empréstimos e investimentos no blog da Valor Financiamentos.">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+    <!-- Adicione aqui os links para fontes, ícones e outros recursos externos -->
 </head>
 <body>
     <header>
-        <div class="container">
+        <nav>
             <a href="index.html" class="logo">
-                <img src="https://valorfinanciamentos.com.br/wp-content/uploads/2020/08/logo_grande_valor.png.png" alt="Valor Financiamentos Logo" width="200" height="50">
+                <img src="path/to/logo.png" alt="Logo Valor Financiamentos">
             </a>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="sobre-nos.html">Sobre Nós</a></li>
-                    <li><a href="produtos.html">Produtos</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="area-cliente.html">Área do Cliente</a></li>
-                </ul>
-            </nav>
-        </div>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="sobre-nos.html">Sobre Nós</a></li>
+                <li><a href="produtos.html">Produtos</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
+                <li><a href="area-cliente.html">Área do Cliente</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
-        <section class="page-header">
-            <div class="container">
-                <h1>Blog Valor Financiamentos</h1>
+        <section class="hero">
+            <h1>Blog Valor Financiamentos</h1>
+            <p>Conhecimento financeiro para tomar as melhores decisões</p>
+        </section>
+
+        <section class="blog-content">
+            <div class="search-bar">
+                <input type="text" placeholder="Pesquisar artigos...">
+                <button>Buscar</button>
+            </div>
+
+            <div class="categories">
+                <h2>Categorias</h2>
+                <ul>
+                    <li><a href="#">Finanças Pessoais</a></li>
+                    <li><a href="#">Empréstimos</a></li>
+                    <li><a href="#">Investimentos</a></li>
+                    <li><a href="#">Educação Financeira</a></li>
+                    <li><a href="#">Dicas e Truques</a></li>
+                </ul>
+            </div>
+
+            <div class="blog-posts">
+                <article class="blog-post">
+                    <img src="path/to/image1.jpg" alt="Imagem do artigo 1">
+                    <h3>Como organizar suas finanças em 5 passos simples</h3>
+                    <p>Descubra maneiras práticas de organizar suas finanças e alcançar seus objetivos financeiros.</p>
+                    <a href="#" class="read-more">Ler mais</a>
+                </article>
+
+                <article class="blog-post">
+                    <img src="path/to/image2.jpg" alt="Imagem do artigo 2">
+                    <h3>Entenda as diferenças entre os tipos de empréstimos</h3>
+                    <p>Conheça os principais tipos de empréstimos disponíveis e escolha o mais adequado para você.</p>
+                    <a href="#" class="read-more">Ler mais</a>
+                </article>
+
+                <article class="blog-post">
+                    <img src="path/to/image3.jpg" alt="Imagem do artigo 3">
+                    <h3>Investimentos para iniciantes: por onde começar?</h3>
+                    <p>Um guia completo para quem deseja começar a investir e construir um futuro financeiro sólido.</p>
+                    <a href="#" class="read-more">Ler mais</a>
+                </article>
+
+                <!-- Adicione mais artigos conforme necessário -->
+            </div>
+
+            <div class="pagination">
+                <a href="#" class="prev">Anterior</a>
+                <span class="current">1</span>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#" class="next">Próxima</a>
             </div>
         </section>
 
-        <section class="blog-posts">
-            <div class="container">
-                <div class="post-grid">
-                    <article class="post-card">
-                        <img src="https://example.com/image1.jpg" alt="Como organizar suas Finanças Pessoais" width="300" height="200">
-                        <div class="post-content">
-                            <h2>Como organizar suas Finanças Pessoais</h2>
-                            <p>Aprenda dicas práticas para organizar seu orçamento e alcançar seus objetivos financeiros.</p>
-                            <a href="#" class="btn-secondary">Ler mais</a>
-                        </div>
-                    </article>
-                    <article class="post-card">
-                        <img src="https://example.com/image2.jpg" alt="Investimentos para iniciantes" width="300" height="200">
-                        <div class="post-content">
-                            <h2>Investimentos para iniciantes</h2>
-                            <p>Conheça as melhores opções de investimento para quem está começando a construir seu patrimônio.</p>
-                            <a href="#" class="btn-secondary">Ler mais</a>
-                        </div>
-                    </article>
-                    <article class="post-card">
-                        <img src="https://www.bgateway.com/assets/images/general/_contentNarrow/Be-your-own-Boss.jpg" alt="Empreendedorismo e finanças" width="300" height="200">
-                        <div class="post-content">
-                            <h2>Empreendedorismo e finanças</h2>
-                            <p>Descubra como gerenciar as finanças do seu negócio e impulsionar o crescimento da sua empresa.</p>
-                            <a href="#" class="btn-secondary">Ler mais</a>
-                        </div>
-                    </article>
-                    <article class="post-card">
-                        <img src="https://online.vu.edu.au/sites/default/files/field/image/Easiest_countries_to_start_a_business_main_image.jpeg" alt="Crédito consciente: como usar empréstimos a seu favor" width="300" height="200">
-                        <div class="post-content">
-                            <h2>Crédito consciente: como usar empréstimos a seu favor</h2>
-                            <p>Saiba como utilizar o crédito de forma inteligente para atingir seus objetivos financeiros.</p>
-                            <a href="#" class="btn-secondary">Ler mais</a>
-                        </div>
-                    </article>
-                    <article class="post-card">
-                        <img src="https://www.freshbooks.com/wp-content/uploads/2022/03/how-long-does-it-take-business-to-be-successful.jpg" alt="Planejamento financeiro para o futuro" width="300" height="200">
-                        <div class="post-content">
-                            <h2>Planejamento financeiro para o futuro</h2>
-                            <p>Aprenda a criar um plano financeiro sólido para garantir um futuro tranquilo e próspero.</p>
-                            <a href="#" class="btn-secondary">Ler mais</a>
-                        </div>
-                    </article>
-                    <article class="post-card">
-                        <img src="https://www.tradersdna.com/wp-content/uploads/2022/10/Modern-Banking.jpg" alt="Tendências do mercado financeiro" width="300" height="200">
-                        <div class="post-content">
-                            <h2>Tendências do mercado financeiro</h2>
-                            <p>Fique por dentro das últimas tendências e inovações no mercado financeiro brasileiro e mundial.</p>
-                            <a href="#" class="btn-secondary">Ler mais</a>
-                        </div>
-                    </article>
-                </div>
+        <aside class="sidebar">
+            <div class="popular-posts">
+                <h3>Posts Populares</h3>
+                <ul>
+                    <li><a href="#">10 dicas para economizar dinheiro</a></li>
+                    <li><a href="#">Como melhorar seu score de crédito</a></li>
+                    <li><a href="#">Planejamento financeiro para aposentadoria</a></li>
+                </ul>
             </div>
-        </section>
 
-        <section class="newsletter">
-            <div class="container">
-                <h2>Inscreva-se em nossa newsletter</h2>
-                <p>Receba as últimas notícias e dicas financeiras diretamente em seu e-mail.</p>
-                <form id="newsletter-form" class="newsletter-form">
-                    <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
-                    <button type="submit" class="btn-primary">Inscrever-se</button>
+            <div class="newsletter-signup">
+                <h3>Inscreva-se na nossa Newsletter</h3>
+                <form id="newsletterForm">
+                    <input type="email" placeholder="Seu e-mail" required>
+                    <button type="submit">Inscrever-se</button>
                 </form>
             </div>
-        </section>
+        </aside>
     </main>
 
     <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h3>Valor Financiamentos</h3>
-                    <p>Soluções de crédito personalizadas para você realizar seus sonhos.</p>
-                </div>
-                <div class="footer-col">
-                    <h3>Links Rápidos</h3>
-                    <ul>
-                        <li><a href="index.html">Início</a></li>
-                        <li><a href="sobre-nos.html">Sobre Nós</a></li>
-                        <li><a href="produtos.html">Produtos</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="area-cliente.html">Área do Cliente</a></li>
-                    </ul>
-                </div>
-                                </div>
-                <div class="footer-col">
-                    <h3>Contato</h3>
-                    <p>Telefone: (XX) XXXX-XXXX</p>
-                    <p>Email: contato@valorfinanciamentos.com.br</p>
-                </div>
-                <div class="footer-col">
-                    <h3>Redes Sociais</h3>
-                    <div class="social-links">
-                        <a href="https://www.instagram.com/valorfinanciamentosoficial/?hl=pt-br" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                        <a href="https://m.facebook.com/valorfinanciamentos/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.linkedin.com/company/valorfinanciamentos/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <p>Email: contato@valorfinanciamentos.com.br</p>
+                <p>Telefone: (11) 1234-5678</p>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Valor Financiamentos. Todos os direitos reservados.</p>
+            <div class="footer-section">
+                <h3>Redes Sociais</h3>
+                <a href="#" target="_blank" rel="noopener noreferrer">Facebook</a>
+                <a href="#" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <a href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             </div>
+            <div class="footer-section">
+                <h3>Links Úteis</h3>
+                <a href="#">Política de Privacidade</a>
+                <a href="#">Termos de Uso</a>
+                <a href="#">FAQ</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Valor Financiamentos. Todos os direitos reservados.</p>
         </div>
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Adicione aqui scripts específicos para a página do blog
+        document.getElementById('newsletterForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Adicione aqui a lógica para inscrição na newsletter
+        });
+    </script>
 </body>
 </html>
