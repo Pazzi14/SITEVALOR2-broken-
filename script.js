@@ -1,96 +1,87 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const simuladorForm = document.getElementById('simulador-form');
+    // Simulador de empréstimo
+    const simulacaoForm = document.getElementById('simulacao-form');
     const resultadoSimulacao = document.getElementById('resultado-simulacao');
 
-    if (simuladorForm) {
-        simuladorForm.addEventListener('submit', function(e) {
+    if (simulacaoForm) {
+        simulacaoForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            
             const valor = parseFloat(document.getElementById('valor').value);
             const prazo = parseInt(document.getElementById('prazo').value);
             const tipoCredito = document.getElementById('tipo-credito').value;
 
-            let taxaJuros;
+            let taxa;
             switch (tipoCredito) {
                 case 'pessoal':
-                    taxaJuros = 0.025; // 2.5% ao mês
+                    taxa = 0.0299; // 2.99% ao mês
                     break;
                 case 'consignado-privado':
-                    taxaJuros = 0.018; // 1.8% ao mês
+                    taxa = 0.0199; // 1.99% ao mês
                     break;
                 case 'consignado-publico':
-                    taxaJuros = 0.015; // 1.5% ao mês
+                    taxa = 0.0149; // 1.49% ao mês
                     break;
                 case 'fgts':
-                    taxaJuros = 0.02; // 2% ao mês
+                    taxa = 0.0179; // 1.79% ao mês
                     break;
                 default:
-                    taxaJuros = 0.025;
+                    taxa = 0.0249; // 2.49% ao mês (taxa padrão)
             }
 
-            const parcela = calcularParcela(valor, taxaJuros, prazo);
-            const totalPagar = parcela * prazo;
+            const parcela = (valor * (taxa * Math.pow(1 + taxa, prazo))) / (Math.pow(1 + taxa, prazo) - 1);
+            const totalPago = parcela * prazo;
 
             resultadoSimulacao.innerHTML = `
                 <h3>Resultado da Simulação</h3>
                 <p>Valor do empréstimo: R$ ${valor.toFixed(2)}</p>
                 <p>Prazo: ${prazo} meses</p>
-                <p>Taxa de juros: ${(taxaJuros * 100).toFixed(2)}% ao mês</p>
                 <p>Valor da parcela: R$ ${parcela.toFixed(2)}</p>
-                <p>Total a pagar: R$ ${totalPagar.toFixed(2)}</p>
+                <p>Total a pagar: R$ ${totalPago.toFixed(2)}</p>
+                <p>Taxa de juros: ${(taxa * 100).toFixed(2)}% ao mês</p>
+                <button class="btn-primary" onclick="solicitarEmprestimo()">Solicitar Empréstimo</button>
             `;
         });
     }
 
-    function calcularParcela(valor, taxaJuros, prazo) {
-        return (valor * taxaJuros * Math.pow(1 + taxaJuros, prazo)) / (Math.pow(1 + taxaJuros, prazo) - 1);
-    }
+    // Função para solicitar empréstimo (placeholder)
+    window.solicitarEmprestimo = function() {
+        alert('Obrigado pelo seu interesse! Um de nossos consultores entrará em contato em breve.');
+    };
+
+    // Accordion para FAQ
+    const accordionButtons = document.querySelectorAll('.accordion-button');
+    accordionButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            this.classList.toggle('active');
+            const content = this.nextElementSibling;
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        });
+    });
 
     // Smooth scroll para links internos
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-
             document.querySelector(this.getAttribute('href')).scrollIntoView({
                 behavior: 'smooth'
             });
         });
     });
 
-    // Mostrar/ocultar botão "Voltar ao topo"
-    const backToTopButton = document.getElementById('back-to-top');
-    if (backToTopButton) {
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopButton.style.display = 'block';
-            } else {
-                backToTopButton.style.display = 'none';
-            }
-        });
-
-        backToTopButton.addEventListener('click', (e) => {
+    // Validação de formulário de contato (se existir)
+    const contatoForm = document.getElementById('contato-form');
+    if (contatoForm) {
+        contatoForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            // Adicione aqui a lógica de validação e envio do formulário
+            alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+            contatoForm.reset();
         });
     }
 
-    // Validação de formulário de newsletter
-    const newsletterForm = document.getElementById('newsletter-form');
-    if (newsletterForm) {
-        newsletterForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = document.getElementById('email').value;
-            if (validateEmail(email)) {
-                alert('Obrigado por se inscrever em nossa newsletter!');
-                newsletterForm.reset();
-            } else {
-                alert('Por favor, insira um endereço de e-mail válido.');
-            }
-        });
-    }
-
-    function validateEmail(email) {
-        const re = /^(([^<>()$$$$\\.,;:\s@"]+(\.[^<>()$$$$\\.,;:\s@"]+)*)|(".+"))@(($$[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(String(email).toLowerCase());
-    }
+    // Adicione mais funcionalidades conforme necessário
 });
