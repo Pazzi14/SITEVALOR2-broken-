@@ -34,25 +34,23 @@
             </div>
         </section>
 
-        <section class="login-area">
+        <section class="login-form">
             <div class="container">
-                <div class="login-container">
-                    <h2>Acesse sua conta</h2>
-                    <form id="login-form" class="login-form">
-                        <div class="form-group">
-                            <label for="username">CPF ou CNPJ:</label>
-                            <input type="text" id="username" name="username" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Senha:</label>
-                            <input type="password" id="password" name="password" required>
-                        </div>
-                        <button type="submit" class="btn-primary">Entrar</button>
-                    </form>
-                    <div class="login-links">
-                        <a href="#" class="forgot-password">Esqueceu sua senha?</a>
-                        <a href="#" class="register">Criar uma conta</a>
+                <h2>Acesse sua conta</h2>
+                <form id="login-form" action="#" method="post">
+                    <div class="form-group">
+                        <label for="username">CPF ou E-mail:</label>
+                        <input type="text" id="username" name="username" required>
                     </div>
+                    <div class="form-group">
+                        <label for="password">Senha:</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Entrar</button>
+                </form>
+                <div class="form-links">
+                    <a href="#">Esqueceu sua senha?</a>
+                    <a href="#">Criar uma conta</a>
                 </div>
             </div>
         </section>
@@ -62,7 +60,7 @@
                 <h2>O que você pode fazer na Área do Cliente</h2>
                 <div class="features-grid">
                     <div class="feature-card">
-                        <i class="fas fa-file-invoice-dollar"></i>
+                        <i class="fas fa-chart-line"></i>
                         <h3>Gerenciar Empréstimos</h3>
                         <p>Acompanhe seus empréstimos ativos, parcelas e saldos.</p>
                     </div>
@@ -88,23 +86,8 @@
         <section class="faq">
             <div class="container">
                 <h2>Perguntas Frequentes</h2>
-                <div class="faq-list">
-                    <details>
-                        <summary>Como faço para solicitar um empréstimo?</summary>
-                        <p>Para solicitar um empréstimo, faça login na sua conta, acesse a seção "Simulações" e siga as instruções para escolher o produto desejado e preencher as informações necessárias.</p>
-                    </details>
-                    <details>
-                        <summary>Quais documentos são necessários para criar uma conta?</summary>
-                        <p>Para criar uma conta, você precisará de um documento de identidade válido (RG ou CNH), CPF e comprovante de residência recente.</p>
-                    </details>
-                    <details>
-                        <summary>Como posso alterar minha senha?</summary>
-                        <p>Para alterar sua senha, faça login na sua conta, acesse as configurações do perfil e selecione a opção "Alterar senha". Siga as instruções para criar uma nova senha segura.</p>
-                    </details>
-                    <details>
-                        <summary>Qual o prazo para aprovação de um empréstimo?</summary>
-                        <p>O prazo para aprovação pode variar de acordo com o tipo de empréstimo e a análise de crédito. Em geral, nosso processo é rápido e você receberá uma resposta em até 24 horas úteis.</p>
-                    </details>
+                <div class="accordion" id="faqAccordion">
+                    <!-- Adicione itens de acordeão aqui -->
                 </div>
             </div>
         </section>
