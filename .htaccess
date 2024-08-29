@@ -1,40 +1,21 @@
-# Ativar o mod_rewrite
+# Ativar o motor de reescrita
 RewriteEngine On
 
-# Redirecionar HTTP para HTTPS
+# Redirecionar para HTTPS
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# Remover extensão .html das URLs
+# Remover extensão .html
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.html -f
 RewriteRule ^(.*)$ $1.html [NC,L]
-
-# Prevenir listagem de diretórios
-Options -Indexes
-
-# Proteger arquivos sensíveis
-<FilesMatch "^\.ht">
- Order allow,deny
- Deny from all
- Satisfy All
-</FilesMatch>
 
 # Compressão Gzip
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/x-javascript
 </IfModule>
 
-# Cabeçalhos de segurança
-<IfModule mod_headers.c>
-  Header set X-XSS-Protection "1; mode=block"
-  Header set X-Frame-Options "SAMEORIGIN"
-  Header set X-Content-Type-Options "nosniff"
-  Header set Referrer-Policy "strict-origin-when-cross-origin"
-  Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"
-</IfModule>
-
-# Cache de navegador
+# Cabeçalhos de cache
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType image/jpg "access plus 1 year"
