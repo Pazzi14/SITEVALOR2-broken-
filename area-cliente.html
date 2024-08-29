@@ -4,132 +4,111 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Área do Cliente - Valor Financiamentos</title>
-    <meta name="description" content="Acesse sua área do cliente para gerenciar seus empréstimos, fazer simulações e entrar em contato com nossa equipe.">
+    <meta name="description" content="Acesse sua área do cliente Valor Financiamentos. Gerencie seus empréstimos, acompanhe pagamentos e solicite novos serviços de forma rápida e segura.">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <!-- Adicione aqui os links para fontes, ícones e outros recursos externos -->
 </head>
 <body>
     <header>
-        <div class="container">
+        <nav>
             <a href="index.html" class="logo">
-                <img src="https://valorfinanciamentos.com.br/wp-content/uploads/2020/08/logo_grande_valor.png.png" alt="Valor Financiamentos Logo" width="200" height="50">
+                <img src="path/to/logo.png" alt="Logo Valor Financiamentos">
             </a>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="sobre-nos.html">Sobre Nós</a></li>
-                    <li><a href="produtos.html">Produtos</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="area-cliente.html">Área do Cliente</a></li>
-                </ul>
-            </nav>
-        </div>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="sobre-nos.html">Sobre Nós</a></li>
+                <li><a href="produtos.html">Produtos</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="area-cliente.html" class="active">Área do Cliente</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
-        <section class="page-header">
-            <div class="container">
-                <h1>Área do Cliente</h1>
-            </div>
+        <section class="hero">
+            <h1>Área do Cliente</h1>
+            <p>Gerencie seus empréstimos e acesse serviços exclusivos</p>
         </section>
 
         <section class="login-form">
-            <div class="container">
-                <h2>Acesse sua conta</h2>
-                <form id="login-form" action="#" method="post">
-                    <div class="form-group">
-                        <label for="username">CPF ou E-mail:</label>
-                        <input type="text" id="username" name="username" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Senha:</label>
-                        <input type="password" id="password" name="password" required>
-                    </div>
-                    <button type="submit" class="btn-primary">Entrar</button>
-                </form>
-                <div class="form-links">
-                    <a href="#">Esqueceu sua senha?</a>
-                    <a href="#">Criar uma conta</a>
+            <h2>Login</h2>
+            <form id="loginForm" action="/login" method="POST">
+                <div class="form-group">
+                    <label for="username">CPF ou E-mail:</label>
+                    <input type="text" id="username" name="username" required>
                 </div>
-            </div>
+                <div class="form-group">
+                    <label for="password">Senha:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div>
+                <button type="submit">Entrar</button>
+            </form>
+            <p><a href="#" id="forgotPassword">Esqueceu sua senha?</a></p>
+            <p>Novo cliente? <a href="#" id="registerLink">Cadastre-se aqui</a></p>
         </section>
 
         <section class="client-features">
-            <div class="container">
-                <h2>O que você pode fazer na Área do Cliente</h2>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <i class="fas fa-chart-line"></i>
-                        <h3>Gerenciar Empréstimos</h3>
-                        <p>Acompanhe seus empréstimos ativos, parcelas e saldos.</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-calculator"></i>
-                        <h3>Simulações</h3>
-                        <p>Faça simulações de novos empréstimos ou refinanciamentos.</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-file-alt"></i>
-                        <h3>Documentos</h3>
-                        <p>Acesse e baixe seus contratos e comprovantes.</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-headset"></i>
-                        <h3>Suporte</h3>
-                        <p>Entre em contato com nossa equipe de atendimento.</p>
-                    </div>
-                </div>
-            </div>
+            <h2>Funcionalidades da Área do Cliente</h2>
+            <ul>
+                <li>Acompanhe o status dos seus empréstimos</li>
+                <li>Visualize e baixe seus extratos</li>
+                <li>Atualize seus dados cadastrais</li>
+                <li>Solicite novos empréstimos</li>
+                <li>Entre em contato com nossa equipe de suporte</li>
+            </ul>
         </section>
 
-        <section class="faq">
-            <div class="container">
-                <h2>Perguntas Frequentes</h2>
-                <div class="accordion" id="faqAccordion">
-                    <!-- Adicione itens de acordeão aqui -->
-                </div>
-            </div>
+        <section class="security-info">
+            <h2>Segurança e Privacidade</h2>
+            <p>Sua segurança é nossa prioridade. Utilizamos as mais avançadas tecnologias de criptografia para proteger seus dados e transações.</p>
+            <a href="#" class="btn">Saiba mais sobre nossas práticas de segurança</a>
         </section>
     </main>
 
     <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h3>Valor Financiamentos</h3>
-                    <p>Soluções de crédito personalizadas para você realizar seus sonhos.</p>
-                </div>
-                <div class="footer-col">
-                    <h3>Links Rápidos</h3>
-                    <ul>
-                        <li><a href="index.html">Início</a></li>
-                        <li><a href="sobre-nos.html">Sobre Nós</a></li>
-                        <li><a href="produtos.html">Produtos</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="area-cliente.html">Área do Cliente</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Contato</h3>
-                    <p>Telefone: (XX) XXXX-XXXX</p>
-                    <p>Email: contato@valorfinanciamentos.com.br</p>
-                </div>
-                <div class="footer-col">
-                    <h3>Redes Sociais</h3>
-                    <div class="social-links">
-                        <a href="https://www.instagram.com/valorfinanciamentosoficial/?hl=pt-br" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                        <a href="https://m.facebook.com/valorfinanciamentos/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.linkedin.com/company/valorfinanciamentos/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <p>Email: contato@valorfinanciamentos.com.br</p>
+                <p>Telefone: (11) 1234-5678</p>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Valor Financiamentos. Todos os direitos reservados.</p>
+            <div class="footer-section">
+                <h3>Redes Sociais</h3>
+                <a href="#" target="_blank" rel="noopener noreferrer">Facebook</a>
+                <a href="#" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <a href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             </div>
+            <div class="footer-section">
+                <h3>Links Úteis</h3>
+                <a href="#">Política de Privacidade</a>
+                <a href="#">Termos de Uso</a>
+                <a href="#">FAQ</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Valor Financiamentos. Todos os direitos reservados.</p>
         </div>
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Adicione aqui scripts específicos para a área do cliente
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Adicione aqui a lógica de validação e envio do formulário
+        });
+
+        document.getElementById('forgotPassword').addEventListener('click', function(event) {
+            event.preventDefault();
+            // Adicione aqui a lógica para recuperação de senha
+        });
+
+        document.getElementById('registerLink').addEventListener('click', function(event) {
+            event.preventDefault();
+            // Adicione aqui a lógica para redirecionamento para a página de registro
+        });
+    </script>
 </body>
 </html>
