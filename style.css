@@ -1,319 +1,524 @@
-/* Resetar estilos padrão */
+/* Resetando estilos padrão */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Estilos gerais */
+/* Definindo variáveis de cores */
+:root {
+    --primary-color: #00bfff;
+    --secondary-color: #191970;
+    --accent-color: #87cefa;
+    --text-color: #333;
+    --background-color: #f0f4f5;
+    --white: #ffffff;
+}
+
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #FAFCFD;
+    color: var(--text-color);
+    background-color: var(--background-color);
 }
 
-.container {
+/* Estilos do cabeçalho */
+header {
+    background-color: var(--white);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Header */
-header {
-    background-color: #00bfff;
-    padding: 20px 0;
 }
 
 .logo img {
-    max-width: 200px;
+    height: 50px;
 }
 
 nav ul {
-    list-style-type: none;
     display: flex;
-    justify-content: flex-end;
+    list-style-type: none;
 }
 
 nav ul li {
-    margin-left: 20px;
+    margin-left: 2rem;
 }
 
 nav ul li a {
-    color: #FFFFFF;
     text-decoration: none;
+    color: var(--secondary-color);
     font-weight: bold;
+    transition: color 0.3s ease;
 }
 
-/* Hero Section */
+nav ul li a:hover,
+nav ul li a.active {
+    color: var(--primary-color);
+}
+
+/* Estilos gerais das seções */
+main {
+    padding-top: 80px; /* Considerando o header fixo */
+}
+
+section {
+    padding: 4rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1, h2, h3 {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+/* Estilos da seção hero */
 .hero {
-    background-image: url('https://example.com/hero-background.jpg');
+    background-image: url('path/to/hero-background.jpg');
     background-size: cover;
     background-position: center;
-    color: #FFFFFF;
+    color: var(--white);
     text-align: center;
-    padding: 100px 0;
+    padding: 6rem 5%;
 }
 
 .hero h1 {
-    font-size: 3em;
-    margin-bottom: 20px;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--white);
 }
 
 .hero p {
-    font-size: 1.2em;
-    margin-bottom: 30px;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
 }
 
-/* Buttons */
-.btn-primary {
+/* Estilos dos botões */
+.cta-button {
     display: inline-block;
-    background-color: #191970;
-    color: #FFFFFF;
-    padding: 10px 20px;
-    text-decoration: none;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 0.8rem 1.5rem;
     border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
     transition: background-color 0.3s ease;
 }
 
-.btn-primary:hover {
-    background-color: #0000ff;
+.cta-button:hover {
+    background-color: var(--secondary-color);
 }
 
-/* Sections */
-section {
-    padding: 60px 0;
-}
-
-section h2 {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-/* Products Grid */
-.produto-grid, .vantagens-grid {
+/* Estilos para grid de produtos e serviços */
+.produto-grid,
+.diferenciais-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+    gap: 2rem;
 }
 
-.produto-card, .vantagem-card {
-    background-color: #FFFFFF;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: center;
+.produto,
+.diferencial-item {
+    background-color: var(--white);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
-.produto-card i, .vantagem-card i {
-    font-size: 3em;
-    color: #00bfff;
-    margin-bottom: 20px;
+.produto:hover,
+.diferencial-item:hover {
+    transform: translateY(-5px);
 }
 
-/* Simulador Form */
-.simulacao-form {
-    max-width: 500px;
-    margin: 0 auto;
-    background-color: #FFFFFF;
-    padding: 30px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+.produto img,
+.diferencial-item img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+/* Estilos do formulário */
+form {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 1.5rem;
 }
 
-.form-group label {
+label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
 }
 
-.form-group input, .form-group select {
+input,
+select,
+textarea {
     width: 100%;
-    padding: 10px;
+    padding: 0.8rem;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 4px;
+    font-size: 1rem;
 }
 
-/* Footer */
+/* Estilos do rodapé */
 footer {
-    background-color: #191970;
-    color: #FFFFFF;
-    padding: 40px 0;
+    background-color: var(--secondary-color);
+    color: var(--white);
+    padding: 3rem 5%;
 }
 
-.footer-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px;
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.footer-col h3 {
-    margin-bottom: 20px;
+.footer-section {
+    flex: 1;
+    margin-bottom: 2rem;
+    min-width: 200px;
 }
 
-.footer-col ul {
-    list-style-type: none;
+.footer-section h3 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
 }
 
-.footer-col ul li a {
-    color: #FFFFFF;
+.footer-section a {
+    color: var(--white);
     text-decoration: none;
-}
-
-.social-links a {
-    color: #FFFFFF;
-    font-size: 1.5em;
-    margin-right: 10px;
+    display: block;
+    margin-bottom: 0.5rem;
 }
 
 .footer-bottom {
     text-align: center;
-    margin-top: 40px;
-    padding-top: 20px;
+    margin-top: 2rem;
+    padding-top: 2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Responsive Design */
+/* Responsividade */
 @media (max-width: 768px) {
-    nav ul {
+    nav {
         flex-direction: column;
-        align-items: center;
+    }
+
+    nav ul {
+        margin-top: 1rem;
     }
 
     nav ul li {
-        margin: 10px 0;
+        margin: 0 1rem;
     }
 
     .hero h1 {
-        font-size: 2em;
+        font-size: 2rem;
     }
 
-    .hero p {
-        font-size: 1em;
+    .produto-grid,
+    .diferenciais-grid {
+        grid-template-columns: 1fr;
     }
 }
 
-/* Adicionando estilos específicos para outras páginas */
-
-/* Sobre Nós */
-.nossa-historia, .missao-visao-valores, .nossa-equipe, .diferenciais, .localizacao {
-    background-color: #FFFFFF;
-    padding: 40px;
-    margin-bottom: 30px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+/* Estilos específicos para a página inicial (index.html) */
+.home-hero {
+    background-image: url('path/to/home-hero-background.jpg');
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--white);
 }
 
-.mvv-grid, .equipe-grid, .diferenciais-grid {
+.home-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.home-hero p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.produtos-destaque {
+    background-color: var(--white);
+    padding: 4rem 5%;
+}
+
+.produtos-destaque .produto {
+    text-align: center;
+}
+
+.vantagens {
+    background-color: var(--accent-color);
+    color: var(--secondary-color);
+}
+
+.vantagens-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
 }
 
-.membro-equipe img {
-    max-width: 100%;
+.vantagem {
+    text-align: center;
+}
+
+.vantagem img {
+    width: 80px;
+    margin-bottom: 1rem;
+}
+
+/* Estilos específicos para a página Sobre Nós (sobre-nos.html) */
+.nossa-historia {
+    background-color: var(--white);
+    padding: 4rem 5%;
+}
+
+.missao-visao-valores {
+    background-color: var(--accent-color);
+}
+
+.mvv-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.mvv-item {
+    flex: 1;
+    min-width: 250px;
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.equipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.equipe-membro {
+    text-align: center;
+}
+
+.equipe-membro img {
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
-    margin-bottom: 15px;
-}
-
-/* Blog */
-.post-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.post-card {
-    background-color: #FFFFFF;
-    border-radius: 5px;
-    overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.post-card img {
-    width: 100%;
-    height: 200px;
     object-fit: cover;
+    margin-bottom: 1rem;
 }
 
-.post-content {
-    padding: 20px;
+/* Estilos específicos para a página de Produtos (produtos.html) */
+.produto-detalhe {
+    background-color: var(--white);
+    margin-bottom: 2rem;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Área do Cliente */
+.produto-info {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.produto-info img {
+    width: 40%;
+    border-radius: 8px;
+}
+
+.produto-descricao {
+    flex: 1;
+}
+
+.produto-descricao ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.produto-descricao li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.produto-descricao li::before {
+    content: '✓';
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+}
+
+/* Estilos específicos para a página de Blog (blog.html) */
+.blog-content {
+    display: flex;
+    gap: 2rem;
+}
+
+.blog-posts {
+    flex: 3;
+}
+
+.sidebar {
+    flex: 1;
+}
+
+.blog-post {
+    background-color: var(--white);
+    margin-bottom: 2rem;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.blog-post img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.search-bar {
+    display: flex;
+    margin-bottom: 2rem;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-right: none;
+    border-radius: 4px 0 0 4px;
+}
+
+.search-bar button {
+    padding: 0.5rem 1rem;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+.categories ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.categories li {
+    margin-bottom: 0.5rem;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.pagination a, .pagination span {
+    padding: 0.5rem 1rem;
+    margin: 0 0.25rem;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.pagination .current {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+/* Estilos específicos para a página Área do Cliente (area-cliente.html) */
 .login-form {
     max-width: 400px;
     margin: 0 auto;
-    background-color: #FFFFFF;
-    padding: 30px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.form-links {
-    text-align: center;
-    margin-top: 20px;
+.client-features {
+    background-color: var(--accent-color);
+    margin-top: 3rem;
 }
 
-.form-links a {
-    color: #00bfff;
-    text-decoration: none;
-    margin: 0 10px;
+.client-features ul {
+    list-style-type: none;
+    padding-left: 0;
 }
 
-/* Acessibilidade */
-.sr-only {
+.client-features li {
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+    position: relative;
+}
+
+.client-features li::before {
+    content: '➤';
+    color: var(--secondary-color);
     position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
+    left: 0;
 }
 
-/* Animações */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+.security-info {
+    text-align: center;
+    margin-top: 3rem;
 }
 
-.fade-in {
-    animation: fadeIn 1s ease-in;
-}
-
-/* Estilos adicionais para melhorar a experiência do usuário */
-.hover-effect:hover {
-    transform: translateY(-5px);
-    transition: transform 0.3s ease;
-}
-
-.text-highlight {
-    background-color: #cdffff;
-    padding: 2px 5px;
-    border-radius: 3px;
-}
-
-/* Estilos para melhorar a legibilidade em dispositivos móveis */
-@media (max-width: 480px) {
-    body {
-        font-size: 16px;
+/* Responsividade para todas as páginas */
+@media (max-width: 768px) {
+    .produto-info {
+        flex-direction: column;
     }
 
-    h1 {
-        font-size: 2em;
+    .produto-info img {
+        width: 100%;
     }
 
-    h2 {
-        font-size: 1.5em;
+    .blog-content {
+        flex-direction: column;
     }
 
-    .container {
-        padding: 0 15px;
+    .mvv-container {
+        flex-direction: column;
+    }
+
+    .home-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .home-hero p {
+        font-size: 1.2rem;
     }
 }
