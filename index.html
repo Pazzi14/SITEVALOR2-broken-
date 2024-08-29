@@ -11,9 +11,9 @@
 </head>
 <body>
     <header>
-        <div class="logo">
+        <div class="container">
             <a href="index.html" class="logo">
-                <img src="https://valorfinanciamentos.com.br/wp-content/uploads/2020/08/logo_grande_valor.png.png" alt="Valor Financiamentos Logo" width="center" height="50">
+                <img src="https://valorfinanciamentos.com.br/wp-content/uploads/2020/08/logo_grande_valor.png.png" alt="Valor Financiamentos Logo" width="200" height="50">
             </a>
             <nav>
                 <ul>
@@ -36,33 +36,29 @@
             </div>
         </section>
 
-        <section class="produtos-destaque">
+        <section id="produtos" class="produtos">
             <div class="container">
                 <h2>Nossos Produtos</h2>
                 <div class="produto-grid">
                     <div class="produto-card">
-                        <i class="fas fa-money-bill-wave"></i>
+                        <i class="fas fa-user"></i>
                         <h3>Crédito Pessoal</h3>
-                        <p>Crédito rápido e fácil para realizar seus projetos.</p>
-                        <a href="produtos.html#credito-pessoal" class="btn-secondary">Saiba Mais</a>
+                        <p>Empréstimo para realizar seus projetos pessoais.</p>
                     </div>
                     <div class="produto-card">
                         <i class="fas fa-building"></i>
                         <h3>Consignado Privado</h3>
-                        <p>Taxas especiais para funcionários de empresas privadas.</p>
-                        <a href="produtos.html#consignado-privado" class="btn-secondary">Saiba Mais</a>
+                        <p>Crédito com desconto em folha para empresas privadas.</p>
                     </div>
                     <div class="produto-card">
                         <i class="fas fa-landmark"></i>
                         <h3>Consignado Público</h3>
-                        <p>Condições exclusivas para servidores públicos.</p>
-                        <a href="produtos.html#consignado-publico" class="btn-secondary">Saiba Mais</a>
+                        <p>Empréstimo para servidores públicos e aposentados.</p>
                     </div>
                     <div class="produto-card">
                         <i class="fas fa-piggy-bank"></i>
                         <h3>Adiantamento do FGTS</h3>
                         <p>Antecipe seu FGTS e realize seus planos.</p>
-                        <a href="produtos.html#adiantamento-fgts" class="btn-secondary">Saiba Mais</a>
                     </div>
                 </div>
             </div>
@@ -70,15 +66,15 @@
 
         <section id="simulador" class="simulador">
             <div class="container">
-                <h2>Simule Seu Empréstimo</h2>
-                <form id="simulador-form">
+                <h2>Simule seu Empréstimo</h2>
+                <form id="simulacao-form" class="simulacao-form">
                     <div class="form-group">
                         <label for="valor">Valor Desejado:</label>
-                        <input type="number" id="valor" name="valor" min="1000" max="100000" required>
+                        <input type="number" id="valor" name="valor" min="1000" step="100" required>
                     </div>
                     <div class="form-group">
                         <label for="prazo">Prazo (em meses):</label>
-                        <input type="number" id="prazo" name="prazo" min="6" max="72" required>
+                        <input type="number" id="prazo" name="prazo" min="6" max="60" required>
                     </div>
                     <div class="form-group">
                         <label for="tipo-credito">Tipo de Crédito:</label>
@@ -101,24 +97,24 @@
                 <h2>Por que escolher a Valor Financiamentos?</h2>
                 <div class="vantagens-grid">
                     <div class="vantagem-card">
-                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-bolt"></i>
                         <h3>Aprovação Rápida</h3>
-                        <p>Processo simplificado e ágil para liberar seu crédito.</p>
+                        <p>Processo ágil e descomplicado para você.</p>
                     </div>
                     <div class="vantagem-card">
                         <i class="fas fa-percentage"></i>
                         <h3>Taxas Competitivas</h3>
-                        <p>Oferecemos as melhores taxas do mercado.</p>
+                        <p>As melhores condições do mercado.</p>
                     </div>
                     <div class="vantagem-card">
                         <i class="fas fa-user-tie"></i>
                         <h3>Atendimento Personalizado</h3>
-                        <p>Equipe especializada para atender suas necessidades.</p>
+                        <p>Consultores especializados para te atender.</p>
                     </div>
                     <div class="vantagem-card">
                         <i class="fas fa-shield-alt"></i>
                         <h3>Segurança e Confiabilidade</h3>
-                        <p>Empresa regulamentada pelo Banco Central do Brasil.</p>
+                        <p>Empresa regulamentada pelo Banco Central.</p>
                     </div>
                 </div>
             </div>
@@ -127,7 +123,7 @@
         <section class="cta">
             <div class="container">
                 <h2>Pronto para realizar seus sonhos?</h2>
-                <p>Entre em contato conosco e descubra a melhor solução para você.</p>
+                <p>Entre em contato conosco e descubra as melhores opções de crédito para você.</p>
                 <a href="#contato" class="btn-primary">Fale Conosco</a>
             </div>
         </section>
