@@ -1,21 +1,38 @@
-# Security Policy
+# Política de Segurança
 
-## Supported Versions
+## Relatando uma Vulnerabilidade
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+A segurança de nossos usuários e de seus dados é nossa principal prioridade. Se você descobrir uma vulnerabilidade de segurança em nosso site ou em nossos serviços, por favor, nos informe imediatamente.
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+Para relatar uma vulnerabilidade, por favor, envie um e-mail para seguranca@valorfinanciamentos.com.br com os seguintes detalhes:
 
-## Reporting a Vulnerability
+1. Descrição detalhada da vulnerabilidade
+2. Passos para reproduzir o problema
+3. Possível impacto da vulnerabilidade
+4. Sugestões para mitigação (se houver)
 
-Use this section to tell people how to report a vulnerability.
+Nossa equipe de segurança irá analisar seu relatório e responderá o mais rápido possível, geralmente dentro de 48 horas.
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+## O que esperar após o relato
+
+1. Confirmação de recebimento do relatório dentro de 48 horas
+2. Avaliação inicial da vulnerabilidade
+3. Atualizações regulares sobre o progresso da resolução
+4. Notificação quando a vulnerabilidade for corrigida
+
+## Política de Divulgação
+
+Pedimos que você não divulgue publicamente a vulnerabilidade até que tenhamos tido a oportunidade de resolver o problema. Após a resolução, ficaremos felizes em reconhecer sua contribuição, se você desejar.
+
+## Escopo
+
+Esta política se aplica a todos os sistemas e serviços operados pela Valor Financiamentos, incluindo, mas não se limitando a:
+
+- Site principal (https://valorfinanciamentos.com.br)
+- Área do cliente
+- Aplicativos móveis (se aplicável)
+- APIs e serviços de backend
+
+## Agradecimentos
+
+Agradecemos sinceramente a todos os pesquisadores de segurança e usuários que nos ajudam a manter nossos sistemas seguros. Sua dedicação e responsabilidade são fundamentais para proteger nossa comunidade.
