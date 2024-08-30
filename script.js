@@ -1,114 +1,37 @@
-// Função para validar formulários
-function validateForm(formId) {
-    const form = document.getElementById(formId);
-    if (!form) return;
+// script.js - Scripts globais para o site da Valor Financiamentos
 
-    form.addEventListener('submit', function(event) {
-        let isValid = true;
-        const inputs = form.querySelectorAll('input, select, textarea');
-
-        inputs.forEach(input => {
-            if (input.hasAttribute('required') && !input.value.trim()) {
-                isValid = false;
-                input.classList.add('error');
-            } else {
-                input.classList.remove('error');
-            }
-        });
-
-        if (!isValid) {
-            event.preventDefault();
-            alert('Por favor, preencha todos os campos obrigatórios.');
-        }
-    });
-}
-
-// Função para simular empréstimo
-function simulateLoans() {
-    const form = document.getElementById('simulacao-form');
-    const resultDiv = document.getElementById('resultado-simulacao');
-
-    if (!form || !resultDiv) return;
-
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        const valor = parseFloat(document.getElementById('valor').value);
-        const prazo = parseInt(document.getElementById('prazo').value);
-        const produto = document.getElementById('produto').value;
-
-        // Lógica simplificada de simulação (ajuste conforme necessário)
-        let taxa;
-        switch(produto) {
-            case 'credito-pessoal':
-                taxa = 0.0299; // 2.99% ao mês
-                break;
-            case 'consignado-privado':
-                taxa = 0.0199; // 1.99% ao mês
-                break;
-            case 'consignado-publico':
-                taxa = 0.0129; // 1.29% ao mês
-                break;
-            case 'fgts':
-                taxa = 0.0149; // 1.49% ao mês
-                break;
-            default:
-                taxa = 0.0299;
-        }
-
-        const parcela = (valor * (taxa * Math.pow(1 + taxa, prazo))) / (Math.pow(1 + taxa, prazo) - 1);
-        const total = parcela * prazo;
-
-        resultDiv.innerHTML = `
-            <h3>Resultado da Simulação</h3>
-            <p>Valor solicitado: R$ ${valor.toFixed(2)}</p>
-            <p>Prazo: ${prazo} meses</p>
-            <p>Valor da parcela: R$ ${parcela.toFixed(2)}</p>
-            <p>Total a pagar: R$ ${total.toFixed(2)}</p>
-            <button onclick="solicitarEmprestimo()">Solicitar Empréstimo</button>
-        `;
-        resultDiv.style.display = 'block';
-    });
-}
-
-// Função para solicitar empréstimo
-function solicitarEmprestimo() {
-    // Implemente a lógica para iniciar o processo de solicitação de empréstimo
-    alert('Obrigado pelo seu interesse! Um de nossos consultores entrará em contato em breve.');
-}
-
-// Função para inicializar o carrossel de depoimentos
-function initTestimonialCarousel() {
-    const carousel = document.querySelector('.depoimentos-carousel');
-    if (!carousel) return;
-
-    // Implemente a lógica do carrossel aqui
-    // Exemplo: usar uma biblioteca como Slick ou criar um carrossel personalizado
-}
-
-// Função para manipular o menu mobile
-function handleMobileMenu() {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('nav ul');
-
-    if (!menuToggle || !nav) return;
-
-    menuToggle.addEventListener('click', () => {
-        nav.classList.toggle('active');
-    });
-}
-
-// Inicialização de funções quando o DOM estiver carregado
 document.addEventListener('DOMContentLoaded', function() {
-    validateForm('simulacao-form');
-    validateForm('contato-form');
-    simulateLoans();
-    initTestimonialCarousel();
-    handleMobileMenu();
+    // Inicialização de funcionalidades globais
+    initMobileMenu();
+    initSmoothScroll();
+    initFormValidation();
+    initTooltips();
+    initModalHandling();
 });
 
-// Função para scroll suave
-function smoothScroll() {
+// Função para inicializar o menu mobile
+function initMobileMenu() {
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mainNav = document.querySelector('.main-nav');
+
+    if (mobileMenuToggle && mainNav) {
+        mobileMenuToggle.addEventListener('click', function() {
+            mainNav.classList.toggle('active');
+            this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true');
+        });
+
+        // Fecha o menu ao clicar fora
+        document.addEventListener('click', function(event) {
+            if (!mainNav.contains(event.target) && !mobileMenuToggle.contains(event.target)) {
+                mainNav.classList.remove('active');
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+    }
+}
+
+// Função para inicializar o scroll suave para links internos
+function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -120,5 +43,159 @@ function smoothScroll() {
     });
 }
 
-// Chamada da função de scroll suave
-smoothScroll();
+// Função para inicializar a validação de formulários
+function initFormValidation() {
+    const forms = document.querySelectorAll('form');
+    
+    forms.forEach(form => {
+        form.addEventListener('submit', function(event) {
+            if (!validateForm(this)) {
+                event.preventDefault();
+            }
+        });
+    });
+}
+
+// Função auxiliar para validar formulários
+function validateForm(form) {
+    let isValid = true;
+    const inputs = form.querySelectorAll('input, select, textarea');
+
+    inputs.forEach(input => {
+        if (input.hasAttribute('required') && !input.value.trim()) {
+            isValid = false;
+            showError(input, 'Este campo é obrigatório.');
+        } else if (input.type === 'email' && !isValidEmail(input.value)) {
+            isValid = false;
+            showError(input, 'Por favor, insira um e-mail válido.');
+        }
+    });
+
+    return isValid;
+}
+
+// Função auxiliar para mostrar erros de validação
+function showError(input, message) {
+    const errorElement = input.nextElementSibling;
+    if (errorElement && errorElement.classList.contains('error-message')) {
+        errorElement.textContent = message;
+    } else {
+        const error = document.createElement('span');
+        error.classList.add('error-message');
+        error.textContent = message;
+        input.parentNode.insertBefore(error, input.nextSibling);
+    }
+    input.classList.add('error');
+}
+
+// Função auxiliar para validar e-mail
+function isValidEmail(email) {
+    const re = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    return re.test(email);
+}
+
+// Função para inicializar tooltips
+function initTooltips() {
+    const tooltips = document.querySelectorAll('[data-tooltip]');
+
+    tooltips.forEach(tooltip => {
+        tooltip.addEventListener('mouseenter', showTooltip);
+        tooltip.addEventListener('mouseleave', hideTooltip);
+    });
+}
+
+// Função auxiliar para mostrar tooltip
+function showTooltip(event) {
+    const tooltipText = event.target.getAttribute('data-tooltip');
+    const tooltipElement = document.createElement('div');
+    tooltipElement.classList.add('tooltip');
+    tooltipElement.textContent = tooltipText;
+    document.body.appendChild(tooltipElement);
+
+    const rect = event.target.getBoundingClientRect();
+    tooltipElement.style.top = `${rect.bottom + window.scrollY + 5}px`;
+    tooltipElement.style.left = `${rect.left + window.scrollX}px`;
+}
+
+// Função auxiliar para esconder tooltip
+function hideTooltip() {
+    const tooltip = document.querySelector('.tooltip');
+    if (tooltip) {
+        tooltip.remove();
+    }
+}
+
+// Função para inicializar o tratamento de modais
+function initModalHandling() {
+    const modalTriggers = document.querySelectorAll('[data-modal-target]');
+    const closeButtons = document.querySelectorAll('[data-close-modal]');
+
+    modalTriggers.forEach(trigger => {
+        trigger.addEventListener('click', () => {
+            const modal = document.querySelector(trigger.dataset.modalTarget);
+            openModal(modal);
+        });
+    });
+
+    closeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const modal = button.closest('.modal');
+            closeModal(modal);
+        });
+    });
+
+    window.addEventListener('click', (event) => {
+        if (event.target.classList.contains('modal')) {
+            closeModal(event.target);
+        }
+    });
+}
+
+// Função auxiliar para abrir modal
+function openModal(modal) {
+    if (modal == null) return;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+// Função auxiliar para fechar modal
+function closeModal(modal) {
+    if (modal == null) return;
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// Função para formatar valores monetários
+function formatCurrency(value) {
+    return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value);
+}
+
+// Função para formatar CPF
+function formatCPF(cpf) {
+    cpf = cpf.replace(/\D/g, '');
+    return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+}
+
+// Função para formatar telefone
+function formatPhone(phone) {
+    phone = phone.replace(/\D/g, '');
+    return phone.replace(/(\d{2})(\d{4,5})(\d{4})/, "($1) $2-$3");
+}
+
+// Função para fazer requisições AJAX
+function ajaxRequest(url, method, data, successCallback, errorCallback) {
+    const xhr = new XMLHttpRequest();
+    xhr.open(method, url, true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            successCallback(JSON.parse(xhr.responseText));
+        } else {
+            errorCallback(xhr.status);
+        }
+    };
+    xhr.onerror = function() {
+        errorCallback('Erro de rede');
+    };
+    xhr.send(JSON.stringify(data));
+}
